@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "910f53497eb6ea22f756d4b93041b7428f184e08"
+    "signature": "ac00538f2a330908f6634b048e6840baf941d317"
   },
   "compilationOptions": {
     "defines": [
@@ -21,7 +21,7 @@
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
           "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "IdentityServer4": "1.1.1"
+          "IdentityServer4": "1.0.0-rc5"
         },
         "runtime": {
           "AVP.dll": {}
@@ -30,7 +30,7 @@
           "AVP.dll": {}
         }
       },
-      "IdentityModel/2.5.1": {
+      "IdentityModel/2.1.1": {
         "dependencies": {
           "Newtonsoft.Json": "9.0.1",
           "System.Net.Http": "4.3.0",
@@ -45,9 +45,9 @@
           "lib/netstandard1.3/IdentityModel.dll": {}
         }
       },
-      "IdentityServer4/1.1.1": {
+      "IdentityServer4/1.0.0-rc5": {
         "dependencies": {
-          "IdentityModel": "2.5.1",
+          "IdentityModel": "2.1.1",
           "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
           "Microsoft.AspNetCore.Cors": "1.1.0",
           "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
@@ -57,7 +57,7 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
           "System.Collections.Specialized": "4.3.0",
           "System.Diagnostics.Process": "4.3.0",
-          "System.IdentityModel.Tokens.Jwt": "5.1.2"
+          "System.IdentityModel.Tokens.Jwt": "5.1.0"
         },
         "runtime": {
           "lib/netstandard1.4/IdentityServer4.dll": {}
@@ -651,7 +651,7 @@
           "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Logging/1.1.2": {
+      "Microsoft.IdentityModel.Logging/1.1.0": {
         "dependencies": {
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
@@ -665,9 +665,9 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Logging.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Tokens/5.1.2": {
+      "Microsoft.IdentityModel.Tokens/5.1.0": {
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "1.1.2",
+          "Microsoft.IdentityModel.Logging": "1.1.0",
           "Newtonsoft.Json": "9.0.1",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
@@ -1238,9 +1238,9 @@
           "ref/netstandard1.3/System.Globalization.Extensions.dll": {}
         }
       },
-      "System.IdentityModel.Tokens.Jwt/5.1.2": {
+      "System.IdentityModel.Tokens.Jwt/5.1.0": {
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "5.1.2"
+          "Microsoft.IdentityModel.Tokens": "5.1.0"
         },
         "runtime": {
           "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {}
@@ -2762,15 +2762,15 @@
       "serviceable": false,
       "sha512": ""
     },
-    "IdentityModel/2.5.1": {
+    "IdentityModel/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+T5MxLLo5jueAHxnURXGARUpd+VxsgnK7nDHCWJGjnrhspGVsW1WgRHCeG23RXmpRPMPaUyiDxfqBvvXv5o5Lg=="
+      "sha512": "sha512-PnwsQt1oA6gLWcXlYff6idVFnzmw0I3nlg1VlsPgje7WPQfOPSZ5zrvc/W5NsJPoZFlOw8DI0OEbn20TnDkTOw=="
     },
-    "IdentityServer4/1.1.1": {
+    "IdentityServer4/1.0.0-rc5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xwYQn4v7gXGTxJLZHda5Ygy6TeffmaOMiviR8AzlMlm8+osQx57LUWzgoGrtIuolL1JuwdHdDkjQzNw9QxWdzQ=="
+      "sha512": "sha512-z5f2RrkC3x6FuTQOTmBzPwg5f3NIVxwwVo9L5v75gVTgUpIItJ2sf7SoV1frfxCjpJThiTL/RryB0vQFeVfxmg=="
     },
     "Microsoft.AspNetCore.Authentication/1.1.0": {
       "type": "package",
@@ -2967,15 +2967,15 @@
       "serviceable": true,
       "sha512": "sha512-YnUfcLe/FYL3Mft5HPv7dSSKfZZCZwLG2GQfv3vuxdY4AbWOYLqq/3wIPCNIrgMXvzralWdkESNsb9iw5gKdpg=="
     },
-    "Microsoft.IdentityModel.Logging/1.1.2": {
+    "Microsoft.IdentityModel.Logging/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QPMFfRVnRkCzGpEQz/YEPsbwUjAp5R1W2dpaXHlJJNA7fp9gV4m4TDKvvXhQnqdEL0a0luNrYFZrbz7NRI1rXQ=="
+      "sha512": "sha512-Dv3G9GIdKyCc4xJjZECQosRJ9//4q/yXmb0vOUOjN1XpkCcHEt5UJ5S4zm8yJR+5tLODA159G2QtVNtK1RsAXw=="
     },
-    "Microsoft.IdentityModel.Tokens/5.1.2": {
+    "Microsoft.IdentityModel.Tokens/5.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-m7UP4iY/dWfVwDNNSVGvZV6r4PwflaK++sYQsTTGAMILYb5IJ4Z4rKJRCA0uKjo6jTcdWlQxyPsxoEVwjqPKqQ=="
+      "sha512": "sha512-Hg1+IbP0F9oQ8qIxQobKoOczrwufYMNHrSXj+xF1+4VCpvymhyvpVcgLqi5GOie1qcQYp/yBy04dpBImemVXKg=="
     },
     "Microsoft.Net.Http.Headers/1.1.0": {
       "type": "package",
@@ -3187,10 +3187,10 @@
       "serviceable": true,
       "sha512": "sha512-FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ=="
     },
-    "System.IdentityModel.Tokens.Jwt/5.1.2": {
+    "System.IdentityModel.Tokens.Jwt/5.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wneX9Rv1p8zXNQ8v3mzKPlja3dP0dQY0Ea/0KUtCtlyqB9WtYoEWxTidqgq5iBHGvG5p/yuFKfedgvt2y68HpA=="
+      "sha512": "sha512-oMcOZ0/7seZYkv8yRPBlfHyc7K/33TS0hVtshvOAiH9rHWqCb3htq4mEbOtqMTo45pzblcm10ArpERlZrSS69A=="
     },
     "System.IO/4.3.0": {
       "type": "package",

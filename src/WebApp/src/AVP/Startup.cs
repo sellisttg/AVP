@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using IdentityServer4.Models;
+using IdentityServer4.Services.InMemory;
+using AVP.Configuration;
 
 namespace AVP
 {
@@ -19,10 +21,10 @@ namespace AVP
         {
             //setup identity server
             services.AddIdentityServer()
-            .AddInMemoryClients(new List<Client>())
-            .AddInMemoryIdentityResources(new List<IdentityResource>())
-            .AddInMemoryApiResources(new List<ApiResource>())
-            //.AddInMemoryUsers(new List<InMemoryUser>())
+             .AddInMemoryClients(Clients.Get())
+            .AddInMemoryIdentityResources(AVP.Configuration.Resources.GetIdentityResources())
+            .AddInMemoryApiResources(AVP.Configuration.Resources.GetApiResources())
+            .AddInMemoryUsers(Users.Get())
             .AddTemporarySigningCredential();
         }
 
