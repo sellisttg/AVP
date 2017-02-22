@@ -1,14 +1,15 @@
 #Prototype B Requirements   
  
-##The working prototype will be an application that will allow California residents to establish 
-and  manage  their  profile  and  
-### receive  
-#### emergency and  
-#### non-emergency  notifications  via  
-##### email, 
-##### Short Message Service (SMS), 
-##### and/or push notification based on the location and contact  information  provided  in  their  profile  
-##### and/or  the  geo-location  of  their  cellphone  if they  have  opted  in  for  this  service.  
+##The working prototype will be an application that will allow California residents to
+
+### establish profile and  
+### manage their profile  and  
+
+### receive emergency and non-emergency  notifications  via  
+#### email, 
+#### Short Message Service (SMS), 
+#### and/or push notification based on the location and contact  information  provided  in  their  profile  
+#### and/or  the  geo-location  of  their  cellphone  if they  have  opted  in  for  this  service.  
 
 ##In  addition,  the  working  prototype  will  provide  the 
 ### authorized administrative  users  with  the  ability  to  
