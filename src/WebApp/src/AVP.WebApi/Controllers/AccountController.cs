@@ -21,7 +21,7 @@ using AVP.WebApi.Services;
 namespace AVP.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class JwtController : IBaseController
+    public class AccountController : IBaseController
     {
         private readonly JwtIssuerOptions _jwtOptions;
         private readonly ILogger _logger;
@@ -29,35 +29,20 @@ namespace AVP.WebApi.Controllers
 
         public IAuthService _authService;
 
-        public JwtController(IOptions<JwtIssuerOptions> jwtOptions, ILoggerFactory loggerFactory, IAuthService authService)
+
+        public AccountController(IOptions<JwtIssuerOptions> jwtOptions, ILoggerFactory loggerFactory, IAuthService authService)
         {
             _authService = authService;
 
             _jwtOptions = jwtOptions.Value;
             ThrowIfInvalidOptions(_jwtOptions);
 
-            _logger = loggerFactory.CreateLogger<JwtController>();
+            _logger = loggerFactory.CreateLogger<AccountController>();
 
             _serializerSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented
             };
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("/api/v1/testget")]
-        public JsonResult Test()
-        {
-            return Json("Test", jsonHideNulls);
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("/api/v1/testpost")]
-        public JsonResult TestPost()
-        {
-            return new JsonResult("This is a test post");
         }
 
         [HttpPost]
@@ -99,7 +84,7 @@ namespace AVP.WebApi.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("/api/v1/sessions")]
-        public async Task<IActionResult> Get([FromBody] ApplicationUser applicationUser)
+        public async Task<IActionResult> Post([FromBody] ApplicationUser applicationUser)
         {
             var identity = await _authService.Login(applicationUser);
             if (identity == null)

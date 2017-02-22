@@ -12,12 +12,56 @@ namespace AVP.DataAccess
         #region users
         Task<ApplicationUser> GetUser(string userName);
         Task<ApplicationUser> AddUser(ApplicationUser user);
-
         #endregion users
+
+        #region profiles
+        Task<UserProfile> GetProfileForUserID(int UserID);
+        Task<UserProfile> UpdateUserProfile(UserProfile profile);
+        #endregion profiles
     }
 
     public class DAO : IDAO
     {
+        #region profiles
+        public async Task<UserProfile> GetProfileForUserID(int UserID)
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"SELECT * FROM userprofile WHERE UserID = @UserID LIMIT 1";
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@UserID", Value = UserID, DbType = System.Data.DbType.Int32 });
+
+                var reader = command.ExecuteReader();
+
+
+                UserProfile userProfile = new UserProfile();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        userProfile.UserID = Convert.ToInt32(reader["UserID"]);
+                        userProfile.UserName = reader["Username"].ToString();
+                        userProfile.EmailOptIn = Convert.ToBoolean(reader["EmailOptIn"]);
+                        userProfile.EmailOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
+                        userProfile.EmailOptIn = Convert.ToBoolean(reader["PushOptIn"]);
+                    }
+                }
+
+                return userProfile;
+            }
+        }
+
+        public async Task<UserProfile> UpdateUserProfile(UserProfile profile)
+        {
+            UserProfile userProfile = new UserProfile();
+            return userProfile;
+        }
+        #endregion profiles
+
         #region users
         public async Task<ApplicationUser> GetUser(string userName)
         {

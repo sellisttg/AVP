@@ -54,4 +54,5 @@
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 "C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\ApplicationUser.cs"
+"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserProfile.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.Models\Properties\AssemblyInfo.cs"
