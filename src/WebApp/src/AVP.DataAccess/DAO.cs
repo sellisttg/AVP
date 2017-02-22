@@ -27,12 +27,28 @@ namespace AVP.DataAccess
                 await db.Connection.OpenAsync();
 
                 var command = db.Connection.CreateCommand();
-                command.CommandText = @"select * from userprofile where Username = @userName";
+                command.CommandText = @"SELECT * FROM userprofile WHERE Username = @userName LIMIT 1";
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = userName, DbType = System.Data.DbType.String });
 
                 var reader = command.ExecuteReader();
 
-                return new ApplicationUser();
+
+                ApplicationUser user = new ApplicationUser();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        user.UserID = Convert.ToInt32(reader["UserID"]);
+                        user.UserName = reader["Username"].ToString();
+                        user.PasswordHash = reader["PasswordHash"].ToString();
+                        user.EmailOptIn = Convert.ToBoolean(reader["EmailOptIn"]);
+                        user.EmailOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
+                        user.EmailOptIn = Convert.ToBoolean(reader["PushOptIn"]);
+                    }
+                }
+
+                return user;
             }
         }
 
@@ -44,8 +60,8 @@ namespace AVP.DataAccess
                 await db.Connection.OpenAsync();
 
                 var command = db.Connection.CreateCommand();
-                command.CommandText = @"insert into userprofile (Username, EmailOptIn, Smsoptin, Pushoptin, PasswordHash) 
-                                        values (@userName, @emailOptIn, @smsOptIn, @pushOptIn, @passwordHash) ";
+                command.CommandText = @"INSERT INTO userprofile (Username, EmailOptIn, Smsoptin, Pushoptin, PasswordHash) 
+                                        VALUES (@userName, @emailOptIn, @smsOptIn, @pushOptIn, @passwordHash) ";
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = user.UserName, DbType = System.Data.DbType.String });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@passwordHash", Value = user.PasswordHash, DbType = System.Data.DbType.String });

@@ -31,7 +31,6 @@ namespace AVP.WebApi.Services
         {
             //hash the password
             user.PasswordHash = HashPassword(user.Password);
-            user.Password = null;
 
             //add the new user
             return await _db.AddUser(user);

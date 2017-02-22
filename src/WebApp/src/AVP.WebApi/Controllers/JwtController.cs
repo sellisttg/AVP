@@ -65,15 +65,34 @@ namespace AVP.WebApi.Controllers
         [Route("/api/v1/sessions/register")]
         public async Task<IActionResult> Register([FromBody] ApplicationUser applicationUser)
         {
-            var identity = await _authService.RegisterUser(applicationUser);
+            //register the user
+            try
+            {
+                if (string.IsNullOrEmpty(applicationUser.UserName))
+                    throw new Exception("Please enter a username.");
 
-            if(identity == null)
+                if (string.IsNullOrEmpty(applicationUser.Password))
+                    throw new Exception("Please enter a password.");
+
+                await _authService.RegisterUser(applicationUser);            
+
+                //log in the newly registered user and return a token to make sure the user credentials are valid
+                var identity = await _authService.Login(applicationUser);
+
+                if (identity == null)
+                {
+                    _logger.LogInformation($"Invalid username ({applicationUser.UserName}) or password ({applicationUser.Password})");
+                    return BadRequest("Invalid credentials");
+                } else
+                {
+                    var jwt = await GetJWTForUser(identity);
+                    return new OkObjectResult(jwt);
+                }
+            }
+            catch (Exception e)
             {
-                _logger.LogInformation($"Invalid username ({applicationUser.UserName}) or password ({applicationUser.Password})");
-                return BadRequest("Invalid credentials");
-            } else
-            {
-                
+                _logger.LogInformation($"Error creating new user, requested username was {applicationUser.UserName}");
+                return BadRequest("Error creating user. Please enter a different username and try again.");
             }
         }
 
@@ -89,48 +108,16 @@ namespace AVP.WebApi.Controllers
                 return BadRequest("Invalid credentials");
             }
 
-            List<Claim> claims = new List<Claim>()
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, applicationUser.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, await _jwtOptions.JtiGenerator()),
-                new Claim(JwtRegisteredClaimNames.Iat,
-                          ToUnixEpochDate(_jwtOptions.IssuedAt).ToString(),
-                          ClaimValueTypes.Integer64)
-            };
-
-            //refresh the options issuedat so that the expiration etc. update
-            _jwtOptions.IssuedAt = DateTime.UtcNow;
-
-            // Create the JWT security token and encode it.
-            var jwt = new JwtSecurityToken(
-                issuer: _jwtOptions.Issuer,
-                audience: _jwtOptions.Audience,
-                claims: claims,
-                notBefore: _jwtOptions.NotBefore,
-                expires: _jwtOptions.Expiration,
-                signingCredentials: _jwtOptions.SigningCredentials);
-
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-
-            // Serialize and return the response
-            var response = new
-            {
-                access_token = encodedJwt,
-                expires_in = (int)_jwtOptions.ValidFor.TotalSeconds,
-                is_admin = applicationUser.IsAdmin
-            };
-
-            var json = JsonConvert.SerializeObject(response, _serializerSettings);
-            return new OkObjectResult(json);
+            var jwt = await GetJWTForUser(identity);
+            return new OkObjectResult(jwt);
         }
 
-        private GetJWTForUser()
+        private async Task<string> GetJWTForUser(ClaimsIdentity user)
         {
             //return a JWT
-            //todo: make this one method for login and register later
             List<Claim> claims = new List<Claim>()
             {
-                new Claim(JwtRegisteredClaimNames.Sub, applicationUser.UserName),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Name),
                 new Claim(JwtRegisteredClaimNames.Jti, await _jwtOptions.JtiGenerator()),
                 new Claim(JwtRegisteredClaimNames.Iat,
                           ToUnixEpochDate(_jwtOptions.IssuedAt).ToString(),
@@ -156,11 +143,10 @@ namespace AVP.WebApi.Controllers
             {
                 access_token = encodedJwt,
                 expires_in = (int)_jwtOptions.ValidFor.TotalSeconds,
-                is_admin = applicationUser.IsAdmin
             };
 
-            var json = JsonConvert.SerializeObject(response, _serializerSettings);
-            return new OkObjectResult(json);
+            return JsonConvert.SerializeObject(response, _serializerSettings);
+            //return new OkObjectResult(json);
         }
 
         private static void ThrowIfInvalidOptions(JwtIssuerOptions options)
