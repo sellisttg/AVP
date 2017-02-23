@@ -24,17 +24,17 @@ Jeremy Dean, Director
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
-List of Open Source Software
-•	.NET Core https://docs.microsoft.com/en-us/dotnet/articles/core/ 
-•	MySQL https://www.mysql.com/ 
-•	Rivets.js http://rivetsjs.com/ 
-•	Bootstrap http://getbootstrap.com/ 
-•	JQuery https://jquery.com/ 
-•	Chart.js* https://github.com/chartjs 
-•	Report.js* http://bi-joe.github.io/report.js/ 
-•	SignalR* https://github.com/SignalR/SignalR 
-•	JWT (we conform to an open standard, but used no library to implement this)
-•	MySqlConnector https://github.com/mysql-net/MySqlConnector 
+List of Open Source Software  
+1. .NET Core https://docs.microsoft.com/en-us/dotnet/articles/core/   
+2. MySQL https://www.mysql.com/  
+3. Angular.js [Need Link]
+4. Bootstrap http://getbootstrap.com/  
+5. JQuery https://jquery.com/  
+6. Chart.js* https://github.com/chartjs  
+7. Report.js* http://bi-joe.github.io/report.js/ [Need to add]  
+8. SignalR* https://github.com/SignalR/SignalR [Need to add]  
+9. JWT (we conform to an open standard, but used no library to implement this)     
+10. MySqlConnector https://github.com/mysql-net/MySqlConnector  
 
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
 ###n.   Developed automated unit tests for their code;
