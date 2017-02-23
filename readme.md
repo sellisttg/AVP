@@ -22,7 +22,8 @@ We used the playbook published by the USDS.  We integrated the playbook into our
 ###f.    Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
 ###g.   Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
 ###h.   Created or used a design style guide and/or a pattern library;  
-###i.    Performed usability tests with people;  
+###i.    Performed usability tests with people; 
+Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited voluteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
