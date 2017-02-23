@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunderstruck - Agile Vendor Pool 2007</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="Content/site.css" rel="stylesheet" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="AVPApp" ng-controller="AVPController">
+        <!--Header-->
+        <div class="container container-header">
+            <div class="col-sm-2 text-center">
+                <a href="http://www.trinitytg.com" target="_blank" title="Trinity Technology Group"><img src="Content/Images/logo.png" class="img-responsive" alt="Trinity TG Logo" style="margin:20px;" /></a>
+            </div>
+            <div class="col-sm-6" style="text-align:left;">
+                <h1 class="logo-header">Thunderstruck</h1>
+                <h3 style="color:#758282">Agile Vendor Pool 2017</h3>
+            </div>
+            <div class="col-sm-4 login-info-div">
+                <h5><strong>{{username}}</strong></h5>
+                <p class="login-info-user-type">role: {{currentRole.rolename}}</p>
+            </div>
+        </div>
+        <!--Navigation-->
+        <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-custom container" role="navigation">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse navbar-menubuilder">
+                    <ul class="nav navbar-nav navbar-left navbar-links">
+                        <li>
+                            <a ng-click="ShowDashboard()" id="home">Dashboard</a>
+                        </li>
+                        <li>
+                            <a ng-click="ShowIncidents()" id="home">Incidents and Notifications</a>
+                        </li>
+                        <li>
+                            <a ng-click="ShowSelectRole()" id="home">Switch Role</a>
+                        </li>
+                        <li>
+                            <a ng-click="ShowUserProfile()" id="home">Edit Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Switch Role Modal-->
+        <div class="modal fade" id="AVPModal" tabindex="-1" role="dialog" aria-labelledby="AVPModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="HideSelectRole()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Select a Role</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" ng-repeat="role in roles">
+                            <div class="col-md-1">
+                                <input class="checkbox" type="radio" ng-click="SelectRole(role)" name="CheckRole" ng-checked="role.roleid==currentRole.roleid"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label" style="padding-top:3px;">{{role.rolename}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="HideSelectRole()">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Login-->
+        <div class="container body-content" style="height:300px" ng-show="!isAuthenticated">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <label class="control-label col-md-2" style="padding-top:7px;text-align:right">Username:</label>
+                        <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="username"/>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2" style="padding-top:7px;text-align:right">Password:</label>
+                        <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" />
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <button class="btn btn-primary" ng-click="Login()"><span class="glyphicon-login">Login</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dashboard-->
+        <div class="container body-content" style="height:300px" ng-show="isAuthenticated && currentPage==pages.Dashboard">
+            <h2>Dashboard</h2>
+        </div>
+        <!--Incidents and Notifications-->
+        <div class="container body-content" style="height:300px" ng-show="isAuthenticated && currentPage==pages.Incidents">
+            <h2>Incidents and Notifications</h2>
+        </div>
+        <!--Edit Profile/Register-->
+        <div class="container body-content" style="height:300px" ng-show="isAuthenticated && currentPage==pages.UserProfile">
+            <div class="row">
+                <div class="col-md-1">&nbsp;</div>
+                <div class="col-md-10">
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label class="control-label col-md-6" style="padding-top:7px;text-align:right">Username:</label>
+                                <label class="control-label col-md-6" style="padding-top:7px">{{username}}</label>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-md-6" style="padding-top:7px;text-align:right">Reset Password:</label>
+                                <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" />
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-md-6" style="padding-top:7px;text-align:right">Confirm Password:</label>
+                                <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label class="control-label">Opt-In for:</label> 
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <input class="checkbox" type="checkbox" />
+                                </div>
+                                <div class="col-md-11">
+                                    <label class="control-label" style="padding-top:3px;">Email Notifications</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <input class="checkbox" type="checkbox" />
+                                </div>
+                                <div class="col-md-11">
+                                    <label class="control-label" style="padding-top:3px;">Push Notifications</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <input class="checkbox" type="checkbox" />
+                                </div>
+                                <div class="col-md-11">
+                                    <label class="control-label" style="padding-top:3px;">SMS Notifications</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="container body-content">
+            <hr />
+            <footer class="text-center">
+                <p><strong>&copy; 2017 - <a href="http://www.trinitytg.com" target="_blank" title="Trinity Technology Group">Trinity Technology Group</a></strong></p>
+            </footer>
+        </div>
+    </div>
+    <script src="thunderstruck.js"></script>
+</body>
+</html>
