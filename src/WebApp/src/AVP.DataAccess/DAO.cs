@@ -15,7 +15,7 @@ namespace AVP.DataAccess
         #endregion users
 
         #region profiles
-        Task<UserProfile> GetProfileForUserID(int UserID);
+        Task<UserProfile> GetProfileForUserName(string userName);
         Task<UserProfile> UpdateUserProfile(UserProfile profile);
         #endregion profiles
     }
@@ -23,7 +23,7 @@ namespace AVP.DataAccess
     public class DAO : IDAO
     {
         #region profiles
-        public async Task<UserProfile> GetProfileForUserID(int UserID)
+        public async Task<UserProfile> GetProfileForUserName(string userName)
         {
             using (var db = new DBConnection())
             {
@@ -31,8 +31,8 @@ namespace AVP.DataAccess
                 await db.Connection.OpenAsync();
 
                 var command = db.Connection.CreateCommand();
-                command.CommandText = @"SELECT * FROM userprofile WHERE UserID = @UserID LIMIT 1";
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@UserID", Value = UserID, DbType = System.Data.DbType.Int32 });
+                command.CommandText = @"SELECT * FROM userprofile WHERE Username = @UserName LIMIT 1";
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@UserName", Value = userName, DbType = System.Data.DbType.String });
 
                 var reader = command.ExecuteReader();
 
@@ -46,8 +46,8 @@ namespace AVP.DataAccess
                         userProfile.UserID = Convert.ToInt32(reader["UserID"]);
                         userProfile.UserName = reader["Username"].ToString();
                         userProfile.EmailOptIn = Convert.ToBoolean(reader["EmailOptIn"]);
-                        userProfile.EmailOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
-                        userProfile.EmailOptIn = Convert.ToBoolean(reader["PushOptIn"]);
+                        userProfile.SmsOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
+                        userProfile.PushOptIn = Convert.ToBoolean(reader["PushOptIn"]);
                     }
                 }
 
@@ -57,8 +57,24 @@ namespace AVP.DataAccess
 
         public async Task<UserProfile> UpdateUserProfile(UserProfile profile)
         {
-            UserProfile userProfile = new UserProfile();
-            return userProfile;
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"UPDATE userprofile SET EmailOptIn = @emailOptIn, Smsoptin = @smsOptIn, Pushoptin = @pushOptIn WHERE Username = @userName ";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = profile.UserName, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@emailOptIn", Value = profile.EmailOptIn, DbType = System.Data.DbType.Boolean });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@smsOptIn", Value = profile.SmsOptIn, DbType = System.Data.DbType.Boolean });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@pushOptIn", Value = profile.PushOptIn, DbType = System.Data.DbType.Boolean });
+
+                var reader = await command.ExecuteNonQueryAsync();
+
+                //get the new user with ID and all
+                return await GetProfileForUserName(profile.UserName);
+            }
         }
         #endregion profiles
 

@@ -3,6 +3,19 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "JsonWebTokens/1.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/JsonWebTokens.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/JsonWebTokens.dll": {}
+        }
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -3960,6 +3973,19 @@
     }
   },
   "libraries": {
+    "JsonWebTokens/1.3.0": {
+      "sha512": "jeXWWvAgl5UOu40S4g69KeTn4QlWMBc7RiHke/4XI+x9cyb670C3BNXZaPPUxKOlq99ZiVaxizvAbEtK5DGYlg==",
+      "type": "package",
+      "path": "JsonWebTokens/1.3.0",
+      "files": [
+        "JsonWebTokens.1.3.0.nupkg.sha512",
+        "JsonWebTokens.nuspec",
+        "lib/net451/JsonWebTokens.dll",
+        "lib/net451/JsonWebTokens.xml",
+        "lib/netstandard1.3/JsonWebTokens.dll",
+        "lib/netstandard1.3/JsonWebTokens.xml"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q==",
       "type": "package",
@@ -10546,6 +10572,7 @@
     "": [
       "AVP.DataAccess >= 1.0.0-*",
       "AVP.Models >= 1.0.0-*",
+      "JsonWebTokens >= 1.3.0",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 1.1.0",
       "Microsoft.AspNetCore.Cryptography.KeyDerivation >= 1.0.0",

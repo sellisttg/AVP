@@ -8,6 +8,8 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using AVP.DataAccess;
+using Microsoft.AspNetCore.Http;
+using Jwt;
 
 namespace AVP.WebApi.Services
 {
@@ -16,6 +18,8 @@ namespace AVP.WebApi.Services
         Task<ClaimsIdentity> Login(ApplicationUser user);
 
         Task<ApplicationUser> RegisterUser(ApplicationUser user);
+
+        string GetUserNameFromToken(HttpContext context);
     }
 
     public class AuthService : IAuthService
@@ -71,6 +75,39 @@ namespace AVP.WebApi.Services
             {
                 return await Task.FromResult<ClaimsIdentity>(null);
             }
+        }
+        
+        public string GetUserNameFromToken(HttpContext context)
+        {
+            if (context.Request.Headers.ContainsKey("Authorization"))
+            {
+                string authHeader = context.Request.Headers["Authorization"];
+                var authBits = authHeader.Split(' ');
+                if (authBits.Length != 2)
+                {
+                    //return "{error:\"auth bits needs to be length 2\"}";
+                    throw new Exception("Unable to parse username from token. Header does not include bearer and token.");
+                }
+                if (!authBits[0].ToLowerInvariant().Equals("bearer"))
+                {
+                    //return "{error:\"authBits[0] must be bearer\"}";
+                    throw new Exception("Unable to parse username from token. Bearer token not available in header.");
+                }
+                var ClientSecret = "needtogetthisfromenvironment";
+
+                try
+                {
+                    var data = JsonWebToken.DecodeToObject<Dictionary<string, string>>(authBits[1], ClientSecret);
+                    return data["sub"];
+
+                } catch
+                {
+                    throw new Exception("Unable to parse username from token, or token is invalid.");
+                }               
+            }
+
+            throw new Exception("Unable to parse username from token, or token is invalid.");
+
         }
 
         private async Task<ApplicationUser> GetUserByName(string user_name)

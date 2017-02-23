@@ -9,6 +9,7 @@
 -nologo
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
 -out:"C:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll"
+-r:"C:\Users\Sam Ellis\.nuget\packages\JsonWebTokens\1.3.0\lib\netstandard1.3\JsonWebTokens.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\Microsoft.AspNet.WebApi.Client\5.2.2\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll"

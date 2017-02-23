@@ -1,0 +1,182 @@
+html, body {
+    background-color: #fff;
+    background-image: url(Images/background.png);
+    background-repeat: repeat-x;
+    font: 400 Lato, sans-serif;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 15px 5px #888888;
+    font: 400 Lato, sans-serif;
+}
+
+h1 {
+    font-family: Lato, sans-serif;
+}
+
+h2 {
+    font-family: Lato, sans-serif;
+}
+
+h3 {
+    font-family: Lato, sans-serif;
+    color: #588282;
+}
+
+h4 {
+    font-family: Lato, sans-serif;
+}
+
+h5 {
+    font-family: Lato, sans-serif;
+}
+
+.container-header {
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.logo-header {
+    color: #588282;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: Lato, sans-serif;
+    font-size: 44px;
+    /*font-style: italic;*/
+}
+
+.login-info-div {
+    text-align: right;
+    padding-top: 50px;
+    padding-right: 5px;
+}
+
+.login-info-user-type {
+    line-height: 10%;
+    color: #E26711;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Lato, sans-serif;
+}
+
+.navbar-custom {
+    margin-bottom: 0px !important;
+    border-top: 1px solid #666 !important;
+    border-bottom: 1px solid #666 !important;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: rgba(119, 119, 119, 1);
+}
+
+#custom-bootstrap-menu.navbar-default {
+    font-size: 14px;
+    /*background-color: rgba(65, 116, 102, 1);*/
+    background-color: rgba(41,92,102,1);
+    border-width: 1px;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+    #custom-bootstrap-menu.navbar-default .navbar-nav > li > a {
+        /*color: rgba(194, 229, 244, 1);*/
+        /*background-color: rgba(248, 248, 248, 0);*/
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+
+        #custom-bootstrap-menu.navbar-default .navbar-nav > li > a:hover,
+        #custom-bootstrap-menu.navbar-default .navbar-nav > li > a:focus {
+            color: rgba(51, 51, 51, 1);
+            background-color: rgba(255, 255, 255, 1);
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+    #custom-bootstrap-menu.navbar-default .navbar-nav > .active > a,
+    #custom-bootstrap-menu.navbar-default .navbar-nav > .active > a:hover,
+    #custom-bootstrap-menu.navbar-default .navbar-nav > .active > a:focus {
+        color: rgba(85, 85, 85, 1);
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    #custom-bootstrap-menu.navbar-default .navbar-toggle {
+        border-color: #ffffff;
+    }
+
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+            background-color: #ffffff;
+        }
+
+        #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+            background-color: #ffffff;
+        }
+
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+        #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+            background-color: #417466;
+        }
+
+.selected {
+    color: rgba(85, 85, 85, 1) !important;
+    background-color: rgba(255, 255, 255, 1) !important;
+    font-weight:bold !important;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    font-size: 12px;
+    font-weight: bold;
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #f00;
+}
+
+#validationSummary > ul > li {
+    display: inline;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.error {
+    font-size: 12px;
+    font-weight: bold;
+    color: #f00;
+}
