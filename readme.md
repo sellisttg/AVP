@@ -27,8 +27,8 @@ Jeremy Dean, Director
 List of Open Source Software  
 1. .NET Core https://docs.microsoft.com/en-us/dotnet/articles/core/   
 2. MySQL https://www.mysql.com/  
-3. Angular.js [Need Link]
-4. Bootstrap http://getbootstrap.com/  
+3. Angular.js [Need Link]  
+4. Bootstrap http://getbootstrap.com/   
 5. JQuery https://jquery.com/  
 6. Chart.js* https://github.com/chartjs  
 7. Report.js* http://bi-joe.github.io/report.js/ [Need to add]  
