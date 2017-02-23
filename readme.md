@@ -16,6 +16,8 @@ Jeremy Dean, Director
 ###Quality Assurance: 
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
+####Following the USDS Playbook  
+We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access.  https://trello.com/b/XZ7T6XhN/digital-playbook
 ###e.   Used GitHub to document code commits; 
 ###f.    Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
 ###g.   Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
