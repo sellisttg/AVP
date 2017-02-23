@@ -57,8 +57,24 @@ namespace AVP.DataAccess
 
         public async Task<UserProfile> UpdateUserProfile(UserProfile profile)
         {
-            UserProfile userProfile = new UserProfile();
-            return userProfile;
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"UPDATE userprofile SET EmailOptIn = @emailOptIn, Smsoptin = @smsOptIn, Pushoptin = @pushOptIn WHERE UserID = @userId ";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userId", Value = profile.UserID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@emailOptIn", Value = profile.EmailOptIn, DbType = System.Data.DbType.Boolean });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@smsOptIn", Value = profile.SmsOptIn, DbType = System.Data.DbType.Boolean });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@pushOptIn", Value = profile.PushOptIn, DbType = System.Data.DbType.Boolean });
+
+                var reader = await command.ExecuteNonQueryAsync();
+
+                //get the new user with ID and all
+                return await GetProfileForUserID(profile.UserID);
+            }
         }
         #endregion profiles
 

@@ -27,7 +27,7 @@ namespace AVP.WebApi.Controllers
         private readonly ILogger _logger;
         private readonly JsonSerializerSettings _serializerSettings;
 
-        public IAuthService _authService;
+        private IAuthService _authService;
 
 
         public AccountController(IOptions<JwtIssuerOptions> jwtOptions, ILoggerFactory loggerFactory, IAuthService authService)

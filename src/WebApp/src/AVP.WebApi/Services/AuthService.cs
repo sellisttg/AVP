@@ -8,6 +8,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using AVP.DataAccess;
+using Microsoft.AspNetCore.Http;
 
 namespace AVP.WebApi.Services
 {
@@ -71,6 +72,14 @@ namespace AVP.WebApi.Services
             {
                 return await Task.FromResult<ClaimsIdentity>(null);
             }
+        }
+
+        public string GetUserFromToken(HttpContext context)
+        {
+            string username = "";
+
+            return username;
+
         }
 
         private async Task<ApplicationUser> GetUserByName(string user_name)
