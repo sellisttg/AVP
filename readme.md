@@ -24,6 +24,18 @@ Jeremy Dean, Director
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
+List of Open Source Software
+•	.NET Core https://docs.microsoft.com/en-us/dotnet/articles/core/ 
+•	MySQL https://www.mysql.com/ 
+•	Rivets.js http://rivetsjs.com/ 
+•	Bootstrap http://getbootstrap.com/ 
+•	JQuery https://jquery.com/ 
+•	Chart.js* https://github.com/chartjs 
+•	Report.js* http://bi-joe.github.io/report.js/ 
+•	SignalR* https://github.com/SignalR/SignalR 
+•	JWT (we conform to an open standard, but used no library to implement this)
+•	MySqlConnector https://github.com/mysql-net/MySqlConnector 
+
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
 ###n.   Developed automated unit tests for their code;
 ###o.   Setup  or  used  a  continuous  integration  system  to  automate  the  running  of  tests  and  continuously deployed their code to their IaaS or PaaS provider; 
