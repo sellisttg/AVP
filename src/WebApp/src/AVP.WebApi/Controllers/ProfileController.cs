@@ -26,22 +26,41 @@ namespace AVP.WebApi.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("/api/v1/profile/{id}")]
-        public async Task<UserProfile> Get(int id)
+        [HttpGet("/api/v1/profile")]
+        public async Task<IActionResult> Get()
         {
-            HttpContext context = this.HttpContext;
-            if(context.Request.Headers.ContainsKey("Authorization"))
+            try
             {
-                var authHeader = context.Request.Headers["Authorization"];
-            }
+                var userName = _authService.GetUserNameFromToken(this.HttpContext);
 
-            return await _dao.GetProfileForUserID(id);
+                return new JsonResult(await _dao.GetProfileForUserName(userName));
+
+            } catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }            
         }
 
         // POST api/values
         [HttpPost("/api/v1/profile")]
-        public void Post([FromBody]UserProfile profile)
+        public async Task<IActionResult> Post([FromBody]UserProfile profile)
         {
+            try
+            {
+                var userName = _authService.GetUserNameFromToken(this.HttpContext);
+
+                if(!profile.UserName.Equals(userName))
+                {
+                    return BadRequest("User is not authorized to edit this profile.");
+                }
+
+                return new JsonResult(await _dao.UpdateUserProfile(profile));
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

@@ -13,6 +13,7 @@
 --version:1.0.0.0
 --informational-version:1.0.0
 --target-framework:.NETCoreApp,Version=v1.0
+--reference:C:\Users\Sam Ellis\.nuget\packages\JsonWebTokens\1.3.0\lib\netstandard1.3\JsonWebTokens.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Microsoft.AspNet.WebApi.Client\5.2.2\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll
