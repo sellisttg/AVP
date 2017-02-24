@@ -9,7 +9,7 @@ namespace AVP.Models.Entities
     {
         public int UserSmsLocationID { get; set; }
         public int UserID { get; set; }
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
         public int UserAddressID { get; set; }
     }
 }
