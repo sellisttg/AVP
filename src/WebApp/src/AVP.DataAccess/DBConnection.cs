@@ -15,9 +15,11 @@ namespace AVP.DataAccess
     public class DBConnection : IDBConnection
     {
         public readonly MySqlConnection Connection;
+        public readonly string Schema;
         
         public DBConnection()
         {
+            Schema = "avp2017";
             Connection = new MySqlConnection("host=13.64.66.218;port=3306;user id=root;password=Jjyk454ie7Jb;database=avp2017;");
         }
         
