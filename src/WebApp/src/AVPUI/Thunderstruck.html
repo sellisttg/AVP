@@ -24,7 +24,7 @@
                 <h3 style="color:#758282">Agile Vendor Pool 2017</h3>
             </div>
             <div class="col-sm-4 login-info-div">
-                <h5><strong>{{username}}</strong></h5>
+                <h5><strong>{{userProfile.username}}</strong></h5>
                 <p class="login-info-user-type">role: {{currentRole.rolename}}</p>
             </div>
         </div>
@@ -74,7 +74,7 @@
             </div>
         </div>
         <!--Login-->
-        <div class="container body-content" style="height:300px" ng-show="!isAuthenticated">
+        <div class="container body-content" style="min-height:300px" ng-show="!isAuthenticated && !isRegistering">
             <div class="row">
                 &nbsp;
             </div>
@@ -83,12 +83,15 @@
                 </div>
                 <div class="col-md-10">
                     <div class="row">
+                        <label class="control-label col-md-8" style="padding-top:7px;text-align:right">Sign in or <a ng-click="ShowRegister()">Register</a></label>
+                    </div>
+                    <div class="row">
                         <label class="control-label col-md-2" style="padding-top:7px;text-align:right">Username:</label>
-                        <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="username"/>
+                        <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.username"/>
                     </div>
                     <div class="row">
                         <label class="control-label col-md-2" style="padding-top:7px;text-align:right">Password:</label>
-                        <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" />
+                        <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.password" />
                     </div>
                     <div class="row">
                         &nbsp;
@@ -101,15 +104,15 @@
             </div>
         </div>
         <!--Dashboard-->
-        <div class="container body-content" style="height:300px" ng-show="isAuthenticated && currentPage==pages.Dashboard">
+        <div class="container body-content" style="min-height:300px" ng-show="isAuthenticated && currentPage==pages.Dashboard">
             <h2>Dashboard</h2>
         </div>
         <!--Incidents and Notifications-->
-        <div class="container body-content" style="height:300px" ng-show="isAuthenticated && currentPage==pages.Incidents">
+        <div class="container body-content" style="min-height:300px" ng-show="isAuthenticated && currentPage==pages.Incidents">
             <h2>Incidents and Notifications</h2>
         </div>
         <!--Edit Profile/Register-->
-        <div class="container body-content" style="height:300px" ng-show="isAuthenticated && currentPage==pages.UserProfile">
+        <div class="container body-content" style="min-height:300px" ng-show="(isAuthenticated && currentPage==pages.UserProfile) || isRegistering">
             <div class="row">
                 <div class="col-md-1">&nbsp;</div>
                 <div class="col-md-10">
@@ -120,24 +123,25 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <label class="control-label col-md-6" style="padding-top:7px;text-align:right">Username:</label>
-                                <label class="control-label col-md-6" style="padding-top:7px">{{username}}</label>
+                                <label ng-if="!isRegistering" class="control-label col-md-6" style="padding-top:7px">{{userProfile.username}}</label>
+                                <input ng-if="isRegistering" class="form-control col-md-6" maxlength="25" style="max-width:150px" ng-model="userProfile.username"/>
                             </div>
                             <div class="row">
-                                <label class="control-label col-md-6" style="padding-top:7px;text-align:right">Reset Password:</label>
-                                <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" />
+                                <label class="control-label col-md-6" style="padding-top:7px;text-align:right">{{!isRegistering ? 'Reset' : ''}} Password:</label>
+                                <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.password"/>
                             </div>
                             <div class="row">
                                 <label class="control-label col-md-6" style="padding-top:7px;text-align:right">Confirm Password:</label>
-                                <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" />
+                                <input class="form-control col-md-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.confirmPassword"/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <label class="control-label">Opt-In for:</label> 
+                                <label class="control-label">Opt-In for:</label>
                             </div>
                             <div class="row">
                                 <div class="col-md-1">
-                                    <input class="checkbox" type="checkbox" />
+                                    <input class="checkbox" type="checkbox" ng-model="userProfile.optIn.optInEmail"/>
                                 </div>
                                 <div class="col-md-11">
                                     <label class="control-label" style="padding-top:3px;">Email Notifications</label>
@@ -145,7 +149,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-1">
-                                    <input class="checkbox" type="checkbox" />
+                                    <input class="checkbox" type="checkbox" ng-model="userProfile.optIn.optInSMS"/>
                                 </div>
                                 <div class="col-md-11">
                                     <label class="control-label" style="padding-top:3px;">Push Notifications</label>
@@ -153,11 +157,32 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-1">
-                                    <input class="checkbox" type="checkbox" />
+                                    <input class="checkbox" type="checkbox" ng-model="userProfile.optIn.optInPush"/>
                                 </div>
                                 <div class="col-md-11">
                                     <label class="control-label" style="padding-top:3px;">SMS Notifications</label>
                                 </div>
+                            </div>
+                        </div>
+                        <div ng-show="isRegistering">
+                            <button class="btn btn-primary" ng-click="Register()"><span class="glyphicon-login">Register</span></button>
+                        </div>
+                        <div ng-show="!isRegistering">
+                            <div class="row">
+                                <label class="control-label col-md-4" style="padding-top:7px;text-align:right">Street Address:</label>
+                                <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.address.streetAddress" />
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-md-4" style="padding-top:7px;text-align:right">Zip Code:</label>
+                                <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.address.zipCode" />
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-md-4" style="padding-top:7px;text-align:right">Email Address:</label>
+                                <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.emailAddress" />
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-md-4" style="padding-top:7px;text-align:right">Phone Number:</label>
+                                 <input class="form-control col-md-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.phoneNumber" />
                             </div>
                         </div>
                     </div>
