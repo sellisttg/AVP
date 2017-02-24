@@ -75,9 +75,9 @@ namespace AVP.DataAccess
                 {
                     while (reader.Read())
                     {
-                        smsLoc.UserSmsLocationID = Convert.ToInt32(reader["UserPushLocationID"]);
+                        smsLoc.UserSmsLocationID = Convert.ToInt32(reader["UserSmsLocationID"]);
                         smsLoc.UserID = Convert.ToInt32(reader["UserID"]);
-                        smsLoc.PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]);
+                        smsLoc.PhoneNumber = Convert.ToInt64(reader["PhoneNumber"]);
                         smsLoc.UserAddressID = Convert.ToInt32(reader["UserAddressID"]);
                     }
                 }
