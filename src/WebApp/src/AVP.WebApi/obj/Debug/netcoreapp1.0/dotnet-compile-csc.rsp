@@ -201,5 +201,6 @@
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\IBaseController.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ProfileController.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserAddressController.cs"
+"C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserEmailLocationController.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ValuesController.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Services\AuthService.cs"

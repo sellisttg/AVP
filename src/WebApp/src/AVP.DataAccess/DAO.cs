@@ -110,6 +110,8 @@ namespace AVP.DataAccess
                             PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]),
                             UserAddressID = Convert.ToInt32(reader["UserAddressID"])
                         };
+
+                        smsLocs.Add(smsLoc);
                     }
                 }
 
@@ -240,6 +242,8 @@ namespace AVP.DataAccess
                             PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]),
                             UserAddressID = Convert.ToInt32(reader["UserAddressID"])
                         };
+
+                        pushLocs.Add(pushLoc);
                     }
                 }
 
@@ -370,6 +374,8 @@ namespace AVP.DataAccess
                             EmailAddress = reader["EmailAddress"].ToString(),
                             UserAddressID = Convert.ToInt32(reader["UserAddressID"])
                         };
+
+                        emailLocs.Add(emailLoc);
                     }
                 }
 
