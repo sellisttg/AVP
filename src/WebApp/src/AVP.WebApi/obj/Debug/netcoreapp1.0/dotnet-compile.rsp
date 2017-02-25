@@ -1,5 +1,5 @@
---temp-output:C:\Repos\AVP\src\WebApp\src\AVP.WebApi\obj\Debug\netcoreapp1.0\
---out:C:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll
+--temp-output:c:\Repos\AVP\src\WebApp\src\AVP.WebApi\obj\Debug\netcoreapp1.0\
+--out:c:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -195,18 +195,18 @@
 --reference:C:\Users\Sam Ellis\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\System.Xml.XmlSerializer\4.3.0\ref\netstandard1.3\System.Xml.XmlSerializer.dll
---reference:C:\Repos\AVP\src\WebApp\src\AVP.DataAccess\bin\Debug\netstandard1.6\AVP.DataAccess.dll
---reference:C:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
---resource:"C:\Repos\AVP\src\WebApp\src\AVP.WebApi\obj\Debug\netcoreapp1.0\AVP.WebApidotnet-compile.deps.json",AVP.WebApi.deps.json
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Program.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Startup.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Config\JwtIssuerOptions.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\AccountController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\IBaseController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ProfileController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserAddressController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserEmailLocationController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserPushLocationController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserSmsLocationController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ValuesController.cs
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Services\AuthService.cs
+--reference:c:\Repos\AVP\src\WebApp\src\AVP.DataAccess\bin\Debug\netstandard1.6\AVP.DataAccess.dll
+--reference:c:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
+--resource:"c:\Repos\AVP\src\WebApp\src\AVP.WebApi\obj\Debug\netcoreapp1.0\AVP.WebApidotnet-compile.deps.json",AVP.WebApi.deps.json
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Program.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Startup.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Config\JwtIssuerOptions.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\AccountController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\IBaseController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ProfileController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserAddressController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserEmailLocationController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserPushLocationController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserSmsLocationController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ValuesController.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi\Services\AuthService.cs
