@@ -1,5 +1,5 @@
---temp-output:c:\Repos\AVP\src\WebApp\src\AVP.Models\obj\Debug\netstandard1.6\
---out:c:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
+--temp-output:C:\Repos\AVP\src\WebApp\src\AVP.Models\obj\Debug\netstandard1.6\
+--out:C:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
 --define:DEBUG
 --define:TRACE
 --define:NETSTANDARD1_6
@@ -55,10 +55,10 @@
 --reference:C:\Users\Sam Ellis\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\ApplicationUser.cs
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserAddress.cs
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserEmailLocation.cs
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserProfile.cs
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserPushLocation.cs
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserSmsLocation.cs
-c:\Repos\AVP\src\WebApp\src\AVP.Models\Properties\AssemblyInfo.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\ApplicationUser.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserAddress.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserEmailLocation.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserProfile.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserPushLocation.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserSmsLocation.cs
+C:\Repos\AVP\src\WebApp\src\AVP.Models\Properties\AssemblyInfo.cs

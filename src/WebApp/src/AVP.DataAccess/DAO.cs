@@ -470,7 +470,7 @@ namespace AVP.DataAccess
                 {
                     while (reader.Read())
                     {
-                        address.UserAdressID = Convert.ToInt32(reader["UserAddressID"]);
+                        address.UserAddressID = Convert.ToInt32(reader["UserAddressID"]);
                         address.UserID = Convert.ToInt32(reader["UserID"]);
                         address.StreetAddress = reader["StreetAddress"].ToString();
                         address.City = reader["City"].ToString();
@@ -507,7 +507,7 @@ namespace AVP.DataAccess
                     {
                         UserAddress address = new UserAddress()
                         {
-                            UserAdressID = Convert.ToInt32(reader["UserAddressID"]),
+                            UserAddressID = Convert.ToInt32(reader["UserAddressID"]),
                             UserID = Convert.ToInt32(reader["UserID"]),
                             StreetAddress = reader["StreetAddress"].ToString(),
                             City = reader["City"].ToString(),
@@ -540,13 +540,13 @@ namespace AVP.DataAccess
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@latitude", Value = address.Latitude, DbType = System.Data.DbType.Double });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@longitude", Value = address.Longitude, DbType = System.Data.DbType.Double });
 
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAdressID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAddressID, DbType = System.Data.DbType.Int32 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = address.UserID, DbType = System.Data.DbType.Int32 });
 
                 await command.ExecuteNonQueryAsync();
 
                 //get the updated address
-                return await GetAddressById(address.UserAdressID);
+                return await GetAddressById(address.UserAddressID);
             }
         }
 
@@ -589,7 +589,7 @@ namespace AVP.DataAccess
                 command.CommandText = @"DELETE FROM useraddress WHERE UserID = @userID AND UserAddressID = @userAddressID; ";
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = address.UserID, DbType = System.Data.DbType.Int32 });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAdressID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAddressID, DbType = System.Data.DbType.Int32 });
                 
                 int rows = await command.ExecuteNonQueryAsync();
 
