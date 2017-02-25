@@ -15,6 +15,9 @@ using AVP.WebApi.Tests.TestServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using AVP.Models.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AVP.WebApi.Tests
 {
@@ -46,34 +49,26 @@ namespace AVP.WebApi.Tests
         }
 
         [Fact]
-        public void LoginUserTest()
+        public async void LoginUserTest()
         {
-            var webHostBuilder = new WebHostBuilder()
-            .UseStartup<Startup>()
-            .ConfigureServices(services =>
+            JwtIssuerOptions options = new JwtIssuerOptions()
             {
-                services.Configure<JwtIssuerOptions>(options =>
-                {
-                    options.Issuer = "AVPTokenServer";
-                    options.Audience = "http://localhost:57123/";
-                    options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
-                });
-            });
+                Issuer = "AVPTokenServer",
+                Audience = "http://localhost:57123/",
+                SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256)
+            };
+            IOptions<JwtIssuerOptions> jwtOptions = Options.Create<JwtIssuerOptions>(options);
+            var AccountController = new AccountController(jwtOptions, new Microsoft.Extensions.Logging.LoggerFactory(), _authService);
 
-            using (var host = new TestServer(webHostBuilder))
+            ApplicationUser user = new ApplicationUser()
             {
-                using (var client = host.CreateClient())
-                {
+                UserName = "sellis",
+                Password = "password"
+            };
 
-                    //serviceProvider.GetService<ILoggingFactory>();
-                    //var AccountController = new AccountController(host.Host.Services.GetService<JwtIssuerOptions>(), _logger, _authService)
-                    //{
+            var result =  await AccountController.Post(user);
 
-                    //};
-                }
-            }
-
-           
+            var viewResult = Assert.IsType<JsonResult>(result);
         }
     }
 }

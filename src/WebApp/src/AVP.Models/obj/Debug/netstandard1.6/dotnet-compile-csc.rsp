@@ -8,8 +8,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
--out:"C:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
+-out:"c:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\Microsoft.Win32.Primitives\4.0.1\ref\netstandard1.3\Microsoft.Win32.Primitives.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.AppContext\4.1.0\ref\netstandard1.6\System.AppContext.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll"
@@ -53,10 +53,10 @@
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Sam Ellis\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\ApplicationUser.cs"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserAddress.cs"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserEmailLocation.cs"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserProfile.cs"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserPushLocation.cs"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserSmsLocation.cs"
-"C:\Repos\AVP\src\WebApp\src\AVP.Models\Properties\AssemblyInfo.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\ApplicationUser.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserAddress.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserEmailLocation.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserProfile.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserPushLocation.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Entities\UserSmsLocation.cs"
+"c:\Repos\AVP\src\WebApp\src\AVP.Models\Properties\AssemblyInfo.cs"

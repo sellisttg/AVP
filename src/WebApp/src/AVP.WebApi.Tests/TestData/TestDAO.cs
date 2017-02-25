@@ -108,7 +108,7 @@ namespace AVP.WebApi.Tests.TestData
         {
             return new UserAddress()
             {
-                UserAdressID = 1,
+                UserAddressID = 1,
                 UserID = 1,
                 StreetAddress = "123 Any Street",
                 City = "Sacramento",
@@ -123,7 +123,7 @@ namespace AVP.WebApi.Tests.TestData
             List<UserAddress> list = new List<UserAddress>();
             UserAddress address = new UserAddress()
             {
-                UserAdressID = 1,
+                UserAddressID = 1,
                 UserID = 1,
                 StreetAddress = "123 Any Street",
                 City = "Sacramento",
@@ -143,7 +143,7 @@ namespace AVP.WebApi.Tests.TestData
         }
         public async Task<UserAddress> InsertUserAddress(UserAddress address)
         {
-            address.UserAdressID = 1;
+            address.UserAddressID = 1;
             return address;
         }
         public async Task<bool> DeleteUserAddress(UserAddress address)
