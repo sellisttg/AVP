@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace AVP.WebApi.Tests
+namespace AVP.WebApi.Tests.ControllerTests
 {
     public class ControllerTest
     {

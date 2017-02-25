@@ -220,9 +220,13 @@
 --reference:c:\Repos\AVP\src\WebApp\src\AVP.DataAccess\bin\Debug\netstandard1.6\AVP.DataAccess.dll
 --reference:c:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
 --reference:c:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\AccountControllerTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ProfileControllerTest.cs
 c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Program.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\AccountControllerTest.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\ProfileControllerTest.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserAddressControllerTest.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserEmailLocationTest.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserPushLocationTest.cs
+c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserSmsLocationTest.cs
 c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Properties\AssemblyInfo.cs
 c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestData\TestDAO.cs
 c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestServices\TestAuthService.cs
