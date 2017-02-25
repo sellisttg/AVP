@@ -47,7 +47,7 @@ namespace AVP.WebApi.Tests.ControllerTests
         {
             UserAddress address = new UserAddress()
             {
-                UserAdressID = 1,
+                UserAddressID = 1,
                 UserID = 1,
                 StreetAddress = "123 Any Street",
                 City = "Sacramento",
@@ -72,7 +72,7 @@ namespace AVP.WebApi.Tests.ControllerTests
         {
             UserAddress address = new UserAddress()
             {
-                UserAdressID = 1,
+                UserAddressID = 1,
                 UserID = 1,
                 StreetAddress = "123 Any Street",
                 City = "Sacramento",
@@ -97,7 +97,7 @@ namespace AVP.WebApi.Tests.ControllerTests
         {
             UserAddress address = new UserAddress()
             {
-                UserAdressID = 1,
+                UserAddressID = 1,
                 UserID = 1,
                 StreetAddress = "123 Any Street",
                 City = "Sacramento",

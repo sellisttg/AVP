@@ -68,7 +68,30 @@ namespace AVP.WebApi.Tests
 
             var result =  await AccountController.Post(user);
 
-            var viewResult = Assert.IsType<JsonResult>(result);
+            var viewResult = Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async void RegisterUserTest()
+        {
+            JwtIssuerOptions options = new JwtIssuerOptions()
+            {
+                Issuer = "AVPTokenServer",
+                Audience = "http://localhost:57123/",
+                SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256)
+            };
+            IOptions<JwtIssuerOptions> jwtOptions = Options.Create<JwtIssuerOptions>(options);
+            var AccountController = new AccountController(jwtOptions, new Microsoft.Extensions.Logging.LoggerFactory(), _authService);
+
+            ApplicationUser user = new ApplicationUser()
+            {
+                UserName = "sellis",
+                Password = "password"
+            };
+
+            var result = await AccountController.Register(user);
+
+            var viewResult = Assert.IsType<OkObjectResult>(result);
         }
     }
 }
