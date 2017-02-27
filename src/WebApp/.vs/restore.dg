@@ -1,4 +1,7 @@
-#:C:\Repos\AVP\src\WebApp\src\AVP.WebApi\AVP.WebApi.xproj
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\AVP.WebApi.xproj|C:\Repos\AVP\src\WebApp\src\AVP.DataAccess\AVP.DataAccess.xproj
-C:\Repos\AVP\src\WebApp\src\AVP.WebApi\AVP.WebApi.xproj|C:\Repos\AVP\src\WebApp\src\AVP.Models\AVP.Models.xproj
-C:\Repos\AVP\src\WebApp\src\AVP.DataAccess\AVP.DataAccess.xproj|C:\Repos\AVP\src\WebApp\src\AVP.Models\AVP.Models.xproj
+#:C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi.Tests\AVP.WebApi.Tests.xproj
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi.Tests\AVP.WebApi.Tests.xproj|C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.DataAccess\AVP.DataAccess.xproj
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi.Tests\AVP.WebApi.Tests.xproj|C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.Models\AVP.Models.xproj
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi.Tests\AVP.WebApi.Tests.xproj|C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\AVP.WebApi.xproj
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.DataAccess\AVP.DataAccess.xproj|C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.Models\AVP.Models.xproj
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\AVP.WebApi.xproj|C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.DataAccess\AVP.DataAccess.xproj
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\AVP.WebApi.xproj|C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.Models\AVP.Models.xproj

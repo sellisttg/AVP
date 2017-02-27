@@ -7,7 +7,7 @@ namespace AVP.Models.Entities
 {
     public class UserAddress
     {
-        public int UserAdressID { get; set; }
+        public int UserAddressID { get; set; }
         public int UserID { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }

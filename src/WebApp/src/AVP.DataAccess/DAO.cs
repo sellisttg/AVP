@@ -75,9 +75,9 @@ namespace AVP.DataAccess
                 {
                     while (reader.Read())
                     {
-                        smsLoc.UserSmsLocationID = Convert.ToInt32(reader["UserPushLocationID"]);
+                        smsLoc.UserSmsLocationID = Convert.ToInt32(reader["UserSmsLocationID"]);
                         smsLoc.UserID = Convert.ToInt32(reader["UserID"]);
-                        smsLoc.PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]);
+                        smsLoc.PhoneNumber = Convert.ToInt64(reader["PhoneNumber"]);
                         smsLoc.UserAddressID = Convert.ToInt32(reader["UserAddressID"]);
                     }
                 }
@@ -107,9 +107,11 @@ namespace AVP.DataAccess
                         {
                             UserSmsLocationID = Convert.ToInt32(reader["UserSmsLocationID"]),
                             UserID = Convert.ToInt32(reader["UserID"]),
-                            PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]),
+                            PhoneNumber = Convert.ToInt64(reader["PhoneNumber"]),
                             UserAddressID = Convert.ToInt32(reader["UserAddressID"])
                         };
+
+                        smsLocs.Add(smsLoc);
                     }
                 }
 
@@ -125,7 +127,7 @@ namespace AVP.DataAccess
                 var command = db.Connection.CreateCommand();
                 command.CommandText = @"UPDATE usersmslocation set PhoneNumber = @phoneNumber, UserAddressID = @userAddressID WHERE UserSmsLocationID = @userSmsLocationID AND UserID = @userID";
 
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = smsLoc.PhoneNumber, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = smsLoc.PhoneNumber, DbType = System.Data.DbType.Int64 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = smsLoc.UserAddressID, DbType = System.Data.DbType.Int32 });
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userSmsLocationID", Value = smsLoc.UserSmsLocationID, DbType = System.Data.DbType.Int32 });
@@ -149,7 +151,7 @@ namespace AVP.DataAccess
                                         VALUES (@userID, @phoneNumber, @userAddressID);
                                         SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = @schema AND TABLE_NAME = 'usersmslocation'; ";
 
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = smsLoc.PhoneNumber, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = smsLoc.PhoneNumber, DbType = System.Data.DbType.Int64 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = smsLoc.UserAddressID, DbType = System.Data.DbType.String });
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = smsLoc.UserID, DbType = System.Data.DbType.Int32 });
@@ -207,7 +209,7 @@ namespace AVP.DataAccess
                     {
                         pushLoc.UserPushLocationID = Convert.ToInt32(reader["UserPushLocationID"]);
                         pushLoc.UserID = Convert.ToInt32(reader["UserID"]);
-                        pushLoc.PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]);
+                        pushLoc.PhoneNumber = Convert.ToInt64(reader["PhoneNumber"]);
                         pushLoc.UserAddressID = Convert.ToInt32(reader["UserAddressID"]);
                     }
                 }
@@ -237,9 +239,11 @@ namespace AVP.DataAccess
                         {
                             UserPushLocationID = Convert.ToInt32(reader["UserPushLocationID"]),
                             UserID = Convert.ToInt32(reader["UserID"]),
-                            PhoneNumber = Convert.ToInt32(reader["PhoneNumber"]),
+                            PhoneNumber = Convert.ToInt64(reader["PhoneNumber"]),
                             UserAddressID = Convert.ToInt32(reader["UserAddressID"])
                         };
+
+                        pushLocs.Add(pushLoc);
                     }
                 }
 
@@ -255,7 +259,7 @@ namespace AVP.DataAccess
                 var command = db.Connection.CreateCommand();
                 command.CommandText = @"UPDATE userpushlocation set PhoneNumber = @phoneNumber, UserAddressID = @userAddressID WHERE UserPushLocationID = @userPushLocationID AND UserID = @userID";
 
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = pushLoc.PhoneNumber, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = pushLoc.PhoneNumber, DbType = System.Data.DbType.Int64 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = pushLoc.UserAddressID, DbType = System.Data.DbType.Int32 });
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userPushLocationID", Value = pushLoc.UserPushLocationID, DbType = System.Data.DbType.Int32 });
@@ -279,7 +283,7 @@ namespace AVP.DataAccess
                                         VALUES (@userID, @phoneNumber, @userAddressID);
                                         SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = @schema AND TABLE_NAME = 'userpushlocation'; ";
 
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = pushLoc.PhoneNumber, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@phoneNumber", Value = pushLoc.PhoneNumber, DbType = System.Data.DbType.Int64 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = pushLoc.UserAddressID, DbType = System.Data.DbType.String });
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = pushLoc.UserID, DbType = System.Data.DbType.Int32 });
@@ -370,6 +374,8 @@ namespace AVP.DataAccess
                             EmailAddress = reader["EmailAddress"].ToString(),
                             UserAddressID = Convert.ToInt32(reader["UserAddressID"])
                         };
+
+                        emailLocs.Add(emailLoc);
                     }
                 }
 
@@ -464,7 +470,7 @@ namespace AVP.DataAccess
                 {
                     while (reader.Read())
                     {
-                        address.UserAdressID = Convert.ToInt32(reader["UserAddressID"]);
+                        address.UserAddressID = Convert.ToInt32(reader["UserAddressID"]);
                         address.UserID = Convert.ToInt32(reader["UserID"]);
                         address.StreetAddress = reader["StreetAddress"].ToString();
                         address.City = reader["City"].ToString();
@@ -501,7 +507,7 @@ namespace AVP.DataAccess
                     {
                         UserAddress address = new UserAddress()
                         {
-                            UserAdressID = Convert.ToInt32(reader["UserAddressID"]),
+                            UserAddressID = Convert.ToInt32(reader["UserAddressID"]),
                             UserID = Convert.ToInt32(reader["UserID"]),
                             StreetAddress = reader["StreetAddress"].ToString(),
                             City = reader["City"].ToString(),
@@ -534,13 +540,13 @@ namespace AVP.DataAccess
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@latitude", Value = address.Latitude, DbType = System.Data.DbType.Double });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@longitude", Value = address.Longitude, DbType = System.Data.DbType.Double });
 
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAdressID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAddressID, DbType = System.Data.DbType.Int32 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = address.UserID, DbType = System.Data.DbType.Int32 });
 
                 await command.ExecuteNonQueryAsync();
 
                 //get the updated address
-                return await GetAddressById(address.UserAdressID);
+                return await GetAddressById(address.UserAddressID);
             }
         }
 
@@ -583,7 +589,7 @@ namespace AVP.DataAccess
                 command.CommandText = @"DELETE FROM useraddress WHERE UserID = @userID AND UserAddressID = @userAddressID; ";
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = address.UserID, DbType = System.Data.DbType.Int32 });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAdressID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAddressID, DbType = System.Data.DbType.Int32 });
                 
                 int rows = await command.ExecuteNonQueryAsync();
 
