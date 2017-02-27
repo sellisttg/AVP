@@ -46,7 +46,7 @@ The iterative development approach for this prototype uses the Agile/Scrum metho
 2. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
 3. Team co-location with visible persona's with clearly identified roles and goals  
 4. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
-5. Sprint Retrospectives to help coarse correct the process  
+5. Sprint Retrospectives to help course correct the process  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
 List of Open Source Software  
