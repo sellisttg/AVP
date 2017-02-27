@@ -93,7 +93,6 @@ C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\bin\Microsof
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\bin\Microsoft.ApplicationInsights.xml
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.dll
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.pdb
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\bin\ApplicationInsights.config
@@ -130,3 +129,4 @@ C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojRes
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.dll
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.pdb
 C:\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
