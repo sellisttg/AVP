@@ -43,6 +43,7 @@ List of Open Source Software
 
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
 ###n.   Developed automated unit tests for their code;
+Automated unit tests are developed to validate the return types and verify that the controllers return what is expected. An example of unity test outputs can be found here.
 ###o.   Setup  or  used  a  continuous  integration  system  to  automate  the  running  of  tests  and  continuously deployed their code to their IaaS or PaaS provider; 
 ###p.   Setup or used configuration management; 
 ###q.   Setup or used continuous monitoring;  
