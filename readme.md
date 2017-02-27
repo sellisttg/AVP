@@ -25,7 +25,8 @@ Jeremy Dean, Director
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####Following the USDS Playbook  
-We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access.  https://trello.com/b/XZ7T6XhN/digital-playbook
+We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access.  https://trello.com/b/XZ7T6XhN/digital-playbook  
+Work in Progress [
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. An example of the commits can be found here: (https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
 ###f.    Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
