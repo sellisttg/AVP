@@ -28,19 +28,19 @@ We used the playbook published by the USDS.  We integrated the playbook into our
 ####3. We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
-###f.    Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
-###g.   Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
-###h.   Created or used a design style guide and/or a pattern library;  
-###i.    Performed usability tests with people; 
+###f. Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
+###g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
+###h. Created or used a design style guide and/or a pattern library;  
+###i. Performed usability tests with people; 
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited voluteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
-The iterative development approach for this prototype is:[EvidenceLinksTBD]
+The iterative development approach for this prototype uses the Agile/Scrum methodology guilded by our resident Agile Coach (Hiren)  
 1. Set up team collaboration site in tree.taiga.io [Evidence?] used to guide team  
-2. Use of Scrum methodology including daily scrum's with Agile Coach [Evidence]  
-3. Maintaining work thorugh Kanban task baord [ImagesLinkTBD]  
-4. Team co-location with visible persona's with clearly identified roles and goals  
-5. Sprint Demo for review by Product Owner  
-6. Sprint Retrospectives to help coarse correct the process  
+2. At the beginning of each sprint, held a sprint planning meeting using Agile Planning Poker 
+2. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
+3. Team co-location with visible persona's with clearly identified roles and goals  
+4. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
+5. Sprint Retrospectives to help coarse correct the process  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
 List of Open Source Software  
