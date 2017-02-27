@@ -26,7 +26,7 @@ Jeremy Dean, Director
 ####Following the USDS Playbook
 We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. [Intitial Playbook](https://trello.com/b/XZ7T6XhN/digital-playbook), [Work in Progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), [Detailed Checklist Screen](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png)  
 ####By using our vision statement, we developed personas, [Detailed Here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf)  
-####We used tree.taiga.io to manager our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
+####We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
 ###f.    Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
