@@ -219,6 +219,7 @@
 -r:"C:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Program.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\AccountControllerTest.cs"
+"C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\IncidentNotificationControllerTest.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\ProfileControllerTest.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserAddressControllerTest.cs"
 "C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserEmailLocationTest.cs"

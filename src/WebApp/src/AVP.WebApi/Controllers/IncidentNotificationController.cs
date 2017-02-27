@@ -84,17 +84,17 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-        [HttpGet("/api/v1/incident/test")]
-        public async Task<IActionResult> GetSubWrapper()
-        {
-            List<Incident> incidents = await _dao.GetAllIncidents();
-            SubscriberUnderNotificationWrapper wrapper = new SubscriberUnderNotificationWrapper()
-            {
-                incident = incidents.First(),
-                SubscriberUnderNotification = await _dao.GetAllSubscribers()
-            };
-            return new OkObjectResult(wrapper);
-        }
+        //[HttpGet("/api/v1/incident/test")]
+        //public async Task<IActionResult> GetSubWrapper()
+        //{
+        //    List<Incident> incidents = await _dao.GetAllIncidents();
+        //    SubscriberUnderNotificationWrapper wrapper = new SubscriberUnderNotificationWrapper()
+        //    {
+        //        incident = incidents.First(),
+        //        SubscriberUnderNotification = await _dao.GetAllSubscribers()
+        //    };
+        //    return new OkObjectResult(wrapper);
+        //}
 
     }
 }
