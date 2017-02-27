@@ -1,9 +1,13 @@
-j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype;
-The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Agile Coach (Hiren)
-1. Prior to begining the agile/scrum process, the team setup the facilities including the collaborative work-area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal
-2. Set up team collaboration site in tree.taiga.io [Evidence?] with the product backlog used to guide team
-3. At the beginning of each sprint, we identified the sprint backlog, held a sprint planning meeting using Agile Planning Poker 
-4. Held daily scrum meetings at the same time and place with visibility of the Kanban task board
-5. Team co-location with visible persona's with clearly identified roles and goals
-6. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas
-7. Sprint Retrospectives to help course correct the process 
+#The Kick-off Meeting  
+
+The project kick off meeting included brining the entire team together to identify the goals of the project and to disucss the overall timeline.  
+The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Agile Coach (Hiren)  
+1. the team setup the facilities including the collaborative work-area,  
+2. gathered supplies,  
+3. selected the tools,   
+4. configured the architecture, and 
+5. identified each sprint goal  
+
+This information was shared with the team during the kick-off meeting with the Product Ownwer.  
+
+The first task after the project kickoff was to idenfiy the product backlog.
