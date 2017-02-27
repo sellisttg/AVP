@@ -1,4 +1,5 @@
 #NOTES  
+Sprint 1: 2/22-2-24
 
 ##CHECK-INS - 2/27:  
 ###Accomplishments  
