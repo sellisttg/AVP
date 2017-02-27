@@ -35,12 +35,12 @@ We used GitHub to document our code commits. An example of the commits can be fo
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited voluteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 The iterative development approach for this prototype is:[EvidenceLinksTBD]
-Set up team collaboration site in tree.taiga.io [Evidence?] used to guide team
-Use of Scrum methodology including daily scrum's with Agile Coach [Evidence]
-Maintaining work thorugh Kanban task baord [ImagesLinkTBD]
-Team co-location with visible persona's with clearly identified roles and goals
-Sprint Demo for review by Product Owner
-Sprint Retrospectives to help coarse correct the process
+1. Set up team collaboration site in tree.taiga.io [Evidence?] used to guide team  
+2. Use of Scrum methodology including daily scrum's with Agile Coach [Evidence]  
+3. Maintaining work thorugh Kanban task baord [ImagesLinkTBD]  
+4. Team co-location with visible persona's with clearly identified roles and goals  
+5. Sprint Demo for review by Product Owner  
+6. Sprint Retrospectives to help coarse correct the process  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
 List of Open Source Software  
