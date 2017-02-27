@@ -27,6 +27,7 @@ Jeremy Dean, Director
 ####Following the USDS Playbook  
 We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access.  https://trello.com/b/XZ7T6XhN/digital-playbook
 ###e.   Used GitHub to document code commits; 
+We used GitHub to document our code commits.  [TBD Link of commit logs?]
 ###f.    Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
 ###g.   Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
 ###h.   Created or used a design style guide and/or a pattern library;  
