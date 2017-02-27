@@ -13,11 +13,11 @@ Jeremy Dean, Director
 ####Product Manager: Jeremy Dean
 ####Deliver Manager: Michael Tomlin
 ####Technical Architect: Shawn Sampo 
-####Interaction Designer/User Researcher: 
+####Interaction Designer/User Researchers: Kelly Phan, Camille Dyer
 ####Visual Designer: Kelly Phan
 ####Front End Developer: Sam Ellis
 ####Back End Developer: Shawn Sampo
-####Dev Ops Engineer: Shawn Sampo
+####Dev Ops Engineer: Sam Ellis
 ####Security Engineer: 
 ####Agile Coach: Hiren Vashi
 ####Quality Assurance: Camille Dyer
