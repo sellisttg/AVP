@@ -1,4 +1,4 @@
-#Our Prototype 
+#OUR PROTOTYPE
 [TBD Link]
 
 #TECHNICAL APPROACH
