@@ -2,6 +2,7 @@
 
 ##CHECK-INS - 2/27:  
 ###Accomplishments  
+Updated Task Board  
 RFP Kanban updated  
 Updated readme.md for RFP Submission  
 Test scripts completed for Sprint 1  
