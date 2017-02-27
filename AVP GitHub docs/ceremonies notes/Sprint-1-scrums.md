@@ -20,3 +20,12 @@ Start GIS Ui Intgration
 Knowledge Aquisition on continuous Integration  
 ### Impediments
 Staff available/redirection to other projects
+
+##CHECK-INS - 2/24:  
+###Accomplishments  
+### Doing  
+### Impediments
+##CHECK-INS - 2/23:  
+###Accomplishments  
+### Doing  
+### Impediments
