@@ -41,12 +41,13 @@ We used GitHub to document our code commits. An example of the commits can be fo
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited voluteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 The iterative development approach for this prototype uses the Agile/Scrum methodology guilded by our resident Agile Coach (Hiren)  
-1. Set up team collaboration site in tree.taiga.io [Evidence?] used to guide team  
-2. At the beginning of each sprint, held a sprint planning meeting using Agile Planning Poker 
-2. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
-3. Team co-location with visible persona's with clearly identified roles and goals  
-4. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
-5. Sprint Retrospectives to help course correct the process  
+1. Prior to beging the agile/scrum process, the team setup the facilities including the collaborative work-area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
+2. Set up team collaboration site in tree.taiga.io [Evidence?] used to guide team  
+3. At the beginning of each sprint, held a sprint planning meeting using Agile Planning Poker 
+4. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
+5. Team co-location with visible persona's with clearly identified roles and goals  
+6. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
+7. Sprint Retrospectives to help course correct the process  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
 List of Open Source Software  
