@@ -9,6 +9,11 @@ namespace AVP.DataAccess
 {
     public interface IDAO
     {
+        #region incidents
+        Task CreateIncidents(List<Incident> incidents);
+        Task<List<Incident>> GetAllIncidents();
+        #endregion incidents
+
         #region users
         Task<ApplicationUser> GetUser(string userName);
         Task<ApplicationUser> AddUser(ApplicationUser user);
@@ -50,10 +55,133 @@ namespace AVP.DataAccess
         Task<UserSmsLocation> InsertUserSmsLocation(UserSmsLocation smsLoc);
         Task<bool> DeleteUserSmsLocation(UserSmsLocation smsLoc);
         #endregion usersmslocation
+
+        #region subscribers
+        Task<List<Subscriber>> GetAllSubscribers();
+        Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident);
+        #endregion subscribers
     }
 
     public class DAO : IDAO
     {
+        #region subscribers
+        public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
+        {
+
+        }
+        public async Task<List<Subscriber>> GetAllSubscribers()
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"select up.UserID, ua.UserAddressID, ua.StreetAddress, ua.City, ua.State, ua.zip, ua.Latitude, ua.Longitude, up.Name from userprofile up
+                                      left join useraddress ua on up.userid = ua.UserID";
+
+                var reader = command.ExecuteReader();
+
+
+                List<Subscriber> subscribers = new List<Subscriber>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        
+
+                        int UserID = 0;
+                        int UserAddressID = 0;
+                        bool hasUserID = Int32.TryParse(reader["UserID"].ToString(), out UserID);
+                        bool hasUserAddressID = Int32.TryParse(reader["UserAddressID"].ToString(), out UserAddressID);
+                        if(hasUserID && hasUserAddressID)
+                        {
+                            Subscriber subscriber = new Subscriber();
+
+                            subscriber.SubscriberId = UserID;
+                            subscriber.AddressId = UserAddressID;
+                            subscriber.Address = $"{reader["StreetAddress"].ToString()} {reader["City"].ToString()}, {reader["State"].ToString()} {reader["Zip"].ToString()}";
+                            subscriber.Lat = Convert.ToDouble(reader["Latitude"]);
+                            subscriber.Lon = Convert.ToDouble(reader["Longitude"]);
+                            subscriber.Name = reader["Name"].ToString();
+
+                            subscribers.Add(subscriber);
+                        }
+                        
+                    }
+                }
+
+                return subscribers;
+            }
+        }
+        #endregion subscribers
+
+        #region incidents
+        public async Task<List<Incident>> GetAllIncidents()
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"SELECT * FROM incident";
+
+                var reader = command.ExecuteReader();
+
+                List<Incident> incidents = new List<Incident>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Incident incident = new Incident()
+                        {
+                            Id = reader["id"].ToString(),
+                            Lat = Convert.ToDouble(reader["Latitude"]),
+                            Long = Convert.ToDouble(reader["Longitude"]),
+                            IncidentType = reader["incidenttype"].ToString(),
+                            IncidentName = reader["incidentname"].ToString(),
+                            Radius = Convert.ToInt32(reader["incidentradius"]),
+                            IncidentID = Convert.ToInt32(reader["incidentid"])
+                        };
+
+                        incidents.Add(incident);
+                    }
+                }
+
+                return incidents;
+            }
+        }
+        public async Task CreateIncidents(List<Incident> incidents)
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                foreach (Incident incident in incidents)
+                {
+                    var command = db.Connection.CreateCommand();
+                    command.CommandText = @"INSERT INTO incident (id, incidentname, latitude, longitude, incidenttype, incidentradius)
+                                        VALUES (@id, @incidentname, @latitude, @longitude, @incidenttype, @incidentradius);";
+
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@id", Value = incident.Id, DbType = System.Data.DbType.String });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentname", Value = incident.IncidentName, DbType = System.Data.DbType.String });
+
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@latitude", Value = incident.Lat, DbType = System.Data.DbType.Double });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@longitude", Value = incident.Long, DbType = System.Data.DbType.Double });
+
+
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentradius", Value = incident.Radius, DbType = System.Data.DbType.Int32 });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidenttype", Value = incident.IncidentType, DbType = System.Data.DbType.String });
+
+                    int incidentCount = await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+        #endregion incidents
         #region usersmslocation
         public async Task<UserSmsLocation> GetUserSmsLocationById(int id)
         {
@@ -624,6 +752,7 @@ namespace AVP.DataAccess
                     {
                         userProfile.UserID = Convert.ToInt32(reader["UserID"]);
                         userProfile.UserName = reader["Username"].ToString();
+                        userProfile.Name = reader["Name"].ToString();
                         userProfile.EmailOptIn = Convert.ToBoolean(reader["EmailOptIn"]);
                         userProfile.SmsOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
                         userProfile.PushOptIn = Convert.ToBoolean(reader["PushOptIn"]);
@@ -642,9 +771,10 @@ namespace AVP.DataAccess
                 await db.Connection.OpenAsync();
 
                 var command = db.Connection.CreateCommand();
-                command.CommandText = @"UPDATE userprofile SET EmailOptIn = @emailOptIn, Smsoptin = @smsOptIn, Pushoptin = @pushOptIn WHERE Username = @userName ";
+                command.CommandText = @"UPDATE userprofile SET EmailOptIn = @emailOptIn, Smsoptin = @smsOptIn, Pushoptin = @pushOptIn, Name = @Name WHERE Username = @userName ";
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = profile.UserName, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@Name", Value = profile.UserName, DbType = System.Data.DbType.String });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@emailOptIn", Value = profile.EmailOptIn, DbType = System.Data.DbType.Boolean });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@smsOptIn", Value = profile.SmsOptIn, DbType = System.Data.DbType.Boolean });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@pushOptIn", Value = profile.PushOptIn, DbType = System.Data.DbType.Boolean });
@@ -699,10 +829,11 @@ namespace AVP.DataAccess
                 await db.Connection.OpenAsync();
 
                 var command = db.Connection.CreateCommand();
-                command.CommandText = @"INSERT INTO userprofile (Username, EmailOptIn, Smsoptin, Pushoptin, PasswordHash) 
-                                        VALUES (@userName, @emailOptIn, @smsOptIn, @pushOptIn, @passwordHash) ";
+                command.CommandText = @"INSERT INTO userprofile (Username, EmailOptIn, Smsoptin, Pushoptin, PasswordHash, Name) 
+                                        VALUES (@userName, @emailOptIn, @smsOptIn, @pushOptIn, @passwordHash, @Name) ";
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = user.UserName, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@Name", Value = user.Name, DbType = System.Data.DbType.String });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@passwordHash", Value = user.PasswordHash, DbType = System.Data.DbType.String });
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@emailOptIn", Value = user.EmailOptIn, DbType = System.Data.DbType.Boolean });

@@ -23,8 +23,6 @@ namespace AVP.WebApi.Tests
 {
     public class AccountControllerTest
     {
-        private Microsoft.Extensions.Options.IOptions<JwtIssuerOptions> _jwtOptions;
-        private Microsoft.Extensions.Logging.ILoggerFactory _logger;
         private JsonSerializerSettings _serializerSettings;
         private IAuthService _authService = new TestAuthService();
 
@@ -33,20 +31,6 @@ namespace AVP.WebApi.Tests
         private const string ServiceBaseURL = "http://localhost:57123/";
         private const string SecretKey = "needtogetthisfromenvironment";
         private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
-
-
-        public void Setup()
-        {
-            JwtIssuerOptions options = new JwtIssuerOptions()
-            {
-                Issuer = "AVPTokenServer",
-                Audience = "http://localhost:57123/",
-                SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256)
-            };
-
-            //IOptions<JwtIssuerOptions> jwtOptions = new 
-            //Microsoft.Extensions.Options.OptionsManager<JwtIssuerOptions> jwtOptions = new Microsoft.Extensions.Options.OptionsManager<JwtIssuerOptions>(options);
-        }
 
         [Fact]
         public async void LoginUserTest()

@@ -12,5 +12,6 @@ namespace AVP.Models.Entities
         public bool SmsOptIn { get; set; } 
         public bool EmailOptIn { get; set; }
         public bool PushOptIn { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -74,9 +74,58 @@ namespace AVP.WebApi.Tests.TestData
         //    _smsLocations.TryAdd(smsLoc.UserSmsLocationID, smsLoc);
         //}
 
+        #region subscribers
+        public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
+        {
+
+        }
+        public async Task<List<Subscriber>> GetAllSubscribers()
+        {
+            List<Subscriber> subscribers = new List<Subscriber>();
+
+            subscribers.Add(new Subscriber() {
+                SubscriberId = 1,
+                AddressId = 1,
+                Address = "2015 J St. Sacramento, CA 95811",
+                Lat = 38.5767909,
+                Lon = -121.4811453,
+                Name = "Sam Ellis"
+            });
+
+            subscribers.Add(new Subscriber()
+            {
+                SubscriberId = 2,
+                AddressId = 2,
+                Address = "2015 J St. Sacramento, CA 95811",
+                Lat = 38.5767909,
+                Lon = -121.4811453,
+                Name = "Shawn Sampo"
+            });
+
+            return subscribers;
+        }
+        #endregion subscribers
+        #region incidents
+        public async Task<List<Incident>> GetAllIncidents()
+        {
+            List<Incident> incidents = new List<Incident>();
+            incidents.Add(new Incident()
+            {
+                Id = "Tsu470731",
+                Lat = 37.788,
+                Long = -119.718,
+                IncidentType = "Tsunami",
+                Radius = 30
+            });
+
+            return incidents;
+        }
+        public async Task CreateIncidents(List<Incident> incidents)
+        {
+        }
+        #endregion
         #region users
         public async Task<ApplicationUser> GetUser(string userName) {
-
             return new ApplicationUser() { UserName = "Test Test" };
         }
         public async Task<ApplicationUser> AddUser(ApplicationUser user)

@@ -14,7 +14,7 @@ namespace AVP.Models.Entities
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public string Role { get; set; }
-
+        public string Name { get; set; }
         public bool EmailOptIn { get; set; }
         public bool SMSOptIn { get; set; }
         public bool PushOptIn { get; set; }

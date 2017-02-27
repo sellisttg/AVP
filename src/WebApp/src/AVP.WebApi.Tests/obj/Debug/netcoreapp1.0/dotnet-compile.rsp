@@ -1,5 +1,5 @@
---temp-output:c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\obj\Debug\netcoreapp1.0\
---out:c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\bin\Debug\netcoreapp1.0\AVP.WebApi.Tests.dll
+--temp-output:C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\obj\Debug\netcoreapp1.0\
+--out:C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\bin\Debug\netcoreapp1.0\AVP.WebApi.Tests.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -218,16 +218,16 @@
 --reference:C:\Users\Sam Ellis\.nuget\packages\xunit.extensibility.execution\2.2.0\lib\netstandard1.1\xunit.execution.dotnet.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\xunit.runner.reporters\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.reporters.dotnet.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\xunit.runner.utility\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.utility.dotnet.dll
---reference:c:\Repos\AVP\src\WebApp\src\AVP.DataAccess\bin\Debug\netstandard1.6\AVP.DataAccess.dll
---reference:c:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
---reference:c:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Program.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\AccountControllerTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\ProfileControllerTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserAddressControllerTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserEmailLocationTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserPushLocationTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserSmsLocationTest.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Properties\AssemblyInfo.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestData\TestDAO.cs
-c:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestServices\TestAuthService.cs
+--reference:C:\Repos\AVP\src\WebApp\src\AVP.DataAccess\bin\Debug\netstandard1.6\AVP.DataAccess.dll
+--reference:C:\Repos\AVP\src\WebApp\src\AVP.Models\bin\Debug\netstandard1.6\AVP.Models.dll
+--reference:C:\Repos\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\AVP.WebApi.dll
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Program.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\AccountControllerTest.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\ProfileControllerTest.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserAddressControllerTest.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserEmailLocationTest.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserPushLocationTest.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserSmsLocationTest.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Properties\AssemblyInfo.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestData\TestDAO.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestServices\TestAuthService.cs
