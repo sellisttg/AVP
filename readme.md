@@ -10,17 +10,17 @@ Trinity Technology Group's Thunderstruck is an application prototype allowing Ca
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted
 Jeremy Dean, Director 
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions
-###Product Manager: Jeremy Dean
-###Deliver Manager: Michael Tomlin
-###Technical Architect: 
-###Interaction Designer/User Researcher: 
-###Visual Designer:
-###Front End Developer:
-###Back End Developer: 
-###Dev Ops Engineer: 
-###Security Engineer: 
-###Agile Coach: Hiren Vashi
-###Quality Assurance: 
+####Product Manager: Jeremy Dean
+####Deliver Manager: Michael Tomlin
+####Technical Architect: Shawn Sampo 
+####Interaction Designer/User Researcher: 
+####Visual Designer: Kelly Phan
+####Front End Developer: Sam Ellis
+####Back End Developer: Shawn Sampo
+####Dev Ops Engineer: Shawn Sampo
+####Security Engineer: 
+####Agile Coach: Hiren Vashi
+####Quality Assurance: Camille Dyer
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####Following the USDS Playbook
