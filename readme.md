@@ -1,6 +1,6 @@
 ####About 850 words
 #OUR PROTOTYPE
-Trinity Technology Group's application prototype (code name Thunderstruck) will allow California residents to receive email, SMS and push notificaitons relating to emergency and non-emergencies from a variet managed sources.  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
+Trinity Technology Group's application prototype (code name Thunderstruck) will allow California residents to receive email, SMS and push notifications relating to emergency and non-emergencies from a various managed sources.  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 ##As a Resident, [link]
 ##As an administrator, 
 ##etc [tbd]
@@ -8,9 +8,9 @@ Trinity Technology Group's application prototype (code name Thunderstruck) will 
 #TECHNICAL APPROACH
 
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted
-Jeremy Dean, Director of Business Developent
+Jeremy Dean, Director of Business Development
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
-Our collaborative multidisciplinary team experiece includes over 250,000 hours delivering technical solutions.  
+Our collaborative multidisciplinary team experience includes over 250,000 hours delivering technical solutions.  
 ####Product Manager: Jeremy Dean
 ####Deliver Manager: Michael Tomlin
 ####Technical Architect: Shawn Sampo 
@@ -22,7 +22,7 @@ Our collaborative multidisciplinary team experiece includes over 250,000 hours d
 ####Dev Ops Engineer: Sam Ellis
 ####Security Engineer: [Remove?]
 ####Quality Assurance: Camille Dyer
-####Agile Coach: Hiren Vashi, Agile related certifications Inculde:   
+####Agile Coach: Hiren Vashi, Agile related certifications Include:   
 Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
 Certified Scrum Professional (CSP)  
 Certified Scrum Master (CSM)  
@@ -31,7 +31,7 @@ Project Management Professional (PMP)
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####1. Following the USDS Playbook
-We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. [Intitial Playbook](https://trello.com/b/XZ7T6XhN/digital-playbook), [Work in Progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), [Detailed Checklist Screen](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png)  
+We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. [Initial Playbook](https://trello.com/b/XZ7T6XhN/digital-playbook), [Work in Progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), [Detailed Checklist Screen](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png)  
 ####2. We developed a strong vision statement followed by identifying personas, [Detailed Here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf)  
 ####3. We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
 ###e.   Used GitHub to document code commits; 
@@ -40,10 +40,10 @@ We used GitHub to document our code commits. An example of the commits can be fo
 ###g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
 ###h. Created or used a design style guide and/or a pattern library;  
 ###i. Performed usability tests with people; 
-Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited voluteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
+Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited volunteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
-The iterative development approach for this prototype uses the Agile/Scrum methodology guilded by our resident Agile Coach (Hiren)  
-1. Prior to beging the agile/scrum process, the team setup the facilities including the collaborative work-area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
+The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Agile Coach (Hiren)  
+1. Prior to begining the agile/scrum process, the team setup the facilities including the collaborative work-area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
 2. Set up team collaboration site in tree.taiga.io [Evidence?] with the product backlog used to guide team  
 3. At the beginning of each sprint, we identified the sprint backlog, held a sprint planning meeting using [Agile Planning Poker](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)    
 4. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
