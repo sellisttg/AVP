@@ -18,8 +18,13 @@ Jeremy Dean, Director
 ####Back End Developer: Shawn Sampo
 ####Dev Ops Engineer: Sam Ellis
 ####Security Engineer: [Remove?]
-####Agile Coach: Hiren Vashi
 ####Quality Assurance: Camille Dyer
+####Agile Coach: Hiren Vashi, Agile related certifications Inculde:   
+Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
+Certified Scrum Professional (CSP)  
+Certified Scrum Master (CSM)  
+PMI-Agile Certified Practitioner (PMI-ACP)  
+Project Management Professional (PMP)   
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####1. Following the USDS Playbook
