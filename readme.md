@@ -1,5 +1,9 @@
 #OUR PROTOTYPE
-[TBD Link]
+
+##As a Resident, [link]
+##As an administrator, I want to Monitor [link]  
+##As an administrator, I want to visualize [link]  
+##etc [tbd]
 
 #TECHNICAL APPROACH
 
