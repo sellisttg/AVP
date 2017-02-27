@@ -43,6 +43,7 @@ app.controller('AVPController'
     $scope.Login = function () {
         var url = $scope.baseUrl + "/v1/sessions";
         var postdata = { UserName: $scope.userProfile.username, password: $scope.userProfile.password };
+        $scope.error = "";
         $http.post(url, postdata).then(
             function (response) {
                 $scope.authToken = response.data.access_token;
@@ -75,14 +76,17 @@ app.controller('AVPController'
             , smsoptin: $scope.userProfile.optIn.optInSMS
             , pushoptin: $scope.userProfile.optIn.optInPush
         };
+        $scope.error = "";
         $http.post(url, postdata)
             .then(function (response) {
                 $scope.authToken = response.data.access_token;
+                $scope.isRegistering = false;
                 $scope.isAuthenticated = true;
                 //get list of roles
                 $scope.roles = $scope.GetRoles();
                 //default role to Administrator index=id-1
                 $scope.currentRole = $scope.roles[4];
+                $scope.GetUserProfile();
             })
             .catch(function (error) {
                 $scope.error = error.statusText;
@@ -100,7 +104,7 @@ app.controller('AVPController'
                 $scope.userProfile.optIn.optInPush = response.data.pushOptIn;
                 $scope.GetUserAddress();
                 $scope.GetEmailAddress();
-                //$scope.GetSMS();
+                $scope.GetSMS();
             });
     }
     $scope.GetUserAddress = function () {
@@ -108,7 +112,7 @@ app.controller('AVPController'
         $http.get(url, { headers: { authorization: "Bearer " + $scope.authToken } }).then(
             function (response) {
                 if (response.data.length > 0) {
-                    $scope.userProfile.address.userAddressID = response.data[0].userAdressID;
+                    $scope.userProfile.address.userAddressID = response.data[0].userAddressID;
                     $scope.userProfile.address.streetAddress = response.data[0].streetAddress;
                     $scope.userProfile.address.zipCode = response.data[0].zip;
                 }
@@ -129,7 +133,8 @@ app.controller('AVPController'
         $http.get(url, { headers: { authorization: "Bearer " + $scope.authToken } }).then(
             function (response) {
                 if (response.data.length > 0) {
-                    $scope.userProfile.phoneNumber = response.data[0].phoneNumber;
+                    $scope.userProfile.sms.smsLocationID = response.data[0].userSmsLocationID;
+                    $scope.userProfile.sms.phoneNumber = response.data[0].phoneNumber;
                 }
             });
     }
@@ -145,12 +150,12 @@ app.controller('AVPController'
             , emailoptin: $scope.userProfile.optIn.optInEmail
             , pushoptin: $scope.userProfile.optIn.optInPush
         };
+        $scope.error = "";
         $http.post(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
             .then(function (response) {
                 $scope.error = "Saved";
                 $scope.SaveAddress();
-                $scope.SaveEmailAddress();
-                //$scope.SaveSMS();
+
             })
             .catch(function (error) {
                 $scope.error = error;
@@ -174,6 +179,8 @@ app.controller('AVPController'
                 $http.put(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
                 .then(function (response) {
                     $scope.userProfile.address.userAddressID = response.data.userAddressID;
+                    $scope.SaveEmailAddress();
+                    $scope.SaveSMS();
                     $scope.error = "Saved";
                 })
                 .catch(function (error) {
