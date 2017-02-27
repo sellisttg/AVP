@@ -7,7 +7,7 @@ Trinity Technology Group's Thunderstruck is an application prototype allowing Ca
 #TECHNICAL APPROACH
 
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted
-Jeremy Dean, Director 
+Jeremy Dean, Director of Business Developent
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions
 ####Product Manager: Jeremy Dean
 ####Deliver Manager: Michael Tomlin
