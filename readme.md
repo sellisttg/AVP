@@ -35,7 +35,7 @@ We used the playbook published by the USDS.  We integrated the playbook into our
 ####2. We developed a strong vision statement followed by identifying personas, [Detailed Here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf)  
 ####3. We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
 ###e.   Used GitHub to document code commits; 
-We used GitHub to document our code commits. An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
+We used GitHub to document our code commits. The GitHub repository is [here](https://github.com/sellisttg/AVP).  An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
 ###f. Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
 ###g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
 ###h. Created or used a design style guide and/or a pattern library;  
