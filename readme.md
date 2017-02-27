@@ -17,6 +17,7 @@ Our collaborative multidisciplinary team experiece includes over 250,000 hours d
 ####Visual Designer: Kelly Phan
 ####Front End Developer: Sam Ellis
 ####Back End Developer: Shawn Sampo
+####Back End Developer (GIS): Charan Misha  
 ####Dev Ops Engineer: Sam Ellis
 ####Security Engineer: [Remove?]
 ####Quality Assurance: Camille Dyer
