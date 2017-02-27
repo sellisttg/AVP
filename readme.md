@@ -1,8 +1,7 @@
 #OUR PROTOTYPE
 Trinity Technology Group's Thunderstruck is an application prototype allowing California residents to receive email, SMS and push notificaitons relating to emergency and non-emergencies from a variet managed sources.  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 ##As a Resident, [link]
-##As an administrator, I want to Monitor [link]  
-##As an administrator, I want to visualize [link]  
+##As an administrator, 
 ##etc [tbd]
 
 #TECHNICAL APPROACH
@@ -18,7 +17,7 @@ Jeremy Dean, Director
 ####Front End Developer: Sam Ellis
 ####Back End Developer: Shawn Sampo
 ####Dev Ops Engineer: Sam Ellis
-####Security Engineer: 
+####Security Engineer: [Remove?]
 ####Agile Coach: Hiren Vashi
 ####Quality Assurance: Camille Dyer
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
