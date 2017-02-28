@@ -60,10 +60,130 @@ namespace AVP.DataAccess
         Task<List<Subscriber>> GetAllSubscribers();
         Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident);
         #endregion subscribers
+
+        #region notifications
+        Task<List<Notification>> GetAllNotifications();
+        Task<Notification> GetNotificationById(int id);
+        Task<Notification> InsertNotification(Notification notification);
+        Task<Notification> UpdateNotification(Notification notification);
+        #endregion notifications
     }
 
     public class DAO : IDAO
     {
+        #region notifications
+        public async Task<List<Notification>> GetAllNotifications()
+        {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"select * from notification";
+
+                var reader = command.ExecuteReader();
+
+                List<Notification> notifications = new List<Notification>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Notification notification = new Notification()
+                        {
+                            NotificationID = Convert.ToInt32(reader["NotificationID"]),
+                            Message = reader["Message"].ToString(),
+                            MessageDateTime = string.IsNullOrEmpty(reader["MessageDateTime"].ToString()) ? DateTime.Now : Convert.ToDateTime(reader["MessageDateTime"].ToString()),
+                            SendingUserID = Convert.ToInt32(reader["SendingUserID"]),
+                            IncidentID = Convert.ToInt32(reader["IncidentID"])
+                        };                          
+
+                        notifications.Add(notification);                      
+
+                    }
+                }
+
+                return notifications;
+            }
+        }
+        public async Task<Notification> GetNotificationById(int id)
+        {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"select * from notification";
+
+                var reader = command.ExecuteReader();
+
+                Notification notification = new Notification();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        notification.NotificationID = Convert.ToInt32(reader["NotificationID"]);
+                        notification.Message = reader["Message"].ToString();
+                        notification.MessageDateTime = string.IsNullOrEmpty(reader["MessageDateTime"].ToString()) ? DateTime.Now : Convert.ToDateTime(reader["MessageDateTime"].ToString());
+                        notification.SendingUserID = Convert.ToInt32(reader["SendingUserID"]);
+                        notification.IncidentID = Convert.ToInt32(reader["IncidentID"]);
+                    }
+                }
+
+                return notification;
+            }
+        }
+        public async Task<Notification> InsertNotification(Notification notification)
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"INSERT INTO notification (NotificationID, Message, MessageDateTime, SendingUserID, IncidentID)
+                                        VALUES (@NotificationID, @Message, @MessageDateTime, @SendingUserID, @IncidentID);
+                                        SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = @schema AND TABLE_NAME = 'notification'; ";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@NotificationID", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@Message", Value = notification.Message, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@MessageDateTime", Value = notification.MessageDateTime, DbType = System.Data.DbType.DateTime });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@SendingUserID", Value = notification.SendingUserID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@IncidentID", Value = notification.IncidentID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@schema", Value = db.Schema, DbType = System.Data.DbType.String });
+
+                int notificationID = Convert.ToInt32(await command.ExecuteScalarAsync()) - 1;
+
+                //get the new address with ID and all
+                return await GetNotificationById(notificationID);
+            }
+        }
+        public async Task<Notification> UpdateNotification(Notification notification)
+        {
+
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"UPDATE notification set Message = @message, MessageDateTime = @messageDateTime, SendingUserID = @SendingUserID, IncidentID = @incidentID WHERE NotificationID = @notificationID";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@message", Value = notification.Message, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@messageDateTime", Value = notification.MessageDateTime, DbType = System.Data.DbType.DateTime });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@SendingUserID", Value = notification.SendingUserID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentID", Value = notification.IncidentID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@notificationID", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+
+                await command.ExecuteNonQueryAsync();
+
+                //get the updated address
+                return await GetNotificationById(notification.NotificationID);
+            }
+        }
+        #endregion notifications
+
         #region subscribers
         public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
         {

@@ -73,6 +73,55 @@ namespace AVP.WebApi.Tests.TestData
 
         //    _smsLocations.TryAdd(smsLoc.UserSmsLocationID, smsLoc);
         //}
+        #region notifications
+        public async Task<Notification> UpdateNotification(Notification notification)
+        {
+            return notification;
+        }
+
+        public async Task<Notification> GetNotificationById(int id)
+        {
+            Notification notification = new Notification()
+            {
+                NotificationID = 1,
+                Message = "Danger: Tornado",
+                MessageDateTime = DateTime.Now,
+                SendingUserID = 3,
+                IncidentID = 1
+            };
+            return notification;
+        }
+
+        public async Task<List<Notification>> GetAllNotifications()
+        {
+            List<Notification> list = new List<Notification>();
+            list.Add(new Notification()
+            {
+                NotificationID = 1,
+                Message = "Danger: Tornado",
+                MessageDateTime = DateTime.Now,
+                SendingUserID = 3,
+                IncidentID = 1
+            });
+
+            list.Add(new Notification()
+            {
+                NotificationID = 2,
+                Message = "Danger: Tsunami",
+                MessageDateTime = DateTime.Now,
+                SendingUserID = 4,
+                IncidentID = 2
+            });
+
+            return list;
+        }
+
+        public async Task<Notification> InsertNotification(Notification notification)
+        {
+            return notification;
+        }
+        #endregion notifications
+
 
         #region subscribers
         public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)

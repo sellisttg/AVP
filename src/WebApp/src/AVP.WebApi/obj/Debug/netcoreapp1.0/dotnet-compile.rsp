@@ -204,6 +204,7 @@ C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Config\JwtIssuerOptions.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\AccountController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\IBaseController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\IncidentNotificationController.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\NotificationController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ProfileController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserAddressController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserEmailLocationController.cs
