@@ -10,10 +10,10 @@ var user= L.icon({
      iconSize:     [38, 60], // size of the icon
      popupAnchor:  [-3, -60]  // point from which the popup should open relative to the iconAnchor
 });
-/* var search_icon = L.AwesomeMarkers.icon({
-    icon: 'icon-circle',
-    color: 'green'
-}); */
+
+var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxsaXMiLCJqdGkiOiIyMDRiNGEzOC04M2JjLTQ2MTYtYjVmZi05NTIxNzQwYjk0ODMiLCJpYXQiOjE0ODgzMTc4MjcsIm5iZiI6MTQ4ODMxNzc4NSwiZXhwIjoxNDg4MzIxNjczLCJpc3MiOiJBVlBUb2tlblNlcnZlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTcxMjMvIn0.qMP2NMhhl0EdvzrxD72xQapX9tw8-crWjI0DAlK3f54";
+
+
 var incidents = new L.LayerGroup();
 
 var allincidentdetails =   {"allincidents":[]}; //this is hardcoded time being will be received from 
@@ -67,7 +67,6 @@ var allincidentdetails =   {"allincidents":[]}; //this is hardcoded time being w
 	});
 
 
-
 	var incidents = {
 		"Earthquake": earthquake,
 		"Tsunami":tsunami,
@@ -76,15 +75,13 @@ var allincidentdetails =   {"allincidents":[]}; //this is hardcoded time being w
 		"Fire": fire,
         "Flood": flood
 	};
+	
 	var map = L.map('map', {
 		center: [38.575764, -121.478851],
 		zoom: 7,
 		layers: [streets, earthquake]
-		//layers: [earthquake]
 	});
 	L.control.layers(baseLayers, incidents).addTo(map);
-//L.esri.Controls.legend([earthquake], { position: 'bottomleft' }).addTo(map);
-
 	var searchControl = L.esri.Geocoding.geosearch().addTo(map);
 	var results = L.layerGroup().addTo(map);
 	searchControl.on('results', function (data) {
@@ -93,12 +90,8 @@ var allincidentdetails =   {"allincidents":[]}; //this is hardcoded time being w
 	        results.addLayer(L.marker(data.results[i].latlng));
 	    }
 	});
-
-	
-	/* var rv = 1069 * parseInt($('#ddlRadius').val());
-	console.log(document.getElementById("<%=ddlRadius.ClientID%>"));
-	console.log(rv); */
 	var circle,clicklocationMarker;
+	var incidentID;
 	map.on('click', function(e) {   
 	if(circle){
 	map.removeLayer(circle);
@@ -111,21 +104,17 @@ var allincidentdetails =   {"allincidents":[]}; //this is hardcoded time being w
 	   var radioValue = $("input[name='incidentType']:checked"). val();
 	   var lat = e.latlng.lat.toFixed(4);
 	   var lon = e.latlng.lng.toFixed(4);
-	   var incidentID = radioValue.slice(0,3) + Math.floor(Math.random() * 899999 + 100000);
+	   incidentID = radioValue.slice(0,3) + Math.floor(Math.random() * 899999 + 100000);
 	   var incidentdetails =   {"incidents":[]};
 	   incidentdetails.incidents.push({"id" : incidentID , "Lat" : lat, 
 									"Long" : lon, "incidenttype": radioValue, "radius" : sv });
 	
-		allincidentdetails.allincidents.push({"id" : incidentID , "Lat" : lat, 
-									"Long" : lon, "incidenttype": radioValue, "radius" : sv });
+/* 		allincidentdetails.allincidents.push({"id" : incidentID , "Lat" : lat, 
+									"Long" : lon, "incidenttype": radioValue, "radius" : sv }); */
 	  
 	   var popupcontent = "<p>Incident Type: " + radioValue + " <br/>   Location  (" + lat + "," + lon + ") <br/> Incident ID :"  + incidentID + "<br/> Radius:" + sv + " mile<br/>  </p>";
 	  
-	  // console.log(JSON.stringify(incidentdetails));
-	   
-	  /*  <button class=" + w3-btn w3-white w3-border w3-border-red w3-round-large + ">Show me affected subscribers</button> </p>"; */
 	  
-	 /*   <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">Show me affected subscribers</button> </p> "; */
 
         var popLocation= e.latlng;
        circle = L.circle(e.latlng, sv*1069, {
@@ -140,20 +129,16 @@ var allincidentdetails =   {"allincidents":[]}; //this is hardcoded time being w
 		  $.ajax({                    
                     url: "http://avp2017webapp.azurewebsites.net/api/v1/incident",
                     type: "POST",
-                    headers: { 'Authorization': "Bearer " +  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxsaXMiLCJqdGkiOiJjNzUzNGMyNC0xZTk2LTQ0YjMtOTBkZS04NzY3MWU5ZjRiNWIiLCJpYXQiOjE0ODgzMDU0OTEsIm5iZiI6MTQ4ODMwNTQ5MSwiZXhwIjoxNDg4MzA5MDkxLCJpc3MiOiJBVlBUb2tlblNlcnZlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTcxMjMvIn0.OK41jNZJE0JIxy3NDK7nzWNAV1cKnS6xvdceZuGOXTw' },
+                    headers: { 'Authorization': "Bearer " + key   },
                     data: JSON.stringify(incidentdetails),
                     contentType: "application/json",
                     success: function (data) {
                         alert("Successfully Registered..");
-						
                     },
                     error: function (xhRequest, ErrorText, thrownError) {
                         alert("Failed to process correctly, please try again");
                     }
                 });
-		
-		
-		
     });
 	
 function clearCircleAndMarker()
@@ -182,7 +167,7 @@ function findSelection()
 
 var all_subscriber;
 var allsubscribers =   {"subscribers":[]};
-//var allsubscribers;
+
 function ShowAllSubscribers()
 {
 //Read all subscribers
@@ -219,16 +204,16 @@ function ShowAllSubscribers()
 			  $.ajax({                    
                     url: "http://avp2017webapp.azurewebsites.net/api/v1/incident/allsubscribers",
                     type: "GET",
-                    headers: { 'Authorization': "Bearer " +  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzZWxsaXMiLCJqdGkiOiJjNzUzNGMyNC0xZTk2LTQ0YjMtOTBkZS04NzY3MWU5ZjRiNWIiLCJpYXQiOjE0ODgzMDU0OTEsIm5iZiI6MTQ4ODMwNTQ5MSwiZXhwIjoxNDg4MzA5MDkxLCJpc3MiOiJBVlBUb2tlblNlcnZlciIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTcxMjMvIn0.OK41jNZJE0JIxy3NDK7nzWNAV1cKnS6xvdceZuGOXTw' },
+                    headers: { 'Authorization': "Bearer " +  key },
                     data:"JSON",
 					async: false,
                     contentType: "application/json",
                     success: function (data) {
-					console.log(data);
+					//console.log(data);
 					allsubscribers=data;
 					//allsubscribers = data;
 					//allsubscribers = data;
-                        alert("yes got");
+                        //alert("yes got");
 						
                     },
                     error: function (xhRequest, ErrorText, thrownError) {
@@ -238,13 +223,13 @@ function ShowAllSubscribers()
 	
 	
 	
-	console.log (allsubscribers);
+	//console.log (allsubscribers);
 	for(var i=0; i<allsubscribers.subscribers.length; i++) {
 	//alert(allsubscribers.subscribers[0].lat);
 		var tlat = allsubscribers.subscribers[i].lat;
 		var tlon = allsubscribers.subscribers[i].lon;
-	console.log(tlat);
-	console.log(tlon);
+	//console.log(tlat);
+	//console.log(tlon);
 	
 	all_subscriber=L.marker([tlat,tlon], {icon: user,title:allsubscribers.subscribers[i].Address}).addTo(map);
 	/* L.CircleMarker([tlat,tlon],{radius: 5,fillColor: "#A3C990",color: "#000",weight: 1,opacity: 1,fillOpacity: 0.4 }).addTo(map); */
@@ -258,6 +243,25 @@ function showPreviousAffectionNotifications()
 {
 
 	clearCircleAndMarker();
+				  $.ajax({                    
+                    url: "http://avp2017webapp.azurewebsites.net/api/v1/incident",
+                    type: "GET",
+                    headers: { 'Authorization': "Bearer " +  key },
+                    data:"JSON",
+					async: false,
+                    contentType: "application/json",
+                    success: function (data) {
+					allincidentdetails=data;
+					//allsubscribers = data;
+					//allsubscribers = data;
+                      alert("yes got");
+						
+                    },
+                    error: function (xhRequest, ErrorText, thrownError) {
+                        alert("Failed to process correctly, please try again");
+                    }
+                });
+	
 	for(var i=0; i< allincidentdetails.allincidents.length; i++) {
 	//alert(allsubscribers.subscribers[0].lat);
 	var tlat = Number(allincidentdetails.allincidents[i].Lat);
@@ -294,110 +298,70 @@ function pointsInCircle() {
         // Lat, long of circle
 		var meters_user_set = circle.getRadius();
         var circle_lat_long = circle.getLatLng();
- console.log("circle lat lon", circle_lat_long);
-  console.log("circle radius", meters_user_set);
-        // Singular, plural information about our JSON file
-        // Which is getting put on the map
-/*         var title_singular = 'provider';
-        var title_plural = 'providers'; */
- 
-        //var selected_provider = $('#dropdown_select').val();
+		//console.log("circle lat lon", circle_lat_long);
+		//console.log("circle radius", meters_user_set);
         
- console.log (allsubscribers.subscribers.length);
- 
- for(var i=0; i<allsubscribers.subscribers.length; i++) {
-	//alert(allsubscribers.subscribers[0].lat);
-	var tlat = allsubscribers.subscribers[i].lat;
-	var tlon = allsubscribers.subscribers[i].lon;
-	console.log(tlat);
-	console.log(tlon);
-	var subscriberloc= L.latLng(tlat,tlon);
-	var distance_from_layer_circle = subscriberloc.distanceTo(circle_lat_long);
-	console.log(distance_from_layer_circle);
-	if (distance_from_layer_circle <= meters_user_set) {
-                counter_points_in_circle += 1;
-				selSubForNotification=L.marker([tlat,tlon], {icon: allsubscribericon,title:allsubscribers.subscribers[i].Address}).addTo(map);
-            }
+        
+		console.log (allsubscribers);
+		var affectedusers={"incident":{} , "subscriberUnderNotification":[]};
+		affectedusers.incident.push=({"incidentID":incidentID});
+	for(var i=0; i<allsubscribers.subscribers.length; i++) {
+		//alert(allsubscribers.subscribers[0].lat);
+		var tlat = allsubscribers.subscribers[i].lat;
+		var tlon = allsubscribers.subscribers[i].lon;
+		//console.log(tlat);
+		//console.log(tlon);
+		var subscriberloc= L.latLng(tlat,tlon);
+		var subscriberUnderNotification;
+		var distance_from_layer_circle = subscriberloc.distanceTo(circle_lat_long);
+		console.log(distance_from_layer_circle);
+		if (distance_from_layer_circle <= meters_user_set) {
+					counter_points_in_circle += 1;
+					selSubForNotification=L.marker([tlat,tlon], {icon: allsubscribericon,title:allsubscribers.subscribers[i].Address}).addTo(map);
+					affectedusers.subscriberUnderNotification.push=({"subscriberId": allsubscribers.subscribers[i].subscriberId,"addressId": allsubscribers.subscribers[i].addressId});
+			}
+	console.log(affectedusers);
+	document.getElementById("noOfAffectedusers").innerHTML = "No of affected users  " + counter_points_in_circle; 
+	counter_points_in_circle = 0;
+      }
+    }
   }
-  document.getElementById("noOfAffectedusers").innerHTML = "No of affected users  " + counter_points_in_circle; 
-  counter_points_in_circle = 0;
- 
-/*         // If we have just one result, we'll change the wording
-        // So it reflects the category's singular form
-        // I.E. facility not facilities
-        if (counter_points_in_circle === 1) {
-            $('#json_one_title').html( title_singular );
-        // If not one, set to plural form of word
-        } else {
-            $('#json_one_title').html( title_plural );
-        }
-         
-        // Set number of results on main page
-        $('#json_one_results').html( counter_points_in_circle ); */
-    }
-// Close pointsInCircle
-};
 
+
+
+/* 
+
+({"id" : incidentID , "Lat" : lat, 
+									"Long" : lon, "incidenttype": radioValue, "radius" : sv })
+
+
+{affectedusers=[{su
+									
+									incidentID
+{
+  "incident": {
+    "incidentID": 1,
+    "incidentName": "",
+    "lat": 37.787998199462891,
+    "long": -119.71800231933594,
+    "incidentType": "Tsunami",
+    "radius": 30,
+    "id": "Tsu470731"
+  },
+  "subscriberUnderNotification": [
+    {
+      "subscriberId": 19,
+      "addressId": 5,
+      "address": "3456 J St , CA 87655",
+      "lat": 0,
+      "lon": 0,
+      "name": ""
+    },
+
+	{
+		subscriberUnderNotification:[{"subscriberId": 19, "addressId": 5,"incidentID": 1},{"subscriberId": 19, "addressId": 5,"incidentID": 1}]
+	}
 	
-	/* map.on('click', function(e) {
-    var marker = new L.Marker(e.latlng, {draggable:true});
-        map.addLayer(marker);
-        marker.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-}); */
-
-	//L.Controls.legend([baseLayers, incidents], {position: 'topright'}).addTo(map);
-
-/* var identifiedFeature;
-  var pane = document.getElementById('selectedFeatures');
-
- tsunami.bindPopup(function (error, featureCollection) {
-    if(error || featureCollection.features.length === 0) {
-      return false;
-    } else {
-      return 'Risk Level: ' + featureCollection.features[0].properties.observed;
-    }
-}); */
-
-
-
-//L.control.layers(incidents).addTo(map);
-
-
-
-
-
-
-
-/* earthquake.bindPopup(function (error, featureCollection) {
-    if(error || featureCollection.features.length === 0) {
-      return false;
-    } else {
-      //return 'version : ' + featureCollection.features[0].properties["version"] ;
-	  return 'version: ' + + featureCollection.features[0].properties.version;
-    }
-  }); */
-  
-/* var identifiedFeature;
-var pane = document.getElementById('selectedFeatures');
-
-  map.on('click', function (e) {
-    pane.innerHTML = 'Loading';
-    if (identifiedFeature){
-      map.removeLayer(identifiedFeature);
-    }
-    earthquake.identify().on(map).at(e.latlng).run(function(error, featureCollection){
-      // make sure at least one feature was identified.
-      if (featureCollection.features.length > 0) {
-        identifiedFeature = L.geoJSON(featureCollection.features[0]).addTo(map);
-        var earthquakeidentify =
-          featureCollection.features[0].properties['depth'] +
-          ' - ' +
-          featureCollection.features[0].properties['version'];
-        pane.innerHTML = earthquakeidentify;
-      }
-      else {
-        pane.innerHTML = 'No features identified.';
-      }
-    });
-   }); */
-  //,'depth':eatureCollection.features[0].properties.depth
+	
+	
+	 */
