@@ -17,6 +17,7 @@ namespace AVP.DataAccess
         #region users
         Task<ApplicationUser> GetUser(string userName);
         Task<ApplicationUser> AddUser(ApplicationUser user);
+        Task<ApplicationUser> UpdateUserPassword(ApplicationUser user);
         #endregion users
 
         #region profiles
@@ -328,6 +329,7 @@ namespace AVP.DataAccess
             }
         }
         #endregion incidents
+
         #region usersmslocation
         public async Task<UserSmsLocation> GetUserSmsLocationById(int id)
         {
@@ -458,8 +460,7 @@ namespace AVP.DataAccess
             }
         }
         #endregion usersmslocation
-
-
+        
         #region userepushlocation
         public async Task<UserPushLocation> GetUserPushLocationById(int id)
         {
@@ -590,8 +591,7 @@ namespace AVP.DataAccess
             }
         }
         #endregion userpushlocation
-
-
+        
         #region useremaillocation
         public async Task<UserEmailLocation> GetUserEmailLocationById(int id)
         {
@@ -934,6 +934,24 @@ namespace AVP.DataAccess
         #endregion profiles
 
         #region users
+        public async Task<ApplicationUser> UpdateUserPassword(ApplicationUser user)
+        {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+                var command = db.Connection.CreateCommand();
+                
+                command.CommandText = @"UPDATE userprofile SET PasswordHash = @passwordHash WHERE Username = @userName";
+                
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = user.UserName, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@passwordHash", Value = user.PasswordHash, DbType = System.Data.DbType.String });
+
+                var reader = await command.ExecuteNonQueryAsync();
+
+                return await GetUser(user.UserName);
+            }
+        }
+
         public async Task<ApplicationUser> GetUser(string userName)
         {
             using (var db = new DBConnection())
@@ -996,7 +1014,7 @@ namespace AVP.DataAccess
 
         #endregion users
 
-        #region Notification Location Helpers
+        #region notification location helpers
         public async Task AddUserEmailLocations(Notification notification)
         {
             using (var db = new DBConnection())
@@ -1053,6 +1071,6 @@ namespace AVP.DataAccess
 
             }
         }
-        #endregion Notification Location Helpers
+        #endregion notification location helpers
     }
 }

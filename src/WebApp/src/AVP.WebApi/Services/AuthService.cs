@@ -16,9 +16,8 @@ namespace AVP.WebApi.Services
     public interface IAuthService
     {
         Task<ClaimsIdentity> Login(ApplicationUser user);
-
         Task<ApplicationUser> RegisterUser(ApplicationUser user);
-
+        Task<ApplicationUser> ChangePassword(ApplicationUser user);
         string GetUserNameFromToken(HttpContext context);
     }
 
@@ -29,6 +28,14 @@ namespace AVP.WebApi.Services
         public AuthService(IDAO dao)
         {
             _db = dao;
+        }
+        public async Task<ApplicationUser> ChangePassword(ApplicationUser user)
+        {
+            //hash the password
+            user.PasswordHash = HashPassword(user.Password);
+
+            //update the password
+            return await _db.UpdateUserPassword(user);
         }
 
         public async Task<ApplicationUser> RegisterUser(ApplicationUser user)

@@ -97,6 +97,21 @@ namespace AVP.WebApi.Controllers
             return new OkObjectResult(jwt);
         }
 
+        [Route("/api/v1/account/changepassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ApplicationUser applicationUser)
+        {
+            var userName = _authService.GetUserNameFromToken(this.HttpContext);
+
+            if (!applicationUser.UserName.Equals(userName))
+            {
+                return BadRequest("User is not authorized to update this password.");
+            }
+            ApplicationUser user = await _authService.ChangePassword(applicationUser);
+            user.PasswordHash = "";
+            user.Password = "";
+            return new OkObjectResult(user);
+        }
+
         private async Task<string> GetJWTForUser(ClaimsIdentity user)
         {
             //return a JWT
