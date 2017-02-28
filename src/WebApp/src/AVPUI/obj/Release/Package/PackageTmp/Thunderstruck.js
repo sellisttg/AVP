@@ -158,14 +158,26 @@ app.controller('AVPController'
         $http.post(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
             .then(function (response) {
                 $scope.error = "Saved";
-                $scope.SaveAddress();
-
+                //Geocode address to get Lat and Long, then save address
+                var geocoder = new google.maps.Geocoder();
+                var lat, lon;
+                var address = $scope.userProfile.streetAddress + ", " + $scope.userProfile.city + ", " + $scope.userProfile.state + " " + $scope.userProfile.zip;
+                geocoder.geocode({ 'address': address }, function (results, status) {
+                    if (status === 'OK') {
+                        lat = results[0].geometry.location.lat();
+                        lon = results[0].geometry.location.lng();
+                        $scope.SaveAddress(lat, lon);
+                        //alert('lat::::(' + lat + ",lon:::::" + lon + ')');
+                    } else {
+                        $scope.SaveAddress(0,0);
+                    }
+                });
             })
             .catch(function (error) {
                 $scope.error = error;
             });
     }
-    $scope.SaveAddress = function () {
+    $scope.SaveAddress = function (lat, long) {
         if ($scope.userProfile.address.streetAddress.length > 0 || $scope.userProfile.address.zipCode.length > 0)
         {
             var url = $scope.baseUrl + "/v1/useraddress";
@@ -176,31 +188,53 @@ app.controller('AVPController'
                 , city: $scope.userProfile.address.city
                 , state: $scope.userProfile.address.state
                 , zip: $scope.userProfile.address.zipCode
-                , latitude: 0
-                , longitude: 0
+                , latitude: lat
+                , longitude: long
             };
+
+            //if address not already saved, insert it
             if (postdata.userAddressID == 0) {
                 $http.put(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
                 .then(function (response) {
                     $scope.userProfile.address.userAddressID = response.data.userAddressID;
+                    //Now that you have an address ID, save the email and SMS locations.
+                    $scope.error = "Saved";
                     $scope.SaveEmailAddress();
                     $scope.SaveSMS();
-                    $scope.error = "Saved";
                 })
                 .catch(function (error) {
                     $scope.error = error.statusText;
                 })
             }
+            //if address already saved, update it
             else {
                 $http.post(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
                 .then(function (response) {
                     $scope.error = "Saved";
+                    $scope.SaveEmailAddress();
+                    $scope.SaveSMS();
                 })
                 .catch(function (error) {
                     $scope.error = error.statusText;
                 })
             }
         }
+    }
+    $scope.GetGeoCode = function (address) {
+        //var map = new google.maps.Map();
+        var geocoder = new google.maps.Geocoder();
+        //var address = "2015 J Street Sacramento CA";
+        var lat, lon;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status === 'OK') {
+                lat = results[0].geometry.location.lat();
+                lon = results[0].geometry.location.lng();
+                return { latitude: lat, longitude: lon, message: "" }
+                //alert('lat::::(' + lat + ",lon:::::" + lon + ')');
+            } else {
+                return { latitude: 0, longitude: 0, message: "Geocode failed to get lat and long for this address." }
+            }
+        });
     }
     $scope.SaveEmailAddress = function () {
         if ($scope.userProfile.emailAddress.emailAddress.length > 0) {
