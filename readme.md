@@ -20,7 +20,7 @@ Our collaborative multidisciplinary team experience includes over 250,000 hours 
 ####Agile Coach: Hiren Vashi, Agile related certifications Include:   
 Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
 Certified Scrum Professional (CSP)  
-Certified Scrum Master (CSM)  
+Certified Scrum Master (CSM)
 PMI-Agile Certified Practitioner (PMI-ACP)  
 Project Management Professional (PMP)   
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
