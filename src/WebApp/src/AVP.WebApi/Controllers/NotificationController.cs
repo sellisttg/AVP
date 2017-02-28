@@ -82,5 +82,21 @@ namespace AVP.WebApi.Controllers
                 return BadRequest($"Error updating notification. The error was: {e.Message}");
             }
         }
+
+        [HttpPost("/api/v1/notification/send")]
+        public async Task<IActionResult> SendNotification([FromBody]Notification notification)
+        {
+            try
+            {
+                await _dao.AddNotificationLocations(notification);
+
+                return new OkObjectResult($"Notified users");
+            }
+            catch (Exception e)
+            {
+                _logger.LogInformation($"Error sending notification. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                return BadRequest($"Error sending notification. The error was: {e.Message}");
+            }
+        }
     }
 }

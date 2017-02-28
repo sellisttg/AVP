@@ -66,12 +66,20 @@ namespace AVP.DataAccess
         Task<Notification> GetNotificationById(int id);
         Task<Notification> InsertNotification(Notification notification);
         Task<Notification> UpdateNotification(Notification notification);
+        Task AddNotificationLocations(Notification notification);
         #endregion notifications
     }
 
     public class DAO : IDAO
     {
         #region notifications
+        public async Task AddNotificationLocations(Notification notification)
+        {
+            await AddUserEmailLocations(notification);
+            await AddUserSmsLocations(notification);
+            await AddUserPushLocations(notification);
+        }
+       
         public async Task<List<Notification>> GetAllNotifications()
         {
             using (var db = new DBConnection())
@@ -187,7 +195,25 @@ namespace AVP.DataAccess
         #region subscribers
         public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
         {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+                foreach (Subscriber subscriber in subscribers)
+                {                   
+                    var command = db.Connection.CreateCommand();
+                    //insert only where not exists
+                    command.CommandText = @"INSERT INTO incidentsubscribers (IncidentID, UserAddressID)
+                                            SELECT * FROM  (SELECT @incidentId, @userAddressId) AS tmp
+                                            WHERE NOT EXISTS (
+	                                            SELECT IncidentID, UserAddressID FROM incidentsubscribers WHERE IncidentID = @incidentId AND UserAddressID = @userAddressId
+                                            ) LIMIT 1;";
 
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentId", Value = incident.IncidentID, DbType = System.Data.DbType.Int32 });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressId", Value = subscriber.AddressId, DbType = System.Data.DbType.Int32 });
+
+                    await command.ExecuteNonQueryAsync();
+                }   
+            }
         }
         public async Task<List<Subscriber>> GetAllSubscribers()
         {
@@ -969,5 +995,64 @@ namespace AVP.DataAccess
 
 
         #endregion users
+
+        #region Notification Location Helpers
+        public async Task AddUserEmailLocations(Notification notification)
+        {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"INSERT INTO notificationemaillocation (NotificationID, UserEmailLocationID)
+                                        SELECT @notificationId, uel.UserEmailLocationID from useremaillocation uel where uel.UserAddressID in (select incs.UserAddressID from incidentsubscribers incs left join useraddress ua on incs.UserAddressId = ua.UserAddressId left join userprofile up on ua.UserID = up.UserID  where up.EmailOptIn = true AND incidentid = @incidentId)
+                                        ON DUPLICATE KEY UPDATE UserEmailLocationID = uel.UserEmailLocationID;";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@notificationId", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentId", Value = notification.IncidentID, DbType = System.Data.DbType.Int32 });
+
+                var reader = await command.ExecuteNonQueryAsync();
+
+            }
+        }
+
+        public async Task AddUserSmsLocations(Notification notification)
+        {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"INSERT INTO notificationsmslocation (NotificationID, UserSmsLocationID)
+                                        SELECT @notificationId, usl.UserSmsLocationID from usersmslocation usl where usl.UserAddressID in (select incs.UserAddressID from incidentsubscribers incs left join useraddress ua on incs.UserAddressId = ua.UserAddressId left join userprofile up on ua.UserID = up.UserID  where up.SmsOptIn = true AND incidentid = @incidentId)
+                                        ON DUPLICATE KEY UPDATE UserSmsLocationID = usl.UserSmsLocationID;";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@notificationId", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentId", Value = notification.IncidentID, DbType = System.Data.DbType.Int32 });
+
+                var reader = await command.ExecuteNonQueryAsync();
+
+            }
+        }
+
+        public async Task AddUserPushLocations(Notification notification)
+        {
+            using (var db = new DBConnection())
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"INSERT INTO notificationpushlocation (NotificationID, UserPushLocationID)
+                                        SELECT @notificationId, upl.UserPushLocationID from userpushlocation upl where upl.UserAddressID in (select incs.UserAddressID from incidentsubscribers incs left join useraddress ua on incs.UserAddressId = ua.UserAddressId left join userprofile up on ua.UserID = up.UserID  where up.PushOptIn = true AND incidentid = @incidentId)
+                                        ON DUPLICATE KEY UPDATE UserPushLocationID = upl.UserPushLocationID;";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@notificationId", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentId", Value = notification.IncidentID, DbType = System.Data.DbType.Int32 });
+
+                var reader = await command.ExecuteNonQueryAsync();
+
+            }
+        }
+        #endregion Notification Location Helpers
     }
 }
