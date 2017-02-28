@@ -24,6 +24,7 @@ Certified Scrum Master (CSM)
 PMI-Agile Certified Practitioner (PMI-ACP)  
 Project Management Professional (PMP)   
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
+Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes, 
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####1. Following the USDS Playbook
 We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. Using the [The Digital Services Playbook](https://playbook.cio.gov/), our team managed the [work in progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), including adding the [detailed checklists](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png).  
