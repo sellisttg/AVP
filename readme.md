@@ -1,12 +1,8 @@
-####About 850 words
 #OUR PROTOTYPE
-Trinity Technology Group's application prototype (code name Thunderstruck) will allow California residents to receive email, SMS and push notifications relating to emergency and non-emergencies from a various managed sources.  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
-##As a Resident, [link]
-##As an administrator, 
-##etc [tbd]
+Trinity Technology Group's application prototype (code name Thunderstruck) will allow California residents to receive email, SMS and push notifications relating to emergency and non-emergencies from several identified sources.  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
+## [TrinityTG Prototype Link](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 
 #TECHNICAL APPROACH
-
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted
 Jeremy Dean, Director of Business Development
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
