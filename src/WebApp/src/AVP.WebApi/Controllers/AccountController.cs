@@ -97,7 +97,7 @@ namespace AVP.WebApi.Controllers
             return new OkObjectResult(jwt);
         }
 
-        [Route("/api/v1/account/changepassword")]
+        [HttpPost("/api/v1/account/changepassword")]
         public async Task<IActionResult> ChangePassword([FromBody] ApplicationUser applicationUser)
         {
             var userName = _authService.GetUserNameFromToken(this.HttpContext);

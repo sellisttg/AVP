@@ -14,6 +14,7 @@ using System.Text;
 using AVP.WebApi.Services;
 using AVP.WebApi.Config;
 using AVP.DataAccess;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace AVP.WebApi
 {
@@ -85,6 +86,12 @@ namespace AVP.WebApi
 
             services.AddSingleton<IAuthService, AuthService>();
             services.AddSingleton<IDAO, DAO>();
+
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Thunderstruck API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -129,6 +136,15 @@ namespace AVP.WebApi
             //End JWT Config
 
             app.UseMvc();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUi(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Thunderstruck API V1");
+            });
         }
     }
 }
