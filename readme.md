@@ -1,14 +1,9 @@
-####About 850 words
 #OUR PROTOTYPE
-Trinity Technology Group's application prototype (code name Thunderstruck) will allow California residents to receive email, SMS and push notifications relating to emergency and non-emergencies from a various managed sources.  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
-##As a Resident, [link]
-##As an administrator, 
-##etc [tbd]
+[Trinity Technology Group's application prototype](http://avpwebappui.azurewebsites.net/thunderstruck.html) (code name Thunderstruck) will allow California residents to receive email, SMS and push notifications relating to emergency and non-emergencies from several identified [sources](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/RFI_CDT-ADPQ-0117_-_Prototype_B_Resources.pdf).  This application is geo-location aware provides administrators to publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 
 #TECHNICAL APPROACH
-
-##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted
-Jeremy Dean, Director of Business Development
+##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
+Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
 Our collaborative multidisciplinary team experience includes over 250,000 hours delivering technical solutions.  
 ####Product Manager: Jeremy Dean
@@ -29,6 +24,7 @@ Certified Scrum Master (CSM)
 PMI-Agile Certified Practitioner (PMI-ACP)  
 Project Management Professional (PMP)   
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
+Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes, [TBD link our evidence]  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####1. Following the USDS Playbook
 We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. Using the [The Digital Services Playbook](https://playbook.cio.gov/), our team managed the [work in progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), including adding the [detailed checklists](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png).  
@@ -42,15 +38,16 @@ We used GitHub to document our code commits. The GitHub repository is [here](htt
 ###i. Performed usability tests with people; 
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited volunteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
-The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Agile Coach (Hiren)  
-1. Prior to begining the agile/scrum process, the team setup the facilities including the collaborative work-area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
-2. Set up team collaboration site in tree.taiga.io [Evidence?] with the product backlog used to guide team  
-3. At the beginning of each sprint, we identified the sprint backlog, held a sprint planning meeting using [Agile Planning Poker](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)    
-4. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
-5. Team co-location with visible persona's with clearly identified roles and goals  
-6. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
-7. Sprint Retrospectives to help course correct the process  
-###k.   Created a prototype that works on multiple devices, and presents a responsive design;  
+The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Enterprise Agile Coach (Hiren)  
+1. Prior to beginning the agile/scrum process, the team set up the facilities including the collaborative work area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
+2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
+3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
+4. At the beginning of each sprint, we identified the sprint backlog during sprint planning meeting  
+5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
+6. Team co-location with visible persona's with clearly identified roles and sprint goals  
+7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
+8. Sprint Retrospectives to help course correct the process  
+###k.   Created a prototype that works on multiple devices, and presents a responsive design;   
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
 List of Open Source Software  
 1. .NET Core https://docs.microsoft.com/en-us/dotnet/articles/core/   
