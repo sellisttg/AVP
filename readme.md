@@ -31,8 +31,8 @@ Project Management Professional (PMP)
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
 ####1. Following the USDS Playbook
-We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. [Initial Playbook](https://trello.com/b/XZ7T6XhN/digital-playbook), [Work in Progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), [Detailed Checklist Screen](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png)  
-####2. We developed a strong vision statement followed by identifying personas, [Detailed Here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf)  
+We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. Using the [The Digital Services Playbook](https://playbook.cio.gov/), our team managed the [work in progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), including adding the [detailed checklists](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png).  
+####2. The second user centric design approach included developing [personas](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf) to Personas to help summarizing our target audience for product development.  
 ####3. We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. The GitHub repository is [here](https://github.com/sellisttg/AVP).  An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
@@ -67,7 +67,7 @@ List of Open Source Software
 12. xUnit for unit testing. 
 
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
-###n.   Developed automated unit tests for their code;
+###n.  Developed automated unit tests for their code;
 Automated unit tests are developed to validate the return types and verify that the controllers return what is expected. An example of unity test [outputs link](https://cloud.githubusercontent.com/assets/23264395/23348944/a984b308-fc63-11e6-880f-4692cd0fd90a.png).    
 An example of our embedded [unit test for sprint 1 link](https://cloud.githubusercontent.com/assets/23264395/23374564/af400470-fcd9-11e6-89b6-4aa6e9795a0f.png)  
 ###o.   Setup  or  used  a  continuous  integration  system  to  automate  the  running  of  tests  and  continuously deployed their code to their IaaS or PaaS provider; 
