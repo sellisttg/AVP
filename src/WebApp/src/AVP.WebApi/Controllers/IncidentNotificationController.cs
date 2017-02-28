@@ -44,6 +44,25 @@ namespace AVP.WebApi.Controllers
                 return BadRequest($"Error getting all incidents. The error was: {e.Message}");
             }
         }
+
+        [HttpGet("/api/v1/incident/allsubscribers")]
+        public async Task<IActionResult> GetAllSubscribers()
+        {
+            try
+            {
+                //return all possible subscribers
+                SubscribersWrapper subscribers = new SubscribersWrapper()
+                {
+                    Subscribers = await _dao.GetAllSubscribers()
+                };
+                return new OkObjectResult(subscribers);
+            }
+            catch (Exception e)
+            {
+                _logger.LogInformation($"Error getting subscribers. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                return BadRequest($"Error getting subscribers. The error was: {e.Message}");
+            }
+        }
         
         [HttpPost("/api/v1/incident")]
         public async Task<IActionResult> CreateNotificationIncident([FromBody]IncidentsWrapper wrapper)

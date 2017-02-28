@@ -79,5 +79,18 @@ namespace AVP.WebApi.Tests.ControllerTests
             //Assert
             var viewResult = Assert.IsType<OkObjectResult>(result);
         }
+
+        [Fact]
+        public async Task GetAllSubscribers()
+        {
+            //Arrange
+            var controller = new IncidentNotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+
+            //Act
+            var result = await controller.GetAllSubscribers();
+
+            //Assert
+            var viewResult = Assert.IsType<OkObjectResult>(result);
+        }
     }
 }
