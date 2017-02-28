@@ -3,8 +3,8 @@ Trinity Technology Group's application prototype (code name Thunderstruck) will 
 ## [TrinityTG Prototype Link](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 
 #TECHNICAL APPROACH
-##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted
-Jeremy Dean, Director of Business Development
+##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
+Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified Jeremy Dean, Director of Business Development as our Product Manager.
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
 Our collaborative multidisciplinary team experience includes over 250,000 hours delivering technical solutions.  
 ####Product Manager: Jeremy Dean
