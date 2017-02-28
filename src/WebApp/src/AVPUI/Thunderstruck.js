@@ -5,12 +5,13 @@ app.controller('AVPController'
     /*                    Properties
     /************************************************************/
     //constants
-    $scope.baseUrl = "http://localhost:57123/api";
+    $scope.baseUrl = "http://avp2017webapp.azurewebsites.net/api";
 
     //self-explanatory
     $scope.isAuthenticated = false;
     $scope.currentRole;
     $scope.error = "";
+    $scope.states = [];
 
     //isRegistering used on UserProfile page to trigger new registration presentation and logic
     $scope.isRegistering = false;
@@ -102,6 +103,7 @@ app.controller('AVPController'
                 $scope.userProfile.optIn.optInEmail = response.data.emailOptIn;
                 $scope.userProfile.optIn.optInSMS = response.data.smsOptIn;
                 $scope.userProfile.optIn.optInPush = response.data.pushOptIn;
+                $scope.states = $scope.getStates();
                 $scope.GetUserAddress();
                 $scope.GetEmailAddress();
                 $scope.GetSMS();
@@ -114,6 +116,8 @@ app.controller('AVPController'
                 if (response.data.length > 0) {
                     $scope.userProfile.address.userAddressID = response.data[0].userAddressID;
                     $scope.userProfile.address.streetAddress = response.data[0].streetAddress;
+                    $scope.userProfile.address.city = response.data[0].city;
+                    $scope.userProfile.address.state = response.data[0].state;
                     $scope.userProfile.address.zipCode = response.data[0].zip;
                 }
             });
@@ -169,8 +173,8 @@ app.controller('AVPController'
                 userAddressID: $scope.userProfile.address.userAddressID
                 , userID: $scope.userProfile.userID
                 , streetAddress: $scope.userProfile.address.streetAddress
-                , city: ""
-                , state: "CA"
+                , city: $scope.userProfile.address.city
+                , state: $scope.userProfile.address.state
                 , zip: $scope.userProfile.address.zipCode
                 , latitude: 0
                 , longitude: 0
@@ -286,5 +290,61 @@ app.controller('AVPController'
             + now.getMinutes().toString()
             + now.getSeconds().toString()
             + now.getMilliseconds().toString();
+    }
+    $scope.getStates = function () {
+        return [
+            { state: 'AL', description: 'Alabama' }
+            , { state: 'AK', description: 'Alaska' }
+            , { state: 'AZ', description: 'Arizona' }
+            , { state: 'AR', description: 'Arkansas' }
+            , { state: 'CA', description: 'California' }
+            , { state: 'CO', description: 'Colorado' }
+            , { state: 'CT', description: 'Connecticut' }
+            , { state: 'DE', description: 'Delaware' }
+            , { state: 'FL', description: 'Florida' }
+            , { state: 'GA', description: 'Georgia' }
+            , { state: 'HI', description: 'Hawaii' }
+            , { state: 'ID', description: 'Idaho' }
+            , { state: 'IL', description: 'Illinois' }
+            , { state: 'IN', description: 'Indiana' }
+            , { state: 'IA', description: 'Iowa' }
+            , { state: 'KS', description: 'Kansas' }
+            , { state: 'KY', description: 'Kentucky' }
+            , { state: 'LA', description: 'Louisiana' }
+            , { state: 'ME', description: 'Maine' }
+            , { state: 'MD', description: 'Maryland' }
+            , { state: 'MA', description: 'Massachusetts' }
+            , { state: 'MI', description: 'Michigan' }
+            , { state: 'MN', description: 'Minnesota' }
+            , { state: 'MS', description: 'Mississippi' }
+            , { state: 'MO', description: 'Missouri' }
+            , { state: 'MT', description: 'Montana' }
+            , { state: 'NE', description: 'Nebraska' }
+            , { state: 'NV', description: 'Nevada' }
+            , { state: 'NH', description: 'New Hampshire' }
+            , { state: 'NJ', description: 'New Jersey' }
+            , { state: 'NM', description: 'New Mexico' }
+            , { state: 'NY', description: 'New York' }
+            , { state: 'NC', description: 'North Carolina' }
+            , { state: 'ND', description: 'North Dakota' }
+            , { state: 'OH', description: 'Ohio' }
+            , { state: 'OK', description: 'Oklahoma' }
+            , { state: 'OR', description: 'Oregon' }
+            , { state: 'PA', description: 'Pennsylvania' }
+            , { state: 'RI', description: 'Rhode Island' }
+            , { state: 'SC', description: 'South Carolina' }
+            , { state: 'SD', description: 'South Dakota' }
+            , { state: 'TN', description: 'Tennessee' }
+            , { state: 'TX', description: 'Texas' }
+            , { state: 'UT', description: 'Utah' }
+            , { state: 'VT', description: 'Vermont' }
+            , { state: 'VA', description: 'Virginia' }
+            , { state: 'WA', description: 'Washington' }
+            , { state: 'WV', description: 'West Virginia' }
+            , { state: 'WI', description: 'Wisconsin' }
+            , { state: 'WY', description: 'Wyoming' }
+            , { state: 'AS', description: 'American Samoa' }
+            , { state: 'DC', description: 'District of Columbia' }
+        ]
     }
 });
