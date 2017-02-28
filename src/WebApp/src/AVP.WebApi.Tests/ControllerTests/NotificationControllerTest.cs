@@ -83,5 +83,26 @@ namespace AVP.WebApi.Tests.ControllerTests
             //Assert success
             var failureResult = Assert.IsType<OkObjectResult>(result);
         }
+
+        [Fact]
+        public async Task SendNotification()
+        {
+            Notification notification = new Notification()
+            {
+                NotificationID = 1,
+                Message = "Tornado is coming!",
+                MessageDateTime = DateTime.Now,
+                SendingUserID = 19,
+                IncidentID = 1
+            };
+            //Arrange
+            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+
+            //Act success
+            var result = await controller.SendNotification(notification);
+
+            //Assert success
+            var failureResult = Assert.IsType<OkObjectResult>(result);
+        }
     }
 }

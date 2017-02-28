@@ -74,6 +74,11 @@ namespace AVP.WebApi.Tests.TestData
         //    _smsLocations.TryAdd(smsLoc.UserSmsLocationID, smsLoc);
         //}
         #region notifications
+        public async Task AddNotificationLocations(Notification notification)
+        {
+            //returns null
+        }
+
         public async Task<Notification> UpdateNotification(Notification notification)
         {
             return notification;
