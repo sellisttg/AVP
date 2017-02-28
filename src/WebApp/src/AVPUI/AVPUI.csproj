@@ -98,6 +98,7 @@
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="GeoCode.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

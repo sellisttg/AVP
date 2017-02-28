@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <link href="/Content/site.css" rel="stylesheet" />
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
 </head>
 <body>
     <div ng-app="AVPApp" ng-controller="AVPController">
@@ -108,6 +115,9 @@
         <!--Incidents and Notifications-->
         <div class="container body-content" style="min-height:300px" ng-show="isAuthenticated && currentPage==pages.Incidents">
             <h2>Incidents and Notifications</h2>
+            <iframe>
+
+            </iframe>
         </div>
         <!--Edit Profile/Register-->
         <div class="container body-content" style="min-height:300px" ng-show="(isAuthenticated && currentPage==pages.UserProfile) || isRegistering">
@@ -218,13 +228,7 @@
             </footer>
         </div>
     </div>
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>-->
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js" crossorigin="anonymous"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYvmWjZ5DlycV7NGezSiO8JDM9jorO-I8&callback=geocode"></script>
     <script src="Thunderstruck.js"></script>
 </body>
 </html>
