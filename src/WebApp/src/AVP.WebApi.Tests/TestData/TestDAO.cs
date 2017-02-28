@@ -188,6 +188,11 @@ namespace AVP.WebApi.Tests.TestData
             user.UserID = 1;
             return user;
         }
+
+        public async Task<ApplicationUser> UpdateUserPassword(ApplicationUser user)
+        {
+            return user;
+        }
         #endregion users
 
         #region profiles

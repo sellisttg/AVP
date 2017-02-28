@@ -23,6 +23,10 @@ namespace AVP.WebApi.Tests.TestServices
         {
             return user;
         }
+        public async Task<ApplicationUser> ChangePassword(ApplicationUser user)
+        {
+            return user;
+        }
 
         public string GetUserNameFromToken(HttpContext context)
         {
