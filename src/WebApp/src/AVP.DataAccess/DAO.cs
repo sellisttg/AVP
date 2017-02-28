@@ -196,9 +196,15 @@ namespace AVP.DataAccess
         #region subscribers
         public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
         {
+            if(!string.IsNullOrEmpty(incident.Id))
+            {
+                incident = await GetIncidentByIdString(incident.Id);
+            }
+
             using (var db = new DBConnection())
             {
                 await db.Connection.OpenAsync();
+
                 foreach (Subscriber subscriber in subscribers)
                 {                   
                     var command = db.Connection.CreateCommand();
@@ -265,6 +271,38 @@ namespace AVP.DataAccess
         #endregion subscribers
 
         #region incidents
+        public async Task<Incident> GetIncidentByIdString(string id)
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"SELECT * FROM incident where id = @id LIMIT 1";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@id", Value = id, DbType = System.Data.DbType.String });
+
+                var reader = command.ExecuteReader();
+
+                Incident incident = new Incident();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        incident.Id = reader["id"].ToString();
+                        incident.Lat = Convert.ToDouble(reader["Latitude"]);
+                        incident.Long = Convert.ToDouble(reader["Longitude"]);
+                        incident.IncidentType = reader["incidenttype"].ToString();
+                        incident.IncidentName = reader["incidentname"].ToString();
+                        incident.Radius = Convert.ToInt32(reader["incidentradius"]);
+                        incident.IncidentID = Convert.ToInt32(reader["incidentid"]);
+                    }
+                }
+                return incident;
+            }
+
+        }
         public async Task<List<Incident>> GetAllIncidents()
         {
             using (var db = new DBConnection())
