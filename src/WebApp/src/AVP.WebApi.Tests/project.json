@@ -19,7 +19,9 @@
     "xunit.runner.console": "2.2.0",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
     "Microsoft.DotNet.InternalAbstractions": "1.0.0",
-    "Microsoft.AspNetCore.TestHost": "1.0.0"
+    "Microsoft.AspNetCore.TestHost": "1.0.0",
+    "Twilio": "5.0.2",
+    "Sendgrid": "9.0.12"
   },
 
   "frameworks": {

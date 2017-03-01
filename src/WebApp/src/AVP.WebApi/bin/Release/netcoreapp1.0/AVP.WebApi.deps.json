@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "137cfb52ba7b65525a8369eeb585065067822474"
+    "signature": "94d860baeceacf9641fe79077c344425df1d0f1f"
   },
   "compilationOptions": {
     "defines": [
@@ -30,14 +30,16 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "AVP.Models": "1.0.0",
-          "Microsoft.IdentityModel.Tokens": "5.1.0",
-          "System.IdentityModel.Tokens.Jwt": "5.1.0",
+          "Microsoft.IdentityModel.Tokens": "5.1.2",
+          "System.IdentityModel.Tokens.Jwt": "5.1.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.1.0",
           "Microsoft.AspNetCore.Mvc.WebApiCompatShim": "1.1.1",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
           "AVP.DataAccess": "1.0.0",
           "JsonWebTokens": "1.3.0",
-          "Swashbuckle.AspNetCore": "1.0.0-rc1"
+          "Swashbuckle.AspNetCore": "1.0.0-rc1",
+          "Twilio": "5.0.2",
+          "Sendgrid": "9.0.12"
         },
         "runtime": {
           "AVP.WebApi.dll": {}
@@ -1250,7 +1252,7 @@
           "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Logging/1.1.0": {
+      "Microsoft.IdentityModel.Logging/1.1.2": {
         "dependencies": {
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
@@ -1268,7 +1270,7 @@
         "dependencies": {
           "System.Collections.Specialized": "4.3.0",
           "System.Diagnostics.Contracts": "4.3.0",
-          "System.IdentityModel.Tokens.Jwt": "5.1.0",
+          "System.IdentityModel.Tokens.Jwt": "5.1.2",
           "System.Net.Http": "4.3.0"
         },
         "runtime": {
@@ -1290,9 +1292,9 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Tokens/5.1.0": {
+      "Microsoft.IdentityModel.Tokens/5.1.2": {
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "1.1.0",
+          "Microsoft.IdentityModel.Logging": "1.1.2",
           "Newtonsoft.Json": "9.0.1",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
@@ -1607,6 +1609,19 @@
             "rid": "ubuntu.16.10-x64",
             "assetType": "native"
           }
+        }
+      },
+      "Sendgrid/9.0.12": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/SendGrid.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/SendGrid.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/1.0.0-rc1": {
@@ -1950,9 +1965,9 @@
           "ref/netstandard1.3/System.Globalization.Extensions.dll": {}
         }
       },
-      "System.IdentityModel.Tokens.Jwt/5.1.0": {
+      "System.IdentityModel.Tokens.Jwt/5.1.2": {
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "5.1.0"
+          "Microsoft.IdentityModel.Tokens": "5.1.2"
         },
         "runtime": {
           "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {}
@@ -2892,6 +2907,22 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Twilio/5.0.2": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.1.2",
+          "Microsoft.IdentityModel.Tokens": "5.1.2",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.IdentityModel.Tokens.Jwt": "5.1.2"
+        },
+        "runtime": {
+          "lib/netstandard1.4/Twilio.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.4/Twilio.dll": {}
         }
       },
       "AVP.DataAccess/1.0.0": {
@@ -3979,10 +4010,10 @@
       "serviceable": true,
       "sha512": "sha512-YnUfcLe/FYL3Mft5HPv7dSSKfZZCZwLG2GQfv3vuxdY4AbWOYLqq/3wIPCNIrgMXvzralWdkESNsb9iw5gKdpg=="
     },
-    "Microsoft.IdentityModel.Logging/1.1.0": {
+    "Microsoft.IdentityModel.Logging/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Dv3G9GIdKyCc4xJjZECQosRJ9//4q/yXmb0vOUOjN1XpkCcHEt5UJ5S4zm8yJR+5tLODA159G2QtVNtK1RsAXw=="
+      "sha512": "sha512-QPMFfRVnRkCzGpEQz/YEPsbwUjAp5R1W2dpaXHlJJNA7fp9gV4m4TDKvvXhQnqdEL0a0luNrYFZrbz7NRI1rXQ=="
     },
     "Microsoft.IdentityModel.Protocols/2.1.0": {
       "type": "package",
@@ -3994,10 +4025,10 @@
       "serviceable": true,
       "sha512": "sha512-ZqlqwWZ3ce1v/ivSnfMSTfSlZqM6lZbN6BhnwF92ZNvtFMWKp5cpymlzxEx0h7qzGHf15fEQZGWe7rLHx//tQw=="
     },
-    "Microsoft.IdentityModel.Tokens/5.1.0": {
+    "Microsoft.IdentityModel.Tokens/5.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Hg1+IbP0F9oQ8qIxQobKoOczrwufYMNHrSXj+xF1+4VCpvymhyvpVcgLqi5GOie1qcQYp/yBy04dpBImemVXKg=="
+      "sha512": "sha512-m7UP4iY/dWfVwDNNSVGvZV6r4PwflaK++sYQsTTGAMILYb5IJ4Z4rKJRCA0uKjo6jTcdWlQxyPsxoEVwjqPKqQ=="
     },
     "Microsoft.Net.Http/2.2.22": {
       "type": "package",
@@ -4124,6 +4155,11 @@
       "serviceable": true,
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg=="
     },
+    "Sendgrid/9.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q5BsJkTagvSPPrFseCXnZvyLjkBPLigezvpzyPkx3ztGRPhL6u2NimooMkIx5ugscP22gJ/z3lKl6yYlGUQpeg=="
+    },
     "Swashbuckle.AspNetCore/1.0.0-rc1": {
       "type": "package",
       "serviceable": true,
@@ -4244,10 +4280,10 @@
       "serviceable": true,
       "sha512": "sha512-FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ=="
     },
-    "System.IdentityModel.Tokens.Jwt/5.1.0": {
+    "System.IdentityModel.Tokens.Jwt/5.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oMcOZ0/7seZYkv8yRPBlfHyc7K/33TS0hVtshvOAiH9rHWqCb3htq4mEbOtqMTo45pzblcm10ArpERlZrSS69A=="
+      "sha512": "sha512-wneX9Rv1p8zXNQ8v3mzKPlja3dP0dQY0Ea/0KUtCtlyqB9WtYoEWxTidqgq5iBHGvG5p/yuFKfedgvt2y68HpA=="
     },
     "System.IO/4.3.0": {
       "type": "package",
@@ -4508,6 +4544,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q=="
+    },
+    "Twilio/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XMYwCrpfFNBAB74dMQkvBx9vXCw0h1b9U7TfeM4VUa74oS/kHaYKY+atoB78YPg8/xC5hkqcuSXD8DfJxcAisg=="
     },
     "AVP.DataAccess/1.0.0": {
       "type": "project",
