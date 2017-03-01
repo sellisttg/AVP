@@ -161,7 +161,7 @@ app.controller('AVPController'
                 //Geocode address to get Lat and Long, then save address
                 var geocoder = new google.maps.Geocoder();
                 var lat, lon;
-                var address = $scope.userProfile.streetAddress + ", " + $scope.userProfile.city + ", " + $scope.userProfile.state + " " + $scope.userProfile.zip;
+                var address = $scope.userProfile.address.streetAddress + ", " + $scope.userProfile.address.city + ", " + $scope.userProfile.address.state + " " + $scope.userProfile.address.zipCode;
                 geocoder.geocode({ 'address': address }, function (results, status) {
                     if (status === 'OK') {
                         lat = results[0].geometry.location.lat();
@@ -219,22 +219,6 @@ app.controller('AVPController'
                 })
             }
         }
-    }
-    $scope.GetGeoCode = function (address) {
-        //var map = new google.maps.Map();
-        var geocoder = new google.maps.Geocoder();
-        //var address = "2015 J Street Sacramento CA";
-        var lat, lon;
-        geocoder.geocode({ 'address': address }, function (results, status) {
-            if (status === 'OK') {
-                lat = results[0].geometry.location.lat();
-                lon = results[0].geometry.location.lng();
-                return { latitude: lat, longitude: lon, message: "" }
-                //alert('lat::::(' + lat + ",lon:::::" + lon + ')');
-            } else {
-                return { latitude: 0, longitude: 0, message: "Geocode failed to get lat and long for this address." }
-            }
-        });
     }
     $scope.SaveEmailAddress = function () {
         if ($scope.userProfile.emailAddress.emailAddress.length > 0) {

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>Trinity Map Plug-in</title>
+
+  <!--Load Style Sheets-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="/Content/site.css" rel="stylesheet" />
+
+  <!-- Load Leaflet from CDN-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="./Content/ThunderstruckMap.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.0.7"></script>
+
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.3/dist/esri-leaflet-geocoder.css">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.3"></script>
+</head>
+<body>
+    <div id="legend">
+        <label class="control-label row">Select an Incident Type:</label>
+        <div class="row">
+            <div class="col-md-1">&nbsp;</div>
+            <div class="col-md-10">
+                <div class="row">
+                    <input type="radio" name="incidentType" id="EarthQuake" value="EarthQuake">
+                    <label class="control-label" style="font-size:12px" for="EarthQuake">EarthQuake</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="incidentType" id="Tsunami" value="Tsunami" checked="true">
+                    <label class="control-label" style="font-size:12px" for="Tsunami">Tsunami</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="incidentType" id="NaturalHazards" value="NaturalHazards">
+                    <label class="control-label" style="font-size:12px" for="NaturalHazards">Natural Hazards</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="incidentType" id="WeatherHazards" value="WeatherHazards">
+                    <label class="control-label" style="font-size:12px" for="WeatherHazards">Weather Hazards</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="incidentType" id="Fire" value="Fire">
+                    <label class="control-label" style="font-size:12px" for="Fire">Fire</label>
+                </div>
+                <div class="row">
+                    <input type="radio" name="incidentType" id="Flood" value="Flood">
+                    <label class="control-label" style="font-size:12px" for="Flood">Flood</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <label class="control-label">
+                Click on the map to draw an area with a radius of
+                <select id="ddlRadius" name="radius">
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="50" selected="selected">50</option>
+                    <option value="100">100</option>
+                    <option value="150">150</option>
+                    <option value="200">200</option>
+                    <option value="250">250</option>
+                    <option value="300">300</option>
+                    <option value="350">350</option>
+                    <option value="400">400</option>
+                </select>
+                Miles
+            </label>
+        </div>
+        <div class="row">
+            <button class="btn btn-success" style="width:200px; align-content:center;" onclick="pointsInCircle()">Show Affected Subscribers</button></p>
+        </div>
+        <div class="row">
+            <button class="btn btn-warning" style="width:200px" onclick="ShowAllSubscribers()">Show All Subscribers</button></p>
+        </div>
+        <div class="row">
+            <button class="btn btn-danger" style="width:200px" onclick="showPreviousAffectionNotifications()">Show Previous Notifications</button></p>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" style="width:200px" onclick="clearCircleAndMarker()">Clear Map</button></p>
+        </div>
+        <div id="noOfAffectedusers">
+        </div>
+    </div>
+    <div id="map"></div>
+    <script src="ThunderstruckMap.js"></script>
+</body>
+</html>

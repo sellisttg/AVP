@@ -98,6 +98,7 @@
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\ThunderstruckMap.css" />
     <Content Include="GeoCode.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -114,6 +115,8 @@
   <ItemGroup>
     <Content Include="Thunderstruck.html" />
     <Content Include="Thunderstruck.js" />
+    <Content Include="ThunderstruckMap.html" />
+    <Content Include="ThunderstruckMap.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
