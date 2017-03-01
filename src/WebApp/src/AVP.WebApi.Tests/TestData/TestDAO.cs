@@ -170,7 +170,7 @@ namespace AVP.WebApi.Tests.TestData
             {
                 Id = "Tsu470731",
                 Lat = 37.788,
-                Long = -119.718,
+                Lon = -119.718,
                 IncidentType = "Tsunami",
                 Radius = 30
             });
