@@ -28,6 +28,7 @@ app.controller('AVPController'
         , username: ""
         , password: ""
         , confirmPassword: ""
+        , name: ""
         , optIn: { optInEmail: true, optInSMS: true, optInPush: true }
         , address: { userAddressID: 0, streetAddress: "", city: "", state: "", zipCode: "" }
         , emailAddress: {emailAddressID: 0, emailAddress: ""}
@@ -54,6 +55,12 @@ app.controller('AVPController'
                 //default role to Administrator index=id-1
                 $scope.currentRole = $scope.roles[4];
                 $scope.GetUserProfile();
+                document.getElementById('MapFrame').contentWindow.setAuthToken($scope.authToken);
+                /* Add this to map script
+                function setAuthToken(token) {
+                    key = token;
+                }
+                */
                 $scope.error = "";
             })
             .catch(function (error) {
@@ -100,6 +107,7 @@ app.controller('AVPController'
             function (response) {
                 $scope.userProfile.username = response.data.userName;
                 $scope.userProfile.userID = response.data.userID;
+                $scope.userProfile.name = "";
                 $scope.userProfile.optIn.optInEmail = response.data.emailOptIn;
                 $scope.userProfile.optIn.optInSMS = response.data.smsOptIn;
                 $scope.userProfile.optIn.optInPush = response.data.pushOptIn;

@@ -6,7 +6,8 @@ app.controller('AVPController'
     /************************************************************/
     //constants
     $scope.baseUrl = "http://avp2017webapp.azurewebsites.net/api";
-
+    //$scope.baseUrl = "http://localhost:57123/api";
+    
     //self-explanatory
     $scope.isAuthenticated = false;
     $scope.currentRole;
@@ -83,6 +84,7 @@ app.controller('AVPController'
             , emailoptin: $scope.userProfile.optIn.optInEmail
             , smsoptin: $scope.userProfile.optIn.optInSMS
             , pushoptin: $scope.userProfile.optIn.optInPush
+            , name: $scope.userProfile.name
         };
         $scope.error = "";
         $http.post(url, postdata)
@@ -107,7 +109,7 @@ app.controller('AVPController'
             function (response) {
                 $scope.userProfile.username = response.data.userName;
                 $scope.userProfile.userID = response.data.userID;
-                $scope.userProfile.name = "";
+                $scope.userProfile.name = response.data.name;
                 $scope.userProfile.optIn.optInEmail = response.data.emailOptIn;
                 $scope.userProfile.optIn.optInSMS = response.data.smsOptIn;
                 $scope.userProfile.optIn.optInPush = response.data.pushOptIn;
@@ -161,6 +163,7 @@ app.controller('AVPController'
             , smsoptin: $scope.userProfile.optIn.optInSMS
             , emailoptin: $scope.userProfile.optIn.optInEmail
             , pushoptin: $scope.userProfile.optIn.optInPush
+            , name: $scope.userProfile.name
         };
         $scope.error = "";
         $http.post(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
