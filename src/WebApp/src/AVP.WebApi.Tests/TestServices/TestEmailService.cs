@@ -12,10 +12,10 @@ namespace AVP.WebApi.Tests.TestServices
 {
     public class TestEmailService : IEmailService
     {
-        public async Task<int> SendEmailForNotification(Notification notification, List<UserEmailLocation> locations)
+        public Task<int> SendEmailForNotification(Notification notification, List<UserEmailLocation> locations)
         {
             //don't send any messages, just assume the happy path
-            return 0;
+            return Task.FromResult(0);
         }
     }
 }

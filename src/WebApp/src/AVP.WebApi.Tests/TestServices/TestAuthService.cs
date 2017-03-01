@@ -19,13 +19,13 @@ namespace AVP.WebApi.Tests.TestServices
                         new Claim[] { }));
         }
 
-        public async Task<ApplicationUser> RegisterUser(ApplicationUser user)
+        public Task<ApplicationUser> RegisterUser(ApplicationUser user)
         {
-            return user;
+            return Task.FromResult(user);
         }
-        public async Task<ApplicationUser> ChangePassword(ApplicationUser user)
+        public Task<ApplicationUser> ChangePassword(ApplicationUser user)
         {
-            return user;
+            return Task.FromResult(user);
         }
 
         public string GetUserNameFromToken(HttpContext context)
