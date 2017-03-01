@@ -36,6 +36,8 @@ namespace AVP.WebApi.Controllers
                     incidents = await _dao.GetAllIncidents()
                 };
 
+                await _dao.GetSubscribersForIncidents(wrapper.incidents);
+
                 return new OkObjectResult(wrapper);
             }
             catch (Exception e)
@@ -92,7 +94,7 @@ namespace AVP.WebApi.Controllers
             try
             {
                 //add subscribers to the incident
-                await _dao.AddSubscribersToNotification(wrapper.SubscriberUnderNotification, wrapper.incident);
+                await _dao.AddSubscribersToIncident(wrapper.SubscriberUnderNotification);
                 //return all possible subscribers
                 return new OkObjectResult("Successfully added subscribers to incident");
             }

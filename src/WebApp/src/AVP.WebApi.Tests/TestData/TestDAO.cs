@@ -127,9 +127,12 @@ namespace AVP.WebApi.Tests.TestData
         }
         #endregion notifications
 
-
         #region subscribers
-        public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
+        public async Task<List<Incident>> GetSubscribersForIncidents(List<Incident> incidents)
+        {
+            return incidents;
+        }
+        public async Task AddSubscribersToIncident(List<Subscriber> subscribers)
         {
             //returns void, error handling is in controller
         }

@@ -14,5 +14,6 @@ namespace AVP.Models.Entities
         public string IncidentType { get; set; }
         public int Radius { get; set; }
         public string Id { get; set; }
+        public List<Subscriber> Subscribers { get; set; }
     }
 }

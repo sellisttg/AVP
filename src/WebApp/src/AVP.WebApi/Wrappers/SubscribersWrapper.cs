@@ -13,7 +13,6 @@ namespace AVP.WebApi.Wrappers
 
     public class SubscriberUnderNotificationWrapper
     {
-        public Incident incident { get; set; }
         public List<Subscriber> SubscriberUnderNotification { get; set; }
     }
 }

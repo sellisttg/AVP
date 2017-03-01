@@ -59,7 +59,8 @@ namespace AVP.DataAccess
 
         #region subscribers
         Task<List<Subscriber>> GetAllSubscribers();
-        Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident);
+        Task AddSubscribersToIncident(List<Subscriber> subscribers);
+        Task<List<Incident>> GetSubscribersForIncidents(List<Incident> incidents);
         #endregion subscribers
 
         #region notifications
@@ -80,7 +81,7 @@ namespace AVP.DataAccess
             await AddUserSmsLocations(notification);
             await AddUserPushLocations(notification);
         }
-       
+
         public async Task<List<Notification>> GetAllNotifications()
         {
             using (var db = new DBConnection())
@@ -105,9 +106,9 @@ namespace AVP.DataAccess
                             MessageDateTime = string.IsNullOrEmpty(reader["MessageDateTime"].ToString()) ? DateTime.Now : Convert.ToDateTime(reader["MessageDateTime"].ToString()),
                             SendingUserID = Convert.ToInt32(reader["SendingUserID"]),
                             IncidentID = Convert.ToInt32(reader["IncidentID"])
-                        };                          
+                        };
 
-                        notifications.Add(notification);                      
+                        notifications.Add(notification);
 
                     }
                 }
@@ -194,34 +195,87 @@ namespace AVP.DataAccess
         #endregion notifications
 
         #region subscribers
-        public async Task AddSubscribersToNotification(List<Subscriber> subscribers, Incident incident)
+        public async Task<List<Incident>> GetSubscribersForIncidents(List<Incident> incidents)
         {
-            if(!string.IsNullOrEmpty(incident.Id))
+            using (var db = new DBConnection())
             {
-                incident = await GetIncidentByIdString(incident.Id);
+                await db.Connection.OpenAsync();
+                //loop through each indicent and populate the respective subscriber data
+                foreach (Incident incident in incidents)
+                {
+                    var command = db.Connection.CreateCommand();
+                    command.CommandText = @"select up.UserID, ua.UserAddressID, ua.StreetAddress, ua.City, ua.State, ua.zip, ua.Latitude, ua.Longitude, up.Name, i.id as gisincidentid
+                                            from incidentsubscribers isubs 
+                                            left join useraddress ua on isubs.useraddressid = ua.useraddressid
+                                            left join userprofile up on ua.userid = up.userid
+                                            left join incident i on isubs.IncidentID = i.incidentid
+                                            where isubs.IncidentID = @incidentId;";
+
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentId", Value = incident.IncidentID, DbType = System.Data.DbType.Int32 });
+
+                    var reader = await command.ExecuteReaderAsync();
+
+                    //process the subscribers and add them to the incident list
+
+                    if (reader.HasRows)
+                    {
+                        incident.Subscribers = new List<Subscriber>();
+                        while (reader.Read())
+                        {
+
+
+                            int UserID = 0;
+                            int UserAddressID = 0;
+                            bool hasUserID = Int32.TryParse(reader["UserID"].ToString(), out UserID);
+                            bool hasUserAddressID = Int32.TryParse(reader["UserAddressID"].ToString(), out UserAddressID);
+                            if (hasUserID && hasUserAddressID)
+                            {
+                                Subscriber subscriber = new Subscriber();
+
+                                subscriber.SubscriberId = UserID;
+                                subscriber.AddressId = UserAddressID;
+                                subscriber.Address = $"{reader["StreetAddress"].ToString()} {reader["City"].ToString()}, {reader["State"].ToString()} {reader["Zip"].ToString()}";
+                                subscriber.Lat = Convert.ToDouble(reader["Latitude"]);
+                                subscriber.Lon = Convert.ToDouble(reader["Longitude"]);
+                                subscriber.Name = reader["Name"].ToString();
+                                subscriber.IncidentID = reader["gisincidentid"].ToString();
+
+                                incident.Subscribers.Add(subscriber);
+                            }
+
+                        }
+                    }
+                    reader.Dispose();
+                }
             }
 
+            return incidents;
+        }
+
+        public async Task AddSubscribersToIncident(List<Subscriber> subscribers)
+        {
             using (var db = new DBConnection())
             {
                 await db.Connection.OpenAsync();
 
                 foreach (Subscriber subscriber in subscribers)
-                {                   
+                {
                     var command = db.Connection.CreateCommand();
                     //insert only where not exists
                     command.CommandText = @"INSERT INTO incidentsubscribers (IncidentID, UserAddressID)
-                                            SELECT * FROM  (SELECT @incidentId, @userAddressId) AS tmp
+                                            SELECT * FROM  (SELECT (SELECT IncidentID FROM incident WHERE id = @incId LIMIT 1), @userAddressId) AS tmp
                                             WHERE NOT EXISTS (
-	                                            SELECT IncidentID, UserAddressID FROM incidentsubscribers WHERE IncidentID = @incidentId AND UserAddressID = @userAddressId
+	                                            SELECT IncidentID, UserAddressID FROM incidentsubscribers WHERE IncidentID = (SELECT IncidentID FROM incident WHERE id = @incId LIMIT 1) AND UserAddressID = @userAddressId
                                             ) LIMIT 1;";
 
-                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentId", Value = incident.IncidentID, DbType = System.Data.DbType.Int32 });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@incId", Value = subscriber.IncidentID, DbType = System.Data.DbType.Int32 });
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressId", Value = subscriber.AddressId, DbType = System.Data.DbType.Int32 });
 
                     await command.ExecuteNonQueryAsync();
-                }   
+                }
             }
         }
+
         public async Task<List<Subscriber>> GetAllSubscribers()
         {
             using (var db = new DBConnection())
@@ -242,13 +296,13 @@ namespace AVP.DataAccess
                 {
                     while (reader.Read())
                     {
-                        
+
 
                         int UserID = 0;
                         int UserAddressID = 0;
                         bool hasUserID = Int32.TryParse(reader["UserID"].ToString(), out UserID);
                         bool hasUserAddressID = Int32.TryParse(reader["UserAddressID"].ToString(), out UserAddressID);
-                        if(hasUserID && hasUserAddressID)
+                        if (hasUserID && hasUserAddressID)
                         {
                             Subscriber subscriber = new Subscriber();
 
@@ -261,7 +315,7 @@ namespace AVP.DataAccess
 
                             subscribers.Add(subscriber);
                         }
-                        
+
                     }
                 }
 
@@ -498,7 +552,7 @@ namespace AVP.DataAccess
             }
         }
         #endregion usersmslocation
-        
+
         #region userepushlocation
         public async Task<UserPushLocation> GetUserPushLocationById(int id)
         {
@@ -629,7 +683,7 @@ namespace AVP.DataAccess
             }
         }
         #endregion userpushlocation
-        
+
         #region useremaillocation
         public async Task<UserEmailLocation> GetUserEmailLocationById(int id)
         {
@@ -902,7 +956,7 @@ namespace AVP.DataAccess
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userID", Value = address.UserID, DbType = System.Data.DbType.Int32 });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userAddressID", Value = address.UserAddressID, DbType = System.Data.DbType.Int32 });
-                
+
                 int rows = await command.ExecuteNonQueryAsync();
 
                 if (rows > 0)
@@ -978,9 +1032,9 @@ namespace AVP.DataAccess
             {
                 await db.Connection.OpenAsync();
                 var command = db.Connection.CreateCommand();
-                
+
                 command.CommandText = @"UPDATE userprofile SET PasswordHash = @passwordHash WHERE Username = @userName";
-                
+
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = user.UserName, DbType = System.Data.DbType.String });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@passwordHash", Value = user.PasswordHash, DbType = System.Data.DbType.String });
 

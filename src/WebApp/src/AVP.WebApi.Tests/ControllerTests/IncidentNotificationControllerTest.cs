@@ -27,6 +27,7 @@ namespace AVP.WebApi.Tests.ControllerTests
     {
         private TestDAO _dao = new TestDAO();
         private TestAuthService _authService = new TestAuthService();
+
         [Fact]
         public async Task GetAllIncidents()
         {
@@ -63,14 +64,7 @@ namespace AVP.WebApi.Tests.ControllerTests
             var controller = new IncidentNotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
 
             SubscriberUnderNotificationWrapper wrapper = new SubscriberUnderNotificationWrapper();
-            wrapper.incident = new Incident()
-            {
-                Id = "Tsu470731",
-                Lat = 37.788,
-                Long = -119.718,
-                IncidentType = "Tsunami",
-                Radius = 30
-            };
+
             wrapper.SubscriberUnderNotification = await _dao.GetAllSubscribers();
 
             //Act
