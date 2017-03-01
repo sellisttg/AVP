@@ -74,7 +74,6 @@ https://papertrailapp.com/
 Jenkins /nagios?  
 https://app.google.stackdriver.com/  
 
-
 ###r.    Deployed  their  software  in  an  open  source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and 
 ###t.   Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
