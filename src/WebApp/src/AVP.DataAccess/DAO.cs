@@ -1012,7 +1012,7 @@ namespace AVP.DataAccess
                 command.CommandText = @"UPDATE userprofile SET EmailOptIn = @emailOptIn, Smsoptin = @smsOptIn, Pushoptin = @pushOptIn, Name = @Name WHERE Username = @userName ";
 
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@userName", Value = profile.UserName, DbType = System.Data.DbType.String });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "@Name", Value = profile.UserName, DbType = System.Data.DbType.String });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@Name", Value = profile.Name, DbType = System.Data.DbType.String });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@emailOptIn", Value = profile.EmailOptIn, DbType = System.Data.DbType.Boolean });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@smsOptIn", Value = profile.SmsOptIn, DbType = System.Data.DbType.Boolean });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "@pushOptIn", Value = profile.PushOptIn, DbType = System.Data.DbType.Boolean });
