@@ -14,6 +14,5 @@ System will track any recent notifications
 User can choose any role because there is not authentication process (yet)  
 
 Users will want to be able to track more than one location (more than one address)  
-
 User Interface cannot support this now (not yet)  
 Database can support this now  
