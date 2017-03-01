@@ -128,3 +128,5 @@ C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\bin\Microsoft.CodeDom.Pro
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.dll
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.pdb
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
+C:\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache

@@ -2,6 +2,11 @@
 Thumbs.db
 ehthumbs.db
 
+# Folders to ignore
+src/WebApp/src/AVP.WebApi/bin/
+src/WebApp/src/AVP.DataAccess/bin/
+src/WebApp/src/AVP.Models/bin/
+
 # Folder config file
 Desktop.ini
 

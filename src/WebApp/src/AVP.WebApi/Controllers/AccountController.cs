@@ -96,7 +96,11 @@ namespace AVP.WebApi.Controllers
             var jwt = await GetJWTForUser(identity);
             return new OkObjectResult(jwt);
         }
-
+        /// <summary>
+        /// Change user password. Requires authorization, verifies that the token user matches the user requested
+        /// </summary>
+        /// <param name="applicationUser">Application User serialized as JSON. Only requires username and password fields.</param>
+        /// <returns>Application User object</returns>
         [HttpPost("/api/v1/account/changepassword")]
         public async Task<IActionResult> ChangePassword([FromBody] ApplicationUser applicationUser)
         {
