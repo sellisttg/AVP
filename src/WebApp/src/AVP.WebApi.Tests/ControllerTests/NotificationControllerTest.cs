@@ -14,13 +14,15 @@ namespace AVP.WebApi.Tests.ControllerTests
     public class NotificationControllerTest
     {
         private TestDAO _dao = new TestDAO();
+        private TestSmsService _sms = new TestSmsService();
         private TestAuthService _authService = new TestAuthService();
+
 
         [Fact]
         public async Task GetAllNotifications()
         {
             //Arrange
-            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory(), _sms);
 
             //Act
             var result = await controller.GetAllNotifications();
@@ -33,7 +35,7 @@ namespace AVP.WebApi.Tests.ControllerTests
         public async Task GetNotificationById()
         {
             //Arrange
-            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory(), _sms);
 
             //Act
             var result = await controller.GetNotificationById(1);
@@ -54,7 +56,7 @@ namespace AVP.WebApi.Tests.ControllerTests
                 IncidentID = 1
             };
             //Arrange
-            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory(), _sms);
 
             //Act failure
             var result = await controller.UpdateNotification(notification);
@@ -75,7 +77,7 @@ namespace AVP.WebApi.Tests.ControllerTests
                 IncidentID = 1                
             };
             //Arrange
-            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory(), _sms);
 
             //Act success
             var result = await controller.CreateNotification(notification);
@@ -96,7 +98,7 @@ namespace AVP.WebApi.Tests.ControllerTests
                 IncidentID = 1
             };
             //Arrange
-            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory());
+            var controller = new NotificationController(_dao, _authService, new Microsoft.Extensions.Logging.LoggerFactory(), _sms);
 
             //Act success
             var result = await controller.SendNotification(notification);

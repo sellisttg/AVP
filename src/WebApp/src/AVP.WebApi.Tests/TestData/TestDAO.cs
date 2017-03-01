@@ -344,6 +344,7 @@ namespace AVP.WebApi.Tests.TestData
         #endregion userpushlocation
 
         #region usersmslocation
+
         public async Task<UserSmsLocation> GetUserSmsLocationById(int id)
         {
             return new UserSmsLocation()
@@ -353,6 +354,19 @@ namespace AVP.WebApi.Tests.TestData
                 UserID = 1,
                 PhoneNumber = 9165555555
             };
+        }
+        public async Task<List<UserSmsLocation>> GetUserSMSLocationsForNotification(Notification notification)
+        {
+            List<UserSmsLocation> smsList = new List<UserSmsLocation>();
+            smsList.Add(new UserSmsLocation()
+            {
+                UserSmsLocationID = 1,
+                UserAddressID = 1,
+                UserID = 1,
+                PhoneNumber = 9165555555
+            });
+
+            return smsList;
         }
         public async Task<List<UserSmsLocation>> GetUserSmsLocationsForUser(string userName)
         {

@@ -1412,7 +1412,7 @@
           "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Logging/1.1.0": {
+      "Microsoft.IdentityModel.Logging/1.1.2": {
         "type": "package",
         "dependencies": {
           "System.Diagnostics.Tracing": "4.3.0",
@@ -1455,10 +1455,10 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Tokens/5.1.0": {
+      "Microsoft.IdentityModel.Tokens/5.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "1.1.0",
+          "Microsoft.IdentityModel.Logging": "1.1.2",
           "Newtonsoft.Json": "9.0.1",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Tools": "4.3.0",
@@ -2477,10 +2477,10 @@
           }
         }
       },
-      "System.IdentityModel.Tokens.Jwt/5.1.0": {
+      "System.IdentityModel.Tokens.Jwt/5.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "5.1.0"
+          "Microsoft.IdentityModel.Tokens": "5.1.2"
         },
         "compile": {
           "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll": {}
@@ -4024,6 +4024,23 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Twilio/5.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.1.2",
+          "Microsoft.IdentityModel.Tokens": "5.1.2",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.IdentityModel.Tokens.Jwt": "5.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Twilio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Twilio.dll": {}
+        }
+      },
       "AVP.DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
@@ -5291,12 +5308,12 @@
         "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.xml"
       ]
     },
-    "Microsoft.IdentityModel.Logging/1.1.0": {
-      "sha512": "Dv3G9GIdKyCc4xJjZECQosRJ9//4q/yXmb0vOUOjN1XpkCcHEt5UJ5S4zm8yJR+5tLODA159G2QtVNtK1RsAXw==",
+    "Microsoft.IdentityModel.Logging/1.1.2": {
+      "sha512": "QPMFfRVnRkCzGpEQz/YEPsbwUjAp5R1W2dpaXHlJJNA7fp9gV4m4TDKvvXhQnqdEL0a0luNrYFZrbz7NRI1rXQ==",
       "type": "package",
-      "path": "Microsoft.IdentityModel.Logging/1.1.0",
+      "path": "Microsoft.IdentityModel.Logging/1.1.2",
       "files": [
-        "Microsoft.IdentityModel.Logging.1.1.0.nupkg.sha512",
+        "Microsoft.IdentityModel.Logging.1.1.2.nupkg.sha512",
         "Microsoft.IdentityModel.Logging.nuspec",
         "lib/net451/Microsoft.IdentityModel.Logging.dll",
         "lib/netstandard1.4/Microsoft.IdentityModel.Logging.dll"
@@ -5328,12 +5345,12 @@
         "lib/netstandard1.4/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml"
       ]
     },
-    "Microsoft.IdentityModel.Tokens/5.1.0": {
-      "sha512": "Hg1+IbP0F9oQ8qIxQobKoOczrwufYMNHrSXj+xF1+4VCpvymhyvpVcgLqi5GOie1qcQYp/yBy04dpBImemVXKg==",
+    "Microsoft.IdentityModel.Tokens/5.1.2": {
+      "sha512": "m7UP4iY/dWfVwDNNSVGvZV6r4PwflaK++sYQsTTGAMILYb5IJ4Z4rKJRCA0uKjo6jTcdWlQxyPsxoEVwjqPKqQ==",
       "type": "package",
-      "path": "Microsoft.IdentityModel.Tokens/5.1.0",
+      "path": "Microsoft.IdentityModel.Tokens/5.1.2",
       "files": [
-        "Microsoft.IdentityModel.Tokens.5.1.0.nupkg.sha512",
+        "Microsoft.IdentityModel.Tokens.5.1.2.nupkg.sha512",
         "Microsoft.IdentityModel.Tokens.nuspec",
         "lib/net451/Microsoft.IdentityModel.Tokens.dll",
         "lib/net451/Microsoft.IdentityModel.Tokens.xml",
@@ -7159,12 +7176,12 @@
         "runtimes/win/lib/netstandard1.3/System.Globalization.Extensions.dll"
       ]
     },
-    "System.IdentityModel.Tokens.Jwt/5.1.0": {
-      "sha512": "oMcOZ0/7seZYkv8yRPBlfHyc7K/33TS0hVtshvOAiH9rHWqCb3htq4mEbOtqMTo45pzblcm10ArpERlZrSS69A==",
+    "System.IdentityModel.Tokens.Jwt/5.1.2": {
+      "sha512": "wneX9Rv1p8zXNQ8v3mzKPlja3dP0dQY0Ea/0KUtCtlyqB9WtYoEWxTidqgq5iBHGvG5p/yuFKfedgvt2y68HpA==",
       "type": "package",
-      "path": "System.IdentityModel.Tokens.Jwt/5.1.0",
+      "path": "System.IdentityModel.Tokens.Jwt/5.1.2",
       "files": [
-        "System.IdentityModel.Tokens.Jwt.5.1.0.nupkg.sha512",
+        "System.IdentityModel.Tokens.Jwt.5.1.2.nupkg.sha512",
         "System.IdentityModel.Tokens.Jwt.nuspec",
         "lib/net451/System.IdentityModel.Tokens.Jwt.dll",
         "lib/net451/System.IdentityModel.Tokens.Jwt.xml",
@@ -10705,6 +10722,21 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "Twilio/5.0.2": {
+      "sha512": "XMYwCrpfFNBAB74dMQkvBx9vXCw0h1b9U7TfeM4VUa74oS/kHaYKY+atoB78YPg8/xC5hkqcuSXD8DfJxcAisg==",
+      "type": "package",
+      "path": "Twilio/5.0.2",
+      "files": [
+        "Twilio.5.0.2.nupkg.sha512",
+        "Twilio.nuspec",
+        "lib/net35/Twilio.dll",
+        "lib/net35/Twilio.xml",
+        "lib/net451/Twilio.dll",
+        "lib/net451/Twilio.xml",
+        "lib/netstandard1.4/Twilio.dll",
+        "lib/netstandard1.4/Twilio.xml"
+      ]
+    },
     "AVP.DataAccess/1.0.0": {
       "type": "project",
       "path": "../AVP.DataAccess/project.json",
@@ -10736,10 +10768,11 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
-      "Microsoft.IdentityModel.Tokens >= 5.1.0",
+      "Microsoft.IdentityModel.Tokens >= 5.1.2",
       "Microsoft.NETCore.App >= 1.0.1",
       "Swashbuckle.AspNetCore >= 1.0.0-rc1",
-      "System.IdentityModel.Tokens.Jwt >= 5.1.0"
+      "System.IdentityModel.Tokens.Jwt >= 5.1.2",
+      "Twilio >= 5.0.2"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

@@ -17,11 +17,13 @@ namespace AVP.WebApi.Controllers
     public class NotificationController : IBaseController
     {
         private IDAO _dao;
+        private ISmsService _sms;
         private readonly ILogger _logger;
         private IAuthService _authService;
 
-        public NotificationController(IDAO dao, IAuthService authService, ILoggerFactory loggerFactory)
+        public NotificationController(IDAO dao, IAuthService authService, ILoggerFactory loggerFactory, ISmsService sms)
         {
+            _sms = sms;
             _dao = dao;
             _authService = authService;
         }
@@ -90,7 +92,10 @@ namespace AVP.WebApi.Controllers
             {
                 await _dao.AddNotificationLocations(notification);
 
-                return new OkObjectResult($"Notified users");
+                List<UserSmsLocation> smsLocations = await _dao.GetUserSMSLocationsForNotification(notification);
+                int smsSent = await _sms.SendSmsForNotification(notification, smsLocations);
+
+                return new OkObjectResult($"Notified {smsSent} users of {smsLocations.Count} via SMS.");
             }
             catch (Exception e)
             {

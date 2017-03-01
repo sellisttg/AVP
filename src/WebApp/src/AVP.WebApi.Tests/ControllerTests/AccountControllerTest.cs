@@ -23,11 +23,9 @@ namespace AVP.WebApi.Tests
 {
     public class AccountControllerTest
     {
-        private JsonSerializerSettings _serializerSettings;
         private IAuthService _authService = new TestAuthService();
 
-        private HttpResponseMessage _response;
-        private string _token;
+
         private const string ServiceBaseURL = "http://localhost:57123/";
         private const string SecretKey = "needtogetthisfromenvironment";
         private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));

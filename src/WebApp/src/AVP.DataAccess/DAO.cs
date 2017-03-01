@@ -50,6 +50,7 @@ namespace AVP.DataAccess
         #endregion userpushlocation
 
         #region usersmslocation
+        Task<List<UserSmsLocation>> GetUserSMSLocationsForNotification(Notification notification);
         Task<UserSmsLocation> GetUserSmsLocationById(int id);
         Task<List<UserSmsLocation>> GetUserSmsLocationsForUser(string userName);
         Task<UserSmsLocation> UpdateUserSmsLocation(UserSmsLocation smsLoc);
@@ -423,6 +424,41 @@ namespace AVP.DataAccess
         #endregion incidents
 
         #region usersmslocation
+        public async Task<List<UserSmsLocation>> GetUserSMSLocationsForNotification(Notification notification)
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"SELECT usl.usersmslocationid, usl.userid, usl.phonenumber, usl.useraddressid FROM usersmslocation usl left join notificationsmslocation nsl on usl.usersmslocationid = nsl.usersmslocationid WHERE nsl.notificationid = @notificationId";
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@notificationId", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+
+                var reader = command.ExecuteReader();
+
+
+                List<UserSmsLocation> userLocs = new List<UserSmsLocation>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        UserSmsLocation smsLoc = new UserSmsLocation()
+                        {
+                            UserSmsLocationID = Convert.ToInt32(reader["UserSmsLocationID"]),
+                            UserID = Convert.ToInt32(reader["UserID"]),
+                            PhoneNumber = Convert.ToInt64(reader["PhoneNumber"]),
+                            UserAddressID = Convert.ToInt32(reader["UserAddressID"])
+                        };
+
+                        userLocs.Add(smsLoc);
+                    }
+                }
+
+                return userLocs;
+            }
+        }
         public async Task<UserSmsLocation> GetUserSmsLocationById(int id)
         {
             using (var db = new DBConnection())
