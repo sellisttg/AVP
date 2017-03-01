@@ -45,6 +45,11 @@ namespace AVP.WebApi.Controllers
             };
         }
 
+        /// <summary>
+        /// Register new user from an application user object.
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [Route("/api/v1/sessions/register")]
@@ -81,6 +86,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// User log in.
+        /// </summary>
+        /// <param name="applicationUser">Requres an Application User formatted object. Only username and password are required.</param>
+        /// <returns>JSON formatted JWT token.</returns>
         [HttpPost]
         [AllowAnonymous]
         [Route("/api/v1/sessions")]
@@ -116,6 +126,11 @@ namespace AVP.WebApi.Controllers
             return new OkObjectResult(user);
         }
 
+        /// <summary>
+        /// Generates a JWT Token for a given user's ClaimsIdentity
+        /// </summary>
+        /// <param name="user">ClaimsIdentity populated with the user's claims</param>
+        /// <returns>JWT Token as string</returns>
         private async Task<string> GetJWTForUser(ClaimsIdentity user)
         {
             //return a JWT
@@ -152,7 +167,10 @@ namespace AVP.WebApi.Controllers
             return JsonConvert.SerializeObject(response, _serializerSettings);
             //return new OkObjectResult(json);
         }
-
+        /// <summary>
+        /// Checks for errors in JWT Configuration and throws errors accordingly.
+        /// </summary>
+        /// <param name="options">JWT Token parameters.</param>
         private static void ThrowIfInvalidOptions(JwtIssuerOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));

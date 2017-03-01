@@ -6,6 +6,8 @@ ehthumbs.db
 src/WebApp/src/AVP.WebApi/bin/
 src/WebApp/src/AVP.DataAccess/bin/
 src/WebApp/src/AVP.Models/bin/
+*.pdb
+*.dll
 
 # Folder config file
 Desktop.ini
