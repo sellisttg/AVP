@@ -12,6 +12,9 @@ using AVP.WebApi.Services;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all profile actions
+    /// </summary>
     [Route("api/[controller]")]
     public class ProfileController : IBaseController
     {
@@ -19,13 +22,21 @@ namespace AVP.WebApi.Controllers
         private IDAO _dao;
         private IAuthService _authService; 
 
+        /// <summary>
+        /// Constructor for Profile Controller. Configures IDAO and IAuthService implementations for use by the class
+        /// </summary>
+        /// <param name="dao">IDAO</param>
+        /// <param name="authService">IAuthService</param>
         public ProfileController(IDAO dao, IAuthService authService)
         {
             _dao = dao;
             _authService = authService;
         }
 
-        // GET api/values/5
+        /// <summary>
+        /// Get profile for logged in user
+        /// </summary>
+        /// <returns>UserProfile</returns>
         [HttpGet("/api/v1/profile")]
         public async Task<IActionResult> Get()
         {
@@ -41,7 +52,11 @@ namespace AVP.WebApi.Controllers
             }            
         }
 
-        // POST api/values
+        /// <summary>
+        /// Update UserProfile 
+        /// </summary>
+        /// <param name="profile">UserProfile</param>
+        /// <returns>UserProfile</returns>
         [HttpPost("/api/v1/profile")]
         public async Task<IActionResult> Post([FromBody]UserProfile profile)
         {

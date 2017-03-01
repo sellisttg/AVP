@@ -6,6 +6,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace AVP.WebApi.Config
 {
+    /// <summary>
+    /// Configuration class for JWT Issuer Options
+    /// </summary>
     public class JwtIssuerOptions
     {
         /// <summary>

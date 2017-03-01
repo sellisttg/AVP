@@ -10,18 +10,28 @@ using AVP.Models.Entities;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all UserSmsLocation actions
+    /// </summary>
     [Route("api/[controller]")]
     public class UserSmsLocationController : IBaseController
     {
         private IDAO _dao;
         private IAuthService _authService;
-
+        /// <summary>
+        /// Constructor for UserSMSLocationController.
+        /// </summary>
+        /// <param name="dao">Data Access Object Service</param>
+        /// <param name="authService">User Authentication Service</param>
         public UserSmsLocationController(IDAO dao, IAuthService authService)
         {
             _dao = dao;
             _authService = authService;
         }
-
+        /// <summary>
+        /// Get all UserSmsLocations for the logged in user
+        /// </summary>
+        /// <returns>List of UserSmsLocations</returns>
         [HttpGet("/api/v1/smslocation/")]
         public async Task<IActionResult> Get()
         {
@@ -37,7 +47,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        /// <summary>
+        /// Get a UserSmsLocation object by id.
+        /// </summary>
+        /// <param name="id">Id of User Sms Location</param>
+        /// <returns>Requested UserSmsLocation object</returns>
         [HttpGet("/api/v1/smslocation/{id}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -54,7 +68,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Update UserSmsLocation
+        /// </summary>
+        /// <param name="smsLoc">UserSmsLocation to update</param>
+        /// <returns>Updated UserSmsLocation</returns>
         [HttpPost("/api/v1/smslocation/")]
         public async Task<IActionResult> Post([FromBody]UserSmsLocation smsLoc)
         {
@@ -71,7 +89,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Add new User SMS Location
+        /// </summary>
+        /// <param name="smsLoc">UserSmsLocation Object to add</param>
+        /// <returns>Inserted UserSmsLocation object with Id</returns>
         [HttpPut("/api/v1/smslocation/")]
         public async Task<IActionResult> Put([FromBody]UserSmsLocation smsLoc)
         {
@@ -88,7 +110,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Delete UserSmsLocationObject
+        /// </summary>
+        /// <param name="smsLoc">UserSmsLocationObject to delete</param>
+        /// <returns>Success or failure string</returns>
         [HttpDelete("/api/v1/smslocation/")]
         public async Task<IActionResult> Delete([FromBody]UserSmsLocation smsLoc)
         {

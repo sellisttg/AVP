@@ -20,6 +20,9 @@ using AVP.WebApi.Services;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all Account related actions
+    /// </summary>
     [Route("api/[controller]")]
     public class AccountController : IBaseController
     {
@@ -29,7 +32,12 @@ namespace AVP.WebApi.Controllers
 
         private IAuthService _authService;
 
-
+        /// <summary>
+        /// Constructor handles inection of services and options
+        /// </summary>
+        /// <param name="jwtOptions">JWT Server configuration options</param>
+        /// <param name="loggerFactory">ILoggerFactory</param>
+        /// <param name="authService">IAuthService</param>
         public AccountController(IOptions<JwtIssuerOptions> jwtOptions, ILoggerFactory loggerFactory, IAuthService authService)
         {
             _authService = authService;
@@ -48,8 +56,8 @@ namespace AVP.WebApi.Controllers
         /// <summary>
         /// Register new user from an application user object.
         /// </summary>
-        /// <param name="applicationUser"></param>
-        /// <returns></returns>
+        /// <param name="applicationUser">Application user with username and password.</param>
+        /// <returns>JWT Token for user login.</returns>
         [HttpPost]
         [AllowAnonymous]
         [Route("/api/v1/sessions/register")]

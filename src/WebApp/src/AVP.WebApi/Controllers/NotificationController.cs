@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all Notification actions
+    /// </summary>
     [Route("api/[controller]")]
     public class NotificationController : IBaseController
     {
@@ -22,6 +25,14 @@ namespace AVP.WebApi.Controllers
         private readonly ILogger _logger;
         private IAuthService _authService;
 
+        /// <summary>
+        /// Controller for all Notification actions
+        /// </summary>
+        /// <param name="dao">IDAO</param>
+        /// <param name="authService">IAuthService</param>
+        /// <param name="loggerFactory">ILoggerFactory</param>
+        /// <param name="sms">ISmsService</param>
+        /// <param name="email">IEmailService</param>
         public NotificationController(IDAO dao, IAuthService authService, ILoggerFactory loggerFactory, ISmsService sms, IEmailService email)
         {
             _sms = sms;
@@ -30,6 +41,10 @@ namespace AVP.WebApi.Controllers
             _authService = authService;
         }
 
+        /// <summary>
+        /// Get All Notifications
+        /// </summary>
+        /// <returns>List of Notification objects</returns>
         [HttpGet("/api/v1/notification")]
         public async Task<IActionResult> GetAllNotifications()
         {
@@ -44,6 +59,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Get Notification By Id
+        /// </summary>
+        /// <param name="id">int</param>
+        /// <returns>Notification</returns>
         [HttpGet("/api/v1/notification/{id}")]
         public async Task<IActionResult> GetNotificationById(int id)
         {
@@ -58,6 +78,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Add new Notification
+        /// </summary>
+        /// <param name="notification">Notification</param>
+        /// <returns>Notification</returns>
         [HttpPost("/api/v1/notification/new")]
         public async Task<IActionResult> CreateNotification([FromBody]Notification notification)
         {
@@ -72,7 +97,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Update Notification
+        /// </summary>
+        /// <param name="notification">Notification</param>
+        /// <returns>Notification</returns>
         [HttpPost("/api/v1/notification/update")]
         public async Task<IActionResult> UpdateNotification([FromBody]Notification notification)
         {
@@ -87,6 +116,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Send Notification to all subscribed users
+        /// </summary>
+        /// <param name="notification">Notification</param>
+        /// <returns>Success or failure string. Failure returns a 400 response</returns>
         [HttpPost("/api/v1/notification/send")]
         public async Task<IActionResult> SendNotification([FromBody]Notification notification)
         {

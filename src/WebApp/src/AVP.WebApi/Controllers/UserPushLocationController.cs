@@ -10,18 +10,28 @@ using AVP.Models.Entities;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all UserPushLocation actions
+    /// </summary>
     [Route("api/[controller]")]
     public class UserPushLocationController : IBaseController
     {
         private IDAO _dao;
         private IAuthService _authService;
-
+        /// <summary>
+        /// Constructor for UserPushLocationController. Initializes instances of IDAO and IAuthService via dependency injection.
+        /// </summary>
+        /// <param name="dao"></param>
+        /// <param name="authService"></param>
         public UserPushLocationController(IDAO dao, IAuthService authService)
         {
             _dao = dao;
             _authService = authService;
         }
-
+        /// <summary>
+        /// Get all UserPushLocations for the logged in user.
+        /// </summary>
+        /// <returns>UserPushLocations for the logged in user.</returns>
         [HttpGet("/api/v1/pushlocation/")]
         public async Task<IActionResult> Get()
         {
@@ -37,7 +47,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        /// <summary>
+        /// Get UserPushLocation by id.
+        /// </summary>
+        /// <param name="id">Id of requested UserPushLocation</param>
+        /// <returns>UserPushLocation</returns>
         [HttpGet("/api/v1/pushlocation/{id}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -54,7 +68,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Update UserPushLocation.
+        /// </summary>
+        /// <param name="pushLoc">UserPushLocation to be updated</param>
+        /// <returns>Updated UserPushLocation</returns>
         [HttpPost("/api/v1/pushlocation/")]
         public async Task<IActionResult> Post([FromBody]UserPushLocation pushLoc)
         {
@@ -71,7 +89,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Insert new UserPushLocation
+        /// </summary>
+        /// <param name="pushLoc">UserPushLocation to insert</param>
+        /// <returns>Inserted UserPushLocation</returns>
         [HttpPut("/api/v1/pushlocation/")]
         public async Task<IActionResult> Put([FromBody]UserPushLocation pushLoc)
         {
@@ -88,7 +110,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Delete UserPushLocation
+        /// </summary>
+        /// <param name="pushLoc">UserPushLocation to delete</param>
+        /// <returns>Success or failure string (400 reponse for failure)</returns>
         [HttpDelete("/api/v1/pushlocation/")]
         public async Task<IActionResult> Delete([FromBody]UserPushLocation pushLoc)
         {

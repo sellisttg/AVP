@@ -15,11 +15,20 @@ using AVP.WebApi.Services;
 using AVP.WebApi.Config;
 using AVP.DataAccess;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.Extensions.PlatformAbstractions;
+using System.IO;
 
 namespace AVP.WebApi
 {
+    /// <summary>
+    /// Initial startup class that handles are service configuration and injection.
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Initial startup and build of service
+        /// </summary>
+        /// <param name="env"></param>
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -36,14 +45,19 @@ namespace AVP.WebApi
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-
+        /// <summary>
+        /// Root configuration object for the application
+        /// </summary>
         public IConfigurationRoot Configuration { get; }
 
         //todo: move this to web.conf or other env var if it stays, don't leave it here
         private const string SecretKey = "needtogetthisfromenvironment";
         private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
 
-        // This method gets called by the runtime. Use this method to add services to the container
+        /// <summary>
+        /// Configure services and objects for dependency injection
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
@@ -93,10 +107,21 @@ namespace AVP.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Thunderstruck API", Version = "v1" });
+
+                //Set the comments path for the swagger json and ui.
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var xmlPath = Path.Combine(basePath, "AVP.WebApi.xml");
+                c.IncludeXmlComments(xmlPath);
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
+        // 
+        /// <summary>
+        /// This method gets called by the runtime. Used to configure the HTTP request pipeline
+        /// </summary>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="env">IHostingEnvironment</param>
+        /// <param name="loggerFactory">ILoggerFactory</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));

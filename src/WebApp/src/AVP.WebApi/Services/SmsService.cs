@@ -11,17 +11,31 @@ using Twilio.Types;
 namespace AVP.WebApi.Services
 {
 
-
+    /// <summary>
+    /// Interface for AVP SMS Service
+    /// </summary>
     public interface ISmsService
     {
+        /// <summary>
+        /// Send SMS messages based on list of locations and notification.
+        /// </summary>
+        /// <param name="notification">Notification</param>
+        /// <param name="locations">List of UserSmsLocation</param>
+        /// <returns></returns>
         Task<int> SendSmsForNotification(Notification notification, List<UserSmsLocation> locations);
     }
+    /// <summary>
+    /// Implementation of ISmsService
+    /// </summary>
     public class SmsService : ISmsService
     {
         private string _accountSid { get; set; }
         private string _authToken { get; set; }
         private string _msgServiceSid { get; set; }
 
+        /// <summary>
+        /// Service to deliver SMS messages
+        /// </summary>
         public SmsService()
         {
             //setup the config items to send messages
@@ -29,7 +43,12 @@ namespace AVP.WebApi.Services
             _authToken = "ff93ad066621e2fec4a3412086ef2e5e";
             _msgServiceSid = "MG6cc1ba72f34643860053b0ea63ac76a1";
         }
-
+        /// <summary>
+        /// Send SMS messages for a given notification
+        /// </summary>
+        /// <param name="notification">Notification</param>
+        /// <param name="locations">List of UserSmsLocation</param>
+        /// <returns></returns>
         public async Task<int> SendSmsForNotification(Notification notification, List<UserSmsLocation> locations)
         {
             int sent = 0;
@@ -46,6 +65,12 @@ namespace AVP.WebApi.Services
             return sent;
         }
 
+        /// <summary>
+        /// Send SMS Message
+        /// </summary>
+        /// <param name="messageBody">string</param>
+        /// <param name="toPhone">string</param>
+        /// <returns></returns>
         private async Task SendSms(string messageBody, string toPhone)
         {
             TwilioClient.Init(_accountSid, _authToken);
