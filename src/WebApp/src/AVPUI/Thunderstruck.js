@@ -22,20 +22,25 @@ app.controller('AVPController'
 
     //currentPage has name of authenticated page current displayed in body
     $scope.currentPage = $scope.pages.UserProfile;
-    //UserProfile
-    $scope.userProfile = {
-        authToken: ""
-        , userID: 0
-        , username: ""
-        , password: ""
-        , confirmPassword: ""
-        , name: ""
-        , optIn: { optInEmail: true, optInSMS: true, optInPush: true }
-        , address: { userAddressID: 0, streetAddress: "", city: "", state: "", zipCode: "" }
-        , emailAddress: {emailAddressID: 0, emailAddress: ""}
-        , sms: {smsLocationID: 0 , phoneNumber: ""}
-        , pushToken: ""
+
+    $scope.initUserProfile = function () {
+        return {
+            authToken: ""
+            , userID: 0
+            , username: ""
+            , password: ""
+            , confirmPassword: ""
+            , name: ""
+            , optIn: { optInEmail: true, optInSMS: true, optInPush: true }
+            , address: { userAddressID: 0, streetAddress: "", city: "", state: "", zipCode: "" }
+            , emailAddress: { emailAddressID: 0, emailAddress: "" }
+            , sms: { smsLocationID: 0, phoneNumber: "" }
+            , pushToken: ""
+        }
     };
+    //UserProfile
+    $scope.userProfile = $scope.initUserProfile();
+    
     /************************************************************/
     /*                  Methods
     /************************************************************/
@@ -44,6 +49,7 @@ app.controller('AVPController'
         $scope.isRegistering = true;
     }
     $scope.Logout = function () {
+        $scope.userProfile = $scope.initUserProfile();
         $scope.isAuthenticated = false;
     }
     $scope.Login = function () {
