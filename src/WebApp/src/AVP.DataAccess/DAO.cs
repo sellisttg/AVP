@@ -1149,6 +1149,7 @@ namespace AVP.DataAccess
                         user.EmailOptIn = Convert.ToBoolean(reader["EmailOptIn"]);
                         user.EmailOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
                         user.EmailOptIn = Convert.ToBoolean(reader["PushOptIn"]);
+                        user.Name = reader["Name"].ToString();
                     }
                 }
 
