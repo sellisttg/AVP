@@ -1,4 +1,4 @@
-#Assumptions  
+# Assumptions  
 
 We assumed that only the service will need to be put into Docker because of load balancing  
 We determined that it would be redundant to put a database in the container  
