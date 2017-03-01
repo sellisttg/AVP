@@ -43,6 +43,9 @@ app.controller('AVPController'
     $scope.ShowRegister = function() {
         $scope.isRegistering = true;
     }
+    $scope.Logout = function () {
+        $scope.isAuthenticated = false;
+    }
     $scope.Login = function () {
         var url = $scope.baseUrl + "/v1/sessions";
         var postdata = { UserName: $scope.userProfile.username, password: $scope.userProfile.password };

@@ -11639,6 +11639,8 @@
       "Microsoft.NETCore.App >= 1.0.1",
       "Moq >= 4.7.0",
       "Newtonsoft.Json >= 9.0.1",
+      "Sendgrid >= 9.0.12",
+      "Twilio >= 5.0.2",
       "dotnet-test-xunit >= 2.2.0-preview2-build1029",
       "xunit >= 2.2.0",
       "xunit.runner.console >= 2.2.0"

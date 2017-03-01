@@ -94,10 +94,10 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Extensions.PlatformAbstractions\1.1.0\lib\netstandard1.3\Microsoft.Extensions.PlatformAbstractions.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Extensions.Primitives\1.1.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Extensions.WebEncoders\1.1.0\lib\netstandard1.0\Microsoft.Extensions.WebEncoders.dll
---reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.IdentityModel.Logging\1.1.0\lib\netstandard1.4\Microsoft.IdentityModel.Logging.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.IdentityModel.Logging\1.1.2\lib\netstandard1.4\Microsoft.IdentityModel.Logging.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.IdentityModel.Protocols\2.1.0\lib\netstandard1.4\Microsoft.IdentityModel.Protocols.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect\2.1.0\lib\netstandard1.4\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
---reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.IdentityModel.Tokens\5.1.0\lib\netstandard1.4\Microsoft.IdentityModel.Tokens.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.IdentityModel.Tokens\5.1.2\lib\netstandard1.4\Microsoft.IdentityModel.Tokens.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Net.Http\2.2.22\lib\portable-net45+win8\System.Net.Http.Extensions.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Net.Http\2.2.22\lib\portable-net45+win8\System.Net.Http.Primitives.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Net.Http.Headers\1.1.0\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll
@@ -106,6 +106,7 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Win32.Registry\4.3.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\MySqlConnector\0.13.0\lib\netstandard1.3\MySqlConnector.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Newtonsoft.Json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\Sendgrid\9.0.12\lib\netstandard1.3\SendGrid.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Swashbuckle.AspNetCore.Swagger\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.Swagger.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Swashbuckle.AspNetCore.SwaggerGen\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerGen.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Swashbuckle.AspNetCore.SwaggerUi\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerUi.dll
@@ -133,7 +134,7 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Globalization\4.3.0\ref\netstandard1.3\System.Globalization.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Globalization.Calendars\4.3.0\ref\netstandard1.3\System.Globalization.Calendars.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Globalization.Extensions\4.3.0\ref\netstandard1.3\System.Globalization.Extensions.dll
---reference:C:\Users\SSAMPO\.nuget\packages\System.IdentityModel.Tokens.Jwt\5.1.0\lib\netstandard1.4\System.IdentityModel.Tokens.Jwt.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\System.IdentityModel.Tokens.Jwt\5.1.2\lib\netstandard1.4\System.IdentityModel.Tokens.Jwt.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.IO\4.3.0\ref\netstandard1.5\System.IO.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.IO.Compression\4.3.0\ref\netstandard1.3\System.IO.Compression.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.IO.Compression.ZipFile\4.3.0\ref\netstandard1.3\System.IO.Compression.ZipFile.dll
@@ -201,6 +202,7 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Xml.XmlSerializer\4.3.0\ref\netstandard1.3\System.Xml.XmlSerializer.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\Twilio\5.0.2\lib\netstandard1.4\Twilio.dll
 --reference:C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.DataAccess\bin\Release\netstandard1.6\AVP.DataAccess.dll
 --reference:C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.Models\bin\Release\netstandard1.6\AVP.Models.dll
 --resource:"C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\obj\Release\netcoreapp1.0\AVP.WebApidotnet-compile.deps.json",AVP.WebApi.deps.json
@@ -218,5 +220,7 @@ C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Control
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserSmsLocationController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\ValuesController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Services\AuthService.cs
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Services\EmailService.cs
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Services\SmsService.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Wrappers\IncidentsWrapper.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Wrappers\SubscribersWrapper.cs
