@@ -348,7 +348,7 @@ namespace AVP.DataAccess
                     {
                         incident.Id = reader["id"].ToString();
                         incident.Lat = Convert.ToDouble(reader["Latitude"]);
-                        incident.Long = Convert.ToDouble(reader["Longitude"]);
+                        incident.Lon = Convert.ToDouble(reader["Longitude"]);
                         incident.IncidentType = reader["incidenttype"].ToString();
                         incident.IncidentName = reader["incidentname"].ToString();
                         incident.Radius = Convert.ToInt32(reader["incidentradius"]);
@@ -381,7 +381,7 @@ namespace AVP.DataAccess
                         {
                             Id = reader["id"].ToString(),
                             Lat = Convert.ToDouble(reader["Latitude"]),
-                            Long = Convert.ToDouble(reader["Longitude"]),
+                            Lon = Convert.ToDouble(reader["Longitude"]),
                             IncidentType = reader["incidenttype"].ToString(),
                             IncidentName = reader["incidentname"].ToString(),
                             Radius = Convert.ToInt32(reader["incidentradius"]),
@@ -412,7 +412,7 @@ namespace AVP.DataAccess
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentname", Value = incident.IncidentName, DbType = System.Data.DbType.String });
 
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@latitude", Value = incident.Lat, DbType = System.Data.DbType.Double });
-                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@longitude", Value = incident.Long, DbType = System.Data.DbType.Double });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "@longitude", Value = incident.Lon, DbType = System.Data.DbType.Double });
 
 
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentradius", Value = incident.Radius, DbType = System.Data.DbType.Int32 });
@@ -1149,6 +1149,7 @@ namespace AVP.DataAccess
                         user.EmailOptIn = Convert.ToBoolean(reader["EmailOptIn"]);
                         user.EmailOptIn = Convert.ToBoolean(reader["SmsOptIn"]);
                         user.EmailOptIn = Convert.ToBoolean(reader["PushOptIn"]);
+                        user.Name = reader["Name"].ToString();
                     }
                 }
 

@@ -10,7 +10,7 @@ namespace AVP.Models.Entities
         public int IncidentID { get; set; }
         public string IncidentName { get; set; }
         public double Lat { get; set; }
-        public double Long { get; set; }
+        public double Lon { get; set; }
         public string IncidentType { get; set; }
         public int Radius { get; set; }
         public string Id { get; set; }
