@@ -18,12 +18,14 @@ namespace AVP.WebApi.Controllers
     {
         private IDAO _dao;
         private ISmsService _sms;
+        private IEmailService _email;
         private readonly ILogger _logger;
         private IAuthService _authService;
 
-        public NotificationController(IDAO dao, IAuthService authService, ILoggerFactory loggerFactory, ISmsService sms)
+        public NotificationController(IDAO dao, IAuthService authService, ILoggerFactory loggerFactory, ISmsService sms, IEmailService email)
         {
             _sms = sms;
+            _email = email;
             _dao = dao;
             _authService = authService;
         }
@@ -37,7 +39,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error getting all notifications. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error getting all notifications. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error getting all notifications. The error was: {e.Message}");
             }
         }
@@ -51,7 +53,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error getting notification #{id}. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error getting notification #{id}. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error getting all notification #{id}. The error was: {e.Message}");
             }
         }
@@ -65,7 +67,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error creating notification. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error creating notification. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error creating notification. The error was: {e.Message}");
             }
         }
@@ -80,7 +82,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error updating notification. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error updating notification. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error updating notification. The error was: {e.Message}");
             }
         }
@@ -95,11 +97,14 @@ namespace AVP.WebApi.Controllers
                 List<UserSmsLocation> smsLocations = await _dao.GetUserSMSLocationsForNotification(notification);
                 int smsSent = await _sms.SendSmsForNotification(notification, smsLocations);
 
-                return new OkObjectResult($"Notified {smsSent} users of {smsLocations.Count} via SMS.");
+                List<UserEmailLocation> emailLocations = await _dao.GetUserEmailLocationsForNotification(notification);
+                int emailSent = await _email.SendEmailForNotification(notification, emailLocations);
+
+                return new OkObjectResult($"Notified {smsSent}/{smsLocations.Count} users via SMS. Notified {emailSent}/{emailLocations.Count} users via email.");
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error sending notification. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error sending notification. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error sending notification. The error was: {e.Message}");
             }
         }

@@ -106,6 +106,7 @@
 --reference:C:\Users\Sam Ellis\.nuget\packages\Microsoft.Win32.Registry\4.3.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\MySqlConnector\0.13.0\lib\netstandard1.3\MySqlConnector.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Newtonsoft.Json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll
+--reference:C:\Users\Sam Ellis\.nuget\packages\Sendgrid\9.0.12\lib\netstandard1.3\SendGrid.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Swashbuckle.AspNetCore.Swagger\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.Swagger.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Swashbuckle.AspNetCore.SwaggerGen\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerGen.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Swashbuckle.AspNetCore.SwaggerUi\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerUi.dll
@@ -219,6 +220,7 @@ C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserPushLocationController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserSmsLocationController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Controllers\ValuesController.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Services\AuthService.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Services\EmailService.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Services\SmsService.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Wrappers\IncidentsWrapper.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi\Wrappers\SubscribersWrapper.cs

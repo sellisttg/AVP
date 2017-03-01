@@ -265,6 +265,20 @@ namespace AVP.WebApi.Tests.TestData
         #endregion useraddress
 
         #region useremaillocation
+        public async Task<List<UserEmailLocation>> GetUserEmailLocationsForNotification(Notification notification)
+        {
+            List<UserEmailLocation> emailLocs = new List<UserEmailLocation>();
+
+            emailLocs.Add(new UserEmailLocation()
+            {
+                UserEmailLocationID = 1,
+                EmailAddress = "sellis@trinitytg.com",
+                UserAddressID = 1,
+                UserID = 1
+            });
+
+            return emailLocs;
+        }
         public async Task<UserEmailLocation> GetUserEmailLocationById(int id)
         {
             return new UserEmailLocation()

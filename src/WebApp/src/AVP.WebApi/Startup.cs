@@ -87,6 +87,7 @@ namespace AVP.WebApi
             services.AddSingleton<IAuthService, AuthService>();
             services.AddSingleton<IDAO, DAO>();
             services.AddSingleton<ISmsService, SmsService>();
+            services.AddSingleton<IEmailService, EmailService>();
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>

@@ -121,6 +121,7 @@
 --reference:C:\Users\Sam Ellis\.nuget\packages\NuGet.Packaging.Core.Types\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Packaging.Core.Types.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\NuGet.RuntimeModel\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.RuntimeModel.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\NuGet.Versioning\3.5.0-beta2-1484\lib\netstandard1.0\NuGet.Versioning.dll
+--reference:C:\Users\Sam Ellis\.nuget\packages\Sendgrid\9.0.12\lib\netstandard1.3\SendGrid.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Swashbuckle.AspNetCore.Swagger\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.Swagger.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Swashbuckle.AspNetCore.SwaggerGen\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerGen.dll
 --reference:C:\Users\Sam Ellis\.nuget\packages\Swashbuckle.AspNetCore.SwaggerUi\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerUi.dll
@@ -240,4 +241,5 @@ C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\ControllerTests\UserSmsLocationTest
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\Properties\AssemblyInfo.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestData\TestDAO.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestServices\TestAuthService.cs
+C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestServices\TestEmailService.cs
 C:\Repos\AVP\src\WebApp\src\AVP.WebApi.Tests\TestServices\TestSmsService.cs

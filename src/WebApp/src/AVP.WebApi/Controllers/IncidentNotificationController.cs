@@ -42,7 +42,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error getting all incidents. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error getting all incidents. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error getting all incidents. The error was: {e.Message}");
             }
         }
@@ -61,7 +61,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error getting subscribers. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error getting subscribers. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error getting subscribers. The error was: {e.Message}");
             }
         }
@@ -82,7 +82,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error creating notification incident. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error creating notification incident. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error creating notification incident. The error was: {e.Message}");
             }
         }
@@ -100,7 +100,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error updating subscribers under notification. The error was: {e.Message}, strack trace was: {e.StackTrace}");
+                _logger.LogInformation($"Error updating subscribers under notification. The error was: {e.Message}, stack trace was: {e.StackTrace}");
                 return BadRequest($"Error updating subscribers under notification. The error was: {e.Message}");
             }
         }

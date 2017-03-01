@@ -34,6 +34,7 @@ namespace AVP.DataAccess
         #endregion useraddress
 
         #region useremaillocation
+        Task<List<UserEmailLocation>> GetUserEmailLocationsForNotification(Notification notification);
         Task<UserEmailLocation> GetUserEmailLocationById(int id);
         Task<List<UserEmailLocation>> GetUserEmailLocationsForUser(string userName);
         Task<UserEmailLocation> UpdateUserEmailLocation(UserEmailLocation emailLoc);
@@ -721,6 +722,48 @@ namespace AVP.DataAccess
         #endregion userpushlocation
 
         #region useremaillocation
+        public async Task<List<UserEmailLocation>> GetUserEmailLocationsForNotification(Notification notification)
+        {
+            using (var db = new DBConnection())
+            {
+
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"SELECT uel.useremaillocationid, uel.userid, uel.emailaddress, uel.useraddressid FROM useremaillocation uel left join notificationemaillocation nsl on uel.useremaillocationid = nsl.useremaillocationid WHERE nsl.notificationid = @notificationId";
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@notificationId", Value = notification.NotificationID, DbType = System.Data.DbType.Int32 });
+
+                var reader = command.ExecuteReader();
+
+
+                List<UserEmailLocation> userLocs = new List<UserEmailLocation>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            UserEmailLocation emailLoc = new UserEmailLocation();
+
+                            emailLoc.UserEmailLocationID = Convert.ToInt32(reader["UserEmailLocationID"]);
+                            emailLoc.UserID = Convert.ToInt32(reader["UserID"]);
+                            emailLoc.EmailAddress = reader["EmailAddress"].ToString();
+                            emailLoc.UserAddressID = Convert.ToInt32(reader["UserAddressID"]);
+                            userLocs.Add(emailLoc);
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+
+                        
+                    }
+                }
+
+                return userLocs;
+            }
+        }
         public async Task<UserEmailLocation> GetUserEmailLocationById(int id)
         {
             using (var db = new DBConnection())

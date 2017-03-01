@@ -1977,6 +1977,20 @@
           }
         }
       },
+      "Sendgrid/9.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/SendGrid.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/SendGrid.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/1.0.0-rc1": {
         "type": "package",
         "dependencies": {
@@ -5909,6 +5923,21 @@
         "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "Sendgrid/9.0.12": {
+      "sha512": "q5BsJkTagvSPPrFseCXnZvyLjkBPLigezvpzyPkx3ztGRPhL6u2NimooMkIx5ugscP22gJ/z3lKl6yYlGUQpeg==",
+      "type": "package",
+      "path": "Sendgrid/9.0.12",
+      "files": [
+        "Sendgrid.9.0.12.nupkg.sha512",
+        "Sendgrid.nuspec",
+        "lib/net452/SendGrid.dll",
+        "lib/net452/SendGrid.pdb",
+        "lib/net452/SendGrid.xml",
+        "lib/netstandard1.3/SendGrid.dll",
+        "lib/netstandard1.3/SendGrid.pdb",
+        "lib/netstandard1.3/SendGrid.xml"
       ]
     },
     "Swashbuckle.AspNetCore/1.0.0-rc1": {
@@ -10770,6 +10799,7 @@
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Microsoft.IdentityModel.Tokens >= 5.1.2",
       "Microsoft.NETCore.App >= 1.0.1",
+      "Sendgrid >= 9.0.12",
       "Swashbuckle.AspNetCore >= 1.0.0-rc1",
       "System.IdentityModel.Tokens.Jwt >= 5.1.2",
       "Twilio >= 5.0.2"
