@@ -12,7 +12,7 @@ namespace AVP.DataAccess
     public interface IDAO
     {
         #region incidents
-        Task CreateIncidents(List<Incident> incidents);
+        Task<List<Incident>> AddIncidents(List<Incident> incidents);
         Task<List<Incident>> GetAllIncidents();
         #endregion incidents
 
@@ -215,7 +215,7 @@ namespace AVP.DataAccess
                 foreach (Incident incident in incidents)
                 {
                     var command = db.Connection.CreateCommand();
-                    command.CommandText = @"select up.UserID, ua.UserAddressID, ua.StreetAddress, ua.City, ua.State, ua.zip, ua.Latitude, ua.Longitude, up.Name, i.id as gisincidentid
+                    command.CommandText = @"select up.UserID, ua.UserAddressID, ua.StreetAddress, ua.City, ua.State, ua.zip, ua.Latitude, ua.Longitude, up.Name, i.incidentid, i.id as gisincidentid
                                             from incidentsubscribers isubs 
                                             left join useraddress ua on isubs.useraddressid = ua.useraddressid
                                             left join userprofile up on ua.userid = up.userid
@@ -249,7 +249,7 @@ namespace AVP.DataAccess
                                 subscriber.Lat = Convert.ToDouble(reader["Latitude"]);
                                 subscriber.Lon = Convert.ToDouble(reader["Longitude"]);
                                 subscriber.Name = reader["Name"].ToString();
-                                subscriber.IncidentID = reader["gisincidentid"].ToString();
+                                subscriber.IncidentID = reader["incidentid"].ToString();
 
                                 incident.Subscribers.Add(subscriber);
                             }
@@ -274,9 +274,9 @@ namespace AVP.DataAccess
                     var command = db.Connection.CreateCommand();
                     //insert only where not exists
                     command.CommandText = @"INSERT INTO incidentsubscribers (IncidentID, UserAddressID)
-                                            SELECT * FROM  (SELECT (SELECT IncidentID FROM incident WHERE id = @incId LIMIT 1), @userAddressId) AS tmp
+                                            SELECT * FROM  (SELECT (SELECT IncidentID FROM incident WHERE IncidentID = @incId LIMIT 1), @userAddressId) AS tmp
                                             WHERE NOT EXISTS (
-	                                            SELECT IncidentID, UserAddressID FROM incidentsubscribers WHERE IncidentID = (SELECT IncidentID FROM incident WHERE id = @incId LIMIT 1) AND UserAddressID = @userAddressId
+	                                            SELECT IncidentID, UserAddressID FROM incidentsubscribers WHERE IncidentID = (SELECT IncidentID FROM incident WHERE IncidentID = @incId LIMIT 1) AND UserAddressID = @userAddressId
                                             ) LIMIT 1;";
 
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@incId", Value = subscriber.IncidentID, DbType = System.Data.DbType.Int32 });
@@ -404,18 +404,19 @@ namespace AVP.DataAccess
                 return incidents;
             }
         }
-        public async Task CreateIncidents(List<Incident> incidents)
+        public async Task<List<Incident>> AddIncidents(List<Incident> incidents)
         {
+            List<Incident> incidentList = new List<Incident>();
             using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
-
+                
                 foreach (Incident incident in incidents)
                 {
                     var command = db.Connection.CreateCommand();
                     command.CommandText = @"INSERT INTO incident (id, incidentname, latitude, longitude, incidenttype, incidentradius)
-                                        VALUES (@id, @incidentname, @latitude, @longitude, @incidenttype, @incidentradius);";
+                                        VALUES (@id, @incidentname, @latitude, @longitude, @incidenttype, @incidentradius); SELECT * FROM INCIDENT WHERE INCIDENTID =  LAST_INSERT_ID();";
 
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@id", Value = incident.Id, DbType = System.Data.DbType.String });
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentname", Value = incident.IncidentName, DbType = System.Data.DbType.String });
@@ -427,9 +428,32 @@ namespace AVP.DataAccess
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidentradius", Value = incident.Radius, DbType = System.Data.DbType.Int32 });
                     command.Parameters.Add(new MySqlParameter() { ParameterName = "@incidenttype", Value = incident.IncidentType, DbType = System.Data.DbType.String });
 
-                    int incidentCount = await command.ExecuteNonQueryAsync();
+                    var reader = await command.ExecuteReaderAsync();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Incident newIncident = new Incident()
+                            {
+                                Id = reader["id"].ToString(),
+                                Lat = Convert.ToDouble(reader["Latitude"]),
+                                Lon = Convert.ToDouble(reader["Longitude"]),
+                                IncidentType = reader["incidenttype"].ToString(),
+                                IncidentName = reader["incidentname"].ToString(),
+                                Radius = Convert.ToInt32(reader["incidentradius"]),
+                                IncidentID = Convert.ToInt32(reader["incidentid"])
+                            };
+
+                            incidentList.Add(newIncident);
+                        }
+                    }
+
+                    reader.Dispose();
                 }
             }
+
+            return incidentList;
         }
         #endregion incidents
 

@@ -60,17 +60,18 @@ namespace AVP.WebApi.Services
         public async Task<int> SendEmailForNotification(Notification notification, List<UserEmailLocation> locations)
         {
             int sent = 0;
-            foreach(UserEmailLocation location in locations)
+            foreach (UserEmailLocation location in locations)
             {
                 try
                 {
                     await SendEmail(notification.Message, location.EmailAddress);
                     //await SendEmailAsync(location.EmailAddress, _exchangeOptions.EmailSubject, notification.Message);
                     sent++;
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     _logger.LogInformation($"Unable send notification to {location.EmailAddress}. Exception message is: {e.Message}");
-                }                
+                }
             }
             return sent;
         }
@@ -84,19 +85,13 @@ namespace AVP.WebApi.Services
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart("plain") { Text = message };
 
-            try
+            using (var client = new SmtpClient())
             {
-                using (var client = new SmtpClient())
-                {
-                    client.LocalDomain = _exchangeOptions.HostName;
-                    await client.ConnectAsync(_exchangeOptions.HostName, _exchangeOptions.Port, SecureSocketOptions.StartTls).ConfigureAwait(false);
-                    await client.AuthenticateAsync(_exchangeOptions.UserName, _exchangeOptions.Password);
-                    await client.SendAsync(emailMessage).ConfigureAwait(false);
-                    await client.DisconnectAsync(true).ConfigureAwait(false);
-                }
-            } catch(Exception e)
-            {
-
+                client.LocalDomain = _exchangeOptions.HostName;
+                await client.ConnectAsync(_exchangeOptions.HostName, _exchangeOptions.Port, SecureSocketOptions.StartTls).ConfigureAwait(false);
+                await client.AuthenticateAsync(_exchangeOptions.UserName, _exchangeOptions.Password);
+                await client.SendAsync(emailMessage).ConfigureAwait(false);
+                await client.DisconnectAsync(true).ConfigureAwait(false);
             }
         }
 

@@ -83,7 +83,7 @@ namespace AVP.WebApi.Controllers
                 return BadRequest($"Error getting subscribers. The error was: {e.Message}");
             }
         }
-        
+
         /// <summary>
         /// Create incident
         /// </summary>
@@ -94,14 +94,11 @@ namespace AVP.WebApi.Controllers
         {
             try
             {
-                //create the incident
-                await _dao.CreateIncidents(wrapper.incidents);
-                //return all possible subscribers
-                SubscribersWrapper subscribers = new SubscribersWrapper()
+                IncidentsWrapper incidents = new IncidentsWrapper()
                 {
-                    Subscribers = await _dao.GetAllSubscribers()
+                    incidents = await _dao.AddIncidents(wrapper.incidents)
                 };
-                return new OkObjectResult(subscribers);
+                return new OkObjectResult(incidents);
             }
             catch (Exception e)
             {
