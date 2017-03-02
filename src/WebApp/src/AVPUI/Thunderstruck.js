@@ -23,6 +23,7 @@ app.controller('AVPController'
     //currentPage has name of authenticated page current displayed in body
     $scope.currentPage = $scope.pages.UserProfile;
 
+    //Housekeeping
     $scope.initUserProfile = function () {
         return {
             authToken: ""
@@ -65,8 +66,8 @@ app.controller('AVPController'
                 //default role to Administrator index=id-1
                 $scope.currentRole = $scope.roles[4];
                 $scope.GetUserProfile();
-                document.getElementById('MapFrame').contentWindow.setAuthToken($scope.authToken);
-                /* Add this to map script
+                setAuthToken($scope.authToken);
+                /* Add this to map script to allow the map to share the token and make calls to the WebApi service
                 function setAuthToken(token) {
                     key = token;
                 }
