@@ -1,6 +1,11 @@
-#OUR PROTOTYPE
+#OUR COMPLETED PROTOTYPE
 [Trinity Technology Group's application prototype](http://avpwebappui.azurewebsites.net/thunderstruck.html) (code name Thunderstruck) will allow California residents to receive emergency and non-emergency emails, SMS, and push notifications from several identified [sources](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/RFI_CDT-ADPQ-0117_-_Prototype_B_Resources.pdf).  This application is geo-location aware, provides administrators to ability publish, track, analyze, and visual related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 [CDT GitHub Site](https://github.com/CDTProcurement/adpq)
+
+#OUR PROJECT APPROACH
+The project approach involved a very compressed schedule with two distict tracks of requirements
+1. Responding to the RFI Requirements  
+2. Building working software using the Agile/Iterative Approach based on the Digital Services Playbook.
 
 ##Getting Starting
 The application is a hosted application that does not require any locally installed applications.  the following browser compatibility are used
