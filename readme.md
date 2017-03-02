@@ -7,7 +7,7 @@
 #OUR PROJECT APPROACH
 ###The project approach was driven by a very compressed schedule with two distinct tracks of requirements  
 1. Responding to the Response for Inquiry (RFI) Requirement's administrative/Submission requirements  
-2. Building working software using the Agile/Iterative Approach based on the Digital Services Playbook.
+2. Building working software using an Agile/iterative approach based on the [Digital Services Playbook](https://playbook.cio.gov/).
 
 ##Responding to the RFI
 ####We used our proven approach to manage the RFI response by setting up our team to track the state procurement site and monitor the procurement GitHub site while breaking down the RFI so we could build-up our response. With our proposal team focusing on the RFI details, our Director of Business Development was able to also lead the resolution of requirement #2 as the Product Manager (play 6). Responding to the RFI is not documented beyond this brief description.  
