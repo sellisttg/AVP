@@ -1,5 +1,8 @@
 #OUR RESULTS
-###[Read the Quick Start Guide](TBD)  
+###[Read the Quick Start Guide](TBD) The application is a hosted application that does not require any locally installed components.  
+###User Roles
+The application supports the following roles
+###Quick Start Guide [TBD]
 ###[Run the Prototype](http://avpwebappui.azurewebsites.net/thunderstruck.html) (code name Thunderstruck).  This application will allow California residents to receive emergency and non-emergency emails, SMS, and push notifications from several identified [sources](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/RFI_CDT-ADPQ-0117_-_Prototype_B_Resources.pdf).  This application is geo-location aware, provides administrators to ability publish, track, analyze, and visualize related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 [CDT GitHub Site](https://github.com/CDTProcurement/adpq)
 
@@ -17,13 +20,6 @@ The project approach was driven by a very compressed schedule with two distinct 
 ####Given our teams high degree of familiarity with open source tools, when the goal was to "default to open (play 13)", we were able to identify more than twice as many open tools that the team had already worked with than required by the RFI. At the heart of our development was the We also benefited with the recent
 ####Given the artificial nature of the prototype, budgets (play 5) and security (play 11) were not addressed.
 ####Evidence. By following the links in this paragraph, the evidence of our team's agile process is documented within this GitHub.  This evidence includes our artifacts from tree.taiga.io (our open source Agile documentation tool), images of the team in-action during our Agile ceremonies and collaboration sessions, and many "screen prints" of code, smartphone photos of white boards as well as other more traditional documentation. The source code and all necessary assets to deploy and continue enhnancing this project are also available on GitHub.
-##Getting Starting
-The application is a hosted application that does not require any locally installed applications.  the following browser compatibility are used
-
-###User Roles
-The application supports the following roles
-###Quick Start Guide [TBD]
-
 #OUR TECHNICAL APPROACH
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
