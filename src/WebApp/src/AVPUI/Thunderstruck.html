@@ -26,7 +26,7 @@
     <!-- Load Esri Leaflet Geocoder from CDN -->
     <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.3/dist/esri-leaflet-geocoder.css">
     <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.3"></script>
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYvmWjZ5DlycV7NGezSiO8JDM9jorO-I8&callback=geocode"></script>
 </head>
 <body>
     <div ng-app="AVPApp" ng-controller="AVPController">
@@ -220,13 +220,13 @@
                                 </div>
                                 <div class="col-xs-10">
                                     <div style="font-size:14px;text-align:center">Select type of notification</div>
-                                    <select class="form-control">
-                                        <option name="incidentType" value="Earthquake">Earthquake</option>
-                                        <option name="incidentType" value="Tsunami">Tsunami</option>
-                                        <option name="incidentType" value="NaturalHazards">Natural Hazards</option>
-                                        <option name="incidentType" value="WeatherHazards">Weather Hazards</option>
-                                        <option name="incidentType" value="Fire">Fire</option>
-                                        <option name="incidentType" value="Flood">Flood</option>
+                                    <select class="form-control" id="incidentType">
+                                        <option value="Earthquake">Earthquake</option>
+                                        <option value="Tsunami">Tsunami</option>
+                                        <option value="NaturalHazards">Natural Hazards</option>
+                                        <option value="WeatherHazards">Weather Hazards</option>
+                                        <option value="Fire">Fire</option>
+                                        <option value="Flood">Flood</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-1">&nbsp;</div>
@@ -250,7 +250,7 @@
                                         <option value="20">20 miles</option>
                                         <option value="25">25 miles</option>
                                         <option value="30">30 miles</option>
-                                        <option value="50">50 miles</option>
+                                        <option value="50" selected>50 miles</option>
                                         <option value="100">100 miles</option>
                                         <option value="150">150 miles</option>
                                         <option value="200">200 miles</option>
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                     <div class="col-xs-10" style="min-height:400px">
-                        <div id="map" style="width:100%;height:100%;"><button class="btn btn-primary">test button</button></div>
+                        <div id="map" style="width:100%; height:100%"></div>
                     </div>
                 </div>
             </div>
@@ -408,8 +408,7 @@
             </footer>
         </div>
     </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYvmWjZ5DlycV7NGezSiO8JDM9jorO-I8&callback=geocode"></script>
     <script src="Thunderstruck.js"></script>
-    <script src="ThunderstruckMap.js"></script>
+    <script async defer src="ThunderstruckMap.js"></script>
 </body>
 </html>

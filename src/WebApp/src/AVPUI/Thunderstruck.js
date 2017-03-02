@@ -316,6 +316,7 @@ app.controller('AVPController'
     }
     $scope.ShowIncidents = function () {
         $scope.currentPage = $scope.pages.Incidents;
+        InitMap();
     }
     $scope.ShowUserProfile = function () {
         $scope.currentPage = $scope.pages.UserProfile;
