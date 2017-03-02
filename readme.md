@@ -3,9 +3,19 @@
 [CDT GitHub Site](https://github.com/CDTProcurement/adpq)
 
 #OUR PROJECT APPROACH
-The project approach involved a very compressed schedule with two distict tracks of requirements
-1. Responding to the RFI Requirements  
+The project approach was driven by a very compressed schedule with two distict tracks of requirements  
+1. Responding to the Response for Inquiry (RFI) Requirement's administrative/Submission requirements  
 2. Building working software using the Agile/Iterative Approach based on the Digital Services Playbook.
+
+##Responding to the RFI
+####We used our proven approach to manage the RFI response by setting up our team to track the state procurement site and monitor the procurement GitHub site while breaking down the RFI so we could build-up our response. With our proposal team foocusing on the RFI details, our Director of Business Development was able to also lead the resolution of requirement #2 as the Product Manager. Responding to the RFI is not documented beyond this breif description.  
+##Building Working Software
+####We also turned to our proven approach to managing the software build. This included assemblying our highly qualified team and building our project playbook. Our certified Agile Coach worked with the Product Manager (aka Product Owner) and the Delivery Manager (aka Scrum Master) to layout an Agile based project playbook that included a dedicated working area in our Sacramento office for the team to co-locate and colaborate. This plan resulted in the software build described in our technical approach below. In this project approach  section, we focus on the details that do not clearly fit within the "a. through t." punchlist below.  Where appropriate, the [Digital Services Playbook](https://playbook.cio.gov/) is referenced below.  
+####Given the theoretical nature the engagement, we had to make a large number of assumptions and constraints that are documented [here](TBD). Although our collaborative multidisciplinary team experience includes over 250,000 hours delivering technical solutions to real poeple in a primarily iterative manner, the team had varying degrees of formal Agile experience. This is where our certified Agile Coach helped raise the Agility of the entire team.  Our specific Agile and iterative build practices are detailed in J. below.  
+####Given our teams high degree of familiarity with open source tools, when the goal was to "default to open (play 13)", we were able to identify more than twice as many open tools that the team had already worked with than required by by the RFI. At the heart of our development was the We also benefied with the recent
+####Given the artificial nature of the prototype, budgets (play 5) and security (play 11) were not addressed.
+
+
 
 ##Getting Starting
 The application is a hosted application that does not require any locally installed applications.  the following browser compatibility are used
@@ -14,11 +24,11 @@ The application is a hosted application that does not require any locally instal
 The application supports the following roles
 ###Quick Start Guide [TBD]
 
-#TECHNICAL APPROACH
+#OUR TECHNICAL APPROACH
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
-Our collaborative multidisciplinary team experience includes over 250,000 hours delivering technical solutions to real poeple.  
+
 ####Product Manager: Jeremy Dean
 ####Deliver Manager: Michael Tomlin
 ####Technical Architect: Shawn Sampo 
