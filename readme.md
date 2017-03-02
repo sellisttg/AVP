@@ -92,6 +92,7 @@ Jenkins /nagios?
 https://app.google.stackdriver.com/  
 
 ###r.    Deployed  their  software  in  an  open  source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
-###s.   Provided sufficient documentation to install and run their prototype on another machine; and 
-###t.   Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
+###s.   Provided sufficient documentation to install and run their prototype on another machine; and
+####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.
+###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
 ####In addition to each individual open source license associated with item l. above, TrinityTG has also provided an open source license to this prototype solution [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/MITLicense)
