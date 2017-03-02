@@ -5,7 +5,7 @@
 [CDT GitHub Site](https://github.com/CDTProcurement/adpq)
 
 #OUR PROJECT APPROACH
-The project approach was driven by a very compressed schedule with two distinct tracks of requirements  
+###The project approach was driven by a very compressed schedule with two distinct tracks of requirements  
 1. Responding to the Response for Inquiry (RFI) Requirement's administrative/Submission requirements  
 2. Building working software using the Agile/Iterative Approach based on the Digital Services Playbook.
 
