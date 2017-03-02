@@ -1,6 +1,8 @@
 ﻿using AVP.DataAccess;
 using AVP.Models.Entities;
+using AVP.WebApi.Config;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,9 @@ namespace AVP.WebApi.Services
     /// </summary>
     public class SmsService : ISmsService
     {
+
+        private JwtIssuerOptions _jwt;
+        private TwilioOptions _twilioConfig;
         private string _accountSid { get; set; }
         private string _authToken { get; set; }
         private string _msgServiceSid { get; set; }
@@ -38,13 +43,15 @@ namespace AVP.WebApi.Services
         /// <summary>
         /// Service to deliver SMS messages
         /// </summary>
-        public SmsService(ILoggerFactory loggerFactory)
+        public SmsService(ILoggerFactory loggerFactory, IOptions<TwilioOptions> twilioConfig, IOptions<JwtIssuerOptions> jwt)
         {
+            _jwt = jwt.Value;
+            _twilioConfig = twilioConfig.Value;
             _logger = loggerFactory.CreateLogger<DAO>();
             //setup the config items to send messages
-            _accountSid = "ACfa841159cde856eedf95b63b3bd85bcb";
-            _authToken = "ff93ad066621e2fec4a3412086ef2e5e";
-            _msgServiceSid = "MG6cc1ba72f34643860053b0ea63ac76a1";
+            _accountSid = twilioConfig.Value.AccountSid;
+            _authToken = twilioConfig.Value.AuthToken;
+            _msgServiceSid = twilioConfig.Value.MsgServiceSid;
         }
         /// <summary>
         /// Send SMS messages for a given notification

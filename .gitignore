@@ -2,6 +2,10 @@
 Thumbs.db
 ehthumbs.db
 
+#Ignore Environment Settings
+src/WebApp/src/AVP.WebApi/appsettings.Development.json
+src/WebApp/src/AVP.WebApi/appsettings.Production.json
+
 # Folders to ignore
 src/WebApp/src/AVP.WebApi/bin/
 src/WebApp/src/AVP.DataAccess/bin/

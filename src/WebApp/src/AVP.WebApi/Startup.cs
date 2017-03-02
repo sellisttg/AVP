@@ -49,11 +49,7 @@ namespace AVP.WebApi
         /// Root configuration object for the application
         /// </summary>
         public IConfigurationRoot Configuration { get; }
-
-        //todo: move this to web.conf or other env var if it stays, don't leave it here
-        private const string SecretKey = "needtogetthisfromenvironment";
-        private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
-
+        
         /// <summary>
         /// Configure services and objects for dependency injection
         /// </summary>
@@ -75,14 +71,59 @@ namespace AVP.WebApi
 
             // Get options from app settings
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
+            var sendGridOptions = Configuration.GetSection(nameof(SendGridOptions));
+            var twilioOptions = Configuration.GetSection(nameof(TwilioOptions));
+            var exchangeOptions = Configuration.GetSection(nameof(ExchangeOptions));
+            var dbOptions = Configuration.GetSection(nameof(DBConnectionOptions));
+
+            services.Configure<DbConnectionSettings>(options => {
+                options.ConnectionString = dbOptions[nameof(DbConnectionSettings.ConnectionString)];
+                options.Schema = dbOptions[nameof(DbConnectionSettings.Schema)];
+            } );
+
+            // Configure Exchange
+            services.Configure<ExchangeOptions>(options =>
+            {
+                options.UserName = exchangeOptions[nameof(ExchangeOptions.UserName)];
+                options.Password = exchangeOptions[nameof(ExchangeOptions.Password)];
+                options.HostName = exchangeOptions[nameof(ExchangeOptions.HostName)];
+                options.Port = Convert.ToInt32(exchangeOptions[nameof(ExchangeOptions.Port)]);
+                options.EnableSSL = Convert.ToBoolean(exchangeOptions[nameof(ExchangeOptions.EnableSSL)]);
+                options.EmailSubject = exchangeOptions[nameof(ExchangeOptions.EmailSubject)];
+            });
+
+            // Configure SendGrid
+            services.Configure<SendGridOptions>(options =>
+            {
+                options.SendGridApiKey = sendGridOptions[nameof(SendGridOptions.SendGridApiKey)];
+                options.FromEmail = sendGridOptions[nameof(SendGridOptions.FromEmail)];
+            });
+
+            // Configure EmailHost
+            services.Configure<SendGridOptions>(options =>
+            {
+                options.SendGridApiKey = sendGridOptions[nameof(SendGridOptions.SendGridApiKey)];
+                options.FromEmail = sendGridOptions[nameof(SendGridOptions.FromEmail)];
+            });
+
+            // Configure Twilio
+            services.Configure<TwilioOptions>(options =>
+            {
+                options.AccountSid = twilioOptions[nameof(TwilioOptions.AccountSid)];
+                options.AuthToken = twilioOptions[nameof(TwilioOptions.AuthToken)];
+                options.MsgServiceSid = twilioOptions[nameof(TwilioOptions.MsgServiceSid)];
+            });
+
+            SymmetricSecurityKey signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtAppSettingOptions[nameof(JwtIssuerOptions.Secret)]));
 
             // Configure JwtIssuerOptions
             services.Configure<JwtIssuerOptions>(options =>
-            {
-                options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
-                options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
-                options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
-            });
+                {
+                    options.Issuer = jwtAppSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                    options.Audience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)];
+                    options.Secret = jwtAppSettingOptions[nameof(JwtIssuerOptions.Secret)];
+                    options.SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
+                });
 
             services.AddAuthorization(options =>
             {
@@ -98,10 +139,10 @@ namespace AVP.WebApi
                 config.Filters.Add(new AuthorizeFilter(policy));
             }).AddWebApiConventions();
 
-            services.AddSingleton<IAuthService, AuthService>();
+            services.AddTransient<IAuthService, AuthService>();
             services.AddSingleton<IDAO, DAO>();
-            services.AddSingleton<ISmsService, SmsService>();
-            services.AddSingleton<IEmailService, EmailService>();
+            services.AddTransient<ISmsService, SmsService>();
+            services.AddTransient<IEmailService, EmailService>();
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -135,8 +176,10 @@ namespace AVP.WebApi
             app.UseApplicationInsightsExceptionTelemetry();
 
 
-            //JWT Config
+            //JWT Config            
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
+            SymmetricSecurityKey signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtAppSettingOptions[nameof(JwtIssuerOptions.Secret)]));
+
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuer = true,
@@ -146,7 +189,7 @@ namespace AVP.WebApi
                 ValidAudience = jwtAppSettingOptions[nameof(JwtIssuerOptions.Audience)],
 
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = _signingKey,
+                IssuerSigningKey = signingKey,
 
                 RequireExpirationTime = true,
                 ValidateLifetime = true,

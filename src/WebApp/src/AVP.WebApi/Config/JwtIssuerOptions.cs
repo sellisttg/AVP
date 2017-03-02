@@ -72,7 +72,7 @@ namespace AVP.WebApi.Config
         /// <summary>
         /// Set the timespan the token will be valid for (default is 5 min/300 seconds)
         /// </summary>
-        public TimeSpan ValidFor { get; set; } = TimeSpan.FromMinutes(60);
+        public TimeSpan ValidFor { get; set; } = TimeSpan.FromMinutes(1440);
 
         /// <summary>
         /// "exp" (Expiration Time) Claim (returns IssuedAt + ValidFor)
@@ -104,5 +104,10 @@ namespace AVP.WebApi.Config
         /// The signing key to use when generating tokens.
         /// </summary>
         public SigningCredentials SigningCredentials { get; set; }
+
+        /// <summary>
+        /// Secret loaded from configuration
+        /// </summary>
+        public string Secret { get; set; }
     }
 }

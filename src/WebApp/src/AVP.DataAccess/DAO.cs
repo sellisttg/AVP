@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace AVP.DataAccess
 {
@@ -77,9 +78,11 @@ namespace AVP.DataAccess
 
     public class DAO : IDAO
     {
+        private readonly DbConnectionSettings _dbSettings;
         private readonly ILogger _logger;
-        public DAO(ILoggerFactory loggerFactory)
+        public DAO(ILoggerFactory loggerFactory, IOptions<DbConnectionSettings> dbSettings)
         {
+            _dbSettings = dbSettings.Value;
             _logger = loggerFactory.CreateLogger<DAO>();
         }
         #region notifications
@@ -92,7 +95,7 @@ namespace AVP.DataAccess
 
         public async Task<List<Notification>> GetAllNotifications()
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -126,7 +129,7 @@ namespace AVP.DataAccess
         }
         public async Task<Notification> GetNotificationById(int id)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -155,7 +158,7 @@ namespace AVP.DataAccess
         }
         public async Task<Notification> InsertNotification(Notification notification)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -181,7 +184,7 @@ namespace AVP.DataAccess
         public async Task<Notification> UpdateNotification(Notification notification)
         {
 
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -205,7 +208,7 @@ namespace AVP.DataAccess
         #region subscribers
         public async Task<List<Incident>> GetSubscribersForIncidents(List<Incident> incidents)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
                 //loop through each indicent and populate the respective subscriber data
@@ -262,7 +265,7 @@ namespace AVP.DataAccess
 
         public async Task AddSubscribersToIncident(List<Subscriber> subscribers)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -286,7 +289,7 @@ namespace AVP.DataAccess
 
         public async Task<List<Subscriber>> GetAllSubscribers()
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -335,7 +338,7 @@ namespace AVP.DataAccess
         #region incidents
         public async Task<Incident> GetIncidentByIdString(string id)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -367,7 +370,7 @@ namespace AVP.DataAccess
         }
         public async Task<List<Incident>> GetAllIncidents()
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -403,7 +406,7 @@ namespace AVP.DataAccess
         }
         public async Task CreateIncidents(List<Incident> incidents)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -433,7 +436,7 @@ namespace AVP.DataAccess
         #region usersmslocation
         public async Task<List<UserSmsLocation>> GetUserSMSLocationsForNotification(Notification notification)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -468,7 +471,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserSmsLocation> GetUserSmsLocationById(int id)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -498,7 +501,7 @@ namespace AVP.DataAccess
         }
         public async Task<List<UserSmsLocation>> GetUserSmsLocationsForUser(string userName)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -531,7 +534,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserSmsLocation> UpdateUserSmsLocation(UserSmsLocation smsLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -552,7 +555,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserSmsLocation> InsertUserSmsLocation(UserSmsLocation smsLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -576,7 +579,7 @@ namespace AVP.DataAccess
         }
         public async Task<bool> DeleteUserSmsLocation(UserSmsLocation smsLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -599,7 +602,7 @@ namespace AVP.DataAccess
         #region userepushlocation
         public async Task<UserPushLocation> GetUserPushLocationById(int id)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -629,7 +632,7 @@ namespace AVP.DataAccess
         }
         public async Task<List<UserPushLocation>> GetUserPushLocationsForUser(string userName)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -662,7 +665,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserPushLocation> UpdateUserPushLocation(UserPushLocation pushLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -683,7 +686,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserPushLocation> InsertUserPushLocation(UserPushLocation pushLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -707,7 +710,7 @@ namespace AVP.DataAccess
         }
         public async Task<bool> DeleteUserPushLocation(UserPushLocation pushLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -730,7 +733,7 @@ namespace AVP.DataAccess
         #region useremaillocation
         public async Task<List<UserEmailLocation>> GetUserEmailLocationsForNotification(Notification notification)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -772,7 +775,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserEmailLocation> GetUserEmailLocationById(int id)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -802,7 +805,7 @@ namespace AVP.DataAccess
         }
         public async Task<List<UserEmailLocation>> GetUserEmailLocationsForUser(string userName)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -835,7 +838,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserEmailLocation> UpdateUserEmailLocation(UserEmailLocation emailLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -856,7 +859,7 @@ namespace AVP.DataAccess
         }
         public async Task<UserEmailLocation> InsertUserEmailLocation(UserEmailLocation emailLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -880,7 +883,7 @@ namespace AVP.DataAccess
         }
         public async Task<bool> DeleteUserEmailLocation(UserEmailLocation emailLoc)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -903,7 +906,7 @@ namespace AVP.DataAccess
         #region useraddress
         public async Task<UserAddress> GetAddressById(int id)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -938,7 +941,7 @@ namespace AVP.DataAccess
 
         public async Task<List<UserAddress>> GetAddressesForUser(string userName)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -977,7 +980,7 @@ namespace AVP.DataAccess
 
         public async Task<UserAddress> UpdateUserAddress(UserAddress address)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -1003,7 +1006,7 @@ namespace AVP.DataAccess
 
         public async Task<UserAddress> InsertUserAddress(UserAddress address)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -1032,7 +1035,7 @@ namespace AVP.DataAccess
 
         public async Task<bool> DeleteUserAddress(UserAddress address)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -1055,7 +1058,7 @@ namespace AVP.DataAccess
         #region profiles
         public async Task<UserProfile> GetProfileForUserName(string userName)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -1088,7 +1091,7 @@ namespace AVP.DataAccess
 
         public async Task<UserProfile> UpdateUserProfile(UserProfile profile)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -1113,7 +1116,7 @@ namespace AVP.DataAccess
         #region users
         public async Task<ApplicationUser> UpdateUserPassword(ApplicationUser user)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
                 var command = db.Connection.CreateCommand();
@@ -1131,7 +1134,7 @@ namespace AVP.DataAccess
 
         public async Task<ApplicationUser> GetUser(string userName)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -1165,7 +1168,7 @@ namespace AVP.DataAccess
 
         public async Task<ApplicationUser> AddUser(ApplicationUser user)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
 
                 await db.Connection.OpenAsync();
@@ -1195,7 +1198,7 @@ namespace AVP.DataAccess
         #region notification location helpers
         public async Task AddUserEmailLocations(Notification notification)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -1214,7 +1217,7 @@ namespace AVP.DataAccess
 
         public async Task AddUserSmsLocations(Notification notification)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 
@@ -1233,7 +1236,7 @@ namespace AVP.DataAccess
 
         public async Task AddUserPushLocations(Notification notification)
         {
-            using (var db = new DBConnection())
+            using (var db = new DBConnection(_dbSettings))
             {
                 await db.Connection.OpenAsync();
 

@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using AVP.DataAccess;
 using Microsoft.AspNetCore.Http;
 using Jwt;
+using AVP.WebApi.Config;
+using Microsoft.Extensions.Options;
 
 namespace AVP.WebApi.Services
 {
@@ -53,13 +55,16 @@ namespace AVP.WebApi.Services
         /// Instance of IDAO injected via dependency injection
         /// </summary>
         public IDAO _db;
+        private JwtIssuerOptions _jwtOptions;
 
         /// <summary>
         /// Constructor, handles injection of IDAO implementation
         /// </summary>
-        /// <param name="dao"></param>
-        public AuthService(IDAO dao)
+        /// <param name="dao">DAO</param>
+        /// /// <param name="jwtOptions">JWT Config Options</param>
+        public AuthService(IDAO dao, IOptions<JwtIssuerOptions> jwtOptions)
         {
+            _jwtOptions = jwtOptions.Value;
             _db = dao;
         }
         /// <summary>
@@ -153,7 +158,7 @@ namespace AVP.WebApi.Services
                     //return "{error:\"authBits[0] must be bearer\"}";
                     throw new Exception("Unable to parse username from token. Bearer token not available in header.");
                 }
-                var ClientSecret = "needtogetthisfromenvironment";
+                var ClientSecret = _jwtOptions.Secret;
 
                 try
                 {

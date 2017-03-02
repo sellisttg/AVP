@@ -26,7 +26,8 @@
     "JsonWebTokens": "1.3.0",
     "Swashbuckle.AspNetCore": "1.0.0-rc1",
     "Twilio": "5.0.2",
-    "Sendgrid": "9.0.12"
+    "Sendgrid": "9.0.12",
+    "MailKit": "1.10.2"
   },
 
   "tools": {

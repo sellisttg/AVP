@@ -45,6 +45,21 @@
             <param name="env">IHostingEnvironment</param>
             <param name="loggerFactory">ILoggerFactory</param>
         </member>
+        <member name="T:AVP.WebApi.Config.DBConnectionOptions">
+            <summary>
+            Defines db connection settings
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.DBConnectionOptions.ConnectionString">
+            <summary>
+            Connection string for data layer
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.DBConnectionOptions.Schema">
+            <summary>
+            Schema to use in DB Connection
+            </summary>
+        </member>
         <member name="T:AVP.WebApi.Config.JwtIssuerOptions">
             <summary>
             Configuration class for JWT Issuer Options
@@ -141,6 +156,46 @@
         <member name="P:AVP.WebApi.Config.JwtIssuerOptions.SigningCredentials">
             <summary>
             The signing key to use when generating tokens.
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.Secret">
+            <summary>
+            Secret loaded from configuration
+            </summary>
+        </member>
+        <member name="T:AVP.WebApi.Config.SendGridConfig">
+            <summary>
+            Configuration class for SendGrid options
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.SendGridConfig.SendGridApiKey">
+            <summary>
+            API Key for Send Grid
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.SendGridConfig.FromEmail">
+            <summary>
+            Email to send from SendGrid
+            </summary>
+        </member>
+        <member name="T:AVP.WebApi.Config.TwilioConfig">
+            <summary>
+            Configuration class for Twilio
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.TwilioConfig.AccountSid">
+            <summary>
+            Account SID from Twilio
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.TwilioConfig.AuthToken">
+            <summary>
+            Auth Token from Twilio
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.TwilioConfig.MsgServiceSid">
+            <summary>
+            Message Service SID from Twilio
             </summary>
         </member>
         <member name="T:AVP.WebApi.Controllers.AccountController">
@@ -543,11 +598,12 @@
             Instance of IDAO injected via dependency injection
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.AuthService.#ctor(AVP.DataAccess.IDAO)">
+        <member name="M:AVP.WebApi.Services.AuthService.#ctor(AVP.DataAccess.IDAO,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.JwtIssuerOptions})">
             <summary>
             Constructor, handles injection of IDAO implementation
             </summary>
-            <param name="dao"></param>
+            <param name="dao">DAO</param>
+            /// <param name="jwtOptions">JWT Config Options</param>
         </member>
         <member name="M:AVP.WebApi.Services.AuthService.ChangePassword(AVP.Models.Entities.ApplicationUser)">
             <summary>
@@ -602,7 +658,7 @@
             Implementation of IEmailService
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.EmailService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+        <member name="M:AVP.WebApi.Services.EmailService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.SendGridConfig})">
             <summary>
             Email Service contstructor configures the options necessary to send email with this implementation
             </summary>
@@ -633,7 +689,7 @@
             Implementation of ISmsService
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.SmsService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+        <member name="M:AVP.WebApi.Services.SmsService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.TwilioConfig})">
             <summary>
             Service to deliver SMS messages
             </summary>

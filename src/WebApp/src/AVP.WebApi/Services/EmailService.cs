@@ -1,15 +1,17 @@
 ﻿using AVP.DataAccess;
 using AVP.Models.Entities;
+using AVP.WebApi.Config;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
+using MailKit.Net.Smtp;
+using MimeKit;
+using MailKit.Security;
 
 namespace AVP.WebApi.Services
 {
@@ -34,17 +36,19 @@ namespace AVP.WebApi.Services
     {
         private string _sendGridApiKey { get; set; }
         private string _fromEmail { get; set; }
+        private ExchangeOptions _exchangeOptions { get; set; }
         private readonly ILogger _logger;
 
         /// <summary>
         /// Email Service contstructor configures the options necessary to send email with this implementation
         /// </summary>
-        public EmailService(ILoggerFactory loggerFactory)
+        public EmailService(ILoggerFactory loggerFactory, IOptions<SendGridOptions> sendGridConfig, IOptions<ExchangeOptions> exchangeOptions)
         {
+            _exchangeOptions = exchangeOptions.Value;
             _logger = loggerFactory.CreateLogger<DAO>();
             //setup the config items to send messages
-            _sendGridApiKey = "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";
-            _fromEmail = "devtest@trinitytg.com";
+            _sendGridApiKey = sendGridConfig.Value.SendGridApiKey;
+            _fromEmail = sendGridConfig.Value.FromEmail;
         }
 
         /// <summary>
@@ -61,6 +65,7 @@ namespace AVP.WebApi.Services
                 try
                 {
                     await SendEmail(notification.Message, location.EmailAddress);
+                    //await SendEmailAsync(location.EmailAddress, _exchangeOptions.EmailSubject, notification.Message);
                     sent++;
                 } catch (Exception e)
                 {
@@ -70,8 +75,34 @@ namespace AVP.WebApi.Services
             return sent;
         }
 
+        private async Task SendEmailAsync(string email, string subject, string message)
+        {
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("AVP Thunderstruck", _exchangeOptions.UserName));
+            emailMessage.To.Add(new MailboxAddress("", email));
+            emailMessage.Subject = subject;
+            emailMessage.Body = new TextPart("plain") { Text = message };
+
+            try
+            {
+                using (var client = new SmtpClient())
+                {
+                    client.LocalDomain = _exchangeOptions.HostName;
+                    await client.ConnectAsync(_exchangeOptions.HostName, _exchangeOptions.Port, SecureSocketOptions.StartTls).ConfigureAwait(false);
+                    await client.AuthenticateAsync(_exchangeOptions.UserName, _exchangeOptions.Password);
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true).ConfigureAwait(false);
+                }
+            } catch(Exception e)
+            {
+
+            }
+        }
+
         private async Task SendEmail(string messageBody, string toEmail)
         {
+
             var apiKey = _sendGridApiKey;
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress(_fromEmail, "TTG Thunderstruck");
