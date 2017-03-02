@@ -22,7 +22,6 @@
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
 ##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
-
 ####Product Manager: Jeremy Dean
 ####Deliver Manager: Michael Tomlin
 ####Technical Architect: Shawn Sampo 
@@ -50,7 +49,7 @@ We used the playbook published by the USDS.  We integrated the playbook into our
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. The GitHub repository is [here](https://github.com/sellisttg/AVP).  An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
 ###f. Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
-Our team used Swagger
+Our team used [Swagger (link)](https://cloud.githubusercontent.com/assets/23264395/23522378/9d6ad4cc-ff37-11e6-8ba7-e150f9639be7.png) to document the RESTful API.
 ###g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
 ###h. Created or used a design style guide and/or a pattern library;  
 ###i. Performed usability tests with people; 
