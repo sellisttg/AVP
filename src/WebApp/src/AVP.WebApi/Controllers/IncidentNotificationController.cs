@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all Incident actions
+    /// </summary>
     [Route("api/[controller]")]
     public class IncidentNotificationController : IBaseController
     {
@@ -20,12 +23,22 @@ namespace AVP.WebApi.Controllers
         private readonly ILogger _logger;
         private IAuthService _authService;
 
+        /// <summary>
+        /// Constructor that handles injection of IDAO, IAuthService, and ILoggerFactory implementations for class use
+        /// </summary>
+        /// <param name="dao"></param>
+        /// <param name="authService"></param>
+        /// <param name="loggerFactory"></param>
         public IncidentNotificationController(IDAO dao, IAuthService authService, ILoggerFactory loggerFactory)
         {
             _dao = dao;
             _authService = authService;
         }
 
+        /// <summary>
+        /// Get all incidents
+        /// </summary>
+        /// <returns>List of Incidents</returns>
         [HttpGet("/api/v1/incident")]
         public async Task<IActionResult> GetAllIncidents()
         {
@@ -47,6 +60,10 @@ namespace AVP.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all available user profiles as possible subscribers
+        /// </summary>
+        /// <returns>List of Subscribers</returns>
         [HttpGet("/api/v1/incident/allsubscribers")]
         public async Task<IActionResult> GetAllSubscribers()
         {
@@ -66,6 +83,11 @@ namespace AVP.WebApi.Controllers
             }
         }
         
+        /// <summary>
+        /// Create incident
+        /// </summary>
+        /// <param name="wrapper">Incidents Wrapper. Can process any number of incidents contained in the .incidents list property.</param>
+        /// <returns>List of all possible subscribers</returns>
         [HttpPost("/api/v1/incident")]
         public async Task<IActionResult> CreateNotificationIncident([FromBody]IncidentsWrapper wrapper)
         {
@@ -87,7 +109,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Add subscribers to an incident
+        /// </summary>
+        /// <param name="wrapper">Wrapper for list of subscribers and the incident ids to subscribe them to.</param>
+        /// <returns>Success/failure string. Returns 400 response on failure.</returns>
         [HttpPost("/api/v1/incident/subscribersundernotification")]
         public async Task<IActionResult> SubscribersUnderNotification([FromBody]SubscriberUnderNotificationWrapper wrapper)
         {

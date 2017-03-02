@@ -74,17 +74,17 @@ namespace AVP.WebApi.Tests.TestData
         //    _smsLocations.TryAdd(smsLoc.UserSmsLocationID, smsLoc);
         //}
         #region notifications
-        public async Task AddNotificationLocations(Notification notification)
+        public Task AddNotificationLocations(Notification notification)
         {
-            //returns null
+            return Task.FromResult(0);
         }
 
-        public async Task<Notification> UpdateNotification(Notification notification)
+        public Task<Notification> UpdateNotification(Notification notification)
         {
-            return notification;
+            return Task.FromResult(notification);
         }
 
-        public async Task<Notification> GetNotificationById(int id)
+        public Task<Notification> GetNotificationById(int id)
         {
             Notification notification = new Notification()
             {
@@ -94,10 +94,10 @@ namespace AVP.WebApi.Tests.TestData
                 SendingUserID = 3,
                 IncidentID = 1
             };
-            return notification;
+            return Task.FromResult(notification);
         }
 
-        public async Task<List<Notification>> GetAllNotifications()
+        public Task<List<Notification>> GetAllNotifications()
         {
             List<Notification> list = new List<Notification>();
             list.Add(new Notification()
@@ -118,25 +118,26 @@ namespace AVP.WebApi.Tests.TestData
                 IncidentID = 2
             });
 
-            return list;
+            return Task.FromResult(list);
         }
 
-        public async Task<Notification> InsertNotification(Notification notification)
+        public Task<Notification> InsertNotification(Notification notification)
         {
-            return notification;
+            return Task.FromResult(notification);
         }
         #endregion notifications
 
         #region subscribers
-        public async Task<List<Incident>> GetSubscribersForIncidents(List<Incident> incidents)
+        public Task<List<Incident>> GetSubscribersForIncidents(List<Incident> incidents)
         {
-            return incidents;
+            return Task.FromResult(incidents);
         }
-        public async Task AddSubscribersToIncident(List<Subscriber> subscribers)
+        public Task AddSubscribersToIncident(List<Subscriber> subscribers)
         {
+            return Task.FromResult(0);
             //returns void, error handling is in controller
         }
-        public async Task<List<Subscriber>> GetAllSubscribers()
+        public Task<List<Subscriber>> GetAllSubscribers()
         {
             List<Subscriber> subscribers = new List<Subscriber>();
 
@@ -159,11 +160,11 @@ namespace AVP.WebApi.Tests.TestData
                 Name = "Shawn Sampo"
             });
 
-            return subscribers;
+            return Task.FromResult(subscribers);
         }
         #endregion subscribers
         #region incidents
-        public async Task<List<Incident>> GetAllIncidents()
+        public Task<List<Incident>> GetAllIncidents()
         {
             List<Incident> incidents = new List<Incident>();
             incidents.Add(new Incident()
@@ -175,50 +176,51 @@ namespace AVP.WebApi.Tests.TestData
                 Radius = 30
             });
 
-            return incidents;
+            return Task.FromResult(incidents);
         }
-        public async Task CreateIncidents(List<Incident> incidents)
+        public Task CreateIncidents(List<Incident> incidents)
         {
+            return Task.FromResult(0);
             //returns void, error handling is in controller
         }
         #endregion
         #region users
-        public async Task<ApplicationUser> GetUser(string userName) {
-            return new ApplicationUser() { UserName = "Test Test" };
+        public Task<ApplicationUser> GetUser(string userName) {
+            return Task.FromResult(new ApplicationUser() { UserName = "Test Test" });
         }
-        public async Task<ApplicationUser> AddUser(ApplicationUser user)
+        public Task<ApplicationUser> AddUser(ApplicationUser user)
         {
             user.UserID = 1;
-            return user;
+            return Task.FromResult(user);
         }
 
-        public async Task<ApplicationUser> UpdateUserPassword(ApplicationUser user)
+        public Task<ApplicationUser> UpdateUserPassword(ApplicationUser user)
         {
-            return user;
+            return Task.FromResult(user);
         }
         #endregion users
 
         #region profiles
-        public async Task<UserProfile> GetProfileForUserName(string userName)
+        public Task<UserProfile> GetProfileForUserName(string userName)
         {
-            return new UserProfile() {
+            return Task.FromResult(new UserProfile() {
                 UserID = 1,
                 UserName = "Big Tester",
                 SmsOptIn = true,
                 EmailOptIn = true,
                 PushOptIn = true,
-            };
+            });
         }
-        public async Task<UserProfile> UpdateUserProfile(UserProfile profile)
+        public Task<UserProfile> UpdateUserProfile(UserProfile profile)
         {
-            return profile;
+            return Task.FromResult(profile);
         }
         #endregion profiles
 
         #region useraddress
-        public async Task<UserAddress> GetAddressById(int id)
+        public Task<UserAddress> GetAddressById(int id)
         {
-            return new UserAddress()
+            return Task.FromResult(new UserAddress()
             {
                 UserAddressID = 1,
                 UserID = 1,
@@ -228,9 +230,9 @@ namespace AVP.WebApi.Tests.TestData
                 Zip = 95746,
                 Latitude = 123.14,
                 Longitude = 34.56
-            };
+            });
         }
-        public async Task<List<UserAddress>> GetAddressesForUser(string userName)
+        public Task<List<UserAddress>> GetAddressesForUser(string userName)
         {
             List<UserAddress> list = new List<UserAddress>();
             UserAddress address = new UserAddress()
@@ -247,25 +249,25 @@ namespace AVP.WebApi.Tests.TestData
 
             list.Add(address);
 
-            return list;
+            return Task.FromResult(list);
         }
-        public async Task<UserAddress> UpdateUserAddress(UserAddress address)
+        public Task<UserAddress> UpdateUserAddress(UserAddress address)
         {
-            return address;
+            return Task.FromResult(address);
         }
-        public async Task<UserAddress> InsertUserAddress(UserAddress address)
+        public Task<UserAddress> InsertUserAddress(UserAddress address)
         {
             address.UserAddressID = 1;
-            return address;
+            return Task.FromResult(address);
         }
-        public async Task<bool> DeleteUserAddress(UserAddress address)
+        public Task<bool> DeleteUserAddress(UserAddress address)
         {
-            return true;
+            return Task.FromResult(true);
         }
         #endregion useraddress
 
         #region useremaillocation
-        public async Task<List<UserEmailLocation>> GetUserEmailLocationsForNotification(Notification notification)
+        public Task<List<UserEmailLocation>> GetUserEmailLocationsForNotification(Notification notification)
         {
             List<UserEmailLocation> emailLocs = new List<UserEmailLocation>();
 
@@ -277,19 +279,19 @@ namespace AVP.WebApi.Tests.TestData
                 UserID = 1
             });
 
-            return emailLocs;
+            return Task.FromResult(emailLocs);
         }
-        public async Task<UserEmailLocation> GetUserEmailLocationById(int id)
+        public Task<UserEmailLocation> GetUserEmailLocationById(int id)
         {
-            return new UserEmailLocation()
+            return Task.FromResult(new UserEmailLocation()
             {
                 UserEmailLocationID = 1,
                 UserAddressID = 1,
                 EmailAddress = "sellis@trinitytg.com",
                 UserID = 1
-            };
+            });
         }
-        public async Task<List<UserEmailLocation>> GetUserEmailLocationsForUser(string userName)
+        public Task<List<UserEmailLocation>> GetUserEmailLocationsForUser(string userName)
         {
             List<UserEmailLocation> emailLocs = new List<UserEmailLocation>();
 
@@ -301,35 +303,35 @@ namespace AVP.WebApi.Tests.TestData
                 UserID = 1
             });
 
-            return emailLocs;
+            return Task.FromResult(emailLocs);
         }
-        public async Task<UserEmailLocation> UpdateUserEmailLocation(UserEmailLocation emailLoc)
+        public Task<UserEmailLocation> UpdateUserEmailLocation(UserEmailLocation emailLoc)
         {
-            return emailLoc;
+            return Task.FromResult(emailLoc);
         }
-        public async Task<UserEmailLocation> InsertUserEmailLocation(UserEmailLocation emailLoc)
+        public Task<UserEmailLocation> InsertUserEmailLocation(UserEmailLocation emailLoc)
         {
             emailLoc.UserEmailLocationID = 1;
-            return emailLoc;
+            return Task.FromResult(emailLoc);
         }
-        public async Task<bool> DeleteUserEmailLocation(UserEmailLocation emailLoc)
+        public Task<bool> DeleteUserEmailLocation(UserEmailLocation emailLoc)
         {
-            return true;
+            return Task.FromResult(true);
         }
         #endregion useremaillocation
 
         #region userpushlocation
-        public async Task<UserPushLocation> GetUserPushLocationById(int id)
+        public Task<UserPushLocation> GetUserPushLocationById(int id)
         {
-            return new UserPushLocation()
+            return Task.FromResult(new UserPushLocation()
             {
                 UserPushLocationID = 1,
                 UserAddressID = 1,
                 PhoneNumber = 9165555555,
                 UserID = 1
-            };
+            });
         }
-        public async Task<List<UserPushLocation>> GetUserPushLocationsForUser(string userName)
+        public Task<List<UserPushLocation>> GetUserPushLocationsForUser(string userName)
         {
             List<UserPushLocation> list = new List<UserPushLocation>();
             list.Add(new UserPushLocation()
@@ -340,36 +342,36 @@ namespace AVP.WebApi.Tests.TestData
                 UserID = 1
             });
 
-            return list;
+            return Task.FromResult(list);
         }
-        public async Task<UserPushLocation> UpdateUserPushLocation(UserPushLocation pushLoc)
+        public Task<UserPushLocation> UpdateUserPushLocation(UserPushLocation pushLoc)
         {
-            return pushLoc;
+            return Task.FromResult(pushLoc);
         }
-        public async Task<UserPushLocation> InsertUserPushLocation(UserPushLocation pushLoc)
+        public Task<UserPushLocation> InsertUserPushLocation(UserPushLocation pushLoc)
         {
             pushLoc.UserPushLocationID = 1;
-            return pushLoc;
+            return Task.FromResult(pushLoc);
         }
-        public async Task<bool> DeleteUserPushLocation(UserPushLocation pushLoc)
+        public Task<bool> DeleteUserPushLocation(UserPushLocation pushLoc)
         {
-            return true;
+            return Task.FromResult(true);
         }
         #endregion userpushlocation
 
         #region usersmslocation
 
-        public async Task<UserSmsLocation> GetUserSmsLocationById(int id)
+        public Task<UserSmsLocation> GetUserSmsLocationById(int id)
         {
-            return new UserSmsLocation()
+            return Task.FromResult(new UserSmsLocation()
             {
                 UserSmsLocationID = 1,
                 UserAddressID = 1,
                 UserID = 1,
                 PhoneNumber = 9165555555
-            };
+            });
         }
-        public async Task<List<UserSmsLocation>> GetUserSMSLocationsForNotification(Notification notification)
+        public Task<List<UserSmsLocation>> GetUserSMSLocationsForNotification(Notification notification)
         {
             List<UserSmsLocation> smsList = new List<UserSmsLocation>();
             smsList.Add(new UserSmsLocation()
@@ -380,9 +382,9 @@ namespace AVP.WebApi.Tests.TestData
                 PhoneNumber = 9165555555
             });
 
-            return smsList;
+            return Task.FromResult(smsList);
         }
-        public async Task<List<UserSmsLocation>> GetUserSmsLocationsForUser(string userName)
+        public Task<List<UserSmsLocation>> GetUserSmsLocationsForUser(string userName)
         {
             List<UserSmsLocation> smsList = new List<UserSmsLocation>();
             smsList.Add(new UserSmsLocation()
@@ -393,20 +395,20 @@ namespace AVP.WebApi.Tests.TestData
                 PhoneNumber = 9165555555
             });
 
-            return smsList;
+            return Task.FromResult(smsList);
         }
-        public async Task<UserSmsLocation> UpdateUserSmsLocation(UserSmsLocation smsLoc)
+        public Task<UserSmsLocation> UpdateUserSmsLocation(UserSmsLocation smsLoc)
         {
-            return smsLoc;
+            return Task.FromResult(smsLoc);
         }
-        public async Task<UserSmsLocation> InsertUserSmsLocation(UserSmsLocation smsLoc)
+        public Task<UserSmsLocation> InsertUserSmsLocation(UserSmsLocation smsLoc)
         {
             smsLoc.UserSmsLocationID = 1;
-            return smsLoc;
+            return Task.FromResult(smsLoc);
         }
-        public async Task<bool> DeleteUserSmsLocation(UserSmsLocation smsLoc)
+        public Task<bool> DeleteUserSmsLocation(UserSmsLocation smsLoc)
         {
-            return true;
+            return Task.FromResult(true);
         }
         #endregion usersmslocation
     }

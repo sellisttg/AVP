@@ -1,0 +1,688 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AVP.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:AVP.WebApi.Program">
+            <summary>
+            Configuration for local run
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Program.Main(System.String[])">
+            <summary>
+            Startup of Kestrel services
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:AVP.WebApi.Startup">
+            <summary>
+            Initial startup class that handles are service configuration and injection.
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initial startup and build of service
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="P:AVP.WebApi.Startup.Configuration">
+            <summary>
+            Root configuration object for the application
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure services and objects for dependency injection
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:AVP.WebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This method gets called by the runtime. Used to configure the HTTP request pipeline
+            </summary>
+            <param name="app">IApplicationBuilder</param>
+            <param name="env">IHostingEnvironment</param>
+            <param name="loggerFactory">ILoggerFactory</param>
+        </member>
+        <member name="T:AVP.WebApi.Config.JwtIssuerOptions">
+            <summary>
+            Configuration class for JWT Issuer Options
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.Issuer">
+            <summary>
+            "iss" (Issuer) Claim
+            </summary>
+            <remarks>The "iss" (issuer) claim identifies the principal that issued the
+              JWT.  The processing of this claim is generally application specific.
+              The "iss" value is a case-sensitive string containing a StringOrURI
+              value.  Use of this claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.Subject">
+            <summary>
+            "sub" (Subject) Claim
+            </summary>
+            <remarks> The "sub" (subject) claim identifies the principal that is the
+              subject of the JWT.  The claims in a JWT are normally statements
+              about the subject.  The subject value MUST either be scoped to be
+              locally unique in the context of the issuer or be globally unique.
+              The processing of this claim is generally application specific.  The
+              "sub" value is a case-sensitive string containing a StringOrURI
+              value.  Use of this claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.Audience">
+            <summary>
+            "aud" (Audience) Claim
+            </summary>
+            <remarks>The "aud" (audience) claim identifies the recipients that the JWT is
+              intended for.  Each principal intended to process the JWT MUST
+              identify itself with a value in the audience claim.  If the principal
+              processing the claim does not identify itself with a value in the
+              "aud" claim when this claim is present, then the JWT MUST be
+              rejected.  In the general case, the "aud" value is an array of case-
+              sensitive strings, each containing a StringOrURI value.  In the
+              special case when the JWT has one audience, the "aud" value MAY be a
+              single case-sensitive string containing a StringOrURI value.  The
+              interpretation of audience values is generally application specific.
+              Use of this claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.NotBefore">
+            <summary>
+            "nbf" (Not Before) Claim (default is UTC NOW)
+            </summary>
+            <remarks>The "nbf" (not before) claim identifies the time before which the JWT
+              MUST NOT be accepted for processing.  The processing of the "nbf"
+              claim requires that the current date/time MUST be after or equal to
+              the not-before date/time listed in the "nbf" claim.  Implementers MAY
+              provide for some small leeway, usually no more than a few minutes, to
+              account for clock skew.  Its value MUST be a number containing a
+              NumericDate value.  Use of this claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.IssuedAt">
+            <summary>
+            "iat" (Issued At) Claim (default is UTC NOW)
+            </summary>
+            <remarks>The "iat" (issued at) claim identifies the time at which the JWT was
+              issued.  This claim can be used to determine the age of the JWT.  Its
+              value MUST be a number containing a NumericDate value.  Use of this
+              claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.ValidFor">
+            <summary>
+            Set the timespan the token will be valid for (default is 5 min/300 seconds)
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.Expiration">
+            <summary>
+            "exp" (Expiration Time) Claim (returns IssuedAt + ValidFor)
+            </summary>
+            <remarks>The "exp" (expiration time) claim identifies the expiration time on
+              or after which the JWT MUST NOT be accepted for processing.  The
+              processing of the "exp" claim requires that the current date/time
+              MUST be before the expiration date/time listed in the "exp" claim.
+              Implementers MAY provide for some small leeway, usually no more than
+              a few minutes, to account for clock skew.  Its value MUST be a number
+              containing a NumericDate value.  Use of this claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.JtiGenerator">
+            <summary>
+            "jti" (JWT ID) Claim (default ID is a GUID)
+            </summary>
+            <remarks>The "jti" (JWT ID) claim provides a unique identifier for the JWT.
+              The identifier value MUST be assigned in a manner that ensures that
+              there is a negligible probability that the same value will be
+              accidentally assigned to a different data object; if the application
+              uses multiple issuers, collisions MUST be prevented among values
+              produced by different issuers as well.  The "jti" claim can be used
+              to prevent the JWT from being replayed.  The "jti" value is a case-
+              sensitive string.  Use of this claim is OPTIONAL.</remarks>
+        </member>
+        <member name="P:AVP.WebApi.Config.JwtIssuerOptions.SigningCredentials">
+            <summary>
+            The signing key to use when generating tokens.
+            </summary>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.AccountController">
+            <summary>
+            Controller for all Account related actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.#ctor(Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.JwtIssuerOptions},Microsoft.Extensions.Logging.ILoggerFactory,AVP.WebApi.Services.IAuthService)">
+            <summary>
+            Constructor handles inection of services and options
+            </summary>
+            <param name="jwtOptions">JWT Server configuration options</param>
+            <param name="loggerFactory">ILoggerFactory</param>
+            <param name="authService">IAuthService</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.Register(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Register new user from an application user object.
+            </summary>
+            <param name="applicationUser">Application user with username and password.</param>
+            <returns>JWT Token for user login.</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.Post(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            User log in.
+            </summary>
+            <param name="applicationUser">Requres an Application User formatted object. Only username and password are required.</param>
+            <returns>JSON formatted JWT token.</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.ChangePassword(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Change user password. Requires authorization, verifies that the token user matches the user requested
+            </summary>
+            <param name="applicationUser">Application User serialized as JSON. Only requires username and password fields.</param>
+            <returns>Application User object</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.GetJWTForUser(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Generates a JWT Token for a given user's ClaimsIdentity
+            </summary>
+            <param name="user">ClaimsIdentity populated with the user's claims</param>
+            <returns>JWT Token as string</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.ThrowIfInvalidOptions(AVP.WebApi.Config.JwtIssuerOptions)">
+            <summary>
+            Checks for errors in JWT Configuration and throws errors accordingly.
+            </summary>
+            <param name="options">JWT Token parameters.</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.AccountController.ToUnixEpochDate(System.DateTime)">
+            <returns>Date converted to seconds since Unix epoch (Jan 1, 1970, midnight UTC).</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.IBaseController">
+            <summary>
+            IBaseController defines custom properties standard to all controllers in the AVP.WebApi service
+            </summary>
+        </member>
+        <member name="F:AVP.WebApi.Controllers.IBaseController.jsonHideNulls">
+            <summary>
+            Custom Json filter to hide null objects/properties when serializing json
+            </summary>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.IncidentNotificationController">
+            <summary>
+            Controller for all Incident actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.IncidentNotificationController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Constructor that handles injection of IDAO, IAuthService, and ILoggerFactory implementations for class use
+            </summary>
+            <param name="dao"></param>
+            <param name="authService"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.IncidentNotificationController.GetAllIncidents">
+            <summary>
+            Get all incidents
+            </summary>
+            <returns>List of Incidents</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.IncidentNotificationController.GetAllSubscribers">
+            <summary>
+            Get all available user profiles as possible subscribers
+            </summary>
+            <returns>List of Subscribers</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.IncidentNotificationController.CreateNotificationIncident(AVP.WebApi.Wrappers.IncidentsWrapper)">
+            <summary>
+            Create incident
+            </summary>
+            <param name="wrapper">Incidents Wrapper. Can process any number of incidents contained in the .incidents list property.</param>
+            <returns>List of all possible subscribers</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.IncidentNotificationController.SubscribersUnderNotification(AVP.WebApi.Wrappers.SubscriberUnderNotificationWrapper)">
+            <summary>
+            Add subscribers to an incident
+            </summary>
+            <param name="wrapper">Wrapper for list of subscribers and the incident ids to subscribe them to.</param>
+            <returns>Success/failure string. Returns 400 response on failure.</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.NotificationController">
+            <summary>
+            Controller for all Notification actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.NotificationController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService,Microsoft.Extensions.Logging.ILoggerFactory,AVP.WebApi.Services.ISmsService,AVP.WebApi.Services.IEmailService)">
+            <summary>
+            Controller for all Notification actions
+            </summary>
+            <param name="dao">IDAO</param>
+            <param name="authService">IAuthService</param>
+            <param name="loggerFactory">ILoggerFactory</param>
+            <param name="sms">ISmsService</param>
+            <param name="email">IEmailService</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.NotificationController.GetAllNotifications">
+            <summary>
+            Get All Notifications
+            </summary>
+            <returns>List of Notification objects</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.NotificationController.GetNotificationById(System.Int32)">
+            <summary>
+            Get Notification By Id
+            </summary>
+            <param name="id">int</param>
+            <returns>Notification</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.NotificationController.CreateNotification(AVP.Models.Entities.Notification)">
+            <summary>
+            Add new Notification
+            </summary>
+            <param name="notification">Notification</param>
+            <returns>Notification</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.NotificationController.UpdateNotification(AVP.Models.Entities.Notification)">
+            <summary>
+            Update Notification
+            </summary>
+            <param name="notification">Notification</param>
+            <returns>Notification</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.NotificationController.SendNotification(AVP.Models.Entities.Notification)">
+            <summary>
+            Send Notification to all subscribed users
+            </summary>
+            <param name="notification">Notification</param>
+            <returns>Success or failure string. Failure returns a 400 response</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.ProfileController">
+            <summary>
+            Controller for all profile actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.ProfileController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService)">
+            <summary>
+            Constructor for Profile Controller. Configures IDAO and IAuthService implementations for use by the class
+            </summary>
+            <param name="dao">IDAO</param>
+            <param name="authService">IAuthService</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.ProfileController.Get">
+            <summary>
+            Get profile for logged in user
+            </summary>
+            <returns>UserProfile</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.ProfileController.Post(AVP.Models.Entities.UserProfile)">
+            <summary>
+            Update UserProfile 
+            </summary>
+            <param name="profile">UserProfile</param>
+            <returns>UserProfile</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.UserAddressController">
+            <summary>
+            Controller for all UserAddress actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserAddressController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService)">
+            <summary>
+            Constructor for UserAddressController. Configures DAO and Auth Services via dependency injection
+            </summary>
+            <param name="dao">IDAO implementation</param>
+            <param name="authService">IAuthService implementation</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserAddressController.Get">
+            <summary>
+            Get all UserAddress objects for the logged in user
+            </summary>
+            <returns>List<UserAddress></UserAddress></returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserAddressController.Get(System.Int32)">
+            <summary>
+            Get UserAddress by ID
+            </summary>
+            <param name="id">int ID</param>
+            <returns>UserAddress</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserAddressController.Post(AVP.Models.Entities.UserAddress)">
+            <summary>
+            Update UserAddress
+            </summary>
+            <param name="address">UserAddress</param>
+            <returns>UserAddress</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserAddressController.Put(AVP.Models.Entities.UserAddress)">
+            <summary>
+            New User Address object
+            </summary>
+            <param name="address">UserAddress address</param>
+            <returns>UserAddress address</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserAddressController.Delete(AVP.Models.Entities.UserAddress)">
+            <summary>
+            Delete UserAddress
+            </summary>
+            <param name="address">UserAddress</param>
+            <returns>Success/fail string. Failures are 400 responses.</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.UserEmailLocationController">
+            <summary>
+            Controller for all UserEmailLocation actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserEmailLocationController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService)">
+            <summary>
+            Constructor for UserEmailLocation controller. Loads DAO and AuthServices via dependency injection
+            </summary>
+            <param name="dao">DataAccessObject to load via dependency injection</param>
+            <param name="authService">Auth Service object to load via dependency injection</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserEmailLocationController.Get">
+            <summary>
+            Get all UserEmailLocations for the currently logged in user
+            </summary>
+            <returns>List<UserEmailLocation> emailLocations</UserEmailLocation></returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserEmailLocationController.Get(System.Int32)">
+            <summary>
+            Get UserEmailLocation by ID
+            </summary>
+            <param name="id">integer ID of a UserEmailLocation</param>
+            <returns>UserEmailLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserEmailLocationController.Post(AVP.Models.Entities.UserEmailLocation)">
+            <summary>
+            Update UserEmailLocation
+            </summary>
+            <param name="emailLoc">UserEmailLocation to update</param>
+            <returns>Updated UserEmailLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserEmailLocationController.Put(AVP.Models.Entities.UserEmailLocation)">
+            <summary>
+            Insert new UserEmailLocation
+            </summary>
+            <param name="emailLoc">UserEmailLocation to insert</param>
+            <returns>Inserted UserEmailLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserEmailLocationController.Delete(AVP.Models.Entities.UserEmailLocation)">
+            <summary>
+            Delete UserEmailLocation
+            </summary>
+            <param name="emailLoc">UserEmailLocation</param>
+            <returns>Success or failure string. Failure is a 400 response.</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.UserPushLocationController">
+            <summary>
+            Controller for all UserPushLocation actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserPushLocationController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService)">
+            <summary>
+            Constructor for UserPushLocationController. Initializes instances of IDAO and IAuthService via dependency injection.
+            </summary>
+            <param name="dao"></param>
+            <param name="authService"></param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserPushLocationController.Get">
+            <summary>
+            Get all UserPushLocations for the logged in user.
+            </summary>
+            <returns>UserPushLocations for the logged in user.</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserPushLocationController.Get(System.Int32)">
+            <summary>
+            Get UserPushLocation by id.
+            </summary>
+            <param name="id">Id of requested UserPushLocation</param>
+            <returns>UserPushLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserPushLocationController.Post(AVP.Models.Entities.UserPushLocation)">
+            <summary>
+            Update UserPushLocation.
+            </summary>
+            <param name="pushLoc">UserPushLocation to be updated</param>
+            <returns>Updated UserPushLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserPushLocationController.Put(AVP.Models.Entities.UserPushLocation)">
+            <summary>
+            Insert new UserPushLocation
+            </summary>
+            <param name="pushLoc">UserPushLocation to insert</param>
+            <returns>Inserted UserPushLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserPushLocationController.Delete(AVP.Models.Entities.UserPushLocation)">
+            <summary>
+            Delete UserPushLocation
+            </summary>
+            <param name="pushLoc">UserPushLocation to delete</param>
+            <returns>Success or failure string (400 reponse for failure)</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.UserSmsLocationController">
+            <summary>
+            Controller for all UserSmsLocation actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserSmsLocationController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService)">
+            <summary>
+            Constructor for UserSMSLocationController.
+            </summary>
+            <param name="dao">Data Access Object Service</param>
+            <param name="authService">User Authentication Service</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserSmsLocationController.Get">
+            <summary>
+            Get all UserSmsLocations for the logged in user
+            </summary>
+            <returns>List of UserSmsLocations</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserSmsLocationController.Get(System.Int32)">
+            <summary>
+            Get a UserSmsLocation object by id.
+            </summary>
+            <param name="id">Id of User Sms Location</param>
+            <returns>Requested UserSmsLocation object</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserSmsLocationController.Post(AVP.Models.Entities.UserSmsLocation)">
+            <summary>
+            Update UserSmsLocation
+            </summary>
+            <param name="smsLoc">UserSmsLocation to update</param>
+            <returns>Updated UserSmsLocation</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserSmsLocationController.Put(AVP.Models.Entities.UserSmsLocation)">
+            <summary>
+            Add new User SMS Location
+            </summary>
+            <param name="smsLoc">UserSmsLocation Object to add</param>
+            <returns>Inserted UserSmsLocation object with Id</returns>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.UserSmsLocationController.Delete(AVP.Models.Entities.UserSmsLocation)">
+            <summary>
+            Delete UserSmsLocationObject
+            </summary>
+            <param name="smsLoc">UserSmsLocationObject to delete</param>
+            <returns>Success or failure string</returns>
+        </member>
+        <member name="T:AVP.WebApi.Services.IAuthService">
+            <summary>
+            Interface to define AVP.WebApi Authentication Services
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.IAuthService.Login(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Login method
+            </summary>
+            <param name="user">ApplicationUser</param>
+            <returns>ClaimsIdentity</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.IAuthService.RegisterUser(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="user">ApplicationUser</param>
+            <returns>ApplicationUser</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.IAuthService.ChangePassword(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Change password for user
+            </summary>
+            <param name="user">ApplicationUser</param>
+            <returns>ApplicationUser</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.IAuthService.GetUserNameFromToken(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Parses JWT Token and returns the SUB (username) from the token
+            </summary>
+            <param name="context">HttpContext</param>
+            <returns>string username</returns>
+        </member>
+        <member name="T:AVP.WebApi.Services.AuthService">
+            <summary>
+            Implementation of IAuthService
+            </summary>
+        </member>
+        <member name="F:AVP.WebApi.Services.AuthService._db">
+            <summary>
+            Instance of IDAO injected via dependency injection
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.AuthService.#ctor(AVP.DataAccess.IDAO)">
+            <summary>
+            Constructor, handles injection of IDAO implementation
+            </summary>
+            <param name="dao"></param>
+        </member>
+        <member name="M:AVP.WebApi.Services.AuthService.ChangePassword(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Change user password
+            </summary>
+            <param name="user">ApplicationUser</param>
+            <returns>ApplicationUser</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.AuthService.RegisterUser(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="user">ApplicationUser</param>
+            <returns>ApplicationUser</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.AuthService.Login(AVP.Models.Entities.ApplicationUser)">
+            <summary>
+            User login. Returns a claims identity to allow JWT generation.
+            </summary>
+            <param name="user">ApplicationUser</param>
+            <returns>ClaimsIdentity</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.AuthService.GetUserNameFromToken(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Parses JWT token from HTTPContext Authorization Header and returns string of SUB (username) property
+            </summary>
+            <param name="context">HTTPContext</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.AuthService.GetUserByName(System.String)">
+            <summary>
+            Get ApplicationUser from username
+            </summary>
+            <param name="user_name">string</param>
+            <returns>ApplicationUser</returns>
+        </member>
+        <member name="T:AVP.WebApi.Services.IEmailService">
+            <summary>
+            IEmailService defines the interface necessary for email services
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.IEmailService.SendEmailForNotification(AVP.Models.Entities.Notification,System.Collections.Generic.List{AVP.Models.Entities.UserEmailLocation})">
+            <summary>
+            Method to send emails to a list of locations with a specific notification.
+            </summary>
+            <param name="notification">Notification</param>
+            <param name="locations">List of UserEmailLocation</param>
+            <returns>int count of messages sent</returns>
+        </member>
+        <member name="T:AVP.WebApi.Services.EmailService">
+            <summary>
+            Implementation of IEmailService
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.EmailService.#ctor">
+            <summary>
+            Email Service contstructor configures the options necessary to send email with this implementation
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.EmailService.SendEmailForNotification(AVP.Models.Entities.Notification,System.Collections.Generic.List{AVP.Models.Entities.UserEmailLocation})">
+            <summary>
+            Send Emails to all locations supplied for a given notification
+            </summary>
+            <param name="notification">Notification</param>
+            <param name="locations">List of UserEmailLocations</param>
+            <returns>int count of sent messages</returns>
+        </member>
+        <member name="T:AVP.WebApi.Services.ISmsService">
+            <summary>
+            Interface for AVP SMS Service
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.ISmsService.SendSmsForNotification(AVP.Models.Entities.Notification,System.Collections.Generic.List{AVP.Models.Entities.UserSmsLocation})">
+            <summary>
+            Send SMS messages based on list of locations and notification.
+            </summary>
+            <param name="notification">Notification</param>
+            <param name="locations">List of UserSmsLocation</param>
+            <returns></returns>
+        </member>
+        <member name="T:AVP.WebApi.Services.SmsService">
+            <summary>
+            Implementation of ISmsService
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.SmsService.#ctor">
+            <summary>
+            Service to deliver SMS messages
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Services.SmsService.SendSmsForNotification(AVP.Models.Entities.Notification,System.Collections.Generic.List{AVP.Models.Entities.UserSmsLocation})">
+            <summary>
+            Send SMS messages for a given notification
+            </summary>
+            <param name="notification">Notification</param>
+            <param name="locations">List of UserSmsLocation</param>
+            <returns></returns>
+        </member>
+        <member name="M:AVP.WebApi.Services.SmsService.SendSms(System.String,System.String)">
+            <summary>
+            Send SMS Message
+            </summary>
+            <param name="messageBody">string</param>
+            <param name="toPhone">string</param>
+            <returns></returns>
+        </member>
+        <member name="T:AVP.WebApi.Wrappers.IncidentsWrapper">
+            <summary>
+            Wrapper class for Incident objects to ease GIS component integration
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Wrappers.IncidentsWrapper.incidents">
+            <summary>
+            List of Incident objects
+            </summary>
+        </member>
+        <member name="T:AVP.WebApi.Wrappers.SubscribersWrapper">
+            <summary>
+            Wrapper for subscriber objects to facilitate GIS integration
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Wrappers.SubscribersWrapper.Subscribers">
+            <summary>
+            List of Subscribers
+            </summary>
+        </member>
+        <member name="T:AVP.WebApi.Wrappers.SubscriberUnderNotificationWrapper">
+            <summary>
+            Wrapper for subscriber objects to facilitate GIS integration
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Wrappers.SubscriberUnderNotificationWrapper.SubscriberUnderNotification">
+            <summary>
+            List of subscribers
+            </summary>
+        </member>
+    </members>
+</doc>

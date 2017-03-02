@@ -11,19 +11,30 @@ using AVP.DataAccess;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all UserAddress actions
+    /// </summary>
     [Route("api/[controller]")]
     public class UserAddressController : Controller
     {
         private IDAO _dao;
         private IAuthService _authService;
 
+        /// <summary>
+        /// Constructor for UserAddressController. Configures DAO and Auth Services via dependency injection
+        /// </summary>
+        /// <param name="dao">IDAO implementation</param>
+        /// <param name="authService">IAuthService implementation</param>
         public UserAddressController(IDAO dao, IAuthService authService)
         {
             _dao = dao;
             _authService = authService;
         }
 
-        // GET: api/values
+        /// <summary>
+        /// Get all UserAddress objects for the logged in user
+        /// </summary>
+        /// <returns>List<UserAddress></UserAddress></returns>
         [HttpGet("/api/v1/useraddress")]
         public async Task<IActionResult> Get()
         {
@@ -40,7 +51,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-        // GET api/values/5
+        /// <summary>
+        /// Get UserAddress by ID
+        /// </summary>
+        /// <param name="id">int ID</param>
+        /// <returns>UserAddress</returns>
         [HttpGet("/api/v1/useraddress/{id}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -58,7 +73,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-        // POST api/values
+        /// <summary>
+        /// Update UserAddress
+        /// </summary>
+        /// <param name="address">UserAddress</param>
+        /// <returns>UserAddress</returns>
         [HttpPost("/api/v1/useraddress")]
         public async Task<IActionResult> Post([FromBody]UserAddress address)
         {
@@ -76,7 +95,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-        // PUT api/values/5
+        /// <summary>
+        /// New User Address object
+        /// </summary>
+        /// <param name="address">UserAddress address</param>
+        /// <returns>UserAddress address</returns>
         [HttpPut("/api/v1/useraddress")]
         public async Task<IActionResult> Put([FromBody]UserAddress address)
         {
@@ -94,7 +117,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
-        // DELETE api/values/5
+       /// <summary>
+       /// Delete UserAddress
+       /// </summary>
+       /// <param name="address">UserAddress</param>
+       /// <returns>Success/fail string. Failures are 400 responses.</returns>
         [HttpDelete("/api/v1/useraddress")]
         public async Task<IActionResult> Delete([FromBody]UserAddress address)
         {

@@ -10,18 +10,30 @@ using AVP.Models.Entities;
 
 namespace AVP.WebApi.Controllers
 {
+    /// <summary>
+    /// Controller for all UserEmailLocation actions
+    /// </summary>
     [Route("api/[controller]")]
     public class UserEmailLocationController : IBaseController
     {
         private IDAO _dao;
         private IAuthService _authService;
 
+        /// <summary>
+        /// Constructor for UserEmailLocation controller. Loads DAO and AuthServices via dependency injection
+        /// </summary>
+        /// <param name="dao">DataAccessObject to load via dependency injection</param>
+        /// <param name="authService">Auth Service object to load via dependency injection</param>
         public UserEmailLocationController(IDAO dao, IAuthService authService)
         {
             _dao = dao;
             _authService = authService;
         }
 
+        /// <summary>
+        /// Get all UserEmailLocations for the currently logged in user
+        /// </summary>
+        /// <returns>List<UserEmailLocation> emailLocations</UserEmailLocation></returns>
         [HttpGet("/api/v1/emaillocation/")]
         public async Task<IActionResult> Get()
         {
@@ -38,6 +50,11 @@ namespace AVP.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Get UserEmailLocation by ID
+        /// </summary>
+        /// <param name="id">integer ID of a UserEmailLocation</param>
+        /// <returns>UserEmailLocation</returns>
         [HttpGet("/api/v1/emaillocation/{id}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -54,7 +71,12 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+
+        /// <summary>
+        /// Update UserEmailLocation
+        /// </summary>
+        /// <param name="emailLoc">UserEmailLocation to update</param>
+        /// <returns>Updated UserEmailLocation</returns>
         [HttpPost("/api/v1/emaillocation/")]
         public async Task<IActionResult> Post([FromBody]UserEmailLocation emailLoc)
         {
@@ -71,7 +93,12 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+
+        /// <summary>
+        /// Insert new UserEmailLocation
+        /// </summary>
+        /// <param name="emailLoc">UserEmailLocation to insert</param>
+        /// <returns>Inserted UserEmailLocation</returns>
         [HttpPut("/api/v1/emaillocation/")]
         public async Task<IActionResult> Put([FromBody]UserEmailLocation emailLoc)
         {
@@ -88,7 +115,11 @@ namespace AVP.WebApi.Controllers
                 return BadRequest(e.Message);
             }
         }
-        
+        /// <summary>
+        /// Delete UserEmailLocation
+        /// </summary>
+        /// <param name="emailLoc">UserEmailLocation</param>
+        /// <returns>Success or failure string. Failure is a 400 response.</returns>
         [HttpDelete("/api/v1/emaillocation/")]
         public async Task<IActionResult> Delete([FromBody]UserEmailLocation emailLoc)
         {

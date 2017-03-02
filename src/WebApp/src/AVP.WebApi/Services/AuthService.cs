@@ -13,22 +13,60 @@ using Jwt;
 
 namespace AVP.WebApi.Services
 {
+    /// <summary>
+    /// Interface to define AVP.WebApi Authentication Services
+    /// </summary>
     public interface IAuthService
     {
+        /// <summary>
+        /// Login method
+        /// </summary>
+        /// <param name="user">ApplicationUser</param>
+        /// <returns>ClaimsIdentity</returns>
         Task<ClaimsIdentity> Login(ApplicationUser user);
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="user">ApplicationUser</param>
+        /// <returns>ApplicationUser</returns>
         Task<ApplicationUser> RegisterUser(ApplicationUser user);
+        /// <summary>
+        /// Change password for user
+        /// </summary>
+        /// <param name="user">ApplicationUser</param>
+        /// <returns>ApplicationUser</returns>
         Task<ApplicationUser> ChangePassword(ApplicationUser user);
+        /// <summary>
+        /// Parses JWT Token and returns the SUB (username) from the token
+        /// </summary>
+        /// <param name="context">HttpContext</param>
+        /// <returns>string username</returns>
         string GetUserNameFromToken(HttpContext context);
     }
 
+    /// <summary>
+    /// Implementation of IAuthService
+    /// </summary>
     public class AuthService : IAuthService
     {
+        /// <summary>
+        /// Instance of IDAO injected via dependency injection
+        /// </summary>
         public IDAO _db;
 
+        /// <summary>
+        /// Constructor, handles injection of IDAO implementation
+        /// </summary>
+        /// <param name="dao"></param>
         public AuthService(IDAO dao)
         {
             _db = dao;
         }
+        /// <summary>
+        /// Change user password
+        /// </summary>
+        /// <param name="user">ApplicationUser</param>
+        /// <returns>ApplicationUser</returns>
         public async Task<ApplicationUser> ChangePassword(ApplicationUser user)
         {
             //hash the password
@@ -38,6 +76,11 @@ namespace AVP.WebApi.Services
             return await _db.UpdateUserPassword(user);
         }
 
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="user">ApplicationUser</param>
+        /// <returns>ApplicationUser</returns>
         public async Task<ApplicationUser> RegisterUser(ApplicationUser user)
         {
             //hash the password
@@ -47,6 +90,11 @@ namespace AVP.WebApi.Services
             return await _db.AddUser(user);
         }
 
+        /// <summary>
+        /// User login. Returns a claims identity to allow JWT generation.
+        /// </summary>
+        /// <param name="user">ApplicationUser</param>
+        /// <returns>ClaimsIdentity</returns>
         public async Task<ClaimsIdentity> Login(ApplicationUser user)
         {
             ApplicationUser userFromDb = await GetUserByName(user.UserName);
@@ -83,7 +131,12 @@ namespace AVP.WebApi.Services
                 return await Task.FromResult<ClaimsIdentity>(null);
             }
         }
-        
+
+        /// <summary>
+        /// Parses JWT token from HTTPContext Authorization Header and returns string of SUB (username) property
+        /// </summary>
+        /// <param name="context">HTTPContext</param>
+        /// <returns>string</returns>
         public string GetUserNameFromToken(HttpContext context)
         {
             if (context.Request.Headers.ContainsKey("Authorization"))
@@ -117,6 +170,11 @@ namespace AVP.WebApi.Services
 
         }
 
+        /// <summary>
+        /// Get ApplicationUser from username
+        /// </summary>
+        /// <param name="user_name">string</param>
+        /// <returns>ApplicationUser</returns>
         private async Task<ApplicationUser> GetUserByName(string user_name)
         {
             return await _db.GetUser(user_name);
