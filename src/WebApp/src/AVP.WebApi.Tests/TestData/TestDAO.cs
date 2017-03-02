@@ -178,9 +178,9 @@ namespace AVP.WebApi.Tests.TestData
 
             return Task.FromResult(incidents);
         }
-        public Task CreateIncidents(List<Incident> incidents)
+        public Task<List<Incident>> AddIncidents(List<Incident> incidents)
         {
-            return Task.FromResult(0);
+            return Task.FromResult(incidents);
             //returns void, error handling is in controller
         }
         #endregion
