@@ -95,4 +95,4 @@ https://app.google.stackdriver.com/
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
-####In addition to each individual open source license associated with item l. above, TrinityTG has also provided an open source license to this prototype solution [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/MITLicense)
+####In addition to each individual open source license associated with item l. above, TrinityTG has also provided an open source license to this prototype solution [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/MITLicense.md)
