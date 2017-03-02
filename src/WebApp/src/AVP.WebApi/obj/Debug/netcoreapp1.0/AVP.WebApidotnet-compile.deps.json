@@ -2931,6 +2931,7 @@
       "AVP.DataAccess/1.0.0": {
         "dependencies": {
           "AVP.Models": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.0",
           "MySqlConnector": "0.13.0",
           "NETStandard.Library": "1.6.1"
         },
@@ -5738,6 +5739,7 @@
       "AVP.DataAccess/1.0.0": {
         "dependencies": {
           "AVP.Models": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.0",
           "MySqlConnector": "0.13.0",
           "NETStandard.Library": "1.6.1"
         },

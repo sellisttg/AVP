@@ -1,5 +1,6 @@
 ﻿using AVP.DataAccess;
 using AVP.Models.Entities;
+using Microsoft.Extensions.Logging;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -33,12 +34,14 @@ namespace AVP.WebApi.Services
     {
         private string _sendGridApiKey { get; set; }
         private string _fromEmail { get; set; }
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Email Service contstructor configures the options necessary to send email with this implementation
         /// </summary>
-        public EmailService()
+        public EmailService(ILoggerFactory loggerFactory)
         {
+            _logger = loggerFactory.CreateLogger<DAO>();
             //setup the config items to send messages
             _sendGridApiKey = "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";
             _fromEmail = "devtest@trinitytg.com";
@@ -61,6 +64,7 @@ namespace AVP.WebApi.Services
                     sent++;
                 } catch (Exception e)
                 {
+                    _logger.LogInformation($"Unable send notification to {location.EmailAddress}. Exception message is: {e.Message}");
                 }                
             }
             return sent;

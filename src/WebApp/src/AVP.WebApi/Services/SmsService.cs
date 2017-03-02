@@ -1,5 +1,6 @@
 ﻿using AVP.DataAccess;
 using AVP.Models.Entities;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +33,14 @@ namespace AVP.WebApi.Services
         private string _accountSid { get; set; }
         private string _authToken { get; set; }
         private string _msgServiceSid { get; set; }
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Service to deliver SMS messages
         /// </summary>
-        public SmsService()
+        public SmsService(ILoggerFactory loggerFactory)
         {
+            _logger = loggerFactory.CreateLogger<DAO>();
             //setup the config items to send messages
             _accountSid = "ACfa841159cde856eedf95b63b3bd85bcb";
             _authToken = "ff93ad066621e2fec4a3412086ef2e5e";
@@ -60,6 +63,7 @@ namespace AVP.WebApi.Services
                     sent++;
                 } catch (Exception e)
                 {
+                    _logger.LogInformation($"Unable send notification to {location.PhoneNumber}. Exception message is: {e.Message}");
                 }                
             }
             return sent;

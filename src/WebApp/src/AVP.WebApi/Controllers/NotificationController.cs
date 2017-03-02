@@ -39,6 +39,7 @@ namespace AVP.WebApi.Controllers
             _email = email;
             _dao = dao;
             _authService = authService;
+            _logger = loggerFactory.CreateLogger<DAO>();
         }
 
         /// <summary>

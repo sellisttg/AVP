@@ -89,7 +89,7 @@ namespace AVP.WebApi.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogInformation($"Error creating new user, requested username was {applicationUser.UserName}");
+                _logger.LogInformation($"Error creating new user, requested username was {applicationUser.UserName}. Exception was: {e.Message}");
                 return BadRequest("Error creating user. Please enter a different username and try again.");
             }
         }

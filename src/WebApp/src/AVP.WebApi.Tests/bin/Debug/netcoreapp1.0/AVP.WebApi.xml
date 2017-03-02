@@ -602,7 +602,7 @@
             Implementation of IEmailService
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.EmailService.#ctor">
+        <member name="M:AVP.WebApi.Services.EmailService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
             Email Service contstructor configures the options necessary to send email with this implementation
             </summary>
@@ -633,7 +633,7 @@
             Implementation of ISmsService
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.SmsService.#ctor">
+        <member name="M:AVP.WebApi.Services.SmsService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
             Service to deliver SMS messages
             </summary>

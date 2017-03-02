@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace AVP.DataAccess
 {
@@ -76,6 +77,11 @@ namespace AVP.DataAccess
 
     public class DAO : IDAO
     {
+        private readonly ILogger _logger;
+        public DAO(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<DAO>();
+        }
         #region notifications
         public async Task AddNotificationLocations(Notification notification)
         {
@@ -754,7 +760,7 @@ namespace AVP.DataAccess
                         }
                         catch (Exception e)
                         {
-
+                            _logger.LogInformation($"Unable to read UserEmailLocation. Exception message is: {e.Message}");
                         }
 
                         
