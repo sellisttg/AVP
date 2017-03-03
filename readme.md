@@ -93,9 +93,7 @@ https://papertrailapp.com/
 Jenkins /nagios?  
 https://app.google.stackdriver.com/  
 ###r.    Deployed  their  software  in  an  open-source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
-####We have deployed our software in an open-source Docker container.
-####Installation  
-The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.   
+####We have deployed our software in an open-source Docker container. The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.   
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
