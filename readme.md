@@ -30,12 +30,7 @@ Back End Developer: Shawn Sampo
 Back End Developer (GIS): Charan Misha  
 Dev Ops Engineer: Sam Ellis  
 Quality Assurance: Camille Dyer  
-Agile Coach: Hiren Vashi, Agile related certifications Include:   
-* Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
-* Certified Scrum Professional (CSP)  
-* Certified Scrum Master (CSM)
-* PMI-Agile Certified Practitioner (PMI-ACP)  
-* Project Management Professional (PMP)   
+Agile Coach: Hiren Vashi, Agile related certifications Include: Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4), Certified Scrum Professional (CSP), Certified Scrum Master (CSM), PMI-Agile Certified Practitioner (PMI-ACP), Project Management Professional (PMP)   
 
 ###c.  Understood what people needed, by including people in the prototype development and design process;  
 Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes. The design process included building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md)
@@ -44,7 +39,8 @@ Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) 
 ####2. The second user centric design approach included developing [personas](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf) to help summarizing our target audience for product development. We further emphasised the personas by making sure our persona [portraits where displayed in team development area](https://cloud.githubusercontent.com/assets/23264395/23387351/bdc5b102-fd10-11e6-9753-902d57caca76.jpg).  This approach prompted our proxy users 'got into character' for design.
 ####3. The third user-centric approach was using user stories as a basis for our design.
 We used the open-source tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
-####4. The fourth user centric design approach we followed was building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md).  This allows us to quickly have our users visualize and course-cource correct our requirements and UX design.
+####4. The fourth user centric design approach we followed was building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md).  
+This allowed our team to quickly have our users visualize and course-cource correct our requirements and UX design.
 ####5. The fifth user centric approach was a brainstorming exercise to develop scenarios:
 We used persona as the main character of his/her story. We developed a story around specific of the events that relate to the need of receiving notification by each persona. We developed a simple story about the daily life of an individual persona and included emotional and physical characteristics. We made some assumptions and also created a social context in which the persona exist.
 
