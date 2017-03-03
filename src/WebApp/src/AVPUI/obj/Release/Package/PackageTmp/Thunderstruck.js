@@ -43,9 +43,8 @@ app.controller('AVPController'
     $scope.userProfile = $scope.initUserProfile();
     
     /************************************************************/
-    /*                  Methods
+    /*                  User Management Methods
     /************************************************************/
-    //User Management Methods
     $scope.ShowRegister = function() {
         $scope.isRegistering = true;
     }
@@ -111,6 +110,9 @@ app.controller('AVPController'
                 $scope.error = error.statusText;
             });
     }
+    /************************************************************/
+    /*                  Get Methods
+    /************************************************************/
     $scope.GetUserProfile = function () {
         var url = $scope.baseUrl + "/v1/profile" + "?" + $scope.GetUniqueQueryString();
         //$http.get(url, { headers: [{ authorization: "Bearer " + $scope.authToken }, { ContentType : "application/json; charset=utf-8" }] }).then(
@@ -162,6 +164,23 @@ app.controller('AVPController'
                 }
             });
     }
+    $scope.GetDashboardNotifications = function () {
+        var url = $scope.baseUrl + "/v1/dashboard";
+        var postdata = {
+            
+        };
+        $http.get(url, { headers: { authorization: "Bearer " + $scope.authToken } }).then(
+            function (response) {
+                if (response.data.length > 0) {
+                    $scope
+                    $scope.userProfile.sms.smsLocationID = response.data[0].userSmsLocationID;
+                    $scope.userProfile.sms.phoneNumber = response.data[0].phoneNumber;
+                }
+            });
+    }
+    /************************************************************/
+    /*                  Save Methods
+    /************************************************************/
     $scope.SaveUserInfo = function () {
         $scope.SaveUserProfile();
     }
@@ -301,6 +320,9 @@ app.controller('AVPController'
             }
         }
     }
+    /************************************************************/
+    /*                  Local Functions
+    /************************************************************/
     $scope.SelectRole = function (role) {
         $scope.currentRole = role;
     }

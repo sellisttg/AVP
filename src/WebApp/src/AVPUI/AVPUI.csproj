@@ -114,6 +114,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="subscriberpushpin.png" />
+    <Content Include="subscribers.png" />
     <Content Include="Thunderstruck.html" />
     <Content Include="Thunderstruck.js" />
     <Content Include="ThunderstruckMap.html" />
