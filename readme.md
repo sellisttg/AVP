@@ -38,7 +38,7 @@ We integrated the playbook into our trello boards for checklists/key questions t
 ####2. The second user centric design approach included developing [personas](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf).
 This user-centric approach summarized our target audience for product development. We further emphasised the personas to make sure our persona [portraits were displayed in the team development area](https://cloud.githubusercontent.com/assets/23264395/23387351/bdc5b102-fd10-11e6-9753-902d57caca76.jpg).  This approach prompted our proxy users 'got into character' for design.
 ####3. The third user-centric approach was using user stories as a basis for our design.
-We used the open-source tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
+We used the open-source tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png) through [completion](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/j.AVP-Sprint-Completion.JPG).  
 ####4. The fourth user centric design approach we followed was building [wireframes](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md).  
 This allowed our team to quickly have our users visualize and course correct our requirements and UX design.
 ####5. The fifth user centric approach was a brainstorming exercise to develop scenarios:
