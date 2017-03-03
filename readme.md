@@ -54,14 +54,14 @@ Our team used Swagger to document the RESTful API. [Swagger Live Link(http://avp
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited volunteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Enterprise Agile Coach (Hiren)  
-1. Prior to beginning the agile/scrum process, the team set up the facilities including the collaborative work area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
-2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
-3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
-4. At the beginning of each sprint, we identified the sprint backlog during sprint planning meeting  
-5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board 
-6. Team co-location with visible persona's with clearly identified roles and sprint goals  
-7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
-8. Sprint Retrospectives to help course correct the process  
+####1. Prior to beginning the agile/scrum process, the team set up the facilities including the collaborative work area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
+####2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
+####3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
+####4. At the beginning of each sprint, we identified the sprint backlog during sprint planning meeting  
+####5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board   
+####6. Team co-location with visible persona's with clearly identified roles and sprint goals  
+####7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
+####8. Sprint Retrospectives to help course correct the process  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;   
 Our prototype works on multiple device and presents a responsive design. We visited our site on an Ipad, PC based laptop, 
 PC based tablet, Mac based Laptop and an Android Phone. This is evidenced by the following [images links]( 
