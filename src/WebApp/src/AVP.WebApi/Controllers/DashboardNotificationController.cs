@@ -59,6 +59,5 @@ namespace AVP.WebApi.Controllers
                 return BadRequest($"Error getting all dashboard notifications. The error was: {e.Message}");
             }
         }
-
     }
 }
