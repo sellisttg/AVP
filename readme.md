@@ -60,7 +60,7 @@ The iterative development approach was 'baked into' our Agile methodology guided
 4. At the beginning of each sprint, we identified the sprint goal and the sprint backlog during sprint planning meeting  
 5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board. [image](https://cloud.githubusercontent.com/assets/23264395/23535136/5b96e2cc-ff71-11e6-98cf-4c549d5d8057.jpg)  
 6. Team co-location with visible persona's with clearly identified roles and sprint goals  
-7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas.    
+7. Our Sprint Demos served as multiple versions of the prototype and allowed us to gather feedback from Product Owner and proxy users based on personas.    
 8. Sprint Retrospectives to help course correct the process  
 ###k. Created a prototype that works on multiple devices, and presents a responsive design;   
 Our prototype works on multiple devices and presents a responsive design. We tested our site on an Ipad, PC based laptop, 
