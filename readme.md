@@ -92,11 +92,9 @@ An example of our embedded [unit test for sprint 1 link](https://cloud.githubuse
 ###p.   Setup or used configuration management; 
 We used the built-in configuration management tools within .net core and the Azure hosting environment. [Evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/p1-configiguration-management-evidence.md) 
 ###q.   Setup or used continuous monitoring;  
-https://papertrailapp.com/  
-Jenkins /nagios?  
-https://app.google.stackdriver.com/  
+We Setup and use continuous monitoring.  Heartbeat tests conducted via Azure Application Insights. Tests are run every 5 minutes, email alerts are sent for each failure to the  administrators. [Evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/q.1-continuous-monitoring-evidence.md)
 ###r.    Deployed  their  software  in  an  open-source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
-####We have deployed our software in an open-source Docker container. The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. We have included a "recipe" file that would require Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.   
+####We have deployed our software in an open-source Docker container. The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. We have included a "recipe" file [link](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/appsettings.Development.json) that would require the users credentials. The TrinityTG credentials used in our prototype appsettings.json file has been redacted from the public repository as a security precaution.   
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
