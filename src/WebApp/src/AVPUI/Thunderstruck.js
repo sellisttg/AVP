@@ -5,14 +5,19 @@ app.controller('AVPController'
     /*                    Properties
     /************************************************************/
     //constants
-    $scope.baseUrl = "http://avp2017webapp.azurewebsites.net/api";
-    //$scope.baseUrl = "http://localhost:57123/api";
+    //$scope.baseUrl = "http://avp2017webapp.azurewebsites.net/api";
+    $scope.baseUrl = "http://localhost:57123/api";
     
     //self-explanatory
     $scope.isAuthenticated = false;
     $scope.currentRole;
     $scope.error = "";
     $scope.states = [];
+    $scope.dashboardNotifications = [];
+    $scope.dashboardDisplayNotifications = [];
+    $scope.dashboardPageSize = "10";
+    $scope.dashboardPageArray = [];
+    $scope.dashboardCurrentPage = "1";
 
     //isRegistering used on UserProfile page to trigger new registration presentation and logic
     $scope.isRegistering = false;
@@ -51,6 +56,7 @@ app.controller('AVPController'
     $scope.Logout = function () {
         $scope.userProfile = $scope.initUserProfile();
         $scope.isAuthenticated = false;
+        $scope.error = "";
     }
     $scope.Login = function () {
         var url = $scope.baseUrl + "/v1/sessions";
@@ -321,6 +327,47 @@ app.controller('AVPController'
         }
     }
     /************************************************************/
+    /*                  Dashboard
+    /************************************************************/
+    $scope.GetDashboardNotifications = function () {
+        var url = $scope.baseUrl + "/v1/dashboard";
+        var postdata = { UserID: $scope.userProfile.userID, Role: $scope.currentRole.rolename };
+        $http.post(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
+        .then(function (response) {
+            $scope.dashboardNotifications = response.data;
+            $scope.dashboardCurrentPage = 1;
+            $scope.dashboardPageArray = [];
+            if (($scope.dashboardNotifications.length / $scope.dashboardPageSize) <= 1) {
+                $scope.dashboardPageArray.push(1);
+            }
+            else
+            {
+                for (var i = 1; i < $scope.dashboardNotifications.length / $scope.dashboardPageSize; i++) {
+                    $scope.dashboardPageArray.push(i);
+                }
+            }
+            $scope.GetPageofNotifications(1);
+        })
+        .catch(function (error) {
+            $scope.error = error.statusText;
+        })
+    }
+    $scope.GetPageofNotifications = function(pageNumber) {
+        var firstRecord = (pageNumber-1) * $scope.dashboardPageSize;
+        var lastRecord = ((pageNumber) * $scope.dashboardPageSize)-1;
+        $scope.dashboardCurrentPage = pageNumber;
+        $scope.dashboardDisplayNotifications = $scope.dashboardNotifications.slice(firstRecord, lastRecord);
+    }
+    $scope.IsCurrentPage = function (p) {
+        if ($scope.dashboardCurrentPage == p) {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    /************************************************************/
     /*                  Local Functions
     /************************************************************/
     $scope.SelectRole = function (role) {
@@ -335,6 +382,7 @@ app.controller('AVPController'
     //Navigation Methods
     $scope.ShowDashboard = function () {
         $scope.currentPage = $scope.pages.Dashboard;
+        $scope.GetDashboardNotifications();
     }
     $scope.ShowIncidents = function () {
         $scope.currentPage = $scope.pages.Incidents;

@@ -16,7 +16,7 @@ namespace AVP.Models.Entities
         public int IncidentID { get; set; }
         public string IncidentType { get; set; }
         public string Name { get; set; }
-        public DateTime MessageDateTime { get; set; }
+        public string MessageDateTime { get; set; }
         public string Message { get; set; }
         public string Address { get; set; }
     }

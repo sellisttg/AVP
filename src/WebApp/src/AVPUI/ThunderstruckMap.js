@@ -1,5 +1,5 @@
-//var baseUrl= "http://localhost:57123/api";
-var baseUrl = "http://avp2017webapp.azurewebsites.net/api";
+var baseUrl= "http://localhost:57123/api";
+//var baseUrl = "http://avp2017webapp.azurewebsites.net/api";
 var allsubscribericon = L.icon({
     iconUrl: 'subscriberpushpin.png',
     iconSize: [38, 60], // size of the icon
@@ -83,8 +83,10 @@ var incidents = {
 var map = L.map('map', {
         center: [38.575764, -121.478851],
         zoom: 7,
-        layers: [streets, earthquake]
-    });
+        layers: [streets, earthquake],
+        trackResize: true
+});
+
 L.control.layers(baseLayers, incidents).addTo(map);
 var searchControl = L.esri.Geocoding.geosearch().addTo(map);
 var results = L.layerGroup().addTo(map);
@@ -244,6 +246,7 @@ function SendNotification(incidentID, notificationID) {
 }
 function InitMap() {
     //location.reload(true);
+    map.invalidateSize();
     clearCircleAndMarker();
     GetAllSubscribers();
 }

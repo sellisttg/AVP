@@ -124,7 +124,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-2"></div>
-                        <button class="btn btn-primary col-xs-3" ng-click="Login()" style="width:100px"><span class="glyphicon-login"></span>Login </button>{{error}}
+                        <button class="btn btn-primary col-xs-3" ng-click="Login()" style="width:100px"><span class="glyphicon-login"></span>Login </button>
                         <label class="control-label col-xs-2" style="padding-top:7px">{{error}}</label>
                     </div>
                 </div>
@@ -139,6 +139,20 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-xs-1">&nbsp;</div>
+                <div class="col-xs-3">
+                    <label class="control-label" style="padding-top:7px;">Number of Records to Display</label>
+                </div>
+                <div class="col-xs-2">
+                    <select class="form-control" ng-model="dashboardPageSize" style="width:80px">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-xs-1">
                     &nbsp;
                 </div>
@@ -147,46 +161,28 @@
                         <tr class="info">
                             <th>Incident Type</th>
                             <th>Notification Date</th>
+                            <th>Message</th>
                             <th>Subscriber</th>
                             <th>Location</th>
                         </tr>
-                        <tr>
-                            <td>Earthquake</td>
-                            <td>02/27/2017</td>
-                            <td>Hazel Melman</td>
-                            <td>Bakersfield, CA</td>
-                        </tr>
-                        <tr>
-                            <td>Tsunami</td>
-                            <td>02/15/2017</td>
-                            <td>Daniel Brown</td>
-                            <td>Redding, CA</td>
-                        </tr>
-                        <tr>
-                            <td>Natural Hazard</td>
-                            <td>01/25/2017</td>
-                            <td>Newton Slobodok</td>
-                            <td>San Francisco, CA</td>
-                        </tr>
-                        <tr>
-                            <td>Weather Hazard</td>
-                            <td>01/10/2017</td>
-                            <td>Henrietta Sanchez</td>
-                            <td>Reno, NV</td>
-                        </tr>
-                        <tr>
-                            <td>Fire</td>
-                            <td>12/25/2017</td>
-                            <td>Jennifer Tillman</td>
-                            <td>Needles, CA</td>
-                        </tr>
-                        <tr>
-                            <td>Flood</td>
-                            <td>11/20/2017</td>
-                            <td>Pardeep Jones</td>
-                            <td>San Diego, CA</td>
+                        <tr ng-repeat="n in dashboardDisplayNotifications">
+                            <td>{{n.incidentType}}</td>
+                            <td>{{n.messageDateTime}}</td>
+                            <td>{{n.message}}</td>
+                            <td>{{n.name}}</td>
+                            <td>{{n.address}}</td>
                         </tr>
                     </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    &nbsp;
+                </div>
+                <div class="col-xs-10">
+                    <ul class="pagination">
+                        <li ng-repeat="p in dashboardPageArray" ng-class="{active:IsCurrentPage(p)}"><a ng-click="GetPageofNotifications(p)">{{p}}</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -277,7 +273,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-10" style="min-height:400px">
+                    <div class="col-xs-10" style="min-height:400px;min-width:300px">
                         <div id="map" style="width:100%; height:100%"></div>
                     </div>
                 </div>

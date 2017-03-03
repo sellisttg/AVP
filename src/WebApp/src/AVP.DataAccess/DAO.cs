@@ -1295,7 +1295,7 @@ namespace AVP.DataAccess
                     , i.incidentid
                     , i.incidenttype
                     , ifnull(up.name,up.username) name
-                    , n.messagedatetime
+                    , Date_Format(n.messagedatetime,'%m/%d/%Y %h:%i:%s') messagedatetime
                     , n.message
                     , concat(ifnull(ua.streetaddress,''),', ',ifnull(ua.city,''),', ',ifnull(ua.state,''),' ',ifnull(ua.zip,'')) address
                     from notification n
@@ -1342,7 +1342,7 @@ namespace AVP.DataAccess
                 notification.IncidentID = Convert.ToInt32(reader["incidentid"]);
                 notification.IncidentType = reader["incidenttype"].ToString();
                 notification.Message = reader["message"].ToString();
-                notification.MessageDateTime = Convert.ToDateTime(reader["messagedatetime"]);
+                notification.MessageDateTime = reader["messagedatetime"].ToString();
                 notification.Name = reader["name"].ToString();
                 notification.IncidentID = Convert.ToInt32(reader["incidentid"]);
                 notification.NotificationID = Convert.ToInt32(reader["incidentid"]);
