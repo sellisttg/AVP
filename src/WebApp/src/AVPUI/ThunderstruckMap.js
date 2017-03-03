@@ -246,9 +246,10 @@ function SendNotification(incidentID, notificationID) {
 }
 function InitMap() {
     //location.reload(true);
-    map.invalidateSize();
+    //document.getElementById("map").innerHTML.reload;
     clearCircleAndMarker();
     GetAllSubscribers();
+    setTimeout(function () { map.invalidateSize() }, 200);
 }
 function clearCircleAndMarker() {
     if (circle) {
