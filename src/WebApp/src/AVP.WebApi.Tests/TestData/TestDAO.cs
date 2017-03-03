@@ -422,7 +422,7 @@ namespace AVP.WebApi.Tests.TestData
                 , IncidentID = 1
                 , IncidentType = "Administrator"
                 , Name = "User Display Name"
-                , MessageDateTime = new DateTime()
+                , MessageDateTime = ""
                 , Message ="Test Notification Message"
                 , Address ="Test Address"
             });

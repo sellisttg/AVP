@@ -129,4 +129,3 @@ C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojRes
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.dll
 C:\Users\NewUser\Source\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.pdb
 C:\Repos\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
-C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVPUI\obj\Debug\AVPUI.csprojResolveAssemblyReference.cache
