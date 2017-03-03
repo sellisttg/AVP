@@ -15,7 +15,7 @@
 ####Given our proxy user base, a particular problem the team had to overcome was how to focus on user centric design (play 1, play 2, and play 3). This difficulty was eased by using personas to simuluate or user community and to serve as the basis of our product manager to develop the user stories. This approach paid dividends when our proxy users studied their personas and 'got into character' for design, testing and training efforts.   
 ####Given our team's extensive experience with open source tools, when the goal was to "default to open (play 13)", we were able to integrate nearly three times as many open source tools than required by the RFI. 
 #Evidence.
-####By following the links in this paragraph, the evidence of our team's Agile process is documented within GitHub.  This evidence includes our artifacts from our open source Agile management tool "tree.taiga.io", "Action Shots" of the team during our Agile ceremonies and collaboration sessions, and many "screen prints" of code, smartphone photos of white boards as well as other more traditional documentation. The digital assets necessary to deploy and continue enhnancing this project are also available on GitHub.
+####The evidence of our team's Agile process is documented within GitHub.  This evidence includes our artifacts from our open source Agile management tool "tree.taiga.io", "Action Shots" of the team during our Agile ceremonies and collaboration sessions, and many "screen prints" of code, smartphone photos of white boards as well as other more traditional documentation. The digital assets necessary to deploy and continue enhnancing this project are also available on GitHub.
 #OUR TECHNICAL APPROACH
 ##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
@@ -59,10 +59,10 @@ The iterative development approach for this prototype uses the Agile/Scrum metho
 ####4. At the beginning of each sprint, we identified the sprint backlog during sprint planning meeting  
 ####5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board. [image](https://cloud.githubusercontent.com/assets/23264395/23535136/5b96e2cc-ff71-11e6-98cf-4c549d5d8057.jpg)
 ####6. Team co-location with visible persona's with clearly identified roles and sprint goals  
-####7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
+####7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas.    
 ####8. Sprint Retrospectives to help course correct the process  
-###k.   Created a prototype that works on multiple devices, and presents a responsive design;   
-Our prototype works on multiple device and presents a responsive design. We visited our site on an Ipad, PC based laptop, 
+###k. Created a prototype that works on multiple devices, and presents a responsive design;   
+Our prototype works on multiple devices and presents a responsive design. We tested our site on an Ipad, PC based laptop, 
 PC based tablet, Mac based Laptop and an Android Phone. This is evidenced by the following [images links]( 
 https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/multipledevices.md)
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
