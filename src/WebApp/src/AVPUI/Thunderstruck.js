@@ -5,8 +5,8 @@ app.controller('AVPController'
     /*                    Properties
     /************************************************************/
     //constants
-    //$scope.baseUrl = "http://avp2017webapp.azurewebsites.net/api";
-    $scope.baseUrl = "http://localhost:57123/api";
+    $scope.baseUrl = "http://avp2017webapp.azurewebsites.net/api";
+    //$scope.baseUrl = "http://localhost:57123/api";
     
     //self-explanatory
     $scope.isAuthenticated = false;

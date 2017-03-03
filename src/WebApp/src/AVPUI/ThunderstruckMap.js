@@ -1,5 +1,5 @@
-var baseUrl= "http://localhost:57123/api";
-//var baseUrl = "http://avp2017webapp.azurewebsites.net/api";
+//var baseUrl= "http://localhost:57123/api";
+var baseUrl = "http://avp2017webapp.azurewebsites.net/api";
 var allsubscribericon = L.icon({
     iconUrl: 'subscriberpushpin.png',
     iconSize: [38, 60], // size of the icon
