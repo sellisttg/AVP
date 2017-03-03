@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "94d860baeceacf9641fe79077c344425df1d0f1f"
+    "signature": "2cf66ed572dad0025e5427ee6e84def656d90dd8"
   },
   "compilationOptions": {
     "defines": [
@@ -10,7 +10,8 @@
       "NETCOREAPP1_0"
     ],
     "optimize": true,
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "xmlDoc": true
   },
   "targets": {
     ".NETCoreApp,Version=v1.0": {
@@ -39,7 +40,8 @@
           "JsonWebTokens": "1.3.0",
           "Swashbuckle.AspNetCore": "1.0.0-rc1",
           "Twilio": "5.0.2",
-          "Sendgrid": "9.0.12"
+          "Sendgrid": "9.0.12",
+          "MailKit": "1.10.2"
         },
         "runtime": {
           "AVP.WebApi.dll": {}
@@ -58,6 +60,39 @@
         },
         "compile": {
           "lib/netstandard1.3/JsonWebTokens.dll": {}
+        }
+      },
+      "MailKit/1.10.2": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0",
+          "MimeKit": "1.10.1",
+          "Portable.BouncyCastle": "1.8.1.1",
+          "System.Collections": "4.3.0",
+          "System.Data.Common": "4.1.0",
+          "System.IO.Compression": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.NetworkInformation": "4.1.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Net.Security": "4.0.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Security.Cryptography.Algorithms": "4.3.0",
+          "System.Security.Cryptography.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.CodePages": "4.0.1",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/MailKit.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/MailKit.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/2.1.0": {
@@ -1382,6 +1417,35 @@
           "ref/netstandard1.3/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MimeKit/1.10.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0",
+          "Portable.BouncyCastle": "1.8.1.1",
+          "System.Collections": "4.3.0",
+          "System.Data.Common": "4.1.0",
+          "System.Linq": "4.3.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.NetworkInformation": "4.1.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Security.Cryptography.Algorithms": "4.3.0",
+          "System.Security.Cryptography.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.CodePages": "4.0.1",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/MimeKit.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/MimeKit.dll": {}
+        }
+      },
       "MySqlConnector/0.13.0": {
         "dependencies": {
           "System.Buffers": "4.3.0",
@@ -1484,6 +1548,30 @@
         },
         "compile": {
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Portable.BouncyCastle/1.8.1.1": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.IO.FileSystem.Primitives": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/crypto.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/crypto.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -2148,6 +2236,50 @@
         },
         "compile": {
           "ref/netstandard1.3/System.Net.Http.dll": {}
+        }
+      },
+      "System.Net.NetworkInformation/4.1.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem": "4.3.0",
+          "System.IO.FileSystem.Primitives": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Principal.Windows": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Overlapped": "4.0.1",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Threading.Thread": "4.0.0",
+          "System.Threading.ThreadPool": "4.0.10",
+          "runtime.native.System": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtimes/linux/lib/netstandard1.3/System.Net.NetworkInformation.dll": {
+            "rid": "linux",
+            "assetType": "runtime"
+          },
+          "runtimes/osx/lib/netstandard1.3/System.Net.NetworkInformation.dll": {
+            "rid": "osx",
+            "assetType": "runtime"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.NetworkInformation.dll": {
+            "rid": "win",
+            "assetType": "runtime"
+          }
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Net.NetworkInformation.dll": {}
         }
       },
       "System.Net.Primitives/4.3.0": {
@@ -2928,6 +3060,8 @@
       "AVP.DataAccess/1.0.0": {
         "dependencies": {
           "AVP.Models": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.0",
+          "Microsoft.Extensions.Options": "1.1.0",
           "MySqlConnector": "0.13.0",
           "NETStandard.Library": "1.6.1"
         },
@@ -3501,6 +3635,9 @@
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0"
         },
+        "compile": {
+          "ref/netstandard1.3/System.Text.Encoding.CodePages.dll": {}
+        },
         "compileOnly": true
       },
       "System.Threading.Overlapped/4.0.1": {
@@ -3609,6 +3746,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-jeXWWvAgl5UOu40S4g69KeTn4QlWMBc7RiHke/4XI+x9cyb670C3BNXZaPPUxKOlq99ZiVaxizvAbEtK5DGYlg=="
+    },
+    "MailKit/1.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VOtuXtFkytfda65OMzonx3sUtLmBaavPH4Gx77AopczcstEXUxPd4eDJAg7dWUupEvI5MWrMFz+n6GBeS0Ewqg=="
     },
     "Microsoft.ApplicationInsights/2.1.0": {
       "type": "package",
@@ -4060,6 +4202,11 @@
       "serviceable": true,
       "sha512": "sha512-Lw1/VwLH1yxz6SfFEjVRCN0pnflLEsWgnV4qsdJ512/HhTwnKXUG+zDQ4yTO3K/EJQemGoNaBHX5InISNKTzUQ=="
     },
+    "MimeKit/1.10.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n5c0DKPQG8xx84Qafipd0+0Mw6iGKFUH4dUMDI37ahehVjqKy55YKmvBBwEcCkyjPrazcF/yaBIVRNN0iyr9NA=="
+    },
     "MySqlConnector/0.13.0": {
       "type": "package",
       "serviceable": true,
@@ -4074,6 +4221,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw=="
+    },
+    "Portable.BouncyCastle/1.8.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bKqC2Me9ukybNYTBhlYd2sJ6j2kRV7SgB+JfiP2GueYq6QdM4Ym6PYV5eyrqb6KViOyd3zqQfJp0o6UW5ZG+GQ=="
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -4324,6 +4476,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA=="
+    },
+    "System.Net.NetworkInformation/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q0rfeiW6QsiZuicGjrFA7cRr2+kXex0JIljTTxzI09GIftB8k+aNL31VsQD1sI2g31cw7UGDTgozA/FgeNSzsQ=="
     },
     "System.Net.Primitives/4.3.0": {
       "type": "package",
