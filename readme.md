@@ -3,12 +3,10 @@
 ###[Read the Quick Start Guide](TBD) The application is a hosted application that does not require any locally installed components.  
 ###[Run the Prototype](http://avpwebappui.azurewebsites.net/thunderstruck.html) (code name Thunderstruck).  This application will allow California residents to receive emergency and non-emergency emails and SMS notifications from several identified [sources](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/RFI_CDT-ADPQ-0117_-_Prototype_B_Resources.pdf).  This application is geo-location aware, provides administrators to ability publish, track, analyze, and visualize related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 [CDT GitHub Site](https://github.com/CDTProcurement/adpq)
-
 #OUR PROJECT APPROACH
 ###The project approach was driven by a very compressed schedule with two distinct tracks of requirements  
-1. Responding to the Response for Inquiry (RFI) Requirement's administrative/Submission requirements  
-2. Building working software using an Agile/iterative approach based on the [Digital Services Playbook](https://playbook.cio.gov/).
-
+####1. Responding to the Response for Inquiry (RFI) Requirement's administrative/Submission requirements  
+####2. Building working software using an Agile/iterative approach based on the [Digital Services Playbook](https://playbook.cio.gov/).
 ##Responding to the RFI
 ####The team used TrinityTG's proven approach to manage the RFI response by tracking the state procurement site and monitoring the procurement GitHub site while breaking down the RFI so we could build-up our response. With our proposal team focusing on the RFI response, our Director of Business Development was able to lead the resolution of requirement #2 as the Product Manager (play 6). Responding to the RFI is not documented beyond this brief description.  
 ##Building Working Software
@@ -60,7 +58,7 @@ The iterative development approach for this prototype uses the Agile/Scrum metho
 2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
 3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
 4. At the beginning of each sprint, we identified the sprint backlog during sprint planning meeting  
-5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board  
+5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board 
 6. Team co-location with visible persona's with clearly identified roles and sprint goals  
 7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
 8. Sprint Retrospectives to help course correct the process  
@@ -81,7 +79,7 @@ List of Open Source Software
 9. JWT (we conform to an open standard, but used no library to implement this)     
 10. MySqlConnector https://github.com/mysql-net/MySqlConnector  
 11. tree.tiaga.io - project management - http://tree.taiga.io  
-12. xUnit for unit testing. 
+12. xUnit for unit testing - https://github.com/xunit/xunit
 
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
 ###n.  Developed automated unit tests for their code;
