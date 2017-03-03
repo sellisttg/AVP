@@ -22,13 +22,13 @@ Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) 
 ###b. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
 Product Manager: Jeremy Dean  
 Deliver Manager: Michael Tomlin  
-Technical Architect: Shawn Sampo   
+Technical Architect: Shawn Sampo, [Member, Open Source Initiate](https://opensource.org/)   
 Interaction Designer/User Researchers: Kelly Phan, Camille Dyer  
 Visual Designer: Kelly Phan  
-Front End Developer: Sam Ellis  
-Back End Developer: Shawn Sampo  
-Back End Developer (GIS): Charan Misha  
-Dev Ops Engineer: Sam Ellis  
+Front End Developer: Sam Ellis, [Member, Open Source Initiate](https://opensource.org/)   
+Back End Developer: Shawn Sampo,  [Member, Open Source Initiate](https://opensource.org/)   
+Back End Developer (GIS): Charan Misha, [Member, Open Source Initiate](https://opensource.org/)  
+Dev Ops Engineer: Sam Ellis,  [Member, Open Source Initiate](https://opensource.org/)  
 Quality Assurance: Camille Dyer  
 Agile Coach: Hiren Vashi, Agile related certifications Include: Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4), Certified Scrum Professional (CSP), Certified Scrum Master (CSM), PMI-Agile Certified Practitioner (PMI-ACP), Project Management Professional (PMP)   
 
@@ -96,7 +96,7 @@ https://papertrailapp.com/
 Jenkins /nagios?  
 https://app.google.stackdriver.com/  
 ###r.    Deployed  their  software  in  an  open-source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
-####We have deployed our software in an open-source Docker container. The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.   
+####We have deployed our software in an open-source Docker container. The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. We have included a "recipe" file that would require Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.   
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
