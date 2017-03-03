@@ -82,8 +82,8 @@ standard, but used no library to implement this)
 11. tree.tiaga.io - project management - http://tree.taiga.io  
 12. xUnit for unit testing - https://github.com/xunit/xunit
 13. Docker https://aws.amazon.com/docker/
-###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
-####We deployed the prototype on an Azure Platform as Service (PaaS) provided by Microsoft. The screen images below are presented as our [evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/m.1-PaaS-evidence.md)
+###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used;   
+We deployed the prototype on an Azure Platform as Service (PaaS) provided by Microsoft. The screen images below are presented as our [evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/m.1-PaaS-evidence.md)   
 ###n.  Developed automated unit tests for their code;
 Automated unit tests are developed to validate the return types and verify that the controllers return what is expected. An example of unity test [outputs link](https://cloud.githubusercontent.com/assets/23264395/23348944/a984b308-fc63-11e6-880f-4692cd0fd90a.png).    
 An example of our embedded [unit test for sprint 1 link](https://cloud.githubusercontent.com/assets/23264395/23374564/af400470-fcd9-11e6-89b6-4aa6e9795a0f.png)  
@@ -94,7 +94,7 @@ We used the built-in configuration management tools within .net core and the Azu
 We Setup and use continuous monitoring.  Heartbeat tests conducted via Azure Application Insights. Tests are run every 5 minutes, email alerts are sent for each failure to the  administrators. [Evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/q.1-continuous-monitoring-evidence.md)
 ###r.    Deployed  their  software  in  an  open-source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
 ####We have deployed our software in an open-source Docker container. The Docker Instructions [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ThunderstruckDockerDevelopmentInstallation.pdf) assume that you already have .NET Core 1.0.1, Git, a local MySQL DB using the [script](https://github.com/sellisttg/AVP/blob/master/AVP GitHub docs/Setup-script-for-local-db-AVP2017DB.sql), and Docker clients installed. We have included a "recipe" file [link](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/appsettings.Development.json) that would require the users credentials. The TrinityTG credentials used in our prototype appsettings.json file has been redacted from the public repository as a security precaution.   
-###s.   Provided sufficient documentation to install and run their prototype on another machine; and
+###s.   Provided sufficient documentation to install and run their prototype on another machine
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation and development assets are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html).  
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
 ####In addition to each individual open-source license associated with item l. above, TrinityTG's prototype open-source license is [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/MITLicense.md)
