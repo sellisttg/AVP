@@ -1,6 +1,6 @@
 ####This readme.md file presents the communication of our project approach including the technical approach within a 2,000 character limit.
 #OUR RESULTS
-###[Read the Quick Start Guide](TrinityTG-Prototype-User Guide-Thunderstruck .pdf).
+###[Read Our User Guide](TrinityTG-Prototype-User Guide-Thunderstruck .pdf).
 ###[Run the Prototype](http://avpwebappui.azurewebsites.net/thunderstruck.html) (codename Thunderstruck).  This application allows California residents to receive emergency and non-emergency emails and SMS notifications from several identified [sources](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/RFI_CDT-ADPQ-0117_-_Prototype_B_Resources.pdf).  This application is geo-location aware, provides administrators to ability publish, track, analyze, and visualize related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
 #OUR PROJECT APPROACH
 ###The project approach was driven by a very compressed schedule with two distinct tracks of requirements  
