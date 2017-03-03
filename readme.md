@@ -17,9 +17,9 @@
 #Evidence.
 ####The evidence of our team's Agile process is documented within GitHub.  This evidence includes our artifacts from our open source Agile management tool "tree.taiga.io", "Action Shots" of the team during our Agile ceremonies and collaboration sessions, and many "screen prints" of code, smartphone photos of white boards as well as other more traditional documentation. The digital assets necessary to deploy and continue enhnancing this project are also available on GitHub.
 #OUR TECHNICAL APPROACH
-##A. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
+###a. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
-##B. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
+###b. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
 ####Product Manager: Jeremy Dean
 ####Deliver Manager: Michael Tomlin
 ####Technical Architect: Shawn Sampo 
@@ -37,12 +37,13 @@ Certified Scrum Master (CSM)
 PMI-Agile Certified Practitioner (PMI-ACP)  
 Project Management Professional (PMP)   
 ###c.   Understood what people needed, by including people in the prototype development and design process;  
-Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes, [TBD link our evidence]  
-###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; 
+Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes. The design process included building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md)
+###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; (play 1, play 2, and play 3)
 ####1. Following the USDS Playbook
 We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. Using the [The Digital Services Playbook](https://playbook.cio.gov/), our team managed the [work in progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), including adding the [detailed checklists](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png).  
-####2. The second user centric design approach included developing [personas](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf) to help summarizing our target audience for product development. We further emphasised the personas by making sure our persona [portraits where displayed in team development area](https://cloud.githubusercontent.com/assets/23264395/23387351/bdc5b102-fd10-11e6-9753-902d57caca76.jpg).  
+####2. The second user centric design approach included developing [personas](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf) to help summarizing our target audience for product development. We further emphasised the personas by making sure our persona [portraits where displayed in team development area](https://cloud.githubusercontent.com/assets/23264395/23387351/bdc5b102-fd10-11e6-9753-902d57caca76.jpg).  This approach prompted our proxy users 'got into character' for design.
 ####3. We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
+####4. . This difficulty was eased by using personas to simuluate or user community and to serve as the basis of our product manager to develop the user stories.    The design process included building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md)
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. The GitHub repository is [here](https://github.com/sellisttg/AVP).  An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
 ###f. Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
@@ -79,7 +80,6 @@ List of Open Source Software
 10. MySqlConnector https://github.com/mysql-net/MySqlConnector  
 11. tree.tiaga.io - project management - http://tree.taiga.io  
 12. xUnit for unit testing - https://github.com/xunit/xunit
-
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
 ###n.  Developed automated unit tests for their code;
 Automated unit tests are developed to validate the return types and verify that the controllers return what is expected. An example of unity test [outputs link](https://cloud.githubusercontent.com/assets/23264395/23348944/a984b308-fc63-11e6-880f-4692cd0fd90a.png).    
