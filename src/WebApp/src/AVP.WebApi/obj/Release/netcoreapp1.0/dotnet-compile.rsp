@@ -8,12 +8,14 @@
 --suppress-warning:CS1705
 --optimize:True
 --emit-entry-point:True
+--generate-xml-documentation:True
 --output-name:AVP.WebApi
 --file-version:1.0.0.0
 --version:1.0.0.0
 --informational-version:1.0.0
 --target-framework:.NETCoreApp,Version=v1.0
 --reference:C:\Users\SSAMPO\.nuget\packages\JsonWebTokens\1.3.0\lib\netstandard1.3\JsonWebTokens.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\MailKit\1.10.2\lib\netstandard1.3\MailKit.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.AspNet.WebApi.Client\5.2.2\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll
@@ -104,8 +106,10 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.VisualBasic\10.0.1\ref\netstandard1.1\Microsoft.VisualBasic.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Win32.Primitives\4.3.0\ref\netstandard1.3\Microsoft.Win32.Primitives.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Microsoft.Win32.Registry\4.3.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\MimeKit\1.10.1\lib\netstandard1.3\MimeKit.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\MySqlConnector\0.13.0\lib\netstandard1.3\MySqlConnector.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Newtonsoft.Json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\Portable.BouncyCastle\1.8.1.1\lib\netstandard1.3\crypto.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Sendgrid\9.0.12\lib\netstandard1.3\SendGrid.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Swashbuckle.AspNetCore.Swagger\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.Swagger.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\Swashbuckle.AspNetCore.SwaggerGen\1.0.0-rc1\lib\netstandard1.6\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -149,6 +153,7 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Linq.Queryable\4.0.1\ref\netstandard1.0\System.Linq.Queryable.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Net.Http\4.3.0\ref\netstandard1.3\System.Net.Http.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Net.NameResolution\4.0.0\ref\netstandard1.3\System.Net.NameResolution.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\System.Net.NetworkInformation\4.1.0\ref\netstandard1.3\System.Net.NetworkInformation.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Net.Primitives\4.3.0\ref\netstandard1.3\System.Net.Primitives.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Net.Requests\4.0.11\ref\netstandard1.3\System.Net.Requests.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Net.Security\4.0.0\ref\netstandard1.3\System.Net.Security.dll
@@ -187,6 +192,7 @@
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Security.Principal\4.3.0\ref\netstandard1.0\System.Security.Principal.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Security.Principal.Windows\4.3.0\ref\netstandard1.3\System.Security.Principal.Windows.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Text.Encoding\4.3.0\ref\netstandard1.3\System.Text.Encoding.dll
+--reference:C:\Users\SSAMPO\.nuget\packages\System.Text.Encoding.CodePages\4.0.1\ref\netstandard1.3\System.Text.Encoding.CodePages.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Text.Encoding.Extensions\4.3.0\ref\netstandard1.3\System.Text.Encoding.Extensions.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Text.Encodings.Web\4.3.0\lib\netstandard1.0\System.Text.Encodings.Web.dll
 --reference:C:\Users\SSAMPO\.nuget\packages\System.Text.RegularExpressions\4.3.0\ref\netstandard1.6\System.Text.RegularExpressions.dll
@@ -208,7 +214,11 @@
 --resource:"C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\obj\Release\netcoreapp1.0\AVP.WebApidotnet-compile.deps.json",AVP.WebApi.deps.json
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Program.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Startup.cs
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Config\DBConnectionOptions.cs
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Config\ExchangeOptions.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Config\JwtIssuerOptions.cs
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Config\SendGridOptions.cs
+C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Config\TwilioOptions.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\AccountController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\IBaseController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\IncidentNotificationController.cs
@@ -218,7 +228,6 @@ C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Control
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserEmailLocationController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserPushLocationController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\UserSmsLocationController.cs
-C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Controllers\ValuesController.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Services\AuthService.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Services\EmailService.cs
 C:\Users\SSAMPO\Documents\Trinity\Projects\AVP\src\WebApp\src\AVP.WebApi\Services\SmsService.cs

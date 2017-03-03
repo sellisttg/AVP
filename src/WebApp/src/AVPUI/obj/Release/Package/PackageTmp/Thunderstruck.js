@@ -22,20 +22,26 @@ app.controller('AVPController'
 
     //currentPage has name of authenticated page current displayed in body
     $scope.currentPage = $scope.pages.UserProfile;
-    //UserProfile
-    $scope.userProfile = {
-        authToken: ""
-        , userID: 0
-        , username: ""
-        , password: ""
-        , confirmPassword: ""
-        , name: ""
-        , optIn: { optInEmail: true, optInSMS: true, optInPush: true }
-        , address: { userAddressID: 0, streetAddress: "", city: "", state: "", zipCode: "" }
-        , emailAddress: {emailAddressID: 0, emailAddress: ""}
-        , sms: {smsLocationID: 0 , phoneNumber: ""}
-        , pushToken: ""
+
+    //Housekeeping
+    $scope.initUserProfile = function () {
+        return {
+            authToken: ""
+            , userID: 0
+            , username: ""
+            , password: ""
+            , confirmPassword: ""
+            , name: ""
+            , optIn: { optInEmail: true, optInSMS: true, optInPush: true }
+            , address: { userAddressID: 0, streetAddress: "", city: "", state: "", zipCode: "" }
+            , emailAddress: { emailAddressID: 0, emailAddress: "" }
+            , sms: { smsLocationID: 0, phoneNumber: "" }
+            , pushToken: ""
+        }
     };
+    //UserProfile
+    $scope.userProfile = $scope.initUserProfile();
+    
     /************************************************************/
     /*                  Methods
     /************************************************************/
@@ -44,6 +50,7 @@ app.controller('AVPController'
         $scope.isRegistering = true;
     }
     $scope.Logout = function () {
+        $scope.userProfile = $scope.initUserProfile();
         $scope.isAuthenticated = false;
     }
     $scope.Login = function () {
@@ -59,8 +66,8 @@ app.controller('AVPController'
                 //default role to Administrator index=id-1
                 $scope.currentRole = $scope.roles[4];
                 $scope.GetUserProfile();
-                document.getElementById('MapFrame').contentWindow.setAuthToken($scope.authToken);
-                /* Add this to map script
+                setAuthToken($scope.authToken);
+                /* Add this to map script to allow the map to share the token and make calls to the WebApi service
                 function setAuthToken(token) {
                     key = token;
                 }
@@ -309,6 +316,7 @@ app.controller('AVPController'
     }
     $scope.ShowIncidents = function () {
         $scope.currentPage = $scope.pages.Incidents;
+        InitMap();
     }
     $scope.ShowUserProfile = function () {
         $scope.currentPage = $scope.pages.UserProfile;
