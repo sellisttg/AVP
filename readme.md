@@ -29,7 +29,6 @@ Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) 
 ####Back End Developer: Shawn Sampo
 ####Back End Developer (GIS): Charan Misha  
 ####Dev Ops Engineer: Sam Ellis
-####Security Engineer: [Remove?]
 ####Quality Assurance: Camille Dyer
 ####Agile Coach: Hiren Vashi, Agile related certifications Include:   
 Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
@@ -58,7 +57,7 @@ The iterative development approach for this prototype uses the Agile/Scrum metho
 ####2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
 ####3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
 ####4. At the beginning of each sprint, we identified the sprint backlog during sprint planning meeting  
-####5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board   
+####5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board. [image](https://cloud.githubusercontent.com/assets/23264395/23535136/5b96e2cc-ff71-11e6-98cf-4c549d5d8057.jpg)
 ####6. Team co-location with visible persona's with clearly identified roles and sprint goals  
 ####7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
 ####8. Sprint Retrospectives to help course correct the process  
