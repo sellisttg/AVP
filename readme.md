@@ -57,14 +57,14 @@ Our team used Swagger to document the RESTful API. [Swagger Live Link(http://avp
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited volunteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
 ###j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
 The iterative development approach was 'baked into' our Agile methodology guided by our resident Enterprise Agile Coach (Hiren)  
-####1. At the beginning of the project, the team set up the facilities including the collaborative work area, gathered supplies, selected the tools, and configured the architecture.
-####2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
-####3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
-####4. At the beginning of each sprint, we identified the sprint goal and the sprint backlog during sprint planning meeting  
-####5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board. [image](https://cloud.githubusercontent.com/assets/23264395/23535136/5b96e2cc-ff71-11e6-98cf-4c549d5d8057.jpg)
-####6. Team co-location with visible persona's with clearly identified roles and sprint goals  
-####7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas.    
-####8. Sprint Retrospectives to help course correct the process  
+1. At the beginning of the project, the team set up the facilities including the collaborative work area, gathered supplies, selected the tools, and configured the architecture.  
+2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
+3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
+4. At the beginning of each sprint, we identified the sprint goal and the sprint backlog during sprint planning meeting  
+5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board. [image](https://cloud.githubusercontent.com/assets/23264395/23535136/5b96e2cc-ff71-11e6-98cf-4c549d5d8057.jpg)  
+6. Team co-location with visible persona's with clearly identified roles and sprint goals  
+7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas.    
+8. Sprint Retrospectives to help course correct the process  
 ###k. Created a prototype that works on multiple devices, and presents a responsive design;   
 Our prototype works on multiple devices and presents a responsive design. We tested our site on an Ipad, PC based laptop, 
 PC based tablet, Mac based Laptop and an Android Phone. This is evidenced by the following [images links]( 
@@ -101,9 +101,9 @@ https://app.google.stackdriver.com/
 These instructions assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.  
 ####Instructions – Thunderstruck REST Service
 ####First, prepare your environment by cloning the repository, navigating to the WebAPI Folder, and restoring all needed libraries to the project:  
-####git clone https://github.com/sellisttg/AVP/
-####cd AVP\src\WebApp\src\AVP.WebApi
-####dotnet restore
+1. git clone https://github.com/sellisttg/AVP/  
+2. cd AVP\src\WebApp\src\AVP.WebApi  
+dotnet restore  
 ####Second, publish the project locally so that the build files are created
 dotnet publish
 ####Third, copy your provided appsettings.json file to the publish directory 
@@ -114,7 +114,8 @@ docker run -it -p 5000:5000 avpwebapi
 ####Your cloned REST Service is now running
 * The service is now accessible on http://localhost:5000
 *	View the swagger docs at http://localhost:5000/swagger/index.html 
-*	Test with Postman or your other favorite tool 
+*	Test with Postman or your other favorite tool  
+
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
