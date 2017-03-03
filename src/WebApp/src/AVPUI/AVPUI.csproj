@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Content\Images\ajax-loader.gif" />
     <Content Include="Content\Images\background.png" />
+    <Content Include="Content\Images\layers.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\ThunderstruckMap.css" />
@@ -113,6 +114,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="subscriberpushpin.png" />
+    <Content Include="subscribers.png" />
     <Content Include="Thunderstruck.html" />
     <Content Include="Thunderstruck.js" />
     <Content Include="ThunderstruckMap.html" />

@@ -43,9 +43,8 @@ app.controller('AVPController'
     $scope.userProfile = $scope.initUserProfile();
     
     /************************************************************/
-    /*                  Methods
+    /*                  User Management Methods
     /************************************************************/
-    //User Management Methods
     $scope.ShowRegister = function() {
         $scope.isRegistering = true;
     }
@@ -66,7 +65,6 @@ app.controller('AVPController'
                 //default role to Administrator index=id-1
                 $scope.currentRole = $scope.roles[4];
                 $scope.GetUserProfile();
-                setAuthToken($scope.authToken);
                 /* Add this to map script to allow the map to share the token and make calls to the WebApi service
                 function setAuthToken(token) {
                     key = token;
@@ -112,6 +110,9 @@ app.controller('AVPController'
                 $scope.error = error.statusText;
             });
     }
+    /************************************************************/
+    /*                  Get Methods
+    /************************************************************/
     $scope.GetUserProfile = function () {
         var url = $scope.baseUrl + "/v1/profile" + "?" + $scope.GetUniqueQueryString();
         //$http.get(url, { headers: [{ authorization: "Bearer " + $scope.authToken }, { ContentType : "application/json; charset=utf-8" }] }).then(
@@ -127,6 +128,7 @@ app.controller('AVPController'
                 $scope.GetUserAddress();
                 $scope.GetEmailAddress();
                 $scope.GetSMS();
+                setAuthToken($scope.authToken, $scope.userProfile.userID);
             });
     }
     $scope.GetUserAddress = function () {
@@ -162,6 +164,23 @@ app.controller('AVPController'
                 }
             });
     }
+    $scope.GetDashboardNotifications = function () {
+        var url = $scope.baseUrl + "/v1/dashboard";
+        var postdata = {
+            
+        };
+        $http.get(url, { headers: { authorization: "Bearer " + $scope.authToken } }).then(
+            function (response) {
+                if (response.data.length > 0) {
+                    $scope
+                    $scope.userProfile.sms.smsLocationID = response.data[0].userSmsLocationID;
+                    $scope.userProfile.sms.phoneNumber = response.data[0].phoneNumber;
+                }
+            });
+    }
+    /************************************************************/
+    /*                  Save Methods
+    /************************************************************/
     $scope.SaveUserInfo = function () {
         $scope.SaveUserProfile();
     }
@@ -301,6 +320,9 @@ app.controller('AVPController'
             }
         }
     }
+    /************************************************************/
+    /*                  Local Functions
+    /************************************************************/
     $scope.SelectRole = function (role) {
         $scope.currentRole = role;
     }
@@ -316,6 +338,7 @@ app.controller('AVPController'
     }
     $scope.ShowIncidents = function () {
         $scope.currentPage = $scope.pages.Incidents;
+        InitMap();
     }
     $scope.ShowUserProfile = function () {
         $scope.currentPage = $scope.pages.UserProfile;

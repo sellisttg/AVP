@@ -60,6 +60,41 @@
             Schema to use in DB Connection
             </summary>
         </member>
+        <member name="T:AVP.WebApi.Config.ExchangeOptions">
+            <summary>
+            Options for sending Exchange email
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.ExchangeOptions.UserName">
+            <summary>
+            Username for mailbox
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.ExchangeOptions.Password">
+            <summary>
+            Password for mailbox
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.ExchangeOptions.HostName">
+            <summary>
+            Hostname for mailbox
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.ExchangeOptions.Port">
+            <summary>
+            Port for mailbox
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.ExchangeOptions.EnableSSL">
+            <summary>
+            Enable SSL for mailbox
+            </summary>
+        </member>
+        <member name="P:AVP.WebApi.Config.ExchangeOptions.EmailSubject">
+            <summary>
+            Email subject
+            </summary>
+        </member>
         <member name="T:AVP.WebApi.Config.JwtIssuerOptions">
             <summary>
             Configuration class for JWT Issuer Options
@@ -163,37 +198,37 @@
             Secret loaded from configuration
             </summary>
         </member>
-        <member name="T:AVP.WebApi.Config.SendGridConfig">
+        <member name="T:AVP.WebApi.Config.SendGridOptions">
             <summary>
             Configuration class for SendGrid options
             </summary>
         </member>
-        <member name="P:AVP.WebApi.Config.SendGridConfig.SendGridApiKey">
+        <member name="P:AVP.WebApi.Config.SendGridOptions.SendGridApiKey">
             <summary>
             API Key for Send Grid
             </summary>
         </member>
-        <member name="P:AVP.WebApi.Config.SendGridConfig.FromEmail">
+        <member name="P:AVP.WebApi.Config.SendGridOptions.FromEmail">
             <summary>
             Email to send from SendGrid
             </summary>
         </member>
-        <member name="T:AVP.WebApi.Config.TwilioConfig">
+        <member name="T:AVP.WebApi.Config.TwilioOptions">
             <summary>
             Configuration class for Twilio
             </summary>
         </member>
-        <member name="P:AVP.WebApi.Config.TwilioConfig.AccountSid">
+        <member name="P:AVP.WebApi.Config.TwilioOptions.AccountSid">
             <summary>
             Account SID from Twilio
             </summary>
         </member>
-        <member name="P:AVP.WebApi.Config.TwilioConfig.AuthToken">
+        <member name="P:AVP.WebApi.Config.TwilioOptions.AuthToken">
             <summary>
             Auth Token from Twilio
             </summary>
         </member>
-        <member name="P:AVP.WebApi.Config.TwilioConfig.MsgServiceSid">
+        <member name="P:AVP.WebApi.Config.TwilioOptions.MsgServiceSid">
             <summary>
             Message Service SID from Twilio
             </summary>
@@ -247,6 +282,27 @@
         </member>
         <member name="M:AVP.WebApi.Controllers.AccountController.ToUnixEpochDate(System.DateTime)">
             <returns>Date converted to seconds since Unix epoch (Jan 1, 1970, midnight UTC).</returns>
+        </member>
+        <member name="T:AVP.WebApi.Controllers.DashboardController">
+            <summary>
+            Controller for all Notification actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.DashboardController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService,Microsoft.Extensions.Logging.ILoggerFactory,AVP.WebApi.Services.ISmsService,AVP.WebApi.Services.IEmailService)">
+            <summary>
+            Controller for all Notification actions
+            </summary>
+            <param name="dao">IDAO</param>
+            <param name="authService">IAuthService</param>
+            <param name="loggerFactory">ILoggerFactory</param>
+            <param name="sms">ISmsService</param>
+            <param name="email">IEmailService</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.DashboardController.GetAllDashboardNotifications(AVP.Models.Entities.DashboardCriteria)">
+            <summary>
+            Get All Notifications
+            </summary>
+            <returns>List of Notification objects</returns>
         </member>
         <member name="T:AVP.WebApi.Controllers.IBaseController">
             <summary>
@@ -658,7 +714,7 @@
             Implementation of IEmailService
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.EmailService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.SendGridConfig})">
+        <member name="M:AVP.WebApi.Services.EmailService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.SendGridOptions},Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.ExchangeOptions})">
             <summary>
             Email Service contstructor configures the options necessary to send email with this implementation
             </summary>
@@ -689,7 +745,7 @@
             Implementation of ISmsService
             </summary>
         </member>
-        <member name="M:AVP.WebApi.Services.SmsService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.TwilioConfig})">
+        <member name="M:AVP.WebApi.Services.SmsService.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.TwilioOptions},Microsoft.Extensions.Options.IOptions{AVP.WebApi.Config.JwtIssuerOptions})">
             <summary>
             Service to deliver SMS messages
             </summary>

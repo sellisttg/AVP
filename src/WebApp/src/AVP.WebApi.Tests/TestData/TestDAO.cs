@@ -411,5 +411,24 @@ namespace AVP.WebApi.Tests.TestData
             return Task.FromResult(true);
         }
         #endregion usersmslocation
+
+        #region dashboard
+        public Task<List<DashboardNotification>> GetDashboardNotifications(DashboardCriteria criteria)
+        {
+            List<DashboardNotification> notificationList = new List<DashboardNotification>();
+            notificationList.Add(new DashboardNotification()
+            {
+                NotificationID = 1
+                , IncidentID = 1
+                , IncidentType = "Administrator"
+                , Name = "User Display Name"
+                , MessageDateTime = new DateTime()
+                , Message ="Test Notification Message"
+                , Address ="Test Address"
+            });
+            return Task.FromResult(notificationList);
+        }
+
+        #endregion dashboard
     }
 }
