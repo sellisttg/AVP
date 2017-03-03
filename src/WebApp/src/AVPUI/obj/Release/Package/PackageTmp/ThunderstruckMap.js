@@ -1,3 +1,5 @@
+//var baseUrl= "http://localhost:57123/api";
+var baseUrl = "http://avp2017webapp.azurewebsites.net/api";
 var allsubscribericon = L.icon({
     iconUrl: 'subscriberpushpin.png',
     iconSize: [38, 60], // size of the icon
@@ -11,7 +13,8 @@ var user = L.icon({
 
 var lat = 0;
 var lon = 0;
-var key = "";
+var key = ""; //current authorization key
+var currentUserID = 0; //current user id
 //list o subscriber markers currently displayed on map
 var affectedSubscriberMarkers = [];
 var affectedSubscriberList = [];
@@ -110,8 +113,7 @@ map.on('click', function (e) {
         "Long": lon, "incidenttype": radioValue, "radius": sv
     });
 
-    var popupcontent = "<div>Send a notification to</div>"
-        + "<div>subscribers in the area:</div>"
+    var popupcontent = "<div>Type a notification message to send to subscribers in the area:</div>"
         + "<div><textarea rows='2' cols='50' class='form-control' id='NotificationMessage'></textarea></div>"
         + "<div><button class='btn btn-primary' onclick='Notify()'>Notify</button></div>";
     var popLocation = e.latlng;
@@ -130,9 +132,9 @@ map.on('click', function (e) {
 var circle, clicklocationMarker;
 var incidentID;
 
-function setAuthToken(token) {
+function setAuthToken(token, userID) {
     key = token;
-    GetAllSubscribers();
+    currentUserID = userID;
 }
 function Notify() {
     var incidentDetails = {
@@ -144,23 +146,20 @@ function Notify() {
     var incidentList = { incidents: [incidentDetails] };
 
     $.ajax({
-        //url: "http://avp2017webapp.azurewebsites.net/api/v1/incident",
-        url: "http://localhost:57123/api/v1/incident",
+        url: baseUrl + "/v1/incident",
         type: "POST",
         headers: { 'Authorization': "Bearer " + key },
         data: JSON.stringify(incidentList),
         async: false,
         contentType: "application/json",
         success: function (data) {
-            //ToDo: Get IncidentID
-            alert("Incident Created");
-            incidentID = data.incidents[0].incidentID;
+            //alert("Incident Created");
+            AddSubscribersToIncident(data.incidents[0].incidentID);
         },
         error: function (xhRequest, ErrorText, thrownError) {
             alert("Failed to create incident");
         }
     });
-    AddSubscribersToIncident(incidentID);
 }
 function AddSubscribersToIncident(incidentID) {
     var postdata = { subscriberUnderNotification: [] };
@@ -176,25 +175,77 @@ function AddSubscribersToIncident(incidentID) {
         });
     }
 
-    //url: "http://avp2017webapp.azurewebsites.net/api/v1/incident/subscribersundernotification",
-
     $.ajax({
-        url: "http://localhost:57123/api/v1/incident/subscribersundernotification",
+        url: baseUrl + "/v1/incident/subscribersundernotification",
         type: "POST",
         headers: { 'Authorization': "Bearer " + key },
         data: JSON.stringify(postdata),
         contentType: "application/json",
         async: false,
         success: function (data) {
-            alert("Successfully posted the subscribers to database..");
+            //alert("Successfully posted the subscribers to database..");
+            CreateNotification(incidentID);
         },
         error: function (xhRequest, ErrorText, thrownError) {
-            alert("Failed to process correctly, please try again");
+            alert("Failed to add subscribers to incident.");
         }
     });
 }
-function RefreshMap() {
-    location.reload(true);
+function CreateNotification(incidentID) {
+    var currentDate = new Date();
+    var postdata = {
+        incidentID: incidentID
+        , message: document.getElementById("NotificationMessage").value
+        , messageDateTime: new Date().toISOString()
+        , sendingUserID: currentUserID
+        , notificationID: 0
+};
+
+    $.ajax({
+        url: baseUrl + "/v1/notification/new",
+        type: "POST",
+        headers: { 'Authorization': "Bearer " + key },
+        data: JSON.stringify(postdata),
+        contentType: "application/json",
+        async: false,
+        success: function (data) {
+            SendNotification(incidentID, data.notificationID);
+        },
+        error: function (xhRequest, ErrorText, thrownError) {
+            alert("Failed to create Notification.");
+        }
+    });
+}
+function SendNotification(incidentID, notificationID) {
+    var currentDate = new Date();
+    var postdata = {
+        incidentID: incidentID
+        , message: document.getElementById("NotificationMessage").value
+        , messageDateTime: new Date().toISOString()
+        , sendingUserID: currentUserID
+        , notificationID: notificationID
+    };
+
+    $.ajax({
+        url: baseUrl + "/v1/notification/send",
+        type: "POST",
+        headers: { 'Authorization': "Bearer " + key },
+        data: JSON.stringify(postdata),
+        contentType: "application/json",
+        async: false,
+        success: function (data) {
+            alert("Successfully sent Notification");
+            clearCircleAndMarker()
+        },
+        error: function (xhRequest, ErrorText, thrownError) {
+            alert("Failed to send Notification.");
+        }
+    });
+}
+function InitMap() {
+    //location.reload(true);
+    clearCircleAndMarker();
+    GetAllSubscribers();
 }
 function clearCircleAndMarker() {
     if (circle) {
@@ -203,10 +254,7 @@ function clearCircleAndMarker() {
     if (clicklocationMarker) {
         map.removeLayer(clicklocationMarker);
     }
-    if (selSubForNotification) {
-        map.removeLayer(selSubForNotification);
-    }
-
+    ClearSubscriberMarkers();
 }
 function findSelection() {
     var radios = document.getElementsByName('incidentType');
@@ -226,7 +274,7 @@ function GetAllSubscribers() {
     if (key.length > 0)
     {
         $.ajax({
-            url: "http://avp2017webapp.azurewebsites.net/api/v1/incident/allsubscribers",
+            url: baseUrl + "/v1/incident/allsubscribers" + "?" + GetUniqueQueryString(),
             type: "GET",
             headers: { 'Authorization': "Bearer " + key },
             data: "JSON",
@@ -247,6 +295,16 @@ function GetAllSubscribers() {
     }
 }
 
+function GetUniqueQueryString() {
+    var now = new Date();
+    return now.getFullYear().toString()
+        + now.getMonth().toString()
+        + now.getDate().toString()
+        + now.getHours().toString()
+        + now.getMinutes().toString()
+        + now.getSeconds().toString()
+        + now.getMilliseconds().toString();
+}
 //3-1-2017 Shawn Sampo: not used
 function ShowAllSubscribers() {
     //Read all subscribers
@@ -266,7 +324,7 @@ function showPreviousAffectionNotifications() {
 
     clearCircleAndMarker();
     $.ajax({
-        url: "http://avp2017webapp.azurewebsites.net/api/v1/incident",
+        url: baseUrl + "/v1/incident" + "?" + GetUniqueQueryString(),
         type: "GET",
         headers: { 'Authorization': "Bearer " + key },
         data: "JSON",
@@ -321,15 +379,19 @@ function showPreviousAffectionNotifications() {
 var selSubForNotification;
 var counter_points_in_circle = 0;
 
-//function pointsInCircle() {
-function ShowAffectedSubscribers() {
-    if (affectedSubscriberMarkerGroup!=undefined) {
+function ClearSubscriberMarkers() {
+    if (affectedSubscriberMarkerGroup != undefined) {
         for (var marker in affectedSubscriberMarkerGroup._layers) {
             affectedSubscriberMarkerGroup.removeLayer(affectedSubscriberMarkerGroup._layers[marker]._leaflet_id);
         }
         affectedSubscriberMarkers = [];
         affectedSubscriberList = [];
     }
+}
+
+//function pointsInCircle() {
+function ShowAffectedSubscribers() {
+    ClearSubscriberMarkers();
 
     if (circle !== undefined) {
         // Only run if we have an address entered

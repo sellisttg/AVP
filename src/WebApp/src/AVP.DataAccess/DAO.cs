@@ -74,6 +74,10 @@ namespace AVP.DataAccess
         Task<Notification> UpdateNotification(Notification notification);
         Task AddNotificationLocations(Notification notification);
         #endregion notifications
+
+        #region dashboard
+        Task<List<DashboardNotification>> GetDashboardNotifications(DashboardCriteria notifications);
+        #endregion dashboard
     }
 
     public class DAO : IDAO
@@ -1277,5 +1281,76 @@ namespace AVP.DataAccess
             }
         }
         #endregion notification location helpers
+
+        #region dashboard
+        public async Task<List<DashboardNotification>> GetDashboardNotifications(DashboardCriteria criteria)
+        {
+            using (var db = new DBConnection(_dbSettings))
+            {
+                await db.Connection.OpenAsync();
+
+                var command = db.Connection.CreateCommand();
+                command.CommandText = @"
+                    select n.notificationid
+                    , i.incidentid
+                    , i.incidenttype
+                    , ifnull(up.name,up.username) name
+                    , n.messagedatetime
+                    , n.message
+                    , concat(ifnull(ua.streetaddress,''),', ',ifnull(ua.city,''),', ',ifnull(ua.state,''),' ',ifnull(ua.zip,'')) address
+                    from notification n
+                    join incident i on i.incidentid=n.incidentid
+                    join incidentsubscribers ins on ins.incidentid=i.incidentid
+                    join useraddress ua on ua.useraddressid=ins.useraddressid
+                    join userprofile up on up.userid=ua.userid";
+                switch (criteria.Role)
+                {
+                    case "Administrator":
+                        //don't add any where clause
+                        command.CommandText += " where n.messagedatetime>=date_add(current_date(),INTERVAL -14 day) ";
+                        break;
+                    case "Analyst":
+                        command.CommandText += " where n.messagedatetime>=date_add(current_date(),INTERVAL -14 day) ";
+                        break;
+                    case "Monitor":
+                        command.CommandText += " where n.messagedatetime>=date_add(current_date(),INTERVAL -14 day) ";
+                        break;
+                    case "Receiver":
+                        command.CommandText += " where up.userid=@userid";
+                        break;
+                    case "Sender":
+                        command.CommandText += " where n.sendinguserid=@userid";
+                        break;
+                    default:
+                        break;
+                }
+
+                command.CommandText+=" order by notificationid desc;";
+
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "@userid", Value = criteria.UserID, DbType = System.Data.DbType.Int32 });
+
+                var reader = await command.ExecuteReaderAsync();
+                return GetDashboardNotificationList(reader);
+            }
+        }
+        private List<DashboardNotification> GetDashboardNotificationList(System.Data.Common.DbDataReader reader)
+        {
+            List<DashboardNotification> notifications = new List<DashboardNotification>();
+            while (reader.Read())
+            {
+                DashboardNotification notification = new DashboardNotification();
+                notification.IncidentID = Convert.ToInt32(reader["incidentid"]);
+                notification.IncidentType = reader["incidenttype"].ToString();
+                notification.Message = reader["message"].ToString();
+                notification.MessageDateTime = Convert.ToDateTime(reader["messagedatetime"]);
+                notification.Name = reader["name"].ToString();
+                notification.IncidentID = Convert.ToInt32(reader["incidentid"]);
+                notification.NotificationID = Convert.ToInt32(reader["incidentid"]);
+                notification.Address = reader["address"].ToString();
+                notifications.Add(notification);
+            }
+            return notifications;
+        }
+        #endregion dashboard
     }
 }

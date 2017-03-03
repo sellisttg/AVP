@@ -283,6 +283,27 @@
         <member name="M:AVP.WebApi.Controllers.AccountController.ToUnixEpochDate(System.DateTime)">
             <returns>Date converted to seconds since Unix epoch (Jan 1, 1970, midnight UTC).</returns>
         </member>
+        <member name="T:AVP.WebApi.Controllers.DashboardController">
+            <summary>
+            Controller for all Notification actions
+            </summary>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.DashboardController.#ctor(AVP.DataAccess.IDAO,AVP.WebApi.Services.IAuthService,Microsoft.Extensions.Logging.ILoggerFactory,AVP.WebApi.Services.ISmsService,AVP.WebApi.Services.IEmailService)">
+            <summary>
+            Controller for all Notification actions
+            </summary>
+            <param name="dao">IDAO</param>
+            <param name="authService">IAuthService</param>
+            <param name="loggerFactory">ILoggerFactory</param>
+            <param name="sms">ISmsService</param>
+            <param name="email">IEmailService</param>
+        </member>
+        <member name="M:AVP.WebApi.Controllers.DashboardController.GetAllDashboardNotifications(AVP.Models.Entities.DashboardCriteria)">
+            <summary>
+            Get All Notifications
+            </summary>
+            <returns>List of Notification objects</returns>
+        </member>
         <member name="T:AVP.WebApi.Controllers.IBaseController">
             <summary>
             IBaseController defines custom properties standard to all controllers in the AVP.WebApi service

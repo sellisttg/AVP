@@ -66,7 +66,6 @@ app.controller('AVPController'
                 //default role to Administrator index=id-1
                 $scope.currentRole = $scope.roles[4];
                 $scope.GetUserProfile();
-                setAuthToken($scope.authToken);
                 /* Add this to map script to allow the map to share the token and make calls to the WebApi service
                 function setAuthToken(token) {
                     key = token;
@@ -127,6 +126,7 @@ app.controller('AVPController'
                 $scope.GetUserAddress();
                 $scope.GetEmailAddress();
                 $scope.GetSMS();
+                setAuthToken($scope.authToken, $scope.userProfile.userID);
             });
     }
     $scope.GetUserAddress = function () {
