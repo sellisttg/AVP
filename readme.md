@@ -96,7 +96,25 @@ https://papertrailapp.com/
 Jenkins /nagios?  
 https://app.google.stackdriver.com/  
 ###r.    Deployed  their  software  in  an  open-source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
-We have deployed our software in an open-source container.
+####We have deployed our software in an open-source Docker container.
+####Installation  
+These instructions assume that you already have .NET Core 1.0.1, Git, and Docker clients installed. Please contact Trinity TG for a copy of the appsettings.json file to use with your development environment, these files have been purposefully omitted from the public repository for security reasons.  
+####Instructions – Thunderstruck REST Service
+####First, prepare your environment by cloning the repository, navigating to the WebAPI Folder, and restoring all needed libraries to the project:  
+####git clone https://github.com/sellisttg/AVP/
+####cd AVP\src\WebApp\src\AVP.WebApi
+####dotnet restore
+####Second, publish the project locally so that the build files are created
+dotnet publish
+####Third, copy your provided appsettings.json file to the publish directory 
+Copy {Temp Path}\appsettings.Development.json {Repository Path}\AVP\src\WebApp\src\AVP.WebApi\bin\Debug\netcoreapp1.0\publish\appsettings.Development.json  
+####Follow these steps to run the Thunderstruck REST Service in a Linux container:
+docker build -t avpwebapi .
+docker run -it -p 5000:5000 avpwebapi
+####Your cloned REST Service is now running
+* The service is now accessible on http://localhost:5000
+*	View the swagger docs at http://localhost:5000/swagger/index.html 
+*	Test with Postman or your other favorite tool 
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
