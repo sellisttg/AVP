@@ -83,6 +83,7 @@ standard, but used no library to implement this)
 12. xUnit for unit testing - https://github.com/xunit/xunit
 13. Docker https://aws.amazon.com/docker/
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used; 
+###We deployed the prototype on an Azure Platform as Service (PaaS) provided by Microsoft. The screen images below are presented as our [evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/m.1-PaaS-evidence.md)
 ###n.  Developed automated unit tests for their code;
 Automated unit tests are developed to validate the return types and verify that the controllers return what is expected. An example of unity test [outputs link](https://cloud.githubusercontent.com/assets/23264395/23348944/a984b308-fc63-11e6-880f-4692cd0fd90a.png).    
 An example of our embedded [unit test for sprint 1 link](https://cloud.githubusercontent.com/assets/23264395/23374564/af400470-fcd9-11e6-89b6-4aa6e9795a0f.png)  
