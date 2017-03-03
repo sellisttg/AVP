@@ -88,6 +88,7 @@ Automated unit tests are developed to validate the return types and verify that 
 An example of our embedded [unit test for sprint 1 link](https://cloud.githubusercontent.com/assets/23264395/23374564/af400470-fcd9-11e6-89b6-4aa6e9795a0f.png)  
 ###o.   Setup  or  used  a  continuous  integration  system  to  automate  the  running  of  tests  and  continuously deployed their code to their IaaS or PaaS provider; 
 ###p.   Setup or used configuration management; 
+We used the built-in configuration management tools within .net core and the Azure hosting environment. [Evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/p1-configiguration-management-evidence.md) 
 ###q.   Setup or used continuous monitoring;  
 https://papertrailapp.com/  
 Jenkins /nagios?  
