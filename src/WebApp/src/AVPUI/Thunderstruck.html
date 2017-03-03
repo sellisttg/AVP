@@ -41,7 +41,7 @@
                 <h3 style="color:#758282">Agile Vendor Pool 2017</h3>
             </div>
             <div class="col-sm-4 login-info-div" style="text-align:right">
-                <h5><strong>{{userProfile.name}}</strong>&nbsp;&nbsp;<a ng-show="isAuthenticated" ng-click="Logout()"><weak><span class="btn-link">Logout</span></weak></a></h5>
+                <h5><strong>{{userProfile.name}}</strong>&nbsp;&nbsp;<a ng-show="isAuthenticated" ng-click="Logout()"><weak><span class="btn-link"><label id="logoutBtn">Logout</label></span></weak></a></h5>
                 <p class="login-info-user-type" ng-show="isAuthenticated">Role: {{currentRole.rolename}}</p>
             </div>
         </div>
@@ -60,16 +60,16 @@
                 <div class="collapse navbar-collapse navbar-menubuilder" id="thunderstrucknavbar">
                     <ul class="nav navbar-nav navbar-left navbar-links">
                         <li>
-                            <a ng-click="ShowDashboard()" ng-show="isAuthenticated" id="home">Dashboard</a>
+                            <a ng-click="ShowDashboard()" ng-show="isAuthenticated" id="home"><label id="dashboard">Dashboard</label></a>
                         </li>
                         <li>
-                            <a ng-click="ShowIncidents()" ng-show="isAuthenticated && (currentRole.roleid==1 || currentRole.roleid==5)" id="home">Incidents and Notifications</a>
+                            <a ng-click="ShowIncidents()" ng-show="isAuthenticated && (currentRole.roleid==1 || currentRole.roleid==5)" id="home"><label id="incidents">Incidents and Notifications</label></a>
                         </li>
                         <li>
-                            <a ng-click="ShowSelectRole()" ng-show="isAuthenticated" id="home">Switch Role</a>
+                            <a ng-click="ShowSelectRole()" ng-show="isAuthenticated" id="home"><label id="switchRole">Switch Role</label></a>
                         </li>
                         <li>
-                            <a ng-click="ShowUserProfile()" ng-show="isAuthenticated" id="home">Edit Profile</a>
+                            <a ng-click="ShowUserProfile()" ng-show="isAuthenticated" id="home"><label id="editProfile">Edit Profile</label></a>
                         </li>
                     </ul>
                 </div>
@@ -80,13 +80,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" ng-click="HideSelectRole()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" id="selectRoleBtn" class="close" ng-click="HideSelectRole()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Select a Role</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row" ng-repeat="role in roles">
                             <div class="col-xs-1">
-                                <input class="checkbox" type="radio" ng-click="SelectRole(role)" name="CheckRole" ng-checked="role.roleid==currentRole.roleid"/>
+                                <input class="checkbox" type="radio" id="checkRole" ng-click="SelectRole(role)" name="CheckRole" ng-checked="role.roleid==currentRole.roleid"/>
                             </div>
                             <div class="col-xs-6">
                                 <label class="control-label" style="padding-top:3px;">{{role.rolename}}</label>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" ng-click="HideSelectRole()">OK</button>
+                        <button type="button" class="btn btn-default" id="okBtn" ng-click="HideSelectRole()">OK</button>
                     </div>
                 </div>
             </div>
@@ -109,22 +109,22 @@
                 </div>
                 <div class="col-xs-10">
                     <div class="row">
-                        <label class="control-label col-xs-5" style="padding-top:7px;text-align:center">Sign in or <a ng-click="ShowRegister()" class="btn-link">Register</a></label>
+                        <label class="control-label col-xs-5" style="padding-top:7px;text-align:center">Sign in or <a ng-click="ShowRegister()" class="btn-link"><label id="registerLabel2">Register</label></a></label>
                     </div>
                     <div class="row">
                         <label class="control-label col-xs-3" style="padding-top:7px;text-align:right">Username:</label>
-                        <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.username"/>
+                        <input class="form-control col-xs-6" type="text" id="username" maxlength="25" style="max-width:150px" ng-model="userProfile.username"/>
                     </div>
                     <div class="row">
                         <label class="control-label col-xs-3" style="padding-top:7px;text-align:right">Password:</label>
-                        <input class="form-control col-xs-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.password" />
+                        <input class="form-control col-xs-6" id="password" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.password" />
                     </div>
                     <div class="row">
                         &nbsp;
                     </div>
                     <div class="row">
                         <div class="col-xs-2"></div>
-                        <button class="btn btn-primary col-xs-3" ng-click="Login()" style="width:100px"><span class="glyphicon-login"></span>Login </button>
+                        <button class="btn btn-primary col-xs-3" ng-click="Login()" type="submit" id="loginBtn" style="width:100px"><span class="glyphicon-login"></span>Login </button>
                         <label class="control-label col-xs-2" style="padding-top:7px">{{error}}</label>
                     </div>
                 </div>
@@ -300,19 +300,19 @@
                                 <div class="row">
                                     <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">Username:</label>
                                     <label ng-if="!isRegistering" class="control-label col-xs-6" style="padding-top:7px">{{userProfile.username}}</label>
-                                    <input ng-if="isRegistering" class="form-control col-xs-6" maxlength="25" style="max-width:150px" ng-model="userProfile.username" />
+                                    <input ng-if="isRegistering" class="form-control col-xs-6" id="regUsername" maxlength="25" style="max-width:150px" ng-model="userProfile.username" />
                                 </div>
                                 <div class="row">
                                     <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">User Display Name:</label>
-                                    <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.name" />
+                                    <input class="form-control col-xs-6" type="text" id="userDisplayName" maxlength="25" style="max-width:150px" ng-model="userProfile.name" />
                                 </div>
                                 <div class="row">
                                     <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">{{!isRegistering ? 'Change' : ''}} Password:</label>
-                                    <input class="form-control col-xs-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.password" />
+                                    <input class="form-control col-xs-6" type="password" id="resetPassword" maxlength="25" style="max-width:150px" ng-model="userProfile.password" />
                                 </div>
                                 <div class="row">
                                     <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">Confirm Password:</label>
-                                    <input class="form-control col-xs-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.confirmPassword" />
+                                    <input class="form-control col-xs-6" id="confirmPassword" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.confirmPassword" />
                                 </div>
                                 <div class="row" ng-show="!isRegistering" style="align-content:center">
                                     &nbsp;
@@ -332,7 +332,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-1">
-                                        <input class="checkbox" type="checkbox" ng-model="userProfile.optIn.optInEmail" />
+                                        <input class="checkbox" id="emailNotifications" type="checkbox" ng-model="userProfile.optIn.optInEmail" />
                                     </div>
                                     <div class="col-xs-11">
                                         <label class="control-label" style="padding-top:3px;">Email Notifications</label>
@@ -340,7 +340,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-1">
-                                        <input class="checkbox" type="checkbox" ng-model="userProfile.optIn.optInSMS" />
+                                        <input class="checkbox" id="smsNotification" type="checkbox" ng-model="userProfile.optIn.optInSMS" />
                                     </div>
                                     <div class="col-xs-11">
                                         <label class="control-label" style="padding-top:3px;">Push Notifications</label>
@@ -348,7 +348,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-1">
-                                        <input class="checkbox" type="checkbox" ng-model="userProfile.optIn.optInPush" />
+                                        <input class="checkbox" id="pushNotifications" type="checkbox" ng-model="userProfile.optIn.optInPush" />
                                     </div>
                                     <div class="col-xs-11">
                                         <label class="control-label" style="padding-top:3px;">SMS Notifications</label>
@@ -359,45 +359,45 @@
                         <!--Register Button-->
                         <div ng-show="isRegistering" class="row">
                             <div class="col-xs-3">&nbsp;</div>
-                            <button class="btn btn-primary" ng-click="Register()"><span class="glyphicon-login">Register</span></button>
+                            <button class="btn btn-primary" id="registerBtn" ng-click="Register()"><span class="glyphicon-login">Register</span></button>
                         </div>
                         <!--Address, Email and Phone-->
                         <div ng-show="!isRegistering" class="row">
                             <div class="row">
                                 <label class="control-label col-xs-4" style="padding-top:7px;text-align:right">Street Address:</label>
-                                <input class="form-control col-xs-6" type="text" maxlength="25" ng-model="userProfile.address.streetAddress" />
+                                <input class="form-control col-xs-6" type="text" id="streetAddress" maxlength="25" ng-model="userProfile.address.streetAddress" />
                             </div>
                             <div class="row">
                                 <label class="control-label col-xs-4" style="padding-top:7px;text-align:right">City:</label>
-                                <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.address.city" />
+                                <input class="form-control col-xs-6" type="text" id="city" maxlength="25" style="max-width:150px" ng-model="userProfile.address.city" />
                             </div>
                             <div class="row">
                                 <label class="control-label col-xs-4" style="padding-top:7px;text-align:right">State:</label>
                                 <div class="col-xs=6">
-                                    <select ng-model="userProfile.address.state" class="form-control" style="max-width:150px" >
+                                    <select ng-model="userProfile.address.state" id="selectState" class="form-control" style="max-width:150px" >
                                         <option ng-repeat="s in states" value="{{s.state}}">{{s.description}}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <label class="control-label col-xs-4" style="padding-top:7px;text-align:right">Zip Code:</label>
-                                <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.address.zipCode" />
+                                <input class="form-control col-xs-6" type="text" id="zipCode" maxlength="25" style="max-width:150px" ng-model="userProfile.address.zipCode" />
                             </div>
                             <div class="row">
                                 <label class="control-label col-xs-4" style="padding-top:7px;text-align:right">Email Address:</label>
-                                <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.emailAddress.emailAddress" />
+                                <input class="form-control col-xs-6" type="text" id="emailAddress" maxlength="25" style="max-width:150px" ng-model="userProfile.emailAddress.emailAddress" />
                             </div>
                             <div class="row">
                                 <label class="control-label col-xs-4" style="padding-top:7px;text-align:right">Phone Number:</label>
-                                 <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.sms.phoneNumber" />
+                                 <input class="form-control col-xs-6" type="text" id="phoneNumber" maxlength="25" style="max-width:150px" ng-model="userProfile.sms.phoneNumber" />
                             </div>
                             <div class="row">
                                 &nbsp;
                             </div>
                             <div class="row">
                                 <div class="col-xs-4"></div>
-                                <button class="btn btn-primary col-xs-2" ng-click="SaveUserInfo()"><span class="glyphicon-login">Save</span></button>
-                                <label class="control-label col-xs-6" style="padding-top:7px">{{error}}</label>
+                                <button class="btn btn-primary col-xs-2" id="saveUserInfoBtn" ng-click="SaveUserInfo()"><span class="glyphicon-login">Save</span></button>
+                                <label class="control-label col-xs-6" id="savedUserInfoLabel" style="padding-top:7px">{{error}}</label>
                             </div>
                         </div>
                     </div>

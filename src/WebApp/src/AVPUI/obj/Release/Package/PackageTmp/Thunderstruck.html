@@ -273,7 +273,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-10" style="min-height:400px;min-width:300px">
+                    <div class="col-xs-10" style="min-height:400px;min-width:400px">
                         <div id="map" style="width:100%; height:100%"></div>
                     </div>
                 </div>
@@ -303,16 +303,26 @@
                                     <input ng-if="isRegistering" class="form-control col-xs-6" maxlength="25" style="max-width:150px" ng-model="userProfile.username" />
                                 </div>
                                 <div class="row">
-                                    <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">{{!isRegistering ? 'Reset' : ''}} Password:</label>
+                                    <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">User Display Name:</label>
+                                    <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.name" />
+                                </div>
+                                <div class="row">
+                                    <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">{{!isRegistering ? 'Change' : ''}} Password:</label>
                                     <input class="form-control col-xs-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.password" />
                                 </div>
                                 <div class="row">
                                     <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">Confirm Password:</label>
                                     <input class="form-control col-xs-6" type="password" maxlength="25" style="max-width:150px" ng-model="userProfile.confirmPassword" />
                                 </div>
-                                <div class="row">
-                                    <label class="control-label col-xs-6" style="padding-top:7px;text-align:right">User Display Name:</label>
-                                    <input class="form-control col-xs-6" type="text" maxlength="25" style="max-width:150px" ng-model="userProfile.name" />
+                                <div class="row" ng-show="!isRegistering" style="align-content:center">
+                                    &nbsp;
+                                </div>
+                                <div class="row" ng-show="!isRegistering" style="align-content:center">
+                                    <div class="col-xs-4">&nbsp;</div>
+                                    <button class="btn btn-success" ng-click="ChangePassword()">Change Password</button>
+                                </div>
+                                <div class="row" ng-show="!isRegistering" style="align-content:center">
+                                    &nbsp;
                                 </div>
                             </div>
                             <!--Opt-Ins-->
@@ -348,6 +358,7 @@
                         </div>
                         <!--Register Button-->
                         <div ng-show="isRegistering" class="row">
+                            <div class="col-xs-3">&nbsp;</div>
                             <button class="btn btn-primary" ng-click="Register()"><span class="glyphicon-login">Register</span></button>
                         </div>
                         <!--Address, Email and Phone-->
@@ -385,8 +396,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-4"></div>
-                                <button class="btn btn-primary col-xs-1" ng-click="SaveUserInfo()"><span class="glyphicon-login">Save</span></button>
-                                <label class="control-label col-xs-2" style="padding-top:7px">{{error}}</label>
+                                <button class="btn btn-primary col-xs-2" ng-click="SaveUserInfo()"><span class="glyphicon-login">Save</span></button>
+                                <label class="control-label col-xs-6" style="padding-top:7px">{{error}}</label>
                             </div>
                         </div>
                     </div>

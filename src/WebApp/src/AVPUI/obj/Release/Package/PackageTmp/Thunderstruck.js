@@ -91,30 +91,36 @@ app.controller('AVPController'
     }
     $scope.Register = function () {
         //{UserName: "sellis7", password: "abc", emailoptin: true, smsoptin: true, pushoptin: true }
-        var url = $scope.baseUrl + "/v1/sessions/register";
-        var postdata = {
-            UserName: $scope.userProfile.username
-            , password: $scope.userProfile.password
-            , emailoptin: $scope.userProfile.optIn.optInEmail
-            , smsoptin: $scope.userProfile.optIn.optInSMS
-            , pushoptin: $scope.userProfile.optIn.optInPush
-            , name: $scope.userProfile.name
-        };
-        $scope.error = "";
-        $http.post(url, postdata)
-            .then(function (response) {
-                $scope.authToken = response.data.access_token;
-                $scope.isRegistering = false;
-                $scope.isAuthenticated = true;
-                //get list of roles
-                $scope.roles = $scope.GetRoles();
-                //default role to Administrator index=id-1
-                $scope.currentRole = $scope.roles[4];
-                $scope.GetUserProfile();
-            })
-            .catch(function (error) {
-                $scope.error = error.statusText;
-            });
+        if ($scope.userProfile.password != $scope.userProfile.confirmPassword) {
+            alert("Password and Confirm Password don't match.")
+        }
+        else
+        {
+            var url = $scope.baseUrl + "/v1/sessions/register";
+            var postdata = {
+                UserName: $scope.userProfile.username
+                , password: $scope.userProfile.password
+                , emailoptin: $scope.userProfile.optIn.optInEmail
+                , smsoptin: $scope.userProfile.optIn.optInSMS
+                , pushoptin: $scope.userProfile.optIn.optInPush
+                , name: $scope.userProfile.name
+            };
+            $scope.error = "";
+            $http.post(url, postdata)
+                .then(function (response) {
+                    $scope.authToken = response.data.access_token;
+                    $scope.isRegistering = false;
+                    $scope.isAuthenticated = true;
+                    //get list of roles
+                    $scope.roles = $scope.GetRoles();
+                    //default role to Administrator index=id-1
+                    $scope.currentRole = $scope.roles[4];
+                    $scope.GetUserProfile();
+                })
+                .catch(function (error) {
+                    $scope.error = error.statusText;
+                });
+        }
     }
     /************************************************************/
     /*                  Get Methods
@@ -187,6 +193,27 @@ app.controller('AVPController'
     /************************************************************/
     /*                  Save Methods
     /************************************************************/
+    $scope.ChangePassword = function () {
+        if ($scope.userProfile.password != $scope.userProfile.confirmPassword) {
+            alert("Password and Confirm Password don't match.")
+        }
+        else
+        {
+            var url = $scope.baseUrl + "/v1/account/changepassword";
+            var postdata = {
+                UserName: $scope.userProfile.username
+                , password: $scope.userProfile.password
+            };
+            $scope.error = "";
+            $http.post(url, postdata, { headers: { authorization: "Bearer " + $scope.authToken } })
+                .then(function (response) {
+                    $scope.error = "Password Changed.";
+                })
+                .catch(function (error) {
+                    $scope.error = error;
+                });
+        }
+    }
     $scope.SaveUserInfo = function () {
         $scope.SaveUserProfile();
     }
