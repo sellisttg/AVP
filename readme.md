@@ -71,18 +71,16 @@ https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/multipledevices
 List of Open-Source Software  
 1. .NET Core https://docs.microsoft.com/en-us/dotnet/articles/core/   
 2. MySQL https://www.mysql.com/  
-3. Angular.js [Need Link]  
+3. Angular.js https://angularjs.org/  
 4. Bootstrap http://getbootstrap.com/   
 5. JQuery https://jquery.com/  
-6. Chart.js* https://github.com/chartjs  
-7. Report.js* http://bi-joe.github.io/report.js/ [Need to add]  
-8. SignalR* https://github.com/SignalR/SignalR [Need to add]  
-9. JWT (we conform to an 
+6. Report.js http://bi-joe.github.io/report.js/
+7. JWT (we conform to an 
 standard, but used no library to implement this)     
-10. MySqlConnector https://github.com/mysql-net/MySqlConnector  
-11. tree.tiaga.io - project management - http://tree.taiga.io  
-12. xUnit for unit testing - https://github.com/xunit/xunit  
-13. Docker https://aws.amazon.com/docker/
+8. MySqlConnector https://github.com/mysql-net/MySqlConnector  
+9. tree.tiaga.io - project management - http://tree.taiga.io  
+10. xUnit for unit testing - https://github.com/xunit/xunit  
+11. Docker https://aws.amazon.com/docker/  
 ###m.  Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used;   
 We deployed the prototype on an Azure Platform as Service (PaaS) provided by Microsoft. The screen images below are presented as our [evidence](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/m.1-PaaS-evidence.md)   
 ###n.  Developed automated unit tests for their code;
