@@ -65,7 +65,8 @@ The iterative development approach for this prototype uses the Agile/Scrum metho
 7. Sprint Demo for review and to gather feedback from Product Owner and proxy users based on personas  
 8. Sprint Retrospectives to help course correct the process  
 ###k.   Created a prototype that works on multiple devices, and presents a responsive design;   
-Our prototype works on multiple device and presents a responsive design. This is evidenced by the following [images links]( 
+Our prototype works on multiple device and presents a responsive design. We visited our site on an Ipad, PC based laptop, 
+PC based tablet, Mac based Laptop and an Android Phone. This is evidenced by the following [images links]( 
 https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/multipledevices.md)
 ###l.    Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.);  
 List of Open Source Software  
