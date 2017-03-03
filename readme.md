@@ -20,22 +20,23 @@
 ###a. Assigned one (1) leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted. 
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.
 ###b. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
-####Product Manager: Jeremy Dean
-####Deliver Manager: Michael Tomlin
-####Technical Architect: Shawn Sampo 
-####Interaction Designer/User Researchers: Kelly Phan, Camille Dyer
-####Visual Designer: Kelly Phan
-####Front End Developer: Sam Ellis
-####Back End Developer: Shawn Sampo
-####Back End Developer (GIS): Charan Misha  
-####Dev Ops Engineer: Sam Ellis
-####Quality Assurance: Camille Dyer
-####Agile Coach: Hiren Vashi, Agile related certifications Include:   
-Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
-Certified Scrum Professional (CSP)  
-Certified Scrum Master (CSM)
-PMI-Agile Certified Practitioner (PMI-ACP)  
-Project Management Professional (PMP)   
+Product Manager: Jeremy Dean  
+Deliver Manager: Michael Tomlin  
+Technical Architect: Shawn Sampo   
+Interaction Designer/User Researchers: Kelly Phan, Camille Dyer  
+Visual Designer: Kelly Phan  
+Front End Developer: Sam Ellis  
+Back End Developer: Shawn Sampo  
+Back End Developer (GIS): Charan Misha  
+Dev Ops Engineer: Sam Ellis  
+Quality Assurance: Camille Dyer  
+Agile Coach: Hiren Vashi, Agile related certifications Include:   
+* Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4)  
+* Certified Scrum Professional (CSP)  
+* Certified Scrum Master (CSM)
+* PMI-Agile Certified Practitioner (PMI-ACP)  
+* Project Management Professional (PMP)   
+
 ###c.  Understood what people needed, by including people in the prototype development and design process;  
 Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes. The design process included building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md)
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; (play 1, play 2, and play 3)
