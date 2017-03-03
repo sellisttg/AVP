@@ -36,14 +36,13 @@ Certified Scrum Professional (CSP)
 Certified Scrum Master (CSM)
 PMI-Agile Certified Practitioner (PMI-ACP)  
 Project Management Professional (PMP)   
-###c.   Understood what people needed, by including people in the prototype development and design process;  
+###c.  Understood what people needed, by including people in the prototype development and design process;  
 Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes. The design process included building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md)
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; (play 1, play 2, and play 3)
-####1. Following the USDS Playbook
-We used the playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. Using the [The Digital Services Playbook](https://playbook.cio.gov/), our team managed the [work in progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), including adding the [detailed checklists](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png).  
+####1. Following the USDS Playbook published by the USDS.  We integrated the playbook into our trello boards for checklists/key questions to facilitate team access. Using the [The Digital Services Playbook](https://playbook.cio.gov/), our team managed the [work in progress](https://cloud.githubusercontent.com/assets/23264395/23351792/20e96844-fc78-11e6-87cd-a7e92e07773d.png), including adding the [detailed checklists](https://cloud.githubusercontent.com/assets/23264395/23351810/46e243e0-fc78-11e6-99b8-b8e69242fefe.png).  
 ####2. The second user centric design approach included developing [personas](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/UserPersonas2.0.pdf) to help summarizing our target audience for product development. We further emphasised the personas by making sure our persona [portraits where displayed in team development area](https://cloud.githubusercontent.com/assets/23264395/23387351/bdc5b102-fd10-11e6-9753-902d57caca76.jpg).  This approach prompted our proxy users 'got into character' for design.
 ####3. We used tree.taiga.io to manager our user stories, sprints and feedback at the core of our agile development process [Screen Image](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/screen%20images/Tree.taiga.io-user-stories-sprint-1.png)
-####4. . This difficulty was eased by using personas to simuluate or user community and to serve as the basis of our product manager to develop the user stories.    The design process included building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md)
+####4. The fourth user centric design approach we followed was building [wireframes](shttps://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md).  This allows us to quickly have our users visualize and course-cource correct our requirements and UX design.
 ###e.   Used GitHub to document code commits; 
 We used GitHub to document our code commits. The GitHub repository is [here](https://github.com/sellisttg/AVP).  An example of the commits can be found here: [GitHub Screen Shot](https://cloud.githubusercontent.com/assets/23264395/23351069/ae61853a-fc73-11e6-9e9a-630ae6d2407b.png)  
 ###f. Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
@@ -52,8 +51,8 @@ Our team used Swagger to document the RESTful API. [Swagger Live Link(http://avp
 ###h. Created or used a design style guide and/or a pattern library;  
 ###i. Performed usability tests with people; 
 Our residents test users performed usability testing. In addition to the our users outside the project team, we also solicited volunteers from outside the team to perform additional user testing.  Our focus was to identify 'real' users that we associated with our personas to make sure we could trace user stories through to completion.
-###j.    Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
-The iterative development approach for this prototype uses the Agile/Scrum methodology guided by our resident Enterprise Agile Coach (Hiren)  
+###j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype;  
+The iterative development approach was 'baked into' our Agile/Scrum methodology guided by our resident Enterprise Agile Coach (Hiren)  
 ####1. Prior to beginning the agile/scrum process, the team set up the facilities including the collaborative work area, gathered supplies, selected the tools, configured the architecture, and identified each sprint goal  
 ####2. Set up team collaboration site in [tree.taiga.io](https://tree.taiga.io/project/hdv-avp) with the product backlog used to guide the development team  
 ####3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
@@ -90,7 +89,6 @@ An example of our embedded [unit test for sprint 1 link](https://cloud.githubuse
 https://papertrailapp.com/  
 Jenkins /nagios?  
 https://app.google.stackdriver.com/  
-
 ###r.    Deployed  their  software  in  an  open  source  container,  such  as  Docker (i.e., utilized  operating-system-level virtualization);  
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
