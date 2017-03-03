@@ -1,4 +1,6 @@
-##We ran the application on multiple devices including
+##We ran our site through a on-line reponsiveness test with the following results
+![responsivetest](https://cloud.githubusercontent.com/assets/23264395/23533495/0478852c-ff67-11e6-83d2-9ad7b16194f5.png)
+##In addition to this, we ran the prototype from multiple devices and took smartphone photos
 Ipad
 ![20170302_152111](https://cloud.githubusercontent.com/assets/23264395/23533140/8c1497ee-ff64-11e6-9c13-8c0c22f0a286.jpg)
 PC based laptop
