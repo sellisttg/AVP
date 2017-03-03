@@ -48,7 +48,7 @@ We used GitHub to document our code commits. The GitHub repository is [here](htt
 ###f. Used Swagger to document the RESTful API, and provided a link to the Swagger API; 
 Our team used Swagger to document the RESTful API. [Swagger Live Link(http://avp2017webapp.azurewebsites.net/swagger/index.html)](http://avp2017webapp.azurewebsites.net/swagger/index.html), [GitHub Image link](https://cloud.githubusercontent.com/assets/23264395/23522378/9d6ad4cc-ff37-11e6-8ba7-e150f9639be7.png).   
 ###g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0; 
-We completed overall accessible testing 
+We completed overall accessible testing to meet Section 508 of the Americans with Disabilities Act and WCAG 2.0.[The resutls](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/g.Section%20508%20and%20WCAG%202.pdf)
 ###h. Created or used a design style guide and/or a pattern library;  
 We created and used a design style guide.  [Link](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/h.1-Thunderstruck_StyleGuide_Draft_v2.pdf)  
 ###i. Performed usability tests with people; 
