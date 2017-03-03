@@ -60,8 +60,8 @@ The iterative development approach was 'baked into' our Agile methodology guided
 3. Periodically product owner and development team groomed product backlog [(used Planning Poker)](https://cloud.githubusercontent.com/assets/23264395/23377082/6d2ef5be-fce3-11e6-8f10-9d5e17832427.jpg)      
 4. At the beginning of each sprint, we identified the sprint goal and the sprint backlog during sprint planning meeting  
 5. Held daily scrum meetings at the same time and place with visibility of the Kanban task board. [image](https://cloud.githubusercontent.com/assets/23264395/23535136/5b96e2cc-ff71-11e6-98cf-4c549d5d8057.jpg)  
-6. Team co-location with visible persona's with clearly identified roles and sprint goals  
-7. Our Sprint Demos served as multiple versions of the prototype and allowed us to gather feedback from Product Owner and proxy users based on personas.    
+6. Team co-location with visible persona's with clearly identified roles and sprint goals [Images](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/ceremonies%20notes/PairProgramming-personas-in-development-area.jpg)
+7. Our Sprint Demos served as multiple versions of the prototype and allowed us to gather feedback from Product Owner and proxy users based on personas.     
 8. Sprint Retrospectives to help course correct the process  
 ###k. Created a prototype that works on multiple devices, and presents a responsive design;   
 Our prototype works on multiple devices and presents a responsive design. We tested our site on an iPad, PC based laptop, 
