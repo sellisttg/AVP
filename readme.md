@@ -2,7 +2,6 @@
 #OUR RESULTS
 ###[Read the Quick Start Guide](TBD) The application is a hosted application that does not require any locally installed components.  
 ###[Run the Prototype](http://avpwebappui.azurewebsites.net/thunderstruck.html) (code name Thunderstruck).  This application will allow California residents to receive emergency and non-emergency emails and SMS notifications from several identified [sources](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/RFI_CDT-ADPQ-0117_-_Prototype_B_Resources.pdf).  This application is geo-location aware, provides administrators to ability publish, track, analyze, and visualize related data. [Full Requirements](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/Prototype%20B%20Requirements.pdf)
-[CDT GitHub Site](https://github.com/CDTProcurement/adpq)
 #OUR PROJECT APPROACH
 ###The project approach was driven by a very compressed schedule with two distinct tracks of requirements  
 ####1. Responding to the Response for Inquiry (RFI) Requirement's administrative/Submission requirements  
@@ -30,8 +29,7 @@ Back End Developer: Shawn Sampo,  [Member, Open Source Initiate](https://opensou
 Back End Developer (GIS): Charan Misha, [Member, Open Source Initiate](https://opensource.org/)  
 Dev Ops Engineer: Sam Ellis,  [Member, Open Source Initiate](https://opensource.org/)  
 Quality Assurance: Camille Dyer  
-Agile Coach: Hiren Vashi, Agile related certifications Include: Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4), Certified Scrum Professional (CSP), Certified Scrum Master (CSM), PMI-Agile Certified Practitioner (PMI-ACP), Project Management Professional (PMP)   
-
+Agile Coach: Hiren Vashi, Agile related certifications Include: Scaled Agile Framework (SAFe®) Program Consultant 4.0 (SPC4), Certified Scrum Professional (CSP), Certified Scrum Master (CSM), PMI-Agile Certified Practitioner (PMI-ACP).
 ###c.  Understood what people needed, by including people in the prototype development and design process;  
 Using the [Digital Services Playbook - Play 1](https://playbook.cio.gov/#play1) as a guide, we worked with available resources as both proxy and 'real' users as we developed user personas, user stories and user tested prototypes. The design process also included building [wireframes](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/wireframe_index.md) and user survey's before and during the prototype development.
 ###d.   Used at least a minimum of three (3) “user-centric design” techniques and/or tools; (play 1, play 2, and play 3)
@@ -98,4 +96,4 @@ We Setup and use continuous monitoring.  Heartbeat tests conducted via Azure App
 ###s.   Provided sufficient documentation to install and run their prototype on another machine; and
 ####This prototype application is depoyed as a web application that only requires a browswer to access.  No locally installed software is needed. The server based installation aspects are covered under r. above.  The application url is [http://avpwebappui.azurewebsites.net/thunderstruck.html](http://avpwebappui.azurewebsites.net/thunderstruck.html)
 ###t. Prototype  and  underlying  platforms  used  to  create  and  run  the  prototype  are  openly  licensed and free of charge.
-####In addition to each individual open-source license associated with item l. above, TrinityTG has also provided an open source license to this prototype solution [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/MITLicense.md)
+####In addition to each individual open-source license associated with item l. above, TrinityTG's prototype open-source license is [here](https://github.com/sellisttg/AVP/blob/master/AVP%20GitHub%20docs/MITLicense.md)
