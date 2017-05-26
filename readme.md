@@ -20,7 +20,7 @@
 Using the [Digital Services Playbook - Play 6](https://playbook.cio.gov/#play6) as a guide, we identified **Jeremy Dean**, Director of Business Development as our Product Manager.  
 ### b. Assembled a multidisciplinary and collaborative team that includes, at a minimum, five (5) of  the  labor  categories  as  identified  in  Attachment  B:  PQVP DS-AD  Labor  Category  Descriptions  
 Product Manager: Jeremy Dean  
-Deliver Manager: Michael Tomlin  
+Delivery Manager: Michael Tomlin  
 Technical Architect: Shawn Sampo, [Member, Open Source Initiate](https://opensource.org/)   
 Interaction Designer/User Researchers: Kelly Phan, Camille Dyer  
 Visual Designer: Kelly Phan  
